@@ -21,7 +21,7 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    var rowscroll = 2
+    var rowscroll = 0
     
     override func willActivate() {
         do {
@@ -98,6 +98,8 @@ class InterfaceController: WKInterfaceController {
                 row.trendingThumbImg.sd_setImage(with: URL(string: videos[i].img))
             }
             
+            TrendingTableRow.scrollToRow(at: rowscroll)
+            
             let file = "\(videos[i].id)" //this is the file. we will write to and read from it
             let text = "\(videos[i].title)\n\(videos[i].img)" //just a text
             if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -110,7 +112,6 @@ class InterfaceController: WKInterfaceController {
                 catch {}
             }
         }
-        TrendingTableRow.scrollToRow(at: rowscroll)
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
