@@ -12,10 +12,21 @@ import Alamofire
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var loader: WKInterfaceImage!
     @IBOutlet var TrendingTableRow: WKInterfaceTable!
+    @IBOutlet weak var internetLabel: WKInterfaceLabel!
+    @IBOutlet weak var searchButton: WKInterfaceButton!
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
+        
         Video.getTrending() { videos in
+            if videos.count == 0 {
+                self.internetLabel.setHidden(false)
+                self.searchButton.setEnabled(false)
+                
+            } else {
+                self.internetLabel.setHidden(true)
+                self.searchButton.setEnabled(true)
+            }
             self.videos = videos
             self.setupTable()
             self.TrendingTableRow.setHidden(false)
@@ -41,9 +52,9 @@ class InterfaceController: WKInterfaceController {
         }
         cacheScreenButton.setEnabled(UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle))
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
-            cacheScreenButton.setAlpha(1)
+            cacheScreenButton.setEnabled(true)
         } else {
-            cacheScreenButton.setAlpha(0.9745)
+            cacheScreenButton.setEnabled(false)
         }
     }
     
@@ -56,12 +67,10 @@ class InterfaceController: WKInterfaceController {
     @IBAction func CacheScreen() {
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
             cacheScreenButton.setEnabled(true)
-            cacheScreenButton.setAlpha(1)
             pushController(withName: "CacheContentsInterfaceController", context: "Any")
         }
         else {
             cacheScreenButton.setEnabled(false)
-            cacheScreenButton.setAlpha(0.9745)
         }
     }
     @IBAction func searchVideoButtonTapped() {

@@ -13,6 +13,7 @@ class VideoListInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var searchLoader: WKInterfaceImage!
     @IBOutlet var videoTableRow: WKInterfaceTable!
+    @IBOutlet weak var searchInternetLabel: WKInterfaceLabel!
     
     var videos: [Video]!
     
@@ -26,6 +27,7 @@ class VideoListInterfaceController: WKInterfaceController {
                 if action == "search" {
                     let keyword = dictionary["query"] as! String
                     Video.getVideos(keyword: keyword) { videos in
+                        if videos.count == 0 {self.searchInternetLabel.setHidden(false)} else {self.searchInternetLabel.setHidden(true)}
                         self.videos = videos
                         self.setupTable()
                         self.videoTableRow.setHidden(false)

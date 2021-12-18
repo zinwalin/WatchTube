@@ -78,6 +78,9 @@
                                 </button>
                             </items>
                         </group>
+                        <separator alignment="left" id="lDU-cy-hET">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                         <table alignment="left" id="1bT-KK-CVM">
                             <items>
                                 <tableRow identifier="TrendingRow" id="NTp-Qs-vgG" customClass="TrendingRow" customModule="youtubedl_watchos_WatchKit_Extension">
@@ -108,12 +111,18 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <imageView width="50" height="50" alignment="center" verticalAlignment="bottom" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
+                        <imageView width="50" height="50" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
+                        <label alignment="center" verticalAlignment="bottom" hidden="YES" text="Internet Unavailable" id="Y2d-ZL-s0c">
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="TrendingTableRow" destination="1bT-KK-CVM" id="hdN-8t-TJp"/>
                         <outlet property="cacheScreenButton" destination="VFF-h1-USY" id="8Z1-6f-KKE"/>
+                        <outlet property="internetLabel" destination="Y2d-ZL-s0c" id="tnN-C5-3nq"/>
                         <outlet property="loader" destination="w2J-us-JKH" id="Uib-YK-YL6"/>
+                        <outlet property="searchButton" destination="Uye-xf-Sds" id="knf-Ha-R6z"/>
                         <segue destination="BVh-TY-jCX" kind="relationship" relationship="nextPage" id="cKl-k3-dts"/>
                     </connections>
                 </controller>
@@ -416,8 +425,13 @@
                             </items>
                         </table>
                         <imageView width="50" height="50" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" initiallyAnimated="NO" id="KRt-Sf-Vjk"/>
+                        <label alignment="center" verticalAlignment="bottom" hidden="YES" text="Internet Unavailable" id="8O9-8T-Bcu">
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
                     </items>
                     <connections>
+                        <outlet property="searchInternetLabel" destination="8O9-8T-Bcu" id="dKK-W4-LBx"/>
                         <outlet property="searchLoader" destination="KRt-Sf-Vjk" id="Y3v-hg-u0L"/>
                         <outlet property="videoTableRow" destination="iwV-NY-kBI" id="1cm-4s-cfY"/>
                     </connections>
