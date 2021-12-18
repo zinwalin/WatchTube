@@ -36,6 +36,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func willActivate() {
+        
         loader.setImageNamed("loading")
         loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
         
@@ -103,6 +104,10 @@ class InterfaceController: WKInterfaceController {
             row.trendingTitleLabel.setText(videos[i].title)
             row.videoId = videos[i].id
             row.trendingChannelLabel.setText(videos[i].channel)
+            
+            if UserDefaults.standard.value(forKey: settingsKeys.thumbnailsToggle) == nil {
+                UserDefaults.standard.set(true, forKey: settingsKeys.thumbnailsToggle)
+            }
             
             if UserDefaults.standard.bool(forKey: settingsKeys.thumbnailsToggle) == false {
                 row.trendingThumbImg.setHidden(true)

@@ -134,6 +134,18 @@
             <objects>
                 <controller identifier="SettingsInterfaceController" title="Settings" id="BVh-TY-jCX" customClass="SettingsInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
                     <items>
+                        <picker height="60" alignment="center" focusStyle="sequence" id="zLD-cy-jC8">
+                            <connections>
+                                <action selector="homeVideosSelection:" destination="BVh-TY-jCX" id="pvG-gb-9LG"/>
+                            </connections>
+                        </picker>
+                        <label alignment="left" text="Choose the kind of videos to appear on the home screen. Requires relaunching WatchTube to take effect." numberOfLines="0" id="bkf-jy-dB1">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="6m8-1W-2Ve">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                         <switch width="1" height="39" alignment="left" value="YES" title="Video Cache" id="Ntz-r1-kFg">
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
@@ -150,7 +162,7 @@
                                 <action selector="deleteCacheButton" destination="BVh-TY-jCX" id="uVf-zB-wCL"/>
                             </connections>
                         </button>
-                        <label alignment="left" text="Cache videos on your watch, only recommended if you have lots of free storage." numberOfLines="5" id="1fG-0q-IlS">
+                        <label alignment="left" text="Cache videos on your watch, only recommended if you have lots of free storage." numberOfLines="0" id="1fG-0q-IlS">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -166,7 +178,7 @@
                                 <action selector="thumbnailsToggle:" destination="BVh-TY-jCX" id="ZBK-QY-vIC"/>
                             </connections>
                         </switch>
-                        <label alignment="left" text="Enable video thumbnails in search results, can save data if disabled and speedup loads." numberOfLines="5" id="ow9-gW-XgZ">
+                        <label alignment="left" text="Enable video thumbnails in search results, can save data if disabled and speedup loads." numberOfLines="0" id="ow9-gW-XgZ">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -181,8 +193,8 @@
                                 <action selector="audioOnlyToggle:" destination="BVh-TY-jCX" id="Bk9-be-HSi"/>
                             </connections>
                         </switch>
-                        <label alignment="left" text="Use audio only to save data." numberOfLines="2" id="ZMD-IY-hUU">
-                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label alignment="left" text="Use audio only to save data." numberOfLines="0" id="ZMD-IY-hUU">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <separator alignment="left" id="BhW-To-hPy">
@@ -224,7 +236,7 @@
                             <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <variation key="device=watch38mm" height="30"/>
                         </group>
-                        <label width="1" alignment="left" text="Less results will load faster." numberOfLines="2" id="Alf-Bc-dtr">
+                        <label width="1" alignment="left" text="Less results will load faster." numberOfLines="0" id="Alf-Bc-dtr">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -233,6 +245,7 @@
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
                         <outlet property="cacheDeleteButton" destination="sfx-11-473" id="QBq-K9-6d4"/>
                         <outlet property="cacheToggle" destination="Ntz-r1-kFg" id="ZHl-K6-3dY"/>
+                        <outlet property="homeVideosPicker" destination="zLD-cy-jC8" id="y2H-Hm-jJ4"/>
                         <outlet property="resultsLabel" destination="bkB-nj-7Sf" id="VHz-wM-BvW"/>
                         <outlet property="thumbnailsToggle" destination="HVk-Ub-TRL" id="yF1-8l-uQw"/>
                     </connections>
@@ -490,12 +503,16 @@
             <point key="canvasLocation" x="579" y="315"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="AccentColor">
+            <color red="0.90588235294117647" green="0.34901960784313724" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="buttons">
             <color red="0.81599998474121094" green="0.24699999392032623" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

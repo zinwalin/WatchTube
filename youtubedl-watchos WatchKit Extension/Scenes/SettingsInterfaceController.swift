@@ -11,14 +11,21 @@ import Foundation
 
 class SettingsInterfaceController: WKInterfaceController {
     
-    
     @IBOutlet weak var cacheToggle: WKInterfaceSwitch!
     @IBOutlet weak var cacheDeleteButton: WKInterfaceButton!
     @IBOutlet weak var thumbnailsToggle: WKInterfaceSwitch!
     @IBOutlet weak var audioOnlyToggle: WKInterfaceSwitch!
     @IBOutlet weak var resultsLabel: WKInterfaceLabel!
+    @IBOutlet weak var homeVideosPicker: WKInterfacePicker!
     
     let userDefaults = UserDefaults.standard
+    
+    var videoTypes: [String] = [
+        "default",
+        "music",
+        "gaming",
+        "channels"
+    ]
 
     @IBAction func cacheToggle(_ value: Bool) {
         if value == true {
@@ -141,7 +148,7 @@ class SettingsInterfaceController: WKInterfaceController {
     }
 
     override func willActivate() {
-        
+        // if userdefaults don't exist (like when the app is freshly installed), set them all now.
         if userDefaults.value(forKey: settingsKeys.cacheToggle) == nil {
             userDefaults.set(true, forKey: settingsKeys.cacheToggle)
         }
@@ -154,11 +161,23 @@ class SettingsInterfaceController: WKInterfaceController {
         if userDefaults.value(forKey: settingsKeys.resultsCount) == nil {
             userDefaults.set(10, forKey: settingsKeys.resultsCount)
         }
-
+        if userDefaults.value(forKey: settingsKeys.homePageVideoType) == nil {
+            userDefaults.set("default", forKey: settingsKeys.homePageVideoType)
+        }
+        
+        // set the picker items up
+        let pickerItems: [WKPickerItem] = videoTypes.map {
+            let pickerItem = WKPickerItem()
+            pickerItem.title = $0.capitalizingFirstLetter()
+            return pickerItem
+        }
+        homeVideosPicker.setItems(pickerItems)
+        
+        // set all the properties of settings to match userdefaults
+        homeVideosPicker.setSelectedItemIndex(Int(videoTypes.firstIndex(of: userDefaults.string(forKey: settingsKeys.homePageVideoType)!)!))
         cacheToggle.setOn(userDefaults.bool(forKey: settingsKeys.cacheToggle))
         thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
         audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
-
         cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
         
         // set cache button to enabled, if its empty just keep it as cleared and disable it
@@ -189,14 +208,28 @@ class SettingsInterfaceController: WKInterfaceController {
         }
         
         updateLabel()
-        
+
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
-
+    
+    @IBAction func homeVideosSelection(_ value: Int) {
+        userDefaults.set(videoTypes[value], forKey: settingsKeys.homePageVideoType)
+    }
+    
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
 
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }

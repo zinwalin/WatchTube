@@ -12,7 +12,6 @@ struct preferencesKeys {
 
 struct Constants {
     static let downloadSrvInstance = "llsc12.ml"
-    static let page = "default"
 }
 
 struct settingsKeys {
@@ -20,4 +19,5 @@ struct settingsKeys {
     static let thumbnailsToggle = "settings.thumbnailsToggleKey"
     static let audioOnlyToggle = "settings.audioOnlyToggleKey"
     static let resultsCount = "settings.resultsCount"
+    static let homePageVideoType = "settings.homePageVideoType"
 }

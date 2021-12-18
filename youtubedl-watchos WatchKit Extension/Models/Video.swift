@@ -25,7 +25,6 @@ class Video {
     
     class func getVideos(keyword: String, completion: @escaping ([Video]) -> Void) {
         AF.request("https://"+Constants.downloadSrvInstance+"/api/v1/search?search_query=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&limit=\(String(describing: UserDefaults.standard.integer(forKey: settingsKeys.resultsCount)))").responseJSON { response in
-            
             var videos = [Video]()
             switch response.result {
             case .success(let json):
@@ -57,29 +56,32 @@ class Video {
     }
     
     class func getTrending(completion: @escaping ([Video]) -> Void) {
-        AF.request("https://"+Constants.downloadSrvInstance+"/api/v2/trending?cc=\(Locale.current.regionCode!)&page=\(Constants.page)").responseJSON { response in
-            
-            var videos = [Video]()
-            switch response.result {
-            case .success(let json):
-                    let items = json as! [[String: Any]]
-                    for (_, item) in items.enumerated() {
-                        
-                        let title = item["title"]
-                        let vidId = item["videoId"]
-                        let channel = item["author"]
-                        let thumbnail = JSON(item["videoThumbnails"]!)[1]["url"].string
-                        if title == nil || vidId == nil || channel == nil {
-                            //where data moment
-                        } else {
-                            let video = Video(id: vidId as! String, title: title as! String, img: thumbnail!, channel: channel as! String)
-                            videos.append(video)
+        if UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) != "channels" {
+            AF.request("https://"+Constants.downloadSrvInstance+"/api/v2/trending?cc=\(Locale.current.regionCode!)&page=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")").responseJSON { response in
+                var videos = [Video]()
+                switch response.result {
+                case .success(let json):
+                        let items = json as! [[String: Any]]
+                        for (_, item) in items.enumerated() {
+                            
+                            let title = item["title"]
+                            let vidId = item["videoId"]
+                            let channel = item["author"]
+                            let thumbnail = JSON(item["videoThumbnails"]!)[1]["url"].string
+                            if title == nil || vidId == nil || channel == nil {
+                                //where data moment
+                            } else {
+                                let video = Video(id: vidId as! String, title: title as! String, img: thumbnail!, channel: channel as! String)
+                                videos.append(video)
+                            }
                         }
-                    }
-            case .failure(let error):
-                print(error)
+                case .failure(let error):
+                    print(error)
+                }
+                completion(videos)
             }
-            completion(videos)
+        } else {
+            // scrape favourite channels for videos
         }
     }
 }
