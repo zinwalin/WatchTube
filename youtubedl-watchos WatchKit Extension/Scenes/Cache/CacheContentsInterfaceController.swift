@@ -42,18 +42,15 @@ class CacheContentsInterfaceController: WKInterfaceController {
                     let videoID = file.components(separatedBy: ".")[0]
                     if ids.contains(videoID) {
                         continue
-                        
                     } else {
                         ids.append(videoID)
-                        
                     }
                 }
                 cacheTableRow.setNumberOfRows(ids.count, withRowType: "cachedVideoRow")
                 cacheTableRow.setHidden(false)
                 
                 for i in 0 ..< ids.count {
-                    let file = files[i]
-                    let videoID = file.components(separatedBy: ".")[0]
+                    let videoID = ids[i]
                     guard let row = cacheTableRow.rowController(at: i) as? CacheTableRow else {
                         continue
                     }
