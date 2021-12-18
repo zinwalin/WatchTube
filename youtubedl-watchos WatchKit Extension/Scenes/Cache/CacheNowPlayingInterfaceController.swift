@@ -29,7 +29,8 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         if context != nil {
-            self.id = (context as? String)!.components(separatedBy: ".")[0]
+            self.id = (context as? String)!
+            print(self.id)
         }
         
         do {
@@ -55,6 +56,8 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         } else if fileType == "mp3" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp3") == false) {
             fileType = "mp4"
             self.cacheStatusLabel.setText("mp3 not cached. Using mp4.")
+        } else if ((FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp3") == false)) {
+            self.cacheStatusLabel.setText("No cache data found.")
         } else {
             self.cacheStatusLabel.setText("Ready.")
         }

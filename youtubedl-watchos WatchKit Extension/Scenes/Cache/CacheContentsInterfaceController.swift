@@ -12,7 +12,7 @@ import SDWebImage
 class CacheContentsInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var cacheTableRow: WKInterfaceTable!
-    var files = [String]()
+    var ids = [String]()
     @IBOutlet weak var disabledLabel: WKInterfaceLabel!
     
     override func awake(withContext context: Any?) {
@@ -29,7 +29,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
         } else {
             disabledLabel.setHidden(true)
             do {
-                var ids = [String]()
+                var files = [String]()
                 files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache")
                 if files.count == 0 {
                     disabledLabel.setHidden(false)
@@ -79,7 +79,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
-        self.pushController(withName: "CacheNowPlayingInterfaceController", context: String(files[rowIndex]))
+        self.pushController(withName: "CacheNowPlayingInterfaceController", context: String(self.ids[rowIndex]))
     }
 
 }
