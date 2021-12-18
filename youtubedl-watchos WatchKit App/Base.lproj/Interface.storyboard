@@ -108,10 +108,12 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <imageView width="50" height="50" alignment="center" verticalAlignment="bottom" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
                     </items>
                     <connections>
                         <outlet property="TrendingTableRow" destination="1bT-KK-CVM" id="hdN-8t-TJp"/>
                         <outlet property="cacheScreenButton" destination="VFF-h1-USY" id="8Z1-6f-KKE"/>
+                        <outlet property="loader" destination="w2J-us-JKH" id="Uib-YK-YL6"/>
                         <segue destination="BVh-TY-jCX" kind="relationship" relationship="nextPage" id="cKl-k3-dts"/>
                     </connections>
                 </controller>
@@ -413,8 +415,10 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <imageView width="50" height="50" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" initiallyAnimated="NO" id="KRt-Sf-Vjk"/>
                     </items>
                     <connections>
+                        <outlet property="searchLoader" destination="KRt-Sf-Vjk" id="Y3v-hg-u0L"/>
                         <outlet property="videoTableRow" destination="iwV-NY-kBI" id="1cm-4s-cfY"/>
                     </connections>
                 </controller>

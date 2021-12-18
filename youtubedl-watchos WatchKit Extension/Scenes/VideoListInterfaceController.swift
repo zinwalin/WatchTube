@@ -11,12 +11,15 @@ import SDWebImage
 
 class VideoListInterfaceController: WKInterfaceController {
     
+    @IBOutlet weak var searchLoader: WKInterfaceImage!
     @IBOutlet var videoTableRow: WKInterfaceTable!
     
     var videos: [Video]!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        searchLoader.setImageNamed("loading")
+        searchLoader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
         
         if let dictionary = context as? Dictionary<String, Any> {
             if let action = dictionary["action"] as? String {
@@ -26,6 +29,8 @@ class VideoListInterfaceController: WKInterfaceController {
                         self.videos = videos
                         self.setupTable()
                         self.videoTableRow.setHidden(false)
+                        self.searchLoader.stopAnimating()
+                        self.searchLoader.setHidden(true)
                     }
                 }
             }

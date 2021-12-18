@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 class InterfaceController: WKInterfaceController {
+    @IBOutlet weak var loader: WKInterfaceImage!
     @IBOutlet var TrendingTableRow: WKInterfaceTable!
     
     var videos: [Video]!
@@ -18,12 +19,15 @@ class InterfaceController: WKInterfaceController {
             self.videos = videos
             self.setupTable()
             self.TrendingTableRow.setHidden(false)
+            self.loader.setHidden(true)
+            self.loader.stopAnimating()
         }
     }
     
-    var rowscroll = 0
-    
     override func willActivate() {
+        loader.setImageNamed("loading")
+        loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
+        
         do {
             let cacheURL = URL(string: NSHomeDirectory()+"/Documents/cache")!
             if !FileManager.default.fileExists(atPath: cacheURL.path) {
@@ -41,7 +45,6 @@ class InterfaceController: WKInterfaceController {
         } else {
             cacheScreenButton.setAlpha(0.9745)
         }
-        TrendingTableRow.scrollToRow(at: rowscroll)
     }
     
     override func didDeactivate() {
@@ -97,8 +100,6 @@ class InterfaceController: WKInterfaceController {
             } else {
                 row.trendingThumbImg.sd_setImage(with: URL(string: videos[i].img))
             }
-            
-            TrendingTableRow.scrollToRow(at: rowscroll)
             
             let file = "\(videos[i].id)" //this is the file. we will write to and read from it
             let text = "\(videos[i].title)\n\(videos[i].img)" //just a text
