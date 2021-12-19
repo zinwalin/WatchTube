@@ -23,10 +23,10 @@
 		AAD7F12C275D5D6600D4A882 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AAD7F12B275D5D6600D4A882 /* SwiftyJSON */; };
 		AAE7513E2762A03000628BC7 /* CacheTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7513D2762A03000628BC7 /* CacheTableRow.swift */; };
 		AAF50E3F275FC74500E4679D /* CacheContentsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF50E3E275FC74500E4679D /* CacheContentsInterfaceController.swift */; };
-		D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D72C93D4257D97740056D0BA /* youtubedl-watchos WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D72C93D3257D97740056D0BA /* youtubedl-watchos WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72C93D8257D97740056D0BA /* Interface.storyboard */; };
 		D72C93DC257D97770056D0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D72C93DB257D97770056D0BA /* Assets.xcassets */; };
-		D72C93E3257D97770056D0BA /* WatchTube WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D72C93E3257D97770056D0BA /* youtubedl-watchos WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D72C93E2257D97770056D0BA /* youtubedl-watchos WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D72C93E8257D97770056D0BA /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93E7257D97770056D0BA /* InterfaceController.swift */; };
 		D72C93EA257D97770056D0BA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */; };
 		D72C93EC257D97770056D0BA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93EB257D97770056D0BA /* ComplicationController.swift */; };
@@ -44,14 +44,14 @@
 			containerPortal = D72C93C9257D97740056D0BA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D72C93D2257D97740056D0BA;
-			remoteInfo = "WatchTube WatchKit App";
+			remoteInfo = "youtubedl-watchos WatchKit App";
 		};
 		D72C93E4257D97770056D0BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D72C93C9257D97740056D0BA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D72C93E1257D97770056D0BA;
-			remoteInfo = "WatchTube WatchKit Extension";
+			remoteInfo = "youtubedl-watchos WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,7 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D72C93E3257D97770056D0BA /* WatchTube WatchKit Extension.appex in Embed App Extensions */,
+				D72C93E3257D97770056D0BA /* youtubedl-watchos WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +73,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */,
+				D72C93D4257D97740056D0BA /* youtubedl-watchos WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,11 +89,11 @@
 		AAE7513D2762A03000628BC7 /* CacheTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTableRow.swift; sourceTree = "<group>"; };
 		AAF50E3E275FC74500E4679D /* CacheContentsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheContentsInterfaceController.swift; sourceTree = "<group>"; };
 		D72C93CF257D97740056D0BA /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchTube WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72C93D3257D97740056D0BA /* youtubedl-watchos WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "youtubedl-watchos WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72C93D9257D97740056D0BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		D72C93DB257D97770056D0BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D72C93DD257D97770056D0BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchTube WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72C93E2257D97770056D0BA /* youtubedl-watchos WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "youtubedl-watchos WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72C93E7257D97770056D0BA /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		D72C93EB257D97770056D0BA /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
@@ -152,8 +152,8 @@
 		D72C93C8257D97740056D0BA = {
 			isa = PBXGroup;
 			children = (
-				D72C93D7257D97740056D0BA /* WatchTube WatchKit App */,
-				D72C93E6257D97770056D0BA /* WatchTube WatchKit Extension */,
+				D72C93D7257D97740056D0BA /* youtubedl-watchos WatchKit App */,
+				D72C93E6257D97770056D0BA /* youtubedl-watchos WatchKit Extension */,
 				D72C93D0257D97740056D0BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -162,23 +162,23 @@
 			isa = PBXGroup;
 			children = (
 				D72C93CF257D97740056D0BA /* WatchTube.app */,
-				D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */,
-				D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */,
+				D72C93D3257D97740056D0BA /* youtubedl-watchos WatchKit App.app */,
+				D72C93E2257D97770056D0BA /* youtubedl-watchos WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D72C93D7257D97740056D0BA /* WatchTube WatchKit App */ = {
+		D72C93D7257D97740056D0BA /* youtubedl-watchos WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				D72C93D8257D97740056D0BA /* Interface.storyboard */,
 				D72C93DB257D97770056D0BA /* Assets.xcassets */,
 				D72C93DD257D97770056D0BA /* Info.plist */,
 			);
-			path = "WatchTube WatchKit App";
+			path = "youtubedl-watchos WatchKit App";
 			sourceTree = "<group>";
 		};
-		D72C93E6257D97770056D0BA /* WatchTube WatchKit Extension */ = {
+		D72C93E6257D97770056D0BA /* youtubedl-watchos WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
 				D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */,
@@ -189,7 +189,7 @@
 				D72C93ED257D97780056D0BA /* Assets.xcassets */,
 				D72C93EF257D97780056D0BA /* Info.plist */,
 			);
-			path = "WatchTube WatchKit Extension";
+			path = "youtubedl-watchos WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		D72C9408257DA8BB0056D0BA /* Models */ = {
@@ -228,9 +228,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D72C93CE257D97740056D0BA /* WatchTube */ = {
+		D72C93CE257D97740056D0BA /* youtubedl-watchos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D72C93FA257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube" */;
+			buildConfigurationList = D72C93FA257D97780056D0BA /* Build configuration list for PBXNativeTarget "youtubedl-watchos" */;
 			buildPhases = (
 				D72C93CD257D97740056D0BA /* Resources */,
 				D72C93F9257D97780056D0BA /* Embed Watch Content */,
@@ -241,19 +241,19 @@
 			dependencies = (
 				D72C93D6257D97740056D0BA /* PBXTargetDependency */,
 			);
-			name = "WatchTube";
+			name = "youtubedl-watchos";
 			packageProductDependencies = (
 				AA8A948B275BF6B800EBABC4 /* Alamofire */,
 				890FEA33275D579A00B573B8 /* SDWebImage */,
 				AAD7F127275D5D4B00D4A882 /* SwiftyJSON */,
 			);
-			productName = "WatchTube";
+			productName = "youtubedl-watchos";
 			productReference = D72C93CF257D97740056D0BA /* WatchTube.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		D72C93D2257D97740056D0BA /* WatchTube WatchKit App */ = {
+		D72C93D2257D97740056D0BA /* youtubedl-watchos WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D72C93F6257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit App" */;
+			buildConfigurationList = D72C93F6257D97780056D0BA /* Build configuration list for PBXNativeTarget "youtubedl-watchos WatchKit App" */;
 			buildPhases = (
 				D72C93D1257D97740056D0BA /* Resources */,
 				D72C93F5257D97780056D0BA /* Embed App Extensions */,
@@ -264,19 +264,19 @@
 			dependencies = (
 				D72C93E5257D97770056D0BA /* PBXTargetDependency */,
 			);
-			name = "WatchTube WatchKit App";
+			name = "youtubedl-watchos WatchKit App";
 			packageProductDependencies = (
 				AA8A948D275BF78300EBABC4 /* Alamofire */,
 				890FEA35275D57A500B573B8 /* SDWebImage */,
 				AAD7F129275D5D5D00D4A882 /* SwiftyJSON */,
 			);
-			productName = "WatchTube WatchKit App";
-			productReference = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */;
+			productName = "youtubedl-watchos WatchKit App";
+			productReference = D72C93D3257D97740056D0BA /* youtubedl-watchos WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		D72C93E1257D97770056D0BA /* WatchTube WatchKit Extension */ = {
+		D72C93E1257D97770056D0BA /* youtubedl-watchos WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D72C93F2257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit Extension" */;
+			buildConfigurationList = D72C93F2257D97780056D0BA /* Build configuration list for PBXNativeTarget "youtubedl-watchos WatchKit Extension" */;
 			buildPhases = (
 				D72C93DE257D97770056D0BA /* Sources */,
 				D72C93DF257D97770056D0BA /* Frameworks */,
@@ -286,14 +286,14 @@
 			);
 			dependencies = (
 			);
-			name = "WatchTube WatchKit Extension";
+			name = "youtubedl-watchos WatchKit Extension";
 			packageProductDependencies = (
 				AA8A948F275BF7AC00EBABC4 /* Alamofire */,
 				890FEA37275D57AA00B573B8 /* SDWebImage */,
 				AAD7F12B275D5D6600D4A882 /* SwiftyJSON */,
 			);
-			productName = "WatchTube WatchKit Extension";
-			productReference = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */;
+			productName = "youtubedl-watchos WatchKit Extension";
+			productReference = D72C93E2257D97770056D0BA /* youtubedl-watchos WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -316,7 +316,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D72C93CC257D97740056D0BA /* Build configuration list for PBXProject "WatchTube" */;
+			buildConfigurationList = D72C93CC257D97740056D0BA /* Build configuration list for PBXProject "youtubedl-watchos" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -334,9 +334,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D72C93CE257D97740056D0BA /* WatchTube */,
-				D72C93D2257D97740056D0BA /* WatchTube WatchKit App */,
-				D72C93E1257D97770056D0BA /* WatchTube WatchKit Extension */,
+				D72C93CE257D97740056D0BA /* youtubedl-watchos */,
+				D72C93D2257D97740056D0BA /* youtubedl-watchos WatchKit App */,
+				D72C93E1257D97770056D0BA /* youtubedl-watchos WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -396,12 +396,12 @@
 /* Begin PBXTargetDependency section */
 		D72C93D6257D97740056D0BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D72C93D2257D97740056D0BA /* WatchTube WatchKit App */;
+			target = D72C93D2257D97740056D0BA /* youtubedl-watchos WatchKit App */;
 			targetProxy = D72C93D5257D97740056D0BA /* PBXContainerItemProxy */;
 		};
 		D72C93E5257D97770056D0BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D72C93E1257D97770056D0BA /* WatchTube WatchKit Extension */;
+			target = D72C93E1257D97770056D0BA /* youtubedl-watchos WatchKit Extension */;
 			targetProxy = D72C93E4257D97770056D0BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -540,7 +540,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 566RT33SA2;
-				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "youtubedl-watchos WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,7 +562,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 566RT33SA2;
-				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "youtubedl-watchos WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -587,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
-				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
+				INFOPLIST_FILE = "youtubedl-watchos WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.watchtube.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -607,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 566RT33SA2;
 				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
-				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
+				INFOPLIST_FILE = "youtubedl-watchos WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -651,7 +651,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D72C93CC257D97740056D0BA /* Build configuration list for PBXProject "WatchTube" */ = {
+		D72C93CC257D97740056D0BA /* Build configuration list for PBXProject "youtubedl-watchos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D72C93F0257D97780056D0BA /* Debug */,
@@ -660,7 +660,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D72C93F2257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit Extension" */ = {
+		D72C93F2257D97780056D0BA /* Build configuration list for PBXNativeTarget "youtubedl-watchos WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D72C93F3257D97780056D0BA /* Debug */,
@@ -669,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D72C93F6257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit App" */ = {
+		D72C93F6257D97780056D0BA /* Build configuration list for PBXNativeTarget "youtubedl-watchos WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D72C93F7257D97780056D0BA /* Debug */,
@@ -678,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D72C93FA257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube" */ = {
+		D72C93FA257D97780056D0BA /* Build configuration list for PBXNativeTarget "youtubedl-watchos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D72C93FB257D97780056D0BA /* Debug */,
