@@ -2,7 +2,9 @@ youtube-watchos is a standalone WatchOS youtube player utilizing [Download API](
 
 1. Fully standalone usage of the app relying on Download API to not use the official YouTube API and prevent ratelimits
 
-2. Not require people to provide a YouTube API Key for usage.
+2. Not require people to provide a YouTube API Key for usage
+
+3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially, a gimmick
 
 # Installation
 
