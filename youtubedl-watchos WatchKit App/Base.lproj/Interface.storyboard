@@ -54,7 +54,7 @@
             <objects>
                 <controller identifier="InterfaceController" title="WatchTube" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="youtubedl_watchos_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group width="1" height="43" alignment="left" id="NDu-0w-e9n">
+                        <group width="1" height="42" alignment="center" id="NDu-0w-e9n">
                             <items>
                                 <button width="0.5" height="1" alignment="left" title="Search" id="Uye-xf-Sds">
                                     <color key="backgroundColor" name="buttons"/>
@@ -77,8 +77,9 @@
                                     </connections>
                                 </button>
                             </items>
+                            <variation key="device=watch38mm" height="35"/>
                         </group>
-                        <separator alignment="left" id="lDU-cy-hET">
+                        <separator alignment="center" id="lDU-cy-hET">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <table alignment="left" id="1bT-KK-CVM">
@@ -134,7 +135,7 @@
             <objects>
                 <controller identifier="SettingsInterfaceController" title="Settings" id="BVh-TY-jCX" customClass="SettingsInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
                     <items>
-                        <picker height="60" alignment="center" focusStyle="sequence" id="zLD-cy-jC8">
+                        <picker height="50" alignment="center" focusStyle="sequence" id="zLD-cy-jC8">
                             <connections>
                                 <action selector="homeVideosSelection:" destination="BVh-TY-jCX" id="pvG-gb-9LG"/>
                             </connections>
