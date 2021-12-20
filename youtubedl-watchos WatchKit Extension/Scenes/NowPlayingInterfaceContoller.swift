@@ -13,6 +13,9 @@ import SDWebImage
 var youtubedlServerURLBase = "https://" + Constants.downloadSrvInstance
 
 class NowPlayingInterfaceController: WKInterfaceController {
+    
+    var filesExistedBefore: Bool = false
+    var infoViewed: Bool = false
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceMovie!
@@ -21,9 +24,18 @@ class NowPlayingInterfaceController: WKInterfaceController {
     var video: Video!
     
     @IBAction func infoScreenButton() {
+        if filesExistedBefore == true {
+            infoViewed=true
+        }
         self.pushController(withName: "InfoInterfaceController", context: self.video.id)
     }
     override func awake(withContext context: Any?) {
+        
+        if context != nil {
+            self.video = context as? Video
+        }
+        
+        filesExistedBefore = (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp3"))
         var dlType: String
         var fileType: String
         if UserDefaults.standard.bool(forKey: settingsKeys.audioOnlyToggle) == false {
@@ -37,10 +49,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
         let youtubedlServerURLDL = youtubedlServerURLBase + "/api/v2/\(dlType)?url=https://youtu.be"
         
         super.awake(withContext: context)
-        
-        if context != nil {
-            self.video = context as? Video
-        }
         
         if self.video != nil {
             self.titleLabel.setText(self.video.title)
@@ -89,5 +97,18 @@ class NowPlayingInterfaceController: WKInterfaceController {
                 self.statusLabel.setText("Downloading... \(percent)%")
             })
         }
+    }
+    override func didAppear() {
+        
+        if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true && infoViewed == true {
+            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp3"))) {
+                infoViewed=false
+                pop()
+            } else {
+                infoViewed=false
+            }
+        }
+        
+        super.didAppear()
     }
 }
