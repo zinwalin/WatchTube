@@ -66,16 +66,6 @@
                                         <action selector="searchVideoButtonTapped" destination="AgC-eL-Hgc" id="HRq-U6-vMc"/>
                                     </connections>
                                 </button>
-                                <button width="0.5" height="1" alignment="left" title="Cache" id="VFF-h1-USY">
-                                    <color key="backgroundColor" name="buttons"/>
-                                    <fontDescription key="font" type="system" pointSize="20"/>
-                                    <variation key="device=watch38mm">
-                                        <fontDescription key="font" type="system" pointSize="16"/>
-                                    </variation>
-                                    <connections>
-                                        <action selector="CacheScreen" destination="AgC-eL-Hgc" id="SY2-qe-d3k"/>
-                                    </connections>
-                                </button>
                             </items>
                             <variation key="device=watch38mm" height="35"/>
                         </group>
@@ -120,15 +110,40 @@
                     </items>
                     <connections>
                         <outlet property="TrendingTableRow" destination="1bT-KK-CVM" id="hdN-8t-TJp"/>
-                        <outlet property="cacheScreenButton" destination="VFF-h1-USY" id="8Z1-6f-KKE"/>
                         <outlet property="internetLabel" destination="Y2d-ZL-s0c" id="tnN-C5-3nq"/>
                         <outlet property="loader" destination="w2J-us-JKH" id="Uib-YK-YL6"/>
                         <outlet property="searchButton" destination="Uye-xf-Sds" id="knf-Ha-R6z"/>
-                        <segue destination="BVh-TY-jCX" kind="relationship" relationship="nextPage" id="cKl-k3-dts"/>
+                        <segue destination="eRE-Qe-NAa" kind="relationship" relationship="nextPage" id="wpF-7N-9Vo"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="141" y="-24"/>
+        </scene>
+        <!--MenuInterfaceController-->
+        <scene sceneID="e9U-2b-0f5">
+            <objects>
+                <controller identifier="MenuInterfaceController" id="eRE-Qe-NAa" customClass="MenuInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Settings" id="r6R-AC-F9f">
+                            <color key="backgroundColor" name="buttons"/>
+                            <connections>
+                                <action selector="openSettingsButton" destination="eRE-Qe-NAa" id="bHT-QZ-hQY"/>
+                                <segue destination="BVh-TY-jCX" kind="modal" id="Qo0-1a-vfF"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Cache" id="UxN-MC-lgp">
+                            <color key="backgroundColor" name="buttons"/>
+                            <connections>
+                                <action selector="CacheScreen" destination="eRE-Qe-NAa" id="TBD-GC-71B"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="cacheScreenButton" destination="UxN-MC-lgp" id="lmS-S2-GzE"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="342" y="-25"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5UF-dP-8ee">
@@ -515,7 +530,7 @@
             <color red="0.90588235294117647" green="0.34901960784313724" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="buttons">
-            <color red="0.81599998474121094" green="0.24699999392032623" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.81568627450980391" green="0.24313725490196078" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

@@ -51,28 +51,10 @@ class InterfaceController: WKInterfaceController {
         if UserDefaults.standard.value(forKey: settingsKeys.cacheToggle) == nil {
             UserDefaults.standard.set(true, forKey: settingsKeys.cacheToggle)
         }
-        cacheScreenButton.setEnabled(UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle))
-        if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
-            cacheScreenButton.setEnabled(true)
-        } else {
-            cacheScreenButton.setEnabled(false)
-        }
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
-    }
-    
-    @IBOutlet weak var cacheScreenButton: WKInterfaceButton!
-    
-    @IBAction func CacheScreen() {
-        if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
-            cacheScreenButton.setEnabled(true)
-            pushController(withName: "CacheContentsInterfaceController", context: "Any")
-        }
-        else {
-            cacheScreenButton.setEnabled(false)
-        }
     }
     @IBAction func searchVideoButtonTapped() {
         
