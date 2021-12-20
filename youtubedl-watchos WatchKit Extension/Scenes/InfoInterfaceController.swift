@@ -16,16 +16,24 @@ class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var dateLabel: WKInterfaceLabel!
     @IBOutlet weak var authorLabel: WKInterfaceLabel!
     @IBOutlet weak var showDescriptionButton: WKInterfaceButton!
+    @IBOutlet weak var InfoCacheDeleteButton: WKInterfaceButton!
+    
+    var videoId: String = ""
     
     var videoDetails: Dictionary<String, Any> = [:]
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
+        
+        videoId = context! as! String
+        
         self.showDescriptionButton.setEnabled(false)
         self.likesLabel.setText("Loading Likes")
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
-
+        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp3")))
+        
+        
         AF.request("https://"+Constants.downloadSrvInstance+"/api/v1/getInfo?url=\(context!)").responseJSON { response in
             
             switch response.result {
@@ -52,6 +60,20 @@ class InfoInterfaceController: WKInterfaceController {
     }
     @IBAction func showDescription() {
         self.pushController(withName: "SubInfoInterfaceController", context: self.videoDetails["description"]!)
+    }
+    
+    @IBAction func infoDeleteCache() {
+        if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")) {
+            do {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")
+            } catch {}
+        }
+        if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")) {
+            do {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")
+            } catch {}
+        }
+        pop()
     }
     
     override func willActivate() {

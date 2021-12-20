@@ -30,7 +30,6 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         if context != nil {
             self.id = (context as? String)!
-            print(self.id)
         }
         
         do {
@@ -67,5 +66,14 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).\(fileType)") == true {
             self.cacheMovie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(self.id).\(fileType)"))
         }
+    }
+    
+    override func didAppear() {
+        
+        if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
+            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(id).mp3"))) {pop()}
+        }
+        
+        super.didAppear()
     }
 }
