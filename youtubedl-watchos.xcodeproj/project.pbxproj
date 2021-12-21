@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1915493F27713DA000255CDD /* AboutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1915493E27713DA000255CDD /* AboutInterfaceController.swift */; };
+		191549412771454C00255CDD /* discord.png in Resources */ = {isa = PBXBuildFile; fileRef = 191549402771454C00255CDD /* discord.png */; };
+		191549432771455B00255CDD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 191549422771455B00255CDD /* github.png */; };
 		890FEA34275D579A00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA33275D579A00B573B8 /* SDWebImage */; };
 		890FEA36275D57A500B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA35275D57A500B573B8 /* SDWebImage */; };
 		890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA37275D57AA00B573B8 /* SDWebImage */; };
@@ -82,6 +85,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1915493E27713DA000255CDD /* AboutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInterfaceController.swift; sourceTree = "<group>"; };
+		191549402771454C00255CDD /* discord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discord.png; sourceTree = "<group>"; };
+		191549422771455B00255CDD /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		891B09D4275D0F8B00696841 /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
 		89AA9B7D27711F7000694329 /* MenuInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInterfaceController.swift; sourceTree = "<group>"; };
 		AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubInfoInterfaceController.swift; sourceTree = "<group>"; };
@@ -176,6 +182,8 @@
 				D72C93D8257D97740056D0BA /* Interface.storyboard */,
 				D72C93DB257D97770056D0BA /* Assets.xcassets */,
 				D72C93DD257D97770056D0BA /* Info.plist */,
+				191549422771455B00255CDD /* github.png */,
+				191549402771454C00255CDD /* discord.png */,
 			);
 			path = "youtubedl-watchos WatchKit App";
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				D72C940F257DAC210056D0BA /* VideoListInterfaceController.swift */,
 				AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */,
 				89AA9B7D27711F7000694329 /* MenuInterfaceController.swift */,
+				1915493E27713DA000255CDD /* AboutInterfaceController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -356,7 +365,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191549432771455B00255CDD /* github.png in Resources */,
 				D72C93DC257D97770056D0BA /* Assets.xcassets in Resources */,
+				191549412771454C00255CDD /* discord.png in Resources */,
 				D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +392,7 @@
 				89AA9B7E27711F7000694329 /* MenuInterfaceController.swift in Sources */,
 				D72C9401257D997F0056D0BA /* NowPlayingInterfaceContoller.swift in Sources */,
 				D72C9410257DAC210056D0BA /* VideoListInterfaceController.swift in Sources */,
+				1915493F27713DA000255CDD /* AboutInterfaceController.swift in Sources */,
 				D72C93EA257D97770056D0BA /* ExtensionDelegate.swift in Sources */,
 				D72C93E8257D97770056D0BA /* InterfaceController.swift in Sources */,
 				AAF50E3F275FC74500E4679D /* CacheContentsInterfaceController.swift in Sources */,

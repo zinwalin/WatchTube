@@ -47,7 +47,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="140" y="635"/>
+            <point key="canvasLocation" x="139" y="634"/>
         </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
@@ -56,7 +56,7 @@
                     <items>
                         <group width="1" height="42" alignment="center" id="NDu-0w-e9n">
                             <items>
-                                <button width="0.5" height="1" alignment="left" title="Search" id="Uye-xf-Sds">
+                                <button width="1" height="1" alignment="left" title="Search" id="Uye-xf-Sds">
                                     <color key="backgroundColor" name="buttons"/>
                                     <fontDescription key="font" type="system" pointSize="20"/>
                                     <variation key="device=watch38mm">
@@ -117,24 +117,30 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="141" y="-24"/>
+            <point key="canvasLocation" x="139" y="-25"/>
         </scene>
-        <!--MenuInterfaceController-->
+        <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
             <objects>
-                <controller identifier="MenuInterfaceController" id="eRE-Qe-NAa" customClass="MenuInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
+                <controller identifier="MenuInterfaceController" title="Menu" id="eRE-Qe-NAa" customClass="MenuInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
                     <items>
                         <button width="1" alignment="left" title="Settings" id="r6R-AC-F9f">
                             <color key="backgroundColor" name="buttons"/>
                             <connections>
                                 <action selector="openSettingsButton" destination="eRE-Qe-NAa" id="bHT-QZ-hQY"/>
-                                <segue destination="BVh-TY-jCX" kind="modal" id="Qo0-1a-vfF"/>
+                                <segue destination="BVh-TY-jCX" kind="push" id="Qo0-1a-vfF"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="Cache" id="UxN-MC-lgp">
                             <color key="backgroundColor" name="buttons"/>
                             <connections>
                                 <action selector="CacheScreen" destination="eRE-Qe-NAa" id="TBD-GC-71B"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="About" id="E9O-x4-s4d">
+                            <color key="backgroundColor" name="buttons"/>
+                            <connections>
+                                <segue destination="252-Fw-M0F" kind="push" id="FyO-Gm-rY6"/>
                             </connections>
                         </button>
                     </items>
@@ -144,6 +150,32 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="342" y="-25"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="Gcs-lM-aa6">
+            <objects>
+                <controller identifier="AboutInterfaceController" title="About" id="252-Fw-M0F" customClass="AboutInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="WatchTube was made by llsc12 and Superbro. This app is open source and available on GitHub." numberOfLines="0" id="dxk-4D-zuo"/>
+                        <separator alignment="left" id="uKv-u5-Icf">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <group width="1" alignment="left" id="za5-21-8eO">
+                            <items>
+                                <label alignment="right" text="GitHub" id="jqr-BE-awl"/>
+                                <label alignment="left" text="Discord" id="Hhk-2m-7dB"/>
+                            </items>
+                        </group>
+                        <group width="1" height="100" alignment="center" verticalAlignment="center" radius="0.0" id="GwI-mR-XGB">
+                            <items>
+                                <imageView width="0.5" height="1" alignment="left" image="discord" contentMode="scaleAspectFit" id="eLc-tY-tzp"/>
+                                <imageView width="0.5" height="1" alignment="right" image="github" contentMode="scaleAspectFit" id="vA0-sk-H2c"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="551.55555555555554" y="-25.289256198347108"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5UF-dP-8ee">
@@ -267,7 +299,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-113.33333333333334" y="315.76446280991735"/>
+            <point key="canvasLocation" x="-117" y="383"/>
         </scene>
         <!--Cache Now Playing-->
         <scene sceneID="DzC-je-eHb">
@@ -482,7 +514,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="140.8080808080808" y="283.80165289256195"/>
+            <point key="canvasLocation" x="139" y="282"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="osD-rO-mxG">
@@ -518,27 +550,31 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="283"/>
+            <point key="canvasLocation" x="341" y="282"/>
         </scene>
         <!--SubInfoInterfaceController-->
         <scene sceneID="X0g-ra-rul">
             <objects>
                 <controller identifier="SubInfoInterfaceController" id="lf9-W1-Yzb" customClass="SubInfoInterfaceController" customModule="youtubedl_watchos_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="No context data was provided, and somehow you ended up here. Quite odd, don't you think?" numberOfLines="0" id="ExP-9i-K8r"/>
+                        <label alignment="left" numberOfLines="0" id="ExP-9i-K8r">
+                            <string key="text">No context data was provided, and somehow you ended up here. Quite odd, don't you think? In all seriousness, do report this in our server.</string>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="bodyLabel" destination="ExP-9i-K8r" id="GaH-3F-9FJ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="579" y="315"/>
+            <point key="canvasLocation" x="552" y="283"/>
         </scene>
     </scenes>
     <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="github" width="556" height="556"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
