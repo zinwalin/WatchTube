@@ -67,6 +67,22 @@ class CacheContentsInterfaceController: WKInterfaceController {
                         row.cacheTitleLabel.setText(data[0])
                         row.cacheThumbImage.sd_setImage(with: URL(string: data[1]))
                         row.videoId = videoID
+                        var totalSize = 0 as Int64
+                        if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp4") {
+                            if let bytes = fileAttributes[.size] as? Int64 {
+                                totalSize = totalSize+bytes
+                            }
+                        }
+                        if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp3") {
+                            if let bytes = fileAttributes[.size] as? Int64 {
+                                totalSize = totalSize+bytes
+                            }
+                        }
+                        let bcf = ByteCountFormatter()
+                        if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
+                        bcf.countStyle = .file
+                        let string = bcf.string(fromByteCount: totalSize)
+                        row.cacheFilesize.setText(string)
                     }
                 }
                 
