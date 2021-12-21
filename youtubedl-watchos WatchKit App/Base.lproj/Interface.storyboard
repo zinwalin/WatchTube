@@ -82,7 +82,7 @@
                                     <imageView width="38" height="38" alignment="left" verticalAlignment="center" image="magnifyingglass" catalog="system" contentMode="scaleAspectFit" id="Qwd-tL-VPr">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
-                                    <label alignment="center" verticalAlignment="center" text="Settings" id="XRQ-SN-K10">
+                                    <label alignment="center" verticalAlignment="center" text="Search" id="XRQ-SN-K10">
                                         <fontDescription key="font" type="system" pointSize="21"/>
                                         <variation key="device=watch38mm">
                                             <fontDescription key="font" type="system" pointSize="16"/>
@@ -147,7 +147,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="-25"/>
+            <point key="canvasLocation" x="138.74747474747474" y="-25.289256198347108"/>
         </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
