@@ -4,12 +4,13 @@ WatchTube is a standalone WatchOS youtube player utilizing [Download API](https:
 
 2. Not requiring people to provide a YouTube API Key for usage
 
-3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially, a gimmick
+3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially a gimmick
 
 # Installation
 
-1. OPTIONAL: Setup your own [Download API instance](https://github.com/llsc12/download-api) instance
+0. OPTIONAL: Star this repo :)
+1. OPTIONAL: Setup your own [Download API instance](https://github.com/llsc12/download-api)
 2. Use your instance's address from step 1 to fill in `Settings.swift` or use llsc12.ml as default.
-3. Replace all of the signing and team identifiers in XCode
+3. Replace all of the signing and team identifiers in Xcode
 4. Build and deploy WatchOS app
 5. Exhale 😮‍💨
