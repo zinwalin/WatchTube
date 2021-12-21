@@ -16,6 +16,7 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var thumbnailsToggle: WKInterfaceSwitch!
     @IBOutlet weak var audioOnlyToggle: WKInterfaceSwitch!
     @IBOutlet weak var resultsLabel: WKInterfaceLabel!
+    @IBOutlet weak var itemsLabel: WKInterfaceLabel!
     @IBOutlet weak var homeVideosPicker: WKInterfacePicker!
     
     let userDefaults = UserDefaults.standard
@@ -138,8 +139,23 @@ class SettingsInterfaceController: WKInterfaceController {
         }
     }
     
+    @IBAction func itemLower() {
+        if userDefaults.integer(forKey: settingsKeys.itemsCount) > 5 {
+            userDefaults.set(userDefaults.value(forKey: settingsKeys.itemsCount) as! Int-1, forKey: settingsKeys.itemsCount)
+            updateLabel()
+        }
+    }
+    
+    @IBAction func itemHigher() {
+        if userDefaults.integer(forKey: settingsKeys.itemsCount) < 80 {
+            userDefaults.set(userDefaults.value(forKey: settingsKeys.itemsCount) as! Int+1, forKey: settingsKeys.itemsCount)
+            updateLabel()
+        }
+    }
+    
     func updateLabel() {
         resultsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.resultsCount) as! Int)) Results")
+        itemsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.itemsCount) as! Int)) Items")
     }
     
     override func awake(withContext context: Any?) {
@@ -148,22 +164,6 @@ class SettingsInterfaceController: WKInterfaceController {
     }
 
     override func willActivate() {
-        // if userdefaults don't exist (like when the app is freshly installed), set them all now.
-        if userDefaults.value(forKey: settingsKeys.cacheToggle) == nil {
-            userDefaults.set(true, forKey: settingsKeys.cacheToggle)
-        }
-        if userDefaults.value(forKey: settingsKeys.thumbnailsToggle) == nil {
-            userDefaults.set(true, forKey: settingsKeys.thumbnailsToggle)
-        }
-        if userDefaults.value(forKey: settingsKeys.audioOnlyToggle) == nil {
-            userDefaults.set(false, forKey: settingsKeys.audioOnlyToggle)
-        }
-        if userDefaults.value(forKey: settingsKeys.resultsCount) == nil {
-            userDefaults.set(10, forKey: settingsKeys.resultsCount)
-        }
-        if userDefaults.value(forKey: settingsKeys.homePageVideoType) == nil {
-            userDefaults.set("default", forKey: settingsKeys.homePageVideoType)
-        }
         
         // set the picker items up
         let pickerItems: [WKPickerItem] = videoTypes.map {

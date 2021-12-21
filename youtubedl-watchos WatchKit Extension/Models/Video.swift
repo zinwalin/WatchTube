@@ -62,14 +62,17 @@ class Video {
                 switch response.result {
                 case .success(let json):
                         let items = json as! [[String: Any]]
-                        for (_, item) in items.enumerated() {
-                            
+                        for (i, item) in items.enumerated() {
+                            let limit = UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)
+                            if i > (limit-1) {
+                                continue
+                            }
                             let title = item["title"]
                             let vidId = item["videoId"]
                             let channel = item["author"]
                             let thumbnail = JSON(item["videoThumbnails"]!)[1]["url"].string
                             if title == nil || vidId == nil || channel == nil {
-                                //where data moment
+                                continue
                             } else {
                                 let video = Video(id: vidId as! String, title: title as! String, img: thumbnail!, channel: channel as! String)
                                 videos.append(video)
