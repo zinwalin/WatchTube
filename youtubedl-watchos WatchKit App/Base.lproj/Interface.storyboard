@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch44"/>
+    <device id="watch45"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
@@ -400,15 +400,18 @@
                                     </connections>
                                 </button>
                                 <label alignment="center" verticalAlignment="center" text="30 Results" id="bkB-nj-7Sf">
-                                    <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                    <fontDescription key="font" type="system" pointSize="18"/>
                                     <variation key="device=watch38mm">
                                         <fontDescription key="font" type="system" pointSize="11"/>
                                     </variation>
                                     <variation key="device=watch40mm">
-                                        <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                    </variation>
+                                    <variation key="device=watch41mm">
+                                        <fontDescription key="font" type="system" pointSize="16"/>
                                     </variation>
                                     <variation key="device=watch42mm">
-                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        <fontDescription key="font" type="system" pointSize="11"/>
                                     </variation>
                                 </label>
                                 <button width="45" height="45" alignment="right" verticalAlignment="center" title="+" id="GsM-jK-5fI">
