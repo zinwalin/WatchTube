@@ -14,6 +14,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var TrendingTableRow: WKInterfaceTable!
     @IBOutlet weak var internetLabel: WKInterfaceLabel!
     @IBOutlet weak var searchButton: WKInterfaceButton!
+    @IBOutlet weak var tooltipLabel: WKInterfaceLabel!
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
@@ -32,7 +33,7 @@ class InterfaceController: WKInterfaceController {
             UserDefaults.standard.set(10, forKey: settingsKeys.resultsCount)
         }
         if UserDefaults.standard.value(forKey: settingsKeys.itemsCount) == nil {
-            UserDefaults.standard.set(25, forKey: settingsKeys.itemsCount)
+            UserDefaults.standard.set(12, forKey: settingsKeys.itemsCount)
         }
         if UserDefaults.standard.value(forKey: settingsKeys.homePageVideoType) == nil {
             UserDefaults.standard.set("default", forKey: settingsKeys.homePageVideoType)
@@ -51,6 +52,7 @@ class InterfaceController: WKInterfaceController {
             self.setupTable()
             self.TrendingTableRow.setHidden(false)
             self.loader.setHidden(true)
+            self.tooltipLabel.setHidden(false)
             self.loader.stopAnimating()
         }
     }

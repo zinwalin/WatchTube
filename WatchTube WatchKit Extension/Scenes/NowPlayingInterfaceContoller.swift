@@ -14,8 +14,8 @@ var youtubedlServerURLBase = "https://" + Constants.downloadSrvInstance
 
 class NowPlayingInterfaceController: WKInterfaceController {
     
-    var filesExistedBefore: Bool = false
     var infoViewed: Bool = false
+    var isDownloading: Bool = false
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceMovie!
@@ -24,9 +24,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     var video: Video!
     
     @IBAction func infoScreenButton() {
-        if filesExistedBefore == true {
-            infoViewed=true
-        }
+        infoViewed=true
         self.pushController(withName: "InfoInterfaceController", context: self.video.id)
     }
     override func awake(withContext context: Any?) {
@@ -35,7 +33,10 @@ class NowPlayingInterfaceController: WKInterfaceController {
             self.video = context as? Video
         }
         
-        filesExistedBefore = (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp3"))
+        if self.video != nil {
+            self.titleLabel.setText(self.video.title)
+        }
+        
         var dlType: String
         var fileType: String
         if UserDefaults.standard.bool(forKey: settingsKeys.audioOnlyToggle) == false {
@@ -45,19 +46,15 @@ class NowPlayingInterfaceController: WKInterfaceController {
             dlType = "audio"
             fileType = "mp3"
         }
-
+        
+        
         let youtubedlServerURLDL = youtubedlServerURLBase + "/api/v2/\(dlType)?url=https://youtu.be"
         
         super.awake(withContext: context)
-        
-        if self.video != nil {
-            self.titleLabel.setText(self.video.title)
-        } else {
-            self.titleLabel.setText("Nothing is playing")
-        }
 
         let vidpath = youtubedlServerURLDL+"/"+self.video.id
         self.statusLabel.setText("Waiting for server...")
+        isDownloading = true
         
         // dont forget about caching system
         let cachingSetting = UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle)
@@ -75,11 +72,13 @@ class NowPlayingInterfaceController: WKInterfaceController {
             if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).\(fileType)") == true {
                 self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(self.video.id).\(fileType)"))
                 self.statusLabel.setText("Loaded from cache.")
+                self.isDownloading = false
             } else {
                 AF.download(vidpath, to: destinationCached).response { response in
                     if response.value != nil {
                         self.movie.setMovieURL(response.value!!)
                         self.statusLabel.setText("Ready.")
+                        self.isDownloading = false
                     }
                 }.downloadProgress(closure: { (progress) in
                     let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
@@ -91,6 +90,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                 if response.value != nil {
                     self.movie.setMovieURL(response.value!!)
                     self.statusLabel.setText("Ready.")
+                    self.isDownloading = false
                 }
             }.downloadProgress(closure: { (progress) in
                 let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
@@ -98,17 +98,23 @@ class NowPlayingInterfaceController: WKInterfaceController {
             })
         }
     }
-    override func didAppear() {
+    
+    override func willActivate() {
         
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true && infoViewed == true {
             if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp3"))) {
-                infoViewed=false
-                pop()
+                if isDownloading {
+                    infoViewed=false
+                } else {
+                    infoViewed=false
+                    statusLabel.setText("File Deleted")
+                    pop()
+                }
             } else {
                 infoViewed=false
             }
         }
         
-        super.didAppear()
+        super.willActivate()
     }
 }

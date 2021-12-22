@@ -11,6 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 class InfoInterfaceController: WKInterfaceController {
+    @IBOutlet weak var viewsIcon: WKInterfaceImage!
+    @IBOutlet weak var likesIcon: WKInterfaceImage!
+    @IBOutlet weak var authorIcon: WKInterfaceImage!
+    @IBOutlet weak var uploadIcon: WKInterfaceImage!
+    
+    
     @IBOutlet weak var viewsLabel: WKInterfaceLabel!
     @IBOutlet weak var likesLabel: WKInterfaceLabel!
     @IBOutlet weak var dateLabel: WKInterfaceLabel!
@@ -78,6 +84,7 @@ class InfoInterfaceController: WKInterfaceController {
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
+        
         super.willActivate()
     }
 
@@ -85,5 +92,29 @@ class InfoInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    @IBAction func randomise(_ sender: Any) {
+        viewsIcon.setTintColor(.random())
+        likesIcon.setTintColor(.random())
+        authorIcon.setTintColor(.random())
+        uploadIcon.setTintColor(.random())
+    }
 
+}
+
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(
+           red:   .random(),
+           green: .random(),
+           blue:  .random(),
+           alpha: 1.0
+        )
+    }
 }
