@@ -33,7 +33,6 @@
 		D72C93E3257D97770056D0BA /* WatchTube WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D72C93E8257D97770056D0BA /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93E7257D97770056D0BA /* InterfaceController.swift */; };
 		D72C93EA257D97770056D0BA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */; };
-		D72C93EC257D97770056D0BA /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93EB257D97770056D0BA /* ComplicationController.swift */; };
 		D72C93EE257D97780056D0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D72C93ED257D97780056D0BA /* Assets.xcassets */; };
 		D72C9401257D997F0056D0BA /* NowPlayingInterfaceContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */; };
 		D72C940A257DA8CD0056D0BA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C9409257DA8CD0056D0BA /* Settings.swift */; };
@@ -104,7 +103,6 @@
 		D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchTube WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72C93E7257D97770056D0BA /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		D72C93EB257D97770056D0BA /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		D72C93ED257D97780056D0BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D72C93EF257D97780056D0BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingInterfaceContoller.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 			isa = PBXGroup;
 			children = (
 				D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */,
-				D72C93EB257D97770056D0BA /* ComplicationController.swift */,
 				D72C942E257DB3EF0056D0BA /* Views */,
 				D72C940E257DABF60056D0BA /* Scenes */,
 				D72C9408257DA8BB0056D0BA /* Models */,
@@ -259,7 +256,7 @@
 				890FEA33275D579A00B573B8 /* SDWebImage */,
 				AAD7F127275D5D4B00D4A882 /* SwiftyJSON */,
 			);
-			productName = "WatchTube";
+			productName = WatchTube;
 			productReference = D72C93CF257D97740056D0BA /* WatchTube.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
@@ -399,7 +396,6 @@
 				AAE7513E2762A03000628BC7 /* CacheTableRow.swift in Sources */,
 				891B09D5275D0F8B00696841 /* SettingsInterfaceController.swift in Sources */,
 				AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */,
-				D72C93EC257D97770056D0BA /* ComplicationController.swift in Sources */,
 				AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */,
 				D72C9430257DB42D0056D0BA /* VideoTableRow.swift in Sources */,
 				D72C9418257DACCE0056D0BA /* Video.swift in Sources */,
@@ -568,7 +564,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Debug;
 		};
@@ -590,7 +586,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Release;
 		};
@@ -612,7 +608,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Debug;
 		};
@@ -632,7 +628,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Release;
 		};
