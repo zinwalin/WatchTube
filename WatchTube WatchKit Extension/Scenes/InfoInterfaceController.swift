@@ -69,16 +69,14 @@ class InfoInterfaceController: WKInterfaceController {
     }
     
     @IBAction func infoDeleteCache() {
-        if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")) {
-            do {
+        do {
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")) {
                 try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")
-            } catch {}
-        }
-        if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")) {
-            do {
+            }
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")) {
                 try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")
-            } catch {}
-        }
+            }
+        } catch {}
         pop()
     }
     
