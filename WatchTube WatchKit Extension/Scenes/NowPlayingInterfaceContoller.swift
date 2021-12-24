@@ -19,6 +19,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceMovie!
+    @IBOutlet var thumb: WKInterfaceImage!
     @IBOutlet var statusLabel: WKInterfaceLabel!
 
     var video: Video!
@@ -35,6 +36,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         
         if self.video != nil {
             self.titleLabel.setText(self.video.title)
+            self.thumb.sd_setImage(with: URL(string: self.video.img))
         }
         
         var dlType: String
