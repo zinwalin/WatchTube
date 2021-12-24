@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch44"/>
+    <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
@@ -514,8 +514,13 @@
                                         <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
                                     </items>
                                 </group>
-                                <movie width="1" height="100" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="Zwy-yF-dB0">
+                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="Zwy-yF-dB0">
+                                    <variation key="device=watch38mm" height="76"/>
+                                    <variation key="device=watch40mm" height="93"/>
+                                    <variation key="device=watch41mm" height="100"/>
+                                    <variation key="device=watch42mm" height="89"/>
                                     <variation key="device=watch44mm" height="104"/>
+                                    <variation key="device=watch45mm" height="110"/>
                                 </movie>
                                 <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="ySW-SW-ZMY">
                                     <items>
@@ -543,7 +548,7 @@
                     <connections>
                         <outlet property="cacheMovie" destination="Zwy-yF-dB0" id="Pqj-9Q-a4q"/>
                         <outlet property="cacheStatusLabel" destination="SGY-qa-pNh" id="2dE-Kd-53w"/>
-                        <outlet property="cacheThumb" destination="Ss7-BF-ZeL" id="7I4-iL-Yvc"/>
+                        <outlet property="cacheThumbnailBg" destination="Ss7-BF-ZeL" id="SJf-lN-wWG"/>
                         <outlet property="cacheTitleLabel" destination="ptW-dh-hiu" id="ICB-ib-cRU"/>
                     </connections>
                 </controller>
@@ -762,8 +767,13 @@
                                         <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
                                 </group>
-                                <movie width="1" height="100" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="T1W-VJ-tpl">
+                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="T1W-VJ-tpl">
+                                    <variation key="device=watch38mm" height="76"/>
+                                    <variation key="device=watch40mm" height="93"/>
+                                    <variation key="device=watch41mm" height="100"/>
+                                    <variation key="device=watch42mm" height="89"/>
                                     <variation key="device=watch44mm" height="104"/>
+                                    <variation key="device=watch45mm" height="110"/>
                                 </movie>
                                 <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="qB2-m4-rl2">
                                     <items>
