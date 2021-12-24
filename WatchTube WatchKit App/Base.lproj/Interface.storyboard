@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch45"/>
+    <device id="watch38"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
@@ -660,7 +660,13 @@
                                     </gestureRecognizers>
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                     <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                    </variation>
+                                    <variation key="device=watch40mm">
                                         <fontDescription key="font" type="system" pointSize="12"/>
+                                    </variation>
+                                    <variation key="device=watch42mm">
+                                        <fontDescription key="font" type="system" pointSize="11"/>
                                     </variation>
                                     <connections>
                                         <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
