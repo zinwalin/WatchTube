@@ -20,7 +20,7 @@ class VideoListInterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         searchLoader.setImageNamed("loading")
-        searchLoader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
+        searchLoader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
         if let dictionary = context as? Dictionary<String, Any> {
             if let action = dictionary["action"] as? String {

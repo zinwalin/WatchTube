@@ -29,6 +29,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         infoViewed=true
         self.pushController(withName: "InfoInterfaceController", context: self.video.id)
     }
+    
     override func awake(withContext context: Any?) {
         
         if context != nil {
@@ -41,7 +42,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         }
         
         movieLoading.setImageNamed("loading")
-        movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
+        movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
         var dlType: String
         var fileType: String
@@ -131,5 +132,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
         }
         
         super.willActivate()
-    }
+    } 
 }
+

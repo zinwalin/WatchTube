@@ -60,7 +60,7 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         
         loader.setImageNamed("loading")
-        loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
+        loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
         do {
             let cacheURL = URL(string: NSHomeDirectory()+"/Documents/cache")!
