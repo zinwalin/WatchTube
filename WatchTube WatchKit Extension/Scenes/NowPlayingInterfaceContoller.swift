@@ -19,9 +19,10 @@ class NowPlayingInterfaceController: WKInterfaceController {
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceMovie!
-    @IBOutlet var thumb: WKInterfaceImage!
     @IBOutlet var statusLabel: WKInterfaceLabel!
-
+    @IBOutlet var thumbnailBg: WKInterfaceImage!
+    @IBOutlet var movieLoading: WKInterfaceImage!
+    
     var video: Video!
     
     @IBAction func infoScreenButton() {
@@ -36,8 +37,11 @@ class NowPlayingInterfaceController: WKInterfaceController {
         
         if self.video != nil {
             self.titleLabel.setText(self.video.title)
-            self.thumb.sd_setImage(with: URL(string: self.video.img))
+            self.thumbnailBg.sd_setImage(with: URL(string: self.video.img))
         }
+        
+        movieLoading.setImageNamed("loading")
+        movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 9999)
         
         var dlType: String
         var fileType: String
@@ -56,6 +60,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         let vidpath = youtubedlServerURLDL+"/"+self.video.id
         self.statusLabel.setText("Waiting for server...")
         isDownloading = true
+        self.movie.setHidden(true)
         
         // dont forget about caching system
         let cachingSetting = UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle)
@@ -72,14 +77,20 @@ class NowPlayingInterfaceController: WKInterfaceController {
         if cachingSetting == true {
             if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).\(fileType)") == true {
                 self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(self.video.id).\(fileType)"))
-                self.statusLabel.setText("Loaded from cache.")
+                self.statusLabel.setText("Ready.")
                 self.isDownloading = false
+                self.movie.setHidden(false)
+                self.movieLoading.setHidden(true)
+                self.movieLoading.stopAnimating()
             } else {
                 AF.download(vidpath, to: destinationCached).response { response in
                     if response.value != nil {
                         self.movie.setMovieURL(response.value!!)
                         self.statusLabel.setText("Ready.")
                         self.isDownloading = false
+                        self.movie.setHidden(false)
+                        self.movieLoading.setHidden(true)
+                        self.movieLoading.stopAnimating()
                     }
                 }.downloadProgress(closure: { (progress) in
                     let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
@@ -92,6 +103,9 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     self.movie.setMovieURL(response.value!!)
                     self.statusLabel.setText("Ready.")
                     self.isDownloading = false
+                    self.movie.setHidden(false)
+                    self.movieLoading.setHidden(true)
+                    self.movieLoading.stopAnimating()
                 }
             }.downloadProgress(closure: { (progress) in
                 let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)

@@ -18,12 +18,12 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     @IBOutlet weak var cacheTitleLabel: WKInterfaceLabel!
     @IBOutlet weak var cacheMovie: WKInterfaceMovie!
     @IBOutlet weak var cacheStatusLabel: WKInterfaceLabel!
-    @IBOutlet weak var cacheThumb: WKInterfaceImage!
+    @IBOutlet weak var cacheThumbnailBg: WKInterfaceImage!
     
     var id: String = ""
     var title: String = ""
     var img: String = ""
-    
+
     @IBAction func cacheInfoScreenButton() {
         self.pushController(withName: "InfoInterfaceController", context: self.id)
     }
@@ -51,7 +51,7 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
             fileType = "mp3"
         }
         
-        self.cacheThumb.sd_setImage(with: URL(string: img))
+        cacheThumbnailBg.sd_setImage(with: URL(string: img))
         
         if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp4") == false) {
             fileType = "mp3"

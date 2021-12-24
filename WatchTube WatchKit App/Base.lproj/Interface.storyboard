@@ -502,21 +502,27 @@
                 <controller identifier="CacheNowPlayingInterfaceController" title="Cache Now Playing" id="znb-rE-3Gy" customClass="CacheNowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
                         <label alignment="left" text="cache title" id="ptW-dh-hiu">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                             </variation>
                         </label>
-                        <group alignment="center" verticalAlignment="center" layout="overlap" radius="5" id="FlW-2f-a7H">
+                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" radius="0.0" id="bvE-dh-DIM">
                             <items>
-                                <imageView alignment="left" image="maxresdefault" id="irp-Ul-QAk"/>
-                                <movie width="1" height="100" alignment="center" verticalAlignment="center" alpha="0.5" id="Zwy-yF-dB0">
-                                    <variation key="device=watch44mm" height="103"/>
+                                <group width="1" alignment="center" verticalAlignment="center" radius="5" id="6n6-5x-Txw">
+                                    <items>
+                                        <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
+                                    </items>
+                                </group>
+                                <movie width="1" height="100" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="Zwy-yF-dB0">
+                                    <variation key="device=watch44mm" height="104"/>
                                 </movie>
-                                <group width="1" height="35" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="dH0-Qq-gab">
+                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="ySW-SW-ZMY">
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" id="5kQ-cl-9yF">
                                             <items>
-                                                <label alignment="left" verticalAlignment="center" text="cache status" numberOfLines="0" id="SGY-qa-pNh">
+                                                <label alignment="left" verticalAlignment="center" text="cache status" id="SGY-qa-pNh">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                                     <variation key="device=watch38mm">
                                                         <fontDescription key="font" type="system" pointSize="11"/>
                                                     </variation>
@@ -537,7 +543,7 @@
                     <connections>
                         <outlet property="cacheMovie" destination="Zwy-yF-dB0" id="Pqj-9Q-a4q"/>
                         <outlet property="cacheStatusLabel" destination="SGY-qa-pNh" id="2dE-Kd-53w"/>
-                        <outlet property="cacheThumb" destination="irp-Ul-QAk" id="gYp-c4-uyP"/>
+                        <outlet property="cacheThumb" destination="Ss7-BF-ZeL" id="7I4-iL-Yvc"/>
                         <outlet property="cacheTitleLabel" destination="ptW-dh-hiu" id="ICB-ib-cRU"/>
                     </connections>
                 </controller>
@@ -743,25 +749,31 @@
             <objects>
                 <controller identifier="NowPlayingInterfaceController" title="Now Playing" contentMode="scaleAspectFit" id="IGU-mI-QIU" customClass="NowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="title" numberOfLines="2" id="MiS-2n-4v5">
+                        <label alignment="left" text="title" id="MiS-2n-4v5">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                             </variation>
                         </label>
-                        <group alignment="center" verticalAlignment="center" layout="overlap" radius="5" id="eHQ-t5-iCq">
+                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" radius="5" id="ULh-ny-Dp1">
                             <items>
-                                <imageView alignment="left" image="maxresdefault" id="Nrf-DD-cyx"/>
-                                <movie width="1" height="100" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
-                                    <variation key="device=watch44mm" height="103"/>
-                                </movie>
-                                <group width="1" height="35" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="XVR-mK-fc2">
+                                <group width="1" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
-                                        <group width="1" alignment="left" verticalAlignment="bottom" id="qB2-m4-rl2">
+                                        <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
+                                    </items>
+                                </group>
+                                <movie width="1" height="100" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="T1W-VJ-tpl">
+                                    <variation key="device=watch44mm" height="104"/>
+                                </movie>
+                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="qB2-m4-rl2">
+                                    <items>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" id="mHa-Je-LjY">
                                             <items>
-                                                <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="loading0" contentMode="scaleAspectFit" id="11U-u0-q4l"/>
-                                                <label alignment="left" verticalAlignment="center" text="status stuff" numberOfLines="2" id="mYm-eV-xkZ">
+                                                <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="loading0" contentMode="scaleAspectFit" id="q3Q-da-SVM"/>
+                                                <label alignment="left" verticalAlignment="center" text="status" id="mYm-eV-xkZ">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                                     <variation key="device=watch38mm">
-                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                        <fontDescription key="font" type="system" pointSize="11"/>
                                                     </variation>
                                                 </label>
                                             </items>
@@ -770,7 +782,7 @@
                                 </group>
                             </items>
                         </group>
-                        <button width="27" height="27" alignment="right" verticalAlignment="bottom" backgroundImage="info.circle" catalog="system" id="Er5-7Q-3Kp">
+                        <button width="25" height="25" alignment="right" verticalAlignment="bottom" backgroundImage="info.circle" catalog="system" id="Er5-7Q-3Kp">
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
@@ -780,13 +792,14 @@
                     </items>
                     <connections>
                         <outlet property="movie" destination="T1W-VJ-tpl" id="Ty4-Wd-Ism"/>
+                        <outlet property="movieLoading" destination="q3Q-da-SVM" id="CAM-aB-OAL"/>
                         <outlet property="statusLabel" destination="mYm-eV-xkZ" id="1ec-WO-HGF"/>
-                        <outlet property="thumb" destination="Nrf-DD-cyx" id="BNT-Yc-oPG"/>
+                        <outlet property="thumbnailBg" destination="1uf-0x-jTJ" id="lUg-kN-S3p"/>
                         <outlet property="titleLabel" destination="MiS-2n-4v5" id="oxW-mj-BkM"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="341" y="282"/>
+            <point key="canvasLocation" x="340" y="268.80710659898477"/>
         </scene>
         <!--SubInfoInterfaceController-->
         <scene sceneID="X0g-ra-rul">
