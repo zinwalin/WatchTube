@@ -501,7 +501,7 @@
             <objects>
                 <controller identifier="CacheNowPlayingInterfaceController" title="Cache Now Playing" id="znb-rE-3Gy" customClass="CacheNowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Label" id="ptW-dh-hiu">
+                        <label alignment="left" text="cache title" id="ptW-dh-hiu">
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                             </variation>
@@ -515,7 +515,7 @@
                                         <action selector="cacheInfoScreenButton" destination="znb-rE-3Gy" id="7As-cN-cJK"/>
                                     </connections>
                                 </button>
-                                <label alignment="left" text="Label" numberOfLines="0" id="SGY-qa-pNh">
+                                <label alignment="left" text="cache status" numberOfLines="0" id="SGY-qa-pNh">
                                     <variation key="device=watch38mm">
                                         <fontDescription key="font" type="system" pointSize="11"/>
                                     </variation>
@@ -744,8 +744,9 @@
                                         <fontDescription key="font" type="system" pointSize="12"/>
                                     </variation>
                                 </label>
-                                <button width="25" height="25" alignment="right" backgroundImage="info.circle" catalog="system" id="Er5-7Q-3Kp">
+                                <button width="27" height="27" alignment="right" backgroundImage="info.circle" catalog="system" id="Er5-7Q-3Kp">
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="15"/>
                                     <connections>
                                         <action selector="infoScreenButton" destination="IGU-mI-QIU" id="CGj-zH-3B0"/>
                                     </connections>
