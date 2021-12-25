@@ -29,6 +29,7 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     }
     
     override func awake(withContext context: Any?) {
+        cacheMovie.setHidden(true)
         super.awake(withContext: context)
         if context != nil {
             self.id = (context as? String)!
@@ -65,6 +66,7 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
             self.cacheStatusLabel.setText("Ready.")
         }
                 
+        self.showMovieFade(movie: cacheMovie)
         self.cacheTitleLabel.setText(self.title)
 
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).\(fileType)") == true {
@@ -79,5 +81,12 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         }
         
         super.didAppear()
+    }
+    
+    func showMovieFade(movie: WKInterfaceMovie!) {
+        animate(withDuration: 0.5) {
+            movie.setHidden(false)
+            movie.setAlpha(0.6)
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38"/>
+    <device id="watch45"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
@@ -760,8 +760,8 @@
             <objects>
                 <controller identifier="NowPlayingInterfaceController" title="Now Playing" contentMode="scaleAspectFit" id="IGU-mI-QIU" customClass="NowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="title" id="MiS-2n-4v5">
-                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                        <label alignment="left" text="title" numberOfLines="3" id="MiS-2n-4v5">
+                            <fontDescription key="font" type="system" pointSize="15"/>
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                             </variation>
