@@ -10,6 +10,7 @@
 		1915493F27713DA000255CDD /* AboutInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1915493E27713DA000255CDD /* AboutInterfaceController.swift */; };
 		191549412771454C00255CDD /* discord.png in Resources */ = {isa = PBXBuildFile; fileRef = 191549402771454C00255CDD /* discord.png */; };
 		191549432771455B00255CDD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 191549422771455B00255CDD /* github.png */; };
+		1974AD612777F69500B6119C /* CompilationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1974AD602777F69500B6119C /* CompilationController.swift */; };
 		19D3D64D2775F59B00E16986 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D3D64C2775F59A00E16986 /* gradient.png */; };
 		19D3D64F2775F60F00E16986 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 19D3D64E2775F60F00E16986 /* maxresdefault.jpg */; };
 		890FEA34275D579A00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA33275D579A00B573B8 /* SDWebImage */; };
@@ -89,6 +90,7 @@
 		1915493E27713DA000255CDD /* AboutInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInterfaceController.swift; sourceTree = "<group>"; };
 		191549402771454C00255CDD /* discord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discord.png; sourceTree = "<group>"; };
 		191549422771455B00255CDD /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
+		1974AD602777F69500B6119C /* CompilationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilationController.swift; sourceTree = "<group>"; };
 		19D3D64C2775F59A00E16986 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
 		19D3D64E2775F60F00E16986 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
 		891B09D4275D0F8B00696841 /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		D72C93E6257D97770056D0BA /* WatchTube WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1974AD602777F69500B6119C /* CompilationController.swift */,
 				D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */,
 				D72C942E257DB3EF0056D0BA /* Views */,
 				D72C940E257DABF60056D0BA /* Scenes */,
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA3BD6542767E1870010FF99 /* SubInfoInterfaceController.swift in Sources */,
+				1974AD612777F69500B6119C /* CompilationController.swift in Sources */,
 				AAA7362127640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift in Sources */,
 				89AA9B7E27711F7000694329 /* MenuInterfaceController.swift in Sources */,
 				D72C9401257D997F0056D0BA /* NowPlayingInterfaceContoller.swift in Sources */,

@@ -56,10 +56,10 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         
         if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp4") == false) {
             fileType = "mp3"
-            self.cacheStatusLabel.setText("mp4 not cached. Using mp3.")
+            self.cacheStatusLabel.setText("Using mp3.")
         } else if fileType == "mp3" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp3") == false) {
             fileType = "mp4"
-            self.cacheStatusLabel.setText("mp3 not cached. Using mp4.")
+            self.cacheStatusLabel.setText("Using mp4.")
         } else if ((FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp3") == false)) {
             self.cacheStatusLabel.setText("No cache data found.")
         } else {
