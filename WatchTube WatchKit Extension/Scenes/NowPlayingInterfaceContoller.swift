@@ -80,7 +80,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                 self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(self.video.id).\(fileType)"))
                 self.statusLabel.setText("Ready.")
                 self.isDownloading = false
-                self.movie.setHidden(false)
+                self.showMovieFade(movie: self.movie)
                 self.movieLoading.setHidden(true)
                 self.movieLoading.stopAnimating()
             } else {
@@ -89,7 +89,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         self.movie.setMovieURL(response.value!!)
                         self.statusLabel.setText("Ready.")
                         self.isDownloading = false
-                        self.movie.setHidden(false)
+                        self.showMovieFade(movie: self.movie)
                         self.movieLoading.setHidden(true)
                         self.movieLoading.stopAnimating()
                     }
@@ -104,7 +104,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     self.movie.setMovieURL(response.value!!)
                     self.statusLabel.setText("Ready.")
                     self.isDownloading = false
-                    self.movie.setHidden(false)
+                    self.showMovieFade(movie: self.movie)
                     self.movieLoading.setHidden(true)
                     self.movieLoading.stopAnimating()
                 }
@@ -132,6 +132,13 @@ class NowPlayingInterfaceController: WKInterfaceController {
         }
         
         super.willActivate()
-    } 
+    }
+    
+    func showMovieFade(movie: WKInterfaceMovie!) {
+        animate(withDuration: 0.5) {
+            movie.setHidden(false)
+            movie.setAlpha(0.6)
+        }
+    }
 }
 

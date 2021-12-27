@@ -2,7 +2,7 @@
 //  AboutInterfaceController.swift
 //  WatchTube WatchKit Extension
 //
-//  Created by Vick Lothiyi on 20/12/2021.
+//  Created by llsc12 on 20/12/2021.
 //
 
 import WatchKit

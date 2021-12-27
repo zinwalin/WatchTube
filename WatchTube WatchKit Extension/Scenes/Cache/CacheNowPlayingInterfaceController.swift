@@ -29,6 +29,7 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     }
     
     override func awake(withContext context: Any?) {
+        cacheMovie.setHidden(true)
         super.awake(withContext: context)
         if context != nil {
             self.id = (context as? String)!
@@ -55,16 +56,17 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         
         if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp4") == false) {
             fileType = "mp3"
-            self.cacheStatusLabel.setText("mp4 not cached. Using mp3.")
+            self.cacheStatusLabel.setText("Using mp3.")
         } else if fileType == "mp3" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp3") == false) {
             fileType = "mp4"
-            self.cacheStatusLabel.setText("mp3 not cached. Using mp4.")
+            self.cacheStatusLabel.setText("Using mp4.")
         } else if ((FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).mp3") == false)) {
             self.cacheStatusLabel.setText("No cache data found.")
         } else {
             self.cacheStatusLabel.setText("Ready.")
         }
                 
+        self.showMovieFade(movie: cacheMovie)
         self.cacheTitleLabel.setText(self.title)
 
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.id).\(fileType)") == true {
@@ -79,5 +81,12 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         }
         
         super.didAppear()
+    }
+    
+    func showMovieFade(movie: WKInterfaceMovie!) {
+        animate(withDuration: 0.5) {
+            movie.setHidden(false)
+            movie.setAlpha(0.6)
+        }
     }
 }
