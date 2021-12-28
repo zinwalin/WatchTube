@@ -677,7 +677,13 @@
                                     </gestureRecognizers>
                                     <fontDescription key="font" type="system" pointSize="13"/>
                                     <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                    </variation>
+                                    <variation key="device=watch40mm">
                                         <fontDescription key="font" type="system" pointSize="12"/>
+                                    </variation>
+                                    <variation key="device=watch42mm">
+                                        <fontDescription key="font" type="system" pointSize="11"/>
                                     </variation>
                                     <connections>
                                         <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
