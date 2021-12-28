@@ -58,32 +58,26 @@ class CacheContentsInterfaceController: WKInterfaceController {
                     guard let row = cacheTableRow.rowController(at: i) as? CacheTableRow else {
                         continue
                     }
-                    
-                    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        let dataFileURL = dir.appendingPathComponent("miscCache/"+videoID)
                         
-                        let data = try String(contentsOf: dataFileURL, encoding: .utf8).components(separatedBy: "\n")
-                        // ok so data[0] is the video title and data[1] is image url
-                        row.cacheTitleLabel.setText(data[0])
-                        row.cacheThumbImage.sd_setImage(with: URL(string: data[1]))
-                        row.videoId = videoID
-                        var totalSize = 0 as Int64
-                        if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp4") {
-                            if let bytes = fileAttributes[.size] as? Int64 {
-                                totalSize = totalSize+bytes
-                            }
+                    row.cacheTitleLabel.setText(Global.getVideoInfo(id: videoID, key: "title") as? String)
+                    row.cacheThumbImage.sd_setImage(with: URL(string: Global.getVideoInfo(id: videoID, key: "thumbnail") as! String))
+                    row.videoId = videoID
+                    var totalSize = 0 as Int64
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp4") {
+                        if let bytes = fileAttributes[.size] as? Int64 {
+                            totalSize = totalSize+bytes
                         }
-                        if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp3") {
-                            if let bytes = fileAttributes[.size] as? Int64 {
-                                totalSize = totalSize+bytes
-                            }
-                        }
-                        let bcf = ByteCountFormatter()
-                        if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
-                        bcf.countStyle = .file
-                        let string = bcf.string(fromByteCount: totalSize)
-                        row.cacheFilesize.setText(string)
                     }
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp3") {
+                        if let bytes = fileAttributes[.size] as? Int64 {
+                            totalSize = totalSize+bytes
+                        }
+                    }
+                    let bcf = ByteCountFormatter()
+                    if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
+                    bcf.countStyle = .file
+                    let string = bcf.string(fromByteCount: totalSize)
+                    row.cacheFilesize.setText(string)
                 }
                 
                 

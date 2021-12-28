@@ -21,6 +21,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     @IBOutlet var movie: WKInterfaceMovie!
     @IBOutlet var statusLabel: WKInterfaceLabel!
     @IBOutlet var thumbnailBg: WKInterfaceImage!
+    @IBOutlet var channelLabel: WKInterfaceLabel!
     @IBOutlet var movieLoading: WKInterfaceImage!
     
     var video: Video!
@@ -39,6 +40,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         if self.video != nil {
             self.titleLabel.setText(self.video.title)
             self.thumbnailBg.sd_setImage(with: URL(string: self.video.img))
+            self.channelLabel.setText(self.video.channel)
         }
         
         movieLoading.setImageNamed("loading")
