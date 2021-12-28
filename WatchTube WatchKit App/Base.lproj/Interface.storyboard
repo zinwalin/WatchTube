@@ -658,7 +658,7 @@
                                             </connections>
                                         </longPressGestureRecognizer>
                                     </gestureRecognizers>
-                                    <fontDescription key="font" type="system" pointSize="8"/>
+                                    <fontDescription key="font" type="system" pointSize="13"/>
                                     <variation key="device=watch38mm">
                                         <fontDescription key="font" type="system" pointSize="12"/>
                                     </variation>
