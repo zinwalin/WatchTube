@@ -31,35 +31,20 @@ class InfoInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         videoId = context! as! String
-        
+                
         self.showDescriptionButton.setEnabled(false)
         self.likesLabel.setText("Loading Likes")
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
         self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp3")))
+                
+        self.likesLabel.setText("\(String(describing: Global.getVideoInfo(id: videoId, key: "likes"))) Likes")
+        self.viewsLabel.setText("\(String(describing: Global.getVideoInfo(id: videoId, key: "views"))) Views")
+        self.dateLabel.setText("Uploaded \(String(describing: Global.getVideoInfo(id: videoId, key: "publishedDate")))")
+        self.authorLabel.setText("\(String(describing: Global.getVideoInfo(id: videoId, key: "channelName")))")
+        self.showDescriptionButton.setEnabled(true)
         
-        
-        AF.request("https://"+Constants.downloadSrvInstance+"/api/v1/getInfo?url=\(context!)").responseJSON { response in
-            
-            switch response.result {
-            case .success(let json):
-                    let response = json as! Dictionary<String, Any>
-                    let keyExists = response["videoDetails"]
-                    if keyExists != nil{
-                        self.videoDetails = response["videoDetails"] as! Dictionary<String, Any>
-                    }
-                    
-            case .failure(let error):
-                print(error)
-            }
-            let author = self.videoDetails["author"] as! Dictionary<String, Any>
-            self.likesLabel.setText("\(String(describing: self.videoDetails["likes"]!)) Likes")
-            self.viewsLabel.setText("\(String(describing: self.videoDetails["viewCount"]!)) Views")
-            self.dateLabel.setText("Uploaded \(String(describing: self.videoDetails["publishDate"]!).components(separatedBy: "-").reversed().joined(separator: "/"))")
-            self.authorLabel.setText("\(String(describing: author["name"]!))")
-            self.showDescriptionButton.setEnabled(true)
-        }
 
         
         // Configure interface objects here.

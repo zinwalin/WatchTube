@@ -29,8 +29,7 @@ class Video {
             switch response.result {
             case .success(let json):
                     let response = json as! Dictionary<String, Any>
-                    let keyExists = response["items"]
-                    if keyExists != nil{
+                    if response["items"] != nil{
                         let items = response["items"] as! [[String: Any]]
                         for (_, item) in items.enumerated() {
                             
