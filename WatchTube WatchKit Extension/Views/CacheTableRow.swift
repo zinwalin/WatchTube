@@ -11,6 +11,7 @@ import Foundation
 class CacheTableRow: NSObject {
     @IBOutlet var cacheThumbImage: WKInterfaceImage!
     @IBOutlet var cacheTitleLabel: WKInterfaceLabel!
-    @IBOutlet weak var cacheFilesize: WKInterfaceLabel!
+    @IBOutlet var cacheFilesize: WKInterfaceLabel!
+    @IBOutlet var cacheChannelLabel: WKInterfaceLabel!
     var videoId: String!
 }

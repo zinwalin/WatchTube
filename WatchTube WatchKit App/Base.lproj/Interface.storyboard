@@ -15,31 +15,42 @@
                         <table alignment="center" id="VRc-BZ-fnW" userLabel="Cache Table Row">
                             <items>
                                 <tableRow identifier="cachedVideoRow" id="uBO-zy-wCy" userLabel="CacheVideoRow" customClass="CacheTableRow" customModule="WatchTube_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="48" alignment="left" id="m74-j7-9oP">
+                                    <group key="rootItem" width="1" height="50" alignment="left" radius="5" id="m74-j7-9oP">
                                         <items>
-                                            <imageView width="50" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="rrD-ku-Mln">
+                                            <imageView width="55" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="rrD-ku-Mln">
                                                 <variation key="device=watch38mm" width="40"/>
                                             </imageView>
-                                            <group width="0.80000000000000004" widthAdjustment="-9" height="1" alignment="left" layout="vertical" id="4wP-dG-FlE">
+                                            <group width="133" height="1" alignment="left" layout="vertical" id="4wP-dG-FlE">
                                                 <items>
-                                                    <label width="1" alignment="left" text="title" numberOfLines="2" id="uD7-4I-4s5">
-                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                                        <variation key="device=watch38mm">
-                                                            <fontDescription key="font" type="system" pointSize="10"/>
-                                                        </variation>
-                                                    </label>
-                                                    <label alignment="left" verticalAlignment="bottom" text="filesizes" id="0rY-nJ-Oh4">
+                                                    <label width="1" alignment="left" text="title" numberOfLines="3" id="uD7-4I-4s5">
                                                         <fontDescription key="font" type="system" pointSize="10"/>
                                                     </label>
+                                                    <group width="1" alignment="left" verticalAlignment="bottom" id="6ik-ps-pNb">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="bottom" text="filesizes" id="G3W-oi-JTy">
+                                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                                            </label>
+                                                            <label alignment="right" verticalAlignment="bottom" text="channel" id="hfm-7q-WoP">
+                                                                <fontDescription key="font" type="system" pointSize="9"/>
+                                                                <variation key="device=watch38mm">
+                                                                    <fontDescription key="font" type="system" pointSize="8"/>
+                                                                </variation>
+                                                            </label>
+                                                        </items>
+                                                    </group>
                                                 </items>
-                                                <variation key="device=watch38mm" widthAdjustment="-9"/>
-                                                <variation key="device=watch40mm" widthAdjustment="-14"/>
-                                                <variation key="device=watch42mm" widthAdjustment="-15"/>
+                                                <variation key="device=watch38mm" width="80"/>
+                                                <variation key="device=watch40mm" width="96"/>
+                                                <variation key="device=watch41mm" width="111"/>
+                                                <variation key="device=watch42mm" width="90"/>
+                                                <variation key="device=watch44mm" width="119"/>
                                             </group>
                                         </items>
+                                        <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
                                     </group>
                                     <connections>
-                                        <outlet property="cacheFilesize" destination="0rY-nJ-Oh4" id="XkJ-RJ-cQG"/>
+                                        <outlet property="cacheChannelLabel" destination="hfm-7q-WoP" id="80D-QV-Akh"/>
+                                        <outlet property="cacheFilesize" destination="G3W-oi-JTy" id="Dsv-tp-n3d"/>
                                         <outlet property="cacheThumbImage" destination="rrD-ku-Mln" id="f2o-27-YMn"/>
                                         <outlet property="cacheTitleLabel" destination="uD7-4I-4s5" id="UsI-Of-Lgc"/>
                                     </connections>
@@ -60,7 +71,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="138.74747474747474" y="633.63636363636363"/>
+            <point key="canvasLocation" x="137.37373737373738" y="632.93388429752065"/>
         </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
@@ -105,7 +116,7 @@
                                         <items>
                                             <separator alignment="left" alpha="0.0" id="eTR-HA-NBY"/>
                                             <label alignment="left" text="channel name" id="HTU-mZ-89d">
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                <fontDescription key="font" type="system" pointSize="12"/>
                                                 <variation key="device=watch38mm">
                                                     <fontDescription key="font" type="system" pointSize="10"/>
                                                 </variation>
@@ -115,8 +126,8 @@
                                                     <imageView alignment="center" id="XEI-nm-I0j"/>
                                                 </items>
                                             </group>
-                                            <label alignment="left" text="title" id="gKL-Ed-UTd">
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            <label alignment="left" text="title" numberOfLines="2" id="gKL-Ed-UTd">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
                                                 <variation key="device=watch38mm">
                                                     <fontDescription key="font" type="system" pointSize="10"/>
                                                 </variation>
@@ -730,7 +741,7 @@
                                         <items>
                                             <separator alignment="center" alpha="0.0" id="ax7-Sj-stS"/>
                                             <label alignment="left" text="channel name" id="dsR-DS-y2v">
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                <fontDescription key="font" type="system" pointSize="12"/>
                                                 <variation key="device=watch38mm">
                                                     <fontDescription key="font" type="system" pointSize="10"/>
                                                 </variation>
@@ -741,7 +752,7 @@
                                                 </items>
                                             </group>
                                             <label alignment="left" verticalAlignment="bottom" text="title" numberOfLines="2" id="s08-8O-Sw8">
-                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                <fontDescription key="font" type="system" pointSize="12"/>
                                                 <variation key="device=watch38mm">
                                                     <fontDescription key="font" type="system" pointSize="10"/>
                                                 </variation>

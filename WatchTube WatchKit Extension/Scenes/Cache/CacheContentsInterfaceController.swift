@@ -60,6 +60,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
                     }
                         
                     row.cacheTitleLabel.setText(Global.getVideoInfo(id: videoID, key: "title") as? String)
+                    row.cacheChannelLabel.setText(Global.getVideoInfo(id: videoID, key: "channelName") as? String)
                     row.cacheThumbImage.sd_setImage(with: URL(string: Global.getVideoInfo(id: videoID, key: "thumbnail") as! String))
                     row.videoId = videoID
                     var totalSize = 0 as Int64

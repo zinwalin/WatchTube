@@ -50,7 +50,7 @@ class InfoInterfaceController: WKInterfaceController {
         // Configure interface objects here.
     }
     @IBAction func showDescription() {
-        self.pushController(withName: "SubInfoInterfaceController", context: self.videoDetails["description"]!)
+        self.pushController(withName: "SubInfoInterfaceController", context: Global.getVideoInfo(id: videoId, key: "description"))
     }
     
     @IBAction func infoDeleteCache() {
