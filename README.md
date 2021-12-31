@@ -20,6 +20,6 @@ Make sure you add your Apple ID to Xcode or else your personal team will not app
 
 # Demonstrations
 ![](./demo/1.gif)
-> Note that this demonstration is of the simulator. The video playback controls were odd and the videos look long to load. This is not a problem on real devices.
+> Note that this is a demonstration of the simulator. The video playback controls were odd and the videos look long to load. This is not a problem on real devices.
 
 More demonstrations coming soon!
