@@ -269,40 +269,68 @@
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
             <objects>
-                <controller identifier="AboutInterfaceController" title="About" id="252-Fw-M0F" customClass="AboutInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                <controller identifier="AboutInterfaceController" title="About" id="252-Fw-M0F">
                     <items>
                         <label width="1" alignment="left" text="WatchTube was made by llsc12 and Superbro. This app is open source and available on GitHub." numberOfLines="0" id="dxk-4D-zuo"/>
                         <separator alignment="left" id="uKv-u5-Icf">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
-                        <group width="1" alignment="left" id="za5-21-8eO">
+                        <group width="1" alignment="center" id="za5-21-8eO">
                             <items>
                                 <label alignment="right" text="GitHub" id="jqr-BE-awl"/>
                                 <label alignment="left" text="Discord" id="Hhk-2m-7dB"/>
                             </items>
                         </group>
-                        <group width="1" height="100" alignment="center" verticalAlignment="center" radius="0.0" id="GwI-mR-XGB">
+                        <group width="1" alignment="left" layout="vertical" radius="0.0" spacing="0.0" id="H74-7L-kYs">
                             <items>
-                                <button alignment="left" verticalAlignment="center" id="e7S-OI-hzH">
-                                    <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="vxF-Qr-tjH">
-                                        <items>
-                                            <imageView width="1" height="1" alignment="left" verticalAlignment="center" image="discord" contentMode="scaleAspectFit" id="eLc-tY-tzp"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <segue destination="iJq-2U-y3B" kind="modal" id="1a6-gc-lnH"/>
-                                    </connections>
-                                </button>
-                                <button alignment="right" verticalAlignment="center" id="o7Q-hp-U3K">
-                                    <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="5HQ-9H-hNO">
-                                        <items>
-                                            <imageView width="1" height="1" alignment="right" image="github" contentMode="scaleAspectFit" id="nBW-fN-25J"/>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <segue destination="nCs-hP-9uC" kind="modal" id="T2L-IF-Teh"/>
-                                    </connections>
-                                </button>
+                                <group width="1" height="100" alignment="center" radius="0.0" id="hyO-En-xVn">
+                                    <items>
+                                        <button alignment="left" verticalAlignment="center" id="VFQ-qj-lcb">
+                                            <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="4ev-MV-4PF">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="left" verticalAlignment="center" image="discord" contentMode="scaleAspectFit" id="nc9-5I-QYB"/>
+                                                </items>
+                                            </group>
+                                        </button>
+                                        <button alignment="right" verticalAlignment="center" id="zcZ-c7-GTo">
+                                            <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="tpM-yH-CYi">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="right" image="github" contentMode="scaleAspectFit" id="Ba5-yF-Ufg"/>
+                                                </items>
+                                            </group>
+                                        </button>
+                                    </items>
+                                </group>
+                                <group width="1" height="100" alignment="center" radius="0.0" id="GwI-mR-XGB">
+                                    <items>
+                                        <button alignment="left" verticalAlignment="center" id="e7S-OI-hzH">
+                                            <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="vxF-Qr-tjH">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="left" verticalAlignment="center" image="twitter" contentMode="scaleAspectFit" id="eLc-tY-tzp"/>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <segue destination="ZjC-T8-p67" kind="modal" id="3s3-KG-iGO"/>
+                                            </connections>
+                                        </button>
+                                        <button alignment="right" verticalAlignment="center" id="o7Q-hp-U3K">
+                                            <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="5HQ-9H-hNO">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="right" image="watchtube" contentMode="scaleAspectFit" id="nBW-fN-25J"/>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <segue destination="yYY-NZ-j6g" kind="modal" id="UEh-mL-2K3"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="center" id="kn8-RE-UBr">
+                            <items>
+                                <label alignment="right" text="WatchTube" id="Dcf-0m-sa9"/>
+                                <label alignment="left" text="Twitter" id="a16-1F-OqH"/>
                             </items>
                         </group>
                         <label alignment="center" verticalAlignment="bottom" text="Tap to expand" id="Lya-fH-H7B">
@@ -334,7 +362,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="808" y="145"/>
+            <point key="canvasLocation" x="999" y="-138"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5UF-dP-8ee">
@@ -525,7 +553,7 @@
                                         <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
                                     </items>
                                 </group>
-                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="Zwy-yF-dB0">
+                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="Zwy-yF-dB0">
                                     <variation key="device=watch38mm" height="76"/>
                                     <variation key="device=watch40mm" height="93"/>
                                     <variation key="device=watch41mm" height="100"/>
@@ -801,7 +829,7 @@
                                         <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
                                 </group>
-                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.59999999999999998" id="T1W-VJ-tpl">
+                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
                                     <variation key="device=watch38mm" height="76"/>
                                     <variation key="device=watch40mm" height="93"/>
                                     <variation key="device=watch41mm" height="100"/>
@@ -877,6 +905,28 @@
             </objects>
             <point key="canvasLocation" x="552" y="283"/>
         </scene>
+        <!--Done-->
+        <scene sceneID="oAe-4v-6TH">
+            <objects>
+                <controller identifier="twitterQrCode" title="Done" id="ZjC-T8-p67">
+                    <items>
+                        <imageView width="1" height="1" alignment="center" verticalAlignment="center" image="twitter" contentMode="scaleAspectFit" id="Yy6-CO-Eo4"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="808" y="110"/>
+        </scene>
+        <!--Done-->
+        <scene sceneID="5lP-if-Mfh">
+            <objects>
+                <controller identifier="watchtubeQrCode" title="Done" id="yYY-NZ-j6g">
+                    <items>
+                        <imageView width="1" height="1" alignment="center" verticalAlignment="center" image="watchtube" contentMode="scaleAspectFit" id="FZi-dW-OSE"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="999" y="110"/>
+        </scene>
     </scenes>
     <color key="tintColor" name="AccentColor"/>
     <resources>
@@ -894,6 +944,8 @@
         <image name="maxresdefault" width="1280" height="720"/>
         <image name="person" catalog="system" width="128" height="120"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="twitter" width="556" height="556"/>
+        <image name="watchtube" width="556" height="556"/>
         <namedColor name="AccentColor">
             <color red="0.90588235294117647" green="0.34901960784313724" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

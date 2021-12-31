@@ -12,6 +12,8 @@ import SDWebImage
 
 var youtubedlServerURLBase = "https://" + Constants.downloadSrvInstance
 
+var video: Video!
+
 class NowPlayingInterfaceController: WKInterfaceController {
     
     var infoViewed: Bool = false
@@ -24,23 +26,21 @@ class NowPlayingInterfaceController: WKInterfaceController {
     @IBOutlet var channelLabel: WKInterfaceLabel!
     @IBOutlet var movieLoading: WKInterfaceImage!
     
-    var video: Video!
-    
     @IBAction func infoScreenButton() {
         infoViewed=true
-        self.pushController(withName: "InfoInterfaceController", context: self.video.id)
+        self.pushController(withName: "InfoInterfaceController", context: video.id)
     }
     
     override func awake(withContext context: Any?) {
         
         if context != nil {
-            self.video = context as? Video
+            video = context as? Video
         }
         
-        if self.video != nil {
-            self.titleLabel.setText(self.video.title)
-            self.thumbnailBg.sd_setImage(with: URL(string: self.video.img))
-            self.channelLabel.setText(self.video.channel)
+        if video != nil {
+            self.titleLabel.setText(video.title)
+            self.thumbnailBg.sd_setImage(with: URL(string: video.img))
+            self.channelLabel.setText(video.channel)
         }
         
         movieLoading.setImageNamed("loading")
@@ -60,7 +60,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         
         super.awake(withContext: context)
 
-        let vidpath = youtubedlServerURLDL+"/"+self.video.id
+        let vidpath = youtubedlServerURLDL+"/"+video.id
         self.statusLabel.setText("Waiting for server...")
         isDownloading = true
         self.movie.setHidden(true)
@@ -69,7 +69,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         let cachingSetting = UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle)
 
         let destinationCached: DownloadRequest.Destination = { _, _ in
-            let cachingFileURL = URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(self.video.id).\(fileType)")
+            let cachingFileURL = URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(fileType)")
             return (cachingFileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         let destination: DownloadRequest.Destination = { _, _ in
@@ -78,8 +78,8 @@ class NowPlayingInterfaceController: WKInterfaceController {
         }
                 
         if cachingSetting == true {
-            if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).\(fileType)") == true {
-                self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(self.video.id).\(fileType)"))
+            if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(fileType)") == true {
+                self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(fileType)"))
                 self.statusLabel.setText("Ready.")
                 self.isDownloading = false
                 self.showMovieFade(movie: self.movie)
@@ -96,7 +96,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         self.movieLoading.stopAnimating()
                     }
                 }.downloadProgress(closure: { (progress) in
-                    let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
+                    let percent = round((progress.fractionCompleted*100) * 10) / 10.0
                     self.statusLabel.setText("Downloading... \(percent)%")
                 })
             }
@@ -111,7 +111,8 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     self.movieLoading.stopAnimating()
                 }
             }.downloadProgress(closure: { (progress) in
-                let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
+//                let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
+                let percent = round((progress.fractionCompleted*100) * 10) / 10.0
                 self.statusLabel.setText("Downloading... \(percent)%")
             })
         }
@@ -120,7 +121,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     override func willActivate() {
         
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true && infoViewed == true {
-            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.video.id).mp3"))) {
+            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).mp3"))) {
                 if isDownloading {
                     infoViewed=false
                 } else {
@@ -137,9 +138,10 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     func showMovieFade(movie: WKInterfaceMovie!) {
+        movie.setAlpha(0)
         animate(withDuration: 0.5) {
             movie.setHidden(false)
-            movie.setAlpha(0.6)
+            movie.setAlpha(0.5)
         }
     }
 }

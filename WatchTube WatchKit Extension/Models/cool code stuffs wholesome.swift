@@ -27,7 +27,7 @@ class Global {
                     data["category"] = videoDetails["category"] as? String
                     data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
                     data["publishedDate"] = (videoDetails["publishDate"] as? String)!.components(separatedBy: "-").reversed().joined(separator: "/")
-                    data["related_videos"] = videoDetails["related_videos"]
+                    data["related_videos"] = response["related_videos"]
                     
                     do {
                         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -62,8 +62,6 @@ class Global {
 
             // load file as nsdictionary
             let data = NSDictionary(contentsOf: fileURL)
-            
-            
             
             // if key was provided...
             if (key != nil) {

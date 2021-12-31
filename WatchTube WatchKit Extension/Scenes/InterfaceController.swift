@@ -11,7 +11,7 @@ import Alamofire
 
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var loader: WKInterfaceImage!
-    @IBOutlet var TrendingTableRow: WKInterfaceTable!
+    @IBOutlet weak var TrendingTableRow: WKInterfaceTable!
     @IBOutlet weak var internetLabel: WKInterfaceLabel!
     @IBOutlet weak var searchButton: WKInterfaceButton!
     @IBOutlet weak var tooltipLabel: WKInterfaceLabel!

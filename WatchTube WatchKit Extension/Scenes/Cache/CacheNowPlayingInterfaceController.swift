@@ -83,9 +83,10 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     }
     
     func showMovieFade(movie: WKInterfaceMovie!) {
+        movie.setAlpha(0)
         animate(withDuration: 0.5) {
             movie.setHidden(false)
-            movie.setAlpha(0.6)
+            movie.setAlpha(0.5)
         }
     }
 }
