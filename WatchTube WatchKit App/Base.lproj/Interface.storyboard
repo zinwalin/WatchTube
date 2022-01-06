@@ -291,6 +291,9 @@
                                                     <imageView width="1" height="1" alignment="left" verticalAlignment="center" image="discord" contentMode="scaleAspectFit" id="nc9-5I-QYB"/>
                                                 </items>
                                             </group>
+                                            <connections>
+                                                <segue destination="iJq-2U-y3B" kind="modal" id="847-YP-32l"/>
+                                            </connections>
                                         </button>
                                         <button alignment="right" verticalAlignment="center" id="zcZ-c7-GTo">
                                             <group key="contentGroup" width="0.5" height="1" alignment="left" radius="0.0" id="tpM-yH-CYi">
@@ -298,6 +301,9 @@
                                                     <imageView width="1" height="1" alignment="right" image="github" contentMode="scaleAspectFit" id="Ba5-yF-Ufg"/>
                                                 </items>
                                             </group>
+                                            <connections>
+                                                <segue destination="nCs-hP-9uC" kind="modal" id="gah-Zo-rMP"/>
+                                            </connections>
                                         </button>
                                     </items>
                                 </group>
