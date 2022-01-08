@@ -21,9 +21,6 @@
 		AA8A9490275BF7AC00EBABC4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AA8A948F275BF7AC00EBABC4 /* Alamofire */; };
 		AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */; };
 		AAA7362127640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */; };
-		AAD7F128275D5D4B00D4A882 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AAD7F127275D5D4B00D4A882 /* SwiftyJSON */; };
-		AAD7F12A275D5D5D00D4A882 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AAD7F129275D5D5D00D4A882 /* SwiftyJSON */; };
-		AAD7F12C275D5D6600D4A882 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = AAD7F12B275D5D6600D4A882 /* SwiftyJSON */; };
 		AAE7513E2762A03000628BC7 /* CacheTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7513D2762A03000628BC7 /* CacheTableRow.swift */; };
 		AAF50E3F275FC74500E4679D /* CacheContentsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF50E3E275FC74500E4679D /* CacheContentsInterfaceController.swift */; };
 		D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -117,7 +114,6 @@
 			files = (
 				890FEA34275D579A00B573B8 /* SDWebImage in Frameworks */,
 				AA8A948C275BF6B800EBABC4 /* Alamofire in Frameworks */,
-				AAD7F128275D5D4B00D4A882 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,7 +123,6 @@
 			files = (
 				890FEA36275D57A500B573B8 /* SDWebImage in Frameworks */,
 				AA8A948E275BF78300EBABC4 /* Alamofire in Frameworks */,
-				AAD7F12A275D5D5D00D4A882 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +132,6 @@
 			files = (
 				890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */,
 				AA8A9490275BF7AC00EBABC4 /* Alamofire in Frameworks */,
-				AAD7F12C275D5D6600D4A882 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +261,6 @@
 			packageProductDependencies = (
 				AA8A948B275BF6B800EBABC4 /* Alamofire */,
 				890FEA33275D579A00B573B8 /* SDWebImage */,
-				AAD7F127275D5D4B00D4A882 /* SwiftyJSON */,
 			);
 			productName = WatchTube;
 			productReference = D72C93CF257D97740056D0BA /* WatchTube.app */;
@@ -290,7 +283,6 @@
 			packageProductDependencies = (
 				AA8A948D275BF78300EBABC4 /* Alamofire */,
 				890FEA35275D57A500B573B8 /* SDWebImage */,
-				AAD7F129275D5D5D00D4A882 /* SwiftyJSON */,
 			);
 			productName = "WatchTube WatchKit App";
 			productReference = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */;
@@ -312,7 +304,6 @@
 			packageProductDependencies = (
 				AA8A948F275BF7AC00EBABC4 /* Alamofire */,
 				890FEA37275D57AA00B573B8 /* SDWebImage */,
-				AAD7F12B275D5D6600D4A882 /* SwiftyJSON */,
 			);
 			productName = "WatchTube WatchKit Extension";
 			productReference = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */;
@@ -350,7 +341,6 @@
 			packageReferences = (
 				AA8A948A275BF6B800EBABC4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				AAD7F126275D5D4B00D4A882 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = D72C93D0257D97740056D0BA /* Products */;
 			projectDirPath = "";
@@ -732,14 +722,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		AAD7F126275D5D4B00D4A882 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -772,21 +754,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AA8A948A275BF6B800EBABC4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		AAD7F127275D5D4B00D4A882 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AAD7F126275D5D4B00D4A882 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		AAD7F129275D5D5D00D4A882 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AAD7F126275D5D4B00D4A882 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
-		};
-		AAD7F12B275D5D6600D4A882 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AAD7F126275D5D4B00D4A882 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

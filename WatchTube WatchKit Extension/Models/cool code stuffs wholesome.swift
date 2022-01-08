@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 class meta {
     class func cacheVideoInfo(id: String) {
@@ -19,7 +18,7 @@ class meta {
                 data["title"] = videoDetails["title"] as? String
                 data["channelId"] = videoDetails["authorId"] as? String
                 data["channelName"] = videoDetails["author"] as? String
-                data["thumbnail"] = JSON(videoDetails["videoThumbnails"] as Any)[0]["url"].string
+                data["thumbnail"] = (videoDetails["videoThumbnails"] as! Array<Dictionary<String, Any>>)[0]["url"] as! String
                 data["likes"] = videoDetails["likeCount"] as? Int
                 data["description"] = videoDetails["description"] as? String
                 data["views"] = videoDetails["viewCount"] as? Int

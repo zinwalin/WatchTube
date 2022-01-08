@@ -7,8 +7,6 @@
 
 import WatchKit
 import Foundation
-import Alamofire
-import SwiftyJSON
 
 class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var viewsIcon: WKInterfaceImage!

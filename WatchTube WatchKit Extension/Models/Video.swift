@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 import SDWebImage
 
 class Video {
@@ -33,12 +32,12 @@ class Video {
                         let title = item["title"]
                         let vidId = item["videoId"]
                         let channel = item["author"] as? String
-                        let url = JSON(item["videoThumbnails"] as Any)[0]["url"].string
+                        let url = (item["videoThumbnails"] as! Array<Dictionary<String, Any>>)[0]["url"] as! String
                         // cool also btw this is the search results thingy
-                        if title == nil || vidId == nil || url == nil || channel == nil {
+                        if title == nil || vidId == nil || channel == nil {
                             //where data moment
                         } else {
-                            let video = Video(id: vidId as! String, title: title as! String, img: url!, channel: channel!)
+                            let video = Video(id: vidId as! String, title: title as! String, img: url, channel: channel!)
                             videos.append(video)
                         }
                     }
@@ -61,11 +60,11 @@ class Video {
                             let title = item["title"]
                             let vidId = item["videoId"]
                             let channel = item["author"]
-                            let thumbnail = JSON(item["videoThumbnails"]!)[1]["url"].string
+                            let thumbnail = (item["videoThumbnails"] as! Array<Dictionary<String, Any>>)[1]["url"] as! String
                             if title == nil || vidId == nil || channel == nil {
                                 continue
                             } else {
-                                let video = Video(id: vidId as! String, title: title as! String, img: thumbnail!, channel: channel as! String)
+                                let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String)
                                 videos.append(video)
                             }
                         }
