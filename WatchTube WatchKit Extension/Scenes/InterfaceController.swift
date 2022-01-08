@@ -116,7 +116,7 @@ class InterfaceController: WKInterfaceController {
                 row.trendingThumbImg.sd_setImage(with: URL(string: videos[i].img))
             }
             
-            Global.cacheVideoInfo(id: videos[i].id)
+            meta.cacheVideoInfo(id: videos[i].id)
         }
     }
     

@@ -7,37 +7,39 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
-class Global {
+class meta {
     class func cacheVideoInfo(id: String) {
-        AF.request("https://\(Constants.downloadSrvInstance)/api/v1/getInfo?url=https://youtu.be/\(id)").responseJSON { response in
+        AF.request("\(Constants.apiUrl)/videos/\(id)?fields=title,author,authorId,videoThumbnails(url),likeCount,description,viewCount,genre,lengthSeconds,published").responseJSON { response in
             switch response.result {
             case .success(let json):
-                let response = json as! Dictionary<String, Any>
-                if response["videoDetails"] != nil {
-                    let videoDetails = response["videoDetails"] as! Dictionary<String, Any>
-                    var data = [String: Any]()
-                    data["title"] = videoDetails["title"] as? String
-                    data["channelId"] = (videoDetails["author"] as! Dictionary<String, Any>)["id"] as? String
-                    data["channelName"] = (videoDetails["author"] as! Dictionary<String, Any>)["name"] as? String
-                    data["thumbnail"] = "https://i.ytimg.com/vi/\(id)/maxresdefault.jpg"
-                    data["likes"] = videoDetails["likes"] as? Int
-                    data["description"] = videoDetails["description"] as? String
-                    data["views"] = videoDetails["viewCount"] as? String
-                    data["category"] = videoDetails["category"] as? String
-                    data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
-                    data["publishedDate"] = (videoDetails["publishDate"] as? String)!.components(separatedBy: "-").reversed().joined(separator: "/")
-                    data["related_videos"] = response["related_videos"]
-                    
-                    do {
-                        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                            let fileURL = dir.appendingPathComponent("miscCache/"+id)
-                            try FileManager.default.createDirectory(at: dir.appendingPathComponent("miscCache"), withIntermediateDirectories: true)
-                            //writing
-                            NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
-                        }
-                    } catch {}
-                }
+                let videoDetails = json as! Dictionary<String, Any>
+                var data = [String: Any]()
+                data["title"] = videoDetails["title"] as? String
+                data["channelId"] = videoDetails["authorId"] as? String
+                data["channelName"] = videoDetails["author"] as? String
+                data["thumbnail"] = JSON(videoDetails["videoThumbnails"] as Any)[0]["url"].string
+                data["likes"] = videoDetails["likeCount"] as? Int
+                data["description"] = videoDetails["description"] as? String
+                data["views"] = videoDetails["viewCount"] as? Int
+                data["category"] = videoDetails["genre"] as? String
+                data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
+//                data["related_videos"] = videoDetails["recommendedVideos"] this causes meta to not save, causes nilErrors
+                let date = Date(timeIntervalSince1970: (videoDetails["published"] as? Double)!)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+                dateFormatter.timeZone = .current
+                data["publishedDate"] = dateFormatter.string(from: date)
+                
+                do {
+                    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                        let fileURL = dir.appendingPathComponent("miscCache/"+id)
+                        try FileManager.default.createDirectory(at: dir.appendingPathComponent("miscCache"), withIntermediateDirectories: true)
+                        //writing
+                        NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
+                    }
+                } catch {print(error)}
             case .failure(let error):
                 print(error)
             }
@@ -61,21 +63,23 @@ class Global {
             let fileURL = dir.appendingPathComponent("miscCache/"+id)
 
             // load file as nsdictionary
-            let data = NSDictionary(contentsOf: fileURL)
-            
-            // if key was provided...
-            if (key != nil) {
-                // ...check if the key exists in the dictionary. if it exists...
-                if data![key!] != nil {
-                    // ...return the key's value
-                    return data![key!]!
+            if let data = NSDictionary(contentsOf: fileURL) {
+                // if key was provided...
+                if (key != nil) {
+                    // ...check if the key exists in the dictionary. if it exists...
+                    if data[key!] != nil {
+                        // ...return the key's value
+                        return data[key!]!
+                    } else {
+                        // ...return the entire data structure
+                        return data as Any
+                    }
                 } else {
-                    // ...return the entire data structure
+                    // key was not provided. return the entire data structure
                     return data as Any
                 }
             } else {
-                // key was not provided. return the entire data structure
-                return data as Any
+                return "Unknown error"
             }
         }
         // wtf happened

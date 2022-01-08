@@ -59,9 +59,9 @@ class CacheContentsInterfaceController: WKInterfaceController {
                         continue
                     }
                         
-                    row.cacheTitleLabel.setText(Global.getVideoInfo(id: videoID, key: "title") as? String)
-                    row.cacheChannelLabel.setText(Global.getVideoInfo(id: videoID, key: "channelName") as? String)
-                    row.cacheThumbImage.sd_setImage(with: URL(string: Global.getVideoInfo(id: videoID, key: "thumbnail") as! String))
+                    row.cacheTitleLabel.setText(meta.getVideoInfo(id: videoID, key: "title") as? String)
+                    row.cacheChannelLabel.setText(meta.getVideoInfo(id: videoID, key: "channelName") as? String)
+                    row.cacheThumbImage.sd_setImage(with: URL(string: meta.getVideoInfo(id: videoID, key: "thumbnail") as! String))
                     row.videoId = videoID
                     var totalSize = 0 as Int64
                     if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp4") {
@@ -69,7 +69,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
                             totalSize = totalSize+bytes
                         }
                     }
-                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp3") {
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).m4a") {
                         if let bytes = fileAttributes[.size] as? Int64 {
                             totalSize = totalSize+bytes
                         }

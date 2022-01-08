@@ -37,16 +37,16 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
             self.videoId = (context as? String)!
         }
 
-        title = Global.getVideoInfo(id: videoId, key: "title") as! String
-        img = Global.getVideoInfo(id: videoId, key: "thumbnail") as! String
-        channel = Global.getVideoInfo(id: videoId, key: "channelName") as! String
+        title = meta.getVideoInfo(id: videoId, key: "title") as! String
+        img = meta.getVideoInfo(id: videoId, key: "thumbnail") as! String
+        channel = meta.getVideoInfo(id: videoId, key: "channelName") as! String
 
         
         var fileType: String
         if UserDefaults.standard.bool(forKey: settingsKeys.audioOnlyToggle) == false {
             fileType = "mp4"
         } else {
-            fileType = "mp3"
+            fileType = "m4a"
         }
         
         cacheThumbnailBg.sd_setImage(with: URL(string: img))
@@ -54,12 +54,12 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         
         
         if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).mp4") == false) {
-            fileType = "mp3"
-            self.cacheStatusLabel.setText("Using mp3.")
-        } else if fileType == "mp3" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).mp3") == false) {
+            fileType = "m4a"
+            self.cacheStatusLabel.setText("Using m4a.")
+        } else if fileType == "m4a" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).m4a") == false) {
             fileType = "mp4"
             self.cacheStatusLabel.setText("Using mp4.")
-        } else if ((FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).mp3") == false)) {
+        } else if ((FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(self.videoId).m4a") == false)) {
             self.cacheStatusLabel.setText("No cache data found.")
         } else {
             self.cacheStatusLabel.setText("Ready.")
@@ -76,7 +76,7 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     override func didAppear() {
         
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
-            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3"))) {pop()}
+            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a"))) {pop()}
         }
         
         super.didAppear()

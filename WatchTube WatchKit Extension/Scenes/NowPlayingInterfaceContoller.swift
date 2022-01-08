@@ -18,6 +18,8 @@ class NowPlayingInterfaceController: WKInterfaceController {
     
     var infoViewed: Bool = false
     var isDownloading: Bool = false
+    var fileType: String = ""
+    var streamUrl: String = ""
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceMovie!
@@ -32,10 +34,10 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     override func awake(withContext context: Any?) {
-        
         if context != nil {
             video = context as? Video
         }
+        meta.cacheVideoInfo(id: video.id)
         
         if video != nil {
             self.titleLabel.setText(video.title)
@@ -43,85 +45,133 @@ class NowPlayingInterfaceController: WKInterfaceController {
             self.channelLabel.setText(video.channel)
         }
         
-        movieLoading.setImageNamed("loading")
-        movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
-        
         var dlType: String
-        var fileType: String
         if UserDefaults.standard.bool(forKey: settingsKeys.audioOnlyToggle) == false {
-            dlType = "download"
+            dlType = "video"
             fileType = "mp4"
         } else {
             dlType = "audio"
-            fileType = "mp3"
-        }
-        
-        let youtubedlServerURLDL = youtubedlServerURLBase + "/api/v2/\(dlType)?url=https://youtu.be"
-        
-        super.awake(withContext: context)
-
-        let vidpath = youtubedlServerURLDL+"/"+video.id
-        self.statusLabel.setText("Waiting for server...")
-        isDownloading = true
-        self.movie.setHidden(true)
-        
-        // dont forget about caching system
-        let cachingSetting = UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle)
-
-        let destinationCached: DownloadRequest.Destination = { _, _ in
-            let cachingFileURL = URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(fileType)")
-            return (cachingFileURL, [.removePreviousFile, .createIntermediateDirectories])
-        }
-        let destination: DownloadRequest.Destination = { _, _ in
-            let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("video.\(fileType)")
-            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+            fileType = "m4a"
         }
                 
-        if cachingSetting == true {
-            if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(fileType)") == true {
-                self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(fileType)"))
-                self.statusLabel.setText("Ready.")
-                self.isDownloading = false
-                self.showMovieFade(movie: self.movie)
-                self.movieLoading.setHidden(true)
-                self.movieLoading.stopAnimating()
-            } else {
-                AF.download(vidpath, to: destinationCached).response { response in
-                    if response.value != nil {
-                        self.movie.setMovieURL(response.value!!)
-                        self.statusLabel.setText("Ready.")
-                        self.isDownloading = false
-                        self.showMovieFade(movie: self.movie)
-                        self.movieLoading.setHidden(true)
-                        self.movieLoading.stopAnimating()
-                    }
-                }.downloadProgress(closure: { (progress) in
-                    let percent = round((progress.fractionCompleted*100) * 10) / 10.0
-                    self.statusLabel.setText("Downloading... \(percent)%")
-                })
-            }
+        super.awake(withContext: context)
+
+        let dataPath = "\(Constants.apiUrl)/videos/\(video.id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
+        
+        self.statusLabel.setText("Downloading data...")
+        self.movieLoading.setImageNamed("loading")
+        self.movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
+        
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(self.fileType)") == true {
+            self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(self.fileType)"))
+            self.statusLabel.setText("Ready.")
+            self.isDownloading = false
+            showMovieFade(movie: self.movie)
+            self.movieLoading.setHidden(true)
+            self.movieLoading.stopAnimating()
         } else {
-            AF.download(vidpath, to: destination).response { response in
-                if response.value != nil {
-                    self.movie.setMovieURL(response.value!!)
-                    self.statusLabel.setText("Ready.")
-                    self.isDownloading = false
-                    self.showMovieFade(movie: self.movie)
-                    self.movieLoading.setHidden(true)
+            AF.request(dataPath).responseJSON { res in
+                switch res.result {
+                case .success(let data):
+                    let videoDetails = data as! Dictionary<String, Any>
+                    self.statusLabel.setText("Parsing data...")
+                    self.isDownloading = true
+                    self.movie.setHidden(true)
+                    
+                    // Required variables in this scope
+                    // - streamUrl (to set)
+                    // - fileType (to set)
+                    // - dlType (to use)
+                    
+                    // parse the video info for links. check dl type to set streamUrl to src of audio or video
+                    if dlType == "video" {
+                        let formatStreams = videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>
+                        let streamData = formatStreams[formatStreams.count - 1]
+                        self.streamUrl = streamData["url"] as! String
+                        self.fileType = "mp4"
+                    } else if dlType == "audio" {
+                        let adaptiveFormats = videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>
+                        var aacFormats: Array<Dictionary<String, Any>> = [["e": "e"]]
+                        aacFormats.removeAll()
+                        for item in adaptiveFormats {
+                            if item["encoding"] != nil {
+                                if item["encoding"] as! String == "aac" {
+                                    aacFormats.append(item)
+                                }
+                            }
+                        }
+                        print(aacFormats)
+                        var highestBitrate: Int = 0
+                        var format: Dictionary<String, Any> = ["ea": "sports", "its": "in the game"]
+                        if aacFormats.count != 1 {
+                            for item in aacFormats {
+                                if (item["bitrate"] as! NSString).integerValue > highestBitrate {
+                                    highestBitrate = (item["bitrate"] as! NSString).integerValue
+                                    format = item
+                                }
+                            }
+                        } else {format = aacFormats[0]}
+                        print(format)
+                        self.streamUrl = format["url"] as! String
+                    }
+                            
+                    // dont forget about caching system
+                    let cachingSetting = UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle)
+
+                    let destinationCached: DownloadRequest.Destination = { _, _ in
+                        let cachingFileURL = URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(self.fileType)")
+                        return (cachingFileURL, [.removePreviousFile, .createIntermediateDirectories])
+                    }
+                    let destination: DownloadRequest.Destination = { _, _ in
+                        let fileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("video.\(self.fileType)")
+                        return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+                    }
+                    
+                    if cachingSetting == true {
+                        AF.download(self.streamUrl, to: destinationCached).response { response in
+                            if response.value != nil {
+                                self.movie.setMovieURL(response.value!!)
+                                self.statusLabel.setText("Ready.")
+                                self.isDownloading = false
+                                self.showMovieFade(movie: self.movie)
+                                self.movieLoading.setHidden(true)
+                                self.movieLoading.stopAnimating()
+                            }
+                        }.downloadProgress(closure: { (progress) in
+                            let percent = round((progress.fractionCompleted*100) * 10) / 10.0
+                            self.statusLabel.setText("Downloading... \(percent)%")
+                        })
+                    } else {
+                        AF.download(self.streamUrl, to: destination).response { response in
+                            if response.value != nil {
+                                self.movie.setMovieURL(response.value!!)
+                                self.statusLabel.setText("Ready.")
+                                self.isDownloading = false
+                                self.showMovieFade(movie: self.movie)
+                                self.movieLoading.setHidden(true)
+                                self.movieLoading.stopAnimating()
+                            }
+                        }.downloadProgress(closure: { (progress) in
+            //                let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
+                            let percent = round((progress.fractionCompleted*100) * 10) / 10.0
+                            self.statusLabel.setText("Downloading... \(percent)%")
+                        })
+                    }
+                    
+                case .failure(_):
+                    self.statusLabel.setText("Error getting data")
                     self.movieLoading.stopAnimating()
+                    self.movieLoading.setImageNamed("error")
                 }
-            }.downloadProgress(closure: { (progress) in
-//                let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
-                let percent = round((progress.fractionCompleted*100) * 10) / 10.0
-                self.statusLabel.setText("Downloading... \(percent)%")
-            })
+            }
         }
+        
     }
     
     override func willActivate() {
         
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true && infoViewed == true {
-            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).mp3"))) {
+            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).m4a"))) {
                 if isDownloading {
                     infoViewed=false
                 } else {

@@ -11,7 +11,8 @@ struct preferencesKeys {
 }
 
 struct Constants {
-    static let downloadSrvInstance = "llsc12.ml"
+    static let downloadSrvInstance = "vid.puffyan.us"
+    static let apiUrl: URL = URL(string: "https://\(Constants.downloadSrvInstance)/api/v1")!
 }
 
 struct settingsKeys {

@@ -37,12 +37,12 @@ class InfoInterfaceController: WKInterfaceController {
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
-        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp3")))
+        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).m4a")))
                 
-        self.likesLabel.setText("\(String(describing: Global.getVideoInfo(id: videoId, key: "likes"))) Likes")
-        self.viewsLabel.setText("\(String(describing: Global.getVideoInfo(id: videoId, key: "views"))) Views")
-        self.dateLabel.setText("Uploaded \(String(describing: Global.getVideoInfo(id: videoId, key: "publishedDate")))")
-        self.authorLabel.setText("\(String(describing: Global.getVideoInfo(id: videoId, key: "channelName")))")
+        self.likesLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "likes"))) Likes")
+        self.viewsLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "views"))) Views")
+        self.dateLabel.setText("Uploaded \(String(describing: meta.getVideoInfo(id: videoId, key: "publishedDate")))")
+        self.authorLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "channelName")))")
         self.showDescriptionButton.setEnabled(true)
         
 
@@ -50,7 +50,7 @@ class InfoInterfaceController: WKInterfaceController {
         // Configure interface objects here.
     }
     @IBAction func showDescription() {
-        self.pushController(withName: "SubInfoInterfaceController", context: Global.getVideoInfo(id: videoId, key: "description"))
+        self.pushController(withName: "SubInfoInterfaceController", context: meta.getVideoInfo(id: videoId, key: "description"))
     }
     
     @IBAction func infoDeleteCache() {
@@ -58,8 +58,8 @@ class InfoInterfaceController: WKInterfaceController {
             if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")) {
                 try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")
             }
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp3")
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")) {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")
             }
         } catch {}
         pop()

@@ -7,13 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191549412771454C00255CDD /* discord.png in Resources */ = {isa = PBXBuildFile; fileRef = 191549402771454C00255CDD /* discord.png */; };
-		191549432771455B00255CDD /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 191549422771455B00255CDD /* github.png */; };
 		191C9DE3277BB54E00D9CC27 /* cool code stuffs wholesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C9DE2277BB54E00D9CC27 /* cool code stuffs wholesome.swift */; };
-		1984C090277FB9300074E489 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 1984C08F277FB9300074E489 /* twitter.png */; };
-		1984C092277FB9780074E489 /* watchtube.png in Resources */ = {isa = PBXBuildFile; fileRef = 1984C091277FB9780074E489 /* watchtube.png */; };
-		19D3D64D2775F59B00E16986 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D3D64C2775F59A00E16986 /* gradient.png */; };
-		19D3D64F2775F60F00E16986 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 19D3D64E2775F60F00E16986 /* maxresdefault.jpg */; };
 		890FEA34275D579A00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA33275D579A00B573B8 /* SDWebImage */; };
 		890FEA36275D57A500B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA35275D57A500B573B8 /* SDWebImage */; };
 		890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA37275D57AA00B573B8 /* SDWebImage */; };
@@ -89,13 +83,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		191549402771454C00255CDD /* discord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discord.png; sourceTree = "<group>"; };
-		191549422771455B00255CDD /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		191C9DE2277BB54E00D9CC27 /* cool code stuffs wholesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "cool code stuffs wholesome.swift"; sourceTree = "<group>"; };
-		1984C08F277FB9300074E489 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
-		1984C091277FB9780074E489 /* watchtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchtube.png; sourceTree = "<group>"; };
-		19D3D64C2775F59A00E16986 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
-		19D3D64E2775F60F00E16986 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
 		891B09D4275D0F8B00696841 /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
 		89826E7F2778B13800896853 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		89AA9B7D27711F7000694329 /* MenuInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInterfaceController.swift; sourceTree = "<group>"; };
@@ -206,12 +194,6 @@
 				D72C93D8257D97740056D0BA /* Interface.storyboard */,
 				D72C93DB257D97770056D0BA /* Assets.xcassets */,
 				D72C93DD257D97770056D0BA /* Info.plist */,
-				19D3D64C2775F59A00E16986 /* gradient.png */,
-				191549422771455B00255CDD /* github.png */,
-				191549402771454C00255CDD /* discord.png */,
-				1984C091277FB9780074E489 /* watchtube.png */,
-				1984C08F277FB9300074E489 /* twitter.png */,
-				19D3D64E2775F60F00E16986 /* maxresdefault.jpg */,
 			);
 			path = "WatchTube WatchKit App";
 			sourceTree = "<group>";
@@ -393,14 +375,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1984C090277FB9300074E489 /* twitter.png in Resources */,
-				191549432771455B00255CDD /* github.png in Resources */,
-				19D3D64F2775F60F00E16986 /* maxresdefault.jpg in Resources */,
 				D72C93DC257D97770056D0BA /* Assets.xcassets in Resources */,
-				191549412771454C00255CDD /* discord.png in Resources */,
-				19D3D64D2775F59B00E16986 /* gradient.png in Resources */,
 				D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */,
-				1984C092277FB9780074E489 /* watchtube.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

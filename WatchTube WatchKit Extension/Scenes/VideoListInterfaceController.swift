@@ -26,7 +26,7 @@ class VideoListInterfaceController: WKInterfaceController {
             if let action = dictionary["action"] as? String {
                 if action == "search" {
                     let keyword = dictionary["query"] as! String
-                    Video.getVideos(keyword: keyword) { videos in
+                    Video.getSearchResults(keyword: keyword) { videos in
                         if videos.count == 0 {self.searchInternetLabel.setHidden(false)} else {self.searchInternetLabel.setHidden(true)}
                         self.videos = videos
                         self.setupTable()
@@ -56,7 +56,7 @@ class VideoListInterfaceController: WKInterfaceController {
                 row.thumbImg.sd_setImage(with: URL(string: videos[i].img))
             }
             
-            Global.cacheVideoInfo(id: videos[i].id)
+            meta.cacheVideoInfo(id: videos[i].id)
         }
     }
         

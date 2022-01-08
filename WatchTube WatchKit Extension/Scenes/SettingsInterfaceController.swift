@@ -25,6 +25,7 @@ class SettingsInterfaceController: WKInterfaceController {
         "default",
         "music",
         "gaming",
+        "news",
         "channels"
     ]
 

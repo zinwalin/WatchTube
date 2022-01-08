@@ -556,7 +556,7 @@
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" radius="5" id="6n6-5x-Txw">
                                     <items>
-                                        <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
+                                        <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
                                     </items>
                                 </group>
                                 <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="Zwy-yF-dB0">
@@ -832,7 +832,7 @@
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
-                                        <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
+                                        <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
                                 </group>
                                 <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
@@ -942,12 +942,11 @@
         <image name="folder" catalog="system" width="128" height="96"/>
         <image name="gear" catalog="system" width="128" height="118"/>
         <image name="github" width="556" height="556"/>
-        <image name="gradient" width="194.25" height="43.5"/>
+        <image name="gradient" width="259" height="58"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="loading0" width="164" height="181"/>
         <image name="magnifyingglass" catalog="system" width="128" height="114"/>
-        <image name="maxresdefault" width="1280" height="720"/>
         <image name="person" catalog="system" width="128" height="120"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="twitter" width="556" height="556"/>
