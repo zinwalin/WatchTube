@@ -61,6 +61,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         self.statusLabel.setText("Downloading data...")
         self.movieLoading.setImageNamed("loading")
         self.movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
+        self.movie.setHidden(true)
         
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(self.fileType)") == true {
             self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(self.fileType)"))
@@ -76,7 +77,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     let videoDetails = data as! Dictionary<String, Any>
                     self.statusLabel.setText("Parsing data...")
                     self.isDownloading = true
-                    self.movie.setHidden(true)
                     
                     // Required variables in this scope
                     // - streamUrl (to set)
