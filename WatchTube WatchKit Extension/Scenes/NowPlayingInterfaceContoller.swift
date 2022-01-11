@@ -10,8 +10,6 @@ import WatchKit
 import Alamofire
 import SDWebImage
 
-var youtubedlServerURLBase = "https://" + Constants.downloadSrvInstance
-
 var video: Video!
 
 class NowPlayingInterfaceController: WKInterfaceController {
@@ -56,7 +54,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                 
         super.awake(withContext: context)
 
-        let dataPath = "\(Constants.apiUrl)/videos/\(video.id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
+        let dataPath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/videos/\(video.id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
         
         self.statusLabel.setText("Downloading data...")
         self.movieLoading.setImageNamed("loading")
@@ -91,8 +89,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         self.fileType = "mp4"
                     } else if dlType == "audio" {
                         let adaptiveFormats = videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>
-                        var aacFormats: Array<Dictionary<String, Any>> = [["e": "e"]]
-                        aacFormats.removeAll()
+                        var aacFormats: Array<Dictionary<String, Any>> = []
                         for item in adaptiveFormats {
                             if item["encoding"] != nil {
                                 if item["encoding"] as! String == "aac" {

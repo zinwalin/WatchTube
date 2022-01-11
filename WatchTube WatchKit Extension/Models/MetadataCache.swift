@@ -10,7 +10,7 @@ import Alamofire
 
 class meta {
     class func cacheVideoInfo(id: String) {
-        AF.request("\(Constants.apiUrl)/videos/\(id)?fields=title,author,authorId,videoThumbnails(url),likeCount,description,viewCount,genre,lengthSeconds,published").responseJSON { response in
+        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/videos/\(id)?fields=title,author,authorId,videoThumbnails(url),likeCount,description,viewCount,genre,lengthSeconds,published").responseJSON { response in
             switch response.result {
             case .success(let json):
                 let videoDetails = json as! Dictionary<String, Any>

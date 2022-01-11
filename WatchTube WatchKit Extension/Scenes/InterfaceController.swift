@@ -18,26 +18,7 @@ class InterfaceController: WKInterfaceController {
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
-        
-        // if userdefaults don't exist (like when the app is freshly installed), set them all now.
-        if UserDefaults.standard.value(forKey: settingsKeys.cacheToggle) == nil {
-            UserDefaults.standard.set(true, forKey: settingsKeys.cacheToggle)
-        }
-        if UserDefaults.standard.value(forKey: settingsKeys.thumbnailsToggle) == nil {
-            UserDefaults.standard.set(true, forKey: settingsKeys.thumbnailsToggle)
-        }
-        if UserDefaults.standard.value(forKey: settingsKeys.audioOnlyToggle) == nil {
-            UserDefaults.standard.set(false, forKey: settingsKeys.audioOnlyToggle)
-        }
-        if UserDefaults.standard.value(forKey: settingsKeys.resultsCount) == nil {
-            UserDefaults.standard.set(10, forKey: settingsKeys.resultsCount)
-        }
-        if UserDefaults.standard.value(forKey: settingsKeys.itemsCount) == nil {
-            UserDefaults.standard.set(12, forKey: settingsKeys.itemsCount)
-        }
-        if UserDefaults.standard.value(forKey: settingsKeys.homePageVideoType) == nil {
-            UserDefaults.standard.set("default", forKey: settingsKeys.homePageVideoType)
-        }
+        misc.defaultSettings()
         
         Video.getTrending() { videos in
             if videos.count == 0 {

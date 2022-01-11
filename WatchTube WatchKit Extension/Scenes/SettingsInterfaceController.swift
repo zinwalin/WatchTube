@@ -7,7 +7,7 @@
 
 import WatchKit
 import Foundation
-
+import Alamofire
 
 class SettingsInterfaceController: WKInterfaceController {
     
@@ -18,6 +18,8 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var resultsLabel: WKInterfaceLabel!
     @IBOutlet weak var itemsLabel: WKInterfaceLabel!
     @IBOutlet weak var homeVideosPicker: WKInterfacePicker!
+    @IBOutlet weak var instancePicker: WKInterfacePicker!
+    @IBOutlet weak var instanceStatus: WKInterfaceLabel!
     
     let userDefaults = UserDefaults.standard
     
@@ -28,6 +30,8 @@ class SettingsInterfaceController: WKInterfaceController {
         "news",
         "channels"
     ]
+    
+    var instances: Array<String> = []
 
     @IBAction func cacheToggle(_ value: Bool) {
         if value == true {
@@ -212,6 +216,52 @@ class SettingsInterfaceController: WKInterfaceController {
 
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        AF.request("https://api.invidious.io/instances.json").responseJSON { res in
+            switch res.result {
+            case .success(let json):
+                self.instances = []
+                
+                let data = json as! Array<Array<Any>>
+                for inst in data {
+                    let name = inst[0] as! String
+                    let info = inst[1] as! Dictionary<String, Any>
+                    if info["type"] as! String != "https" {continue}
+                    self.instances.append(name)
+                }
+                
+                let instanceItems: [WKPickerItem] = self.instances.map {
+                    let pickerItem = WKPickerItem()
+                    pickerItem.title = $0
+                    return pickerItem
+                }
+                self.instancePicker.setItems(instanceItems)
+                self.instancePicker.setSelectedItemIndex(Int(self.instances.firstIndex(of: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!)!))
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    @IBAction func selectInstance(_ value: Int) {
+        self.instancePicker.setEnabled(false)
+        self.instanceStatus.setTextColor(.lightGray)
+        self.instanceStatus.setText("Loading...")
+        AF.request("https://\(instances[value])/api/v1/search?q=e").validate().responseJSON {resp in
+            switch resp.result {
+            case .success(_):
+                self.instancePicker.setEnabled(true)
+                
+                self.instanceStatus.setTextColor(.green)
+                self.instanceStatus.setText("\(self.instances[value]) works")
+                self.userDefaults.set(self.instances[value], forKey: settingsKeys.instanceUrl)
+            case .failure(_):
+                self.instancePicker.setEnabled(true)
+
+                self.instanceStatus.setTextColor(.red)
+                self.instanceStatus.setText("\(self.instances[value]) is broken")
+                break
+            }
+        }
     }
     
     @IBAction func homeVideosSelection(_ value: Int) {

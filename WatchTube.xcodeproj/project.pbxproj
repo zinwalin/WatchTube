@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191C9DE3277BB54E00D9CC27 /* cool code stuffs wholesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C9DE2277BB54E00D9CC27 /* cool code stuffs wholesome.swift */; };
+		191C9DE3277BB54E00D9CC27 /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C9DE2277BB54E00D9CC27 /* MetadataCache.swift */; };
 		890FEA34275D579A00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA33275D579A00B573B8 /* SDWebImage */; };
 		890FEA36275D57A500B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA35275D57A500B573B8 /* SDWebImage */; };
 		890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA37275D57AA00B573B8 /* SDWebImage */; };
@@ -20,6 +20,7 @@
 		AAA25C53278C932000E23892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AAA25C52278C932000E23892 /* Alamofire */; };
 		AAA25C55278C933700E23892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AAA25C54278C933700E23892 /* Alamofire */; };
 		AAA7362127640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */; };
+		AAC670AF278E0A2D0023E505 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC670AE278E0A2D0023E505 /* Misc.swift */; };
 		AAE7513E2762A03000628BC7 /* CacheTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE7513D2762A03000628BC7 /* CacheTableRow.swift */; };
 		AAF50E3F275FC74500E4679D /* CacheContentsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF50E3E275FC74500E4679D /* CacheContentsInterfaceController.swift */; };
 		D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -79,7 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		191C9DE2277BB54E00D9CC27 /* cool code stuffs wholesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "cool code stuffs wholesome.swift"; sourceTree = "<group>"; };
+		191C9DE2277BB54E00D9CC27 /* MetadataCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataCache.swift; sourceTree = "<group>"; };
 		891B09D4275D0F8B00696841 /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
 		89826E7F2778B13800896853 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		89AA9B7D27711F7000694329 /* MenuInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInterfaceController.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 		AA72E0FB2768FF990094113C /* TrendingTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
 		AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
 		AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheNowPlayingInterfaceController.swift; sourceTree = "<group>"; };
+		AAC670AE278E0A2D0023E505 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		AAE7513D2762A03000628BC7 /* CacheTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTableRow.swift; sourceTree = "<group>"; };
 		AAF50E3E275FC74500E4679D /* CacheContentsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheContentsInterfaceController.swift; sourceTree = "<group>"; };
 		D72C93CF257D97740056D0BA /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,14 @@
 			path = Complications;
 			sourceTree = "<group>";
 		};
+		AAC670AD278E0A0D0023E505 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AAC670AE278E0A2D0023E505 /* Misc.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		D72C93C8257D97740056D0BA = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +209,8 @@
 		D72C9408257DA8BB0056D0BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				191C9DE2277BB54E00D9CC27 /* cool code stuffs wholesome.swift */,
+				191C9DE2277BB54E00D9CC27 /* MetadataCache.swift */,
+				AAC670AD278E0A0D0023E505 /* Classes */,
 				D72C9409257DA8CD0056D0BA /* Settings.swift */,
 				D72C9417257DACCE0056D0BA /* Video.swift */,
 			);
@@ -374,9 +385,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				191C9DE3277BB54E00D9CC27 /* cool code stuffs wholesome.swift in Sources */,
+				191C9DE3277BB54E00D9CC27 /* MetadataCache.swift in Sources */,
 				AA3BD6542767E1870010FF99 /* SubInfoInterfaceController.swift in Sources */,
 				AAA7362127640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift in Sources */,
+				AAC670AF278E0A2D0023E505 /* Misc.swift in Sources */,
 				89AA9B7E27711F7000694329 /* MenuInterfaceController.swift in Sources */,
 				D72C9401257D997F0056D0BA /* NowPlayingInterfaceContoller.swift in Sources */,
 				89826E802778B13800896853 /* ComplicationController.swift in Sources */,

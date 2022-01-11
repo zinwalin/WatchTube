@@ -383,16 +383,20 @@
             <objects>
                 <controller identifier="SettingsInterfaceController" title="Settings" id="BVh-TY-jCX" customClass="SettingsInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <picker height="50" alignment="center" focusStyle="sequence" id="zLD-cy-jC8">
+                        <picker height="50" alignment="center" focusStyle="sequence" id="fWi-CR-JX3">
                             <connections>
-                                <action selector="homeVideosSelection:" destination="BVh-TY-jCX" id="pvG-gb-9LG"/>
+                                <action selector="selectInstance:" destination="BVh-TY-jCX" id="xgj-rV-Mli"/>
                             </connections>
                         </picker>
-                        <label alignment="left" text="Choose the kind of videos to appear on the home screen. Requires relaunching WatchTube to take effect." numberOfLines="0" id="bkf-jy-dB1">
+                        <label alignment="left" text="status of instance" numberOfLines="0" id="n0U-Lp-gJM">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
-                        <separator alignment="left" id="6m8-1W-2Ve">
+                        <label alignment="left" text="Choose the Invidious instance to use." numberOfLines="0" id="C3f-WG-NNX">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="gWb-jl-lqV">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <switch width="1" height="39" alignment="left" value="YES" title="Video Cache" id="Ntz-r1-kFg">
@@ -415,7 +419,7 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
-                        <separator alignment="left" id="gWb-jl-lqV">
+                        <separator alignment="left" id="MaZ-ym-VES">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <switch width="1" height="39" alignment="left" value="YES" title="Thumbnails" numberOfLines="1" id="HVk-Ub-TRL">
@@ -535,19 +539,33 @@
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
+                        <picker height="50" alignment="center" focusStyle="sequence" id="zLD-cy-jC8">
+                            <connections>
+                                <action selector="homeVideosSelection:" destination="BVh-TY-jCX" id="pvG-gb-9LG"/>
+                            </connections>
+                        </picker>
+                        <label alignment="left" text="Choose the kind of videos to appear on the home screen. Requires relaunching WatchTube to take effect." numberOfLines="0" id="bkf-jy-dB1">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="6m8-1W-2Ve">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                     </items>
                     <connections>
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
                         <outlet property="cacheDeleteButton" destination="sfx-11-473" id="QBq-K9-6d4"/>
                         <outlet property="cacheToggle" destination="Ntz-r1-kFg" id="ZHl-K6-3dY"/>
                         <outlet property="homeVideosPicker" destination="zLD-cy-jC8" id="y2H-Hm-jJ4"/>
+                        <outlet property="instancePicker" destination="fWi-CR-JX3" id="Mb0-TR-9jp"/>
+                        <outlet property="instanceStatus" destination="n0U-Lp-gJM" id="eJd-Jg-Zte"/>
                         <outlet property="itemsLabel" destination="3ka-Xy-l0s" id="Djw-7B-rXg"/>
                         <outlet property="resultsLabel" destination="bkB-nj-7Sf" id="VHz-wM-BvW"/>
                         <outlet property="thumbnailsToggle" destination="HVk-Ub-TRL" id="yF1-8l-uQw"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-117" y="383"/>
+            <point key="canvasLocation" x="-117.45454545454545" y="390.22727272727269"/>
         </scene>
         <!--Cache Now Playing-->
         <scene sceneID="DzC-je-eHb">

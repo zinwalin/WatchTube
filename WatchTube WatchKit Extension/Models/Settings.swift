@@ -10,11 +10,6 @@ struct preferencesKeys {
     static let keywordsHistory = "keywordsHistory"
 }
 
-struct Constants {
-    static let downloadSrvInstance = "vid.puffyan.us"
-    static let apiUrl: URL = URL(string: "https://\(Constants.downloadSrvInstance)/api/v1")!
-}
-
 struct settingsKeys {
     static let cacheToggle = "settings.cacheToggleKey"
     static let thumbnailsToggle = "settings.thumbnailsToggleKey"
@@ -22,4 +17,5 @@ struct settingsKeys {
     static let resultsCount = "settings.resultsCount"
     static let itemsCount = "settings.itemsCount"
     static let homePageVideoType = "settings.homePageVideoType"
+    static let instanceUrl = "settings.instanceUrl"
 }
