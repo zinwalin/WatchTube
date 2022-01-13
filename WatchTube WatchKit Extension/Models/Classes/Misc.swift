@@ -31,5 +31,6 @@ class misc {
         if UserDefaults.standard.value(forKey: settingsKeys.instanceUrl) == nil {
             UserDefaults.standard.set("vid.puffyan.us", forKey: settingsKeys.instanceUrl)
         }
+        // this instance just works lol. idk why but some dont have a working api 
     }
 }

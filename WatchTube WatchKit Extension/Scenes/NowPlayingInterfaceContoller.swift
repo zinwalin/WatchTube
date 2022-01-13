@@ -136,7 +136,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                             }
                         }.downloadProgress(closure: { (progress) in
                             let percent = round((progress.fractionCompleted*100) * 10) / 10.0
-                            self.statusLabel.setText("Downloading... \(percent)%")
+                            self.statusLabel.setText("Loading... \(percent)%")
                         })
                     } else {
                         AF.download(self.streamUrl, to: destination).response { response in
@@ -151,7 +151,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         }.downloadProgress(closure: { (progress) in
             //                let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
                             let percent = round((progress.fractionCompleted*100) * 10) / 10.0
-                            self.statusLabel.setText("Downloading... \(percent)%")
+                            self.statusLabel.setText("Loading... \(percent)%")
                         })
                     }
                     
