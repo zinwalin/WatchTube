@@ -6,7 +6,10 @@ WatchTube is a standalone WatchOS youtube player utilizing [Download API](https:
 
 3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially a gimmick
 
-# Installation
+# Installing
+[Open in TestFlight](https://testflight.apple.com/join/tpwIQJIR)
+
+# Building from source
 
 0. OPTIONAL: Star this repo :)
 1. OPTIONAL: Setup your own [Download API instance](https://github.com/llsc12/download-api)
