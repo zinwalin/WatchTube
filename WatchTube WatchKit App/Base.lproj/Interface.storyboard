@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch45"/>
+    <device id="watch38"/>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -770,9 +770,9 @@
                         <separator alignment="left" id="8mi-NI-qlu">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
-                        <group width="1" alignment="left" id="fDQ-px-Et6">
+                        <group width="1" alignment="left" layout="vertical" id="fDQ-px-Et6">
                             <items>
-                                <button width="0.5" widthAdjustment="1" height="35" alignment="left" title="Description" id="8Kc-tu-iLL">
+                                <button width="1" widthAdjustment="1" height="35" alignment="left" title="Description" id="8Kc-tu-iLL">
                                     <gestureRecognizers>
                                         <longPressGestureRecognizer delaysTouchesEnded="NO" allowableMovement="0.0" id="mHA-ge-0If">
                                             <connections>
@@ -780,25 +780,31 @@
                                             </connections>
                                         </longPressGestureRecognizer>
                                     </gestureRecognizers>
-                                    <fontDescription key="font" type="system" pointSize="13"/>
-                                    <variation key="device=watch38mm">
-                                        <fontDescription key="font" type="system" pointSize="9"/>
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                    <variation key="device=watch38mm" height="30">
+                                        <fontDescription key="font" type="system" pointSize="15"/>
                                     </variation>
-                                    <variation key="device=watch40mm">
-                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                    <variation key="device=watch40mm" height="34">
+                                        <fontDescription key="font" type="system" pointSize="20"/>
                                     </variation>
-                                    <variation key="device=watch42mm">
-                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                    <variation key="device=watch42mm" height="33">
+                                        <fontDescription key="font" type="system" pointSize="17"/>
                                     </variation>
                                     <connections>
                                         <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
                                     </connections>
                                 </button>
-                                <button width="0.5" height="35" alignment="left" title="Delete" id="1lm-mc-oK8">
+                                <button width="1" height="35" alignment="left" title="Delete" id="1lm-mc-oK8">
                                     <color key="titleColor" red="0.90588235289999997" green="0.34901960780000002" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <fontDescription key="font" type="system" pointSize="13"/>
-                                    <variation key="device=watch38mm">
-                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                    <variation key="device=watch38mm" height="30">
+                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                    </variation>
+                                    <variation key="device=watch40mm" height="34">
+                                        <fontDescription key="font" type="system" pointSize="20"/>
+                                    </variation>
+                                    <variation key="device=watch42mm" height="33">
+                                        <fontDescription key="font" type="system" pointSize="17"/>
                                     </variation>
                                     <connections>
                                         <action selector="infoDeleteCache" destination="xFy-2C-kW2" id="8nt-b0-xyb"/>

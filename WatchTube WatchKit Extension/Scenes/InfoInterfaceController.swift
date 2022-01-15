@@ -23,19 +23,22 @@ class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var InfoCacheDeleteButton: WKInterfaceButton!
     
     var videoId: String = ""
+    var from: String = ""
     
     var videoDetails: Dictionary<String, Any> = [:]
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
-        videoId = context! as! String
+        let data = context as! Dictionary<String, String>
+        from = data["from"]!
+        videoId = data["id"]!
                 
         self.showDescriptionButton.setEnabled(false)
         self.likesLabel.setText("Loading Likes")
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
-        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(context!).m4a")))
+        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")))
                 
         self.likesLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "likes"))) Likes")
         self.viewsLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "views"))) Views")
@@ -60,8 +63,12 @@ class InfoInterfaceController: WKInterfaceController {
                 try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")
             }
         } catch {}
-        UserDefaults.standard.set(true, forKey: miscKeys.pushToCacheContents)
-        popToRootController()
+        if from == "CacheNowPlaying" {
+            UserDefaults.standard.set(true, forKey: miscKeys.pushToCacheContents)
+            popToRootController()
+        } else if from == "NowPlaying" {
+            pop()
+        }
     }
     
     @IBAction func randomise(_ sender: Any) {

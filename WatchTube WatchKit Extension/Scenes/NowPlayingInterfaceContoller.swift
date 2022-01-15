@@ -28,7 +28,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     
     @IBAction func infoScreenButton() {
         infoViewed=true
-        self.pushController(withName: "InfoInterfaceController", context: video.id)
+        self.pushController(withName: "InfoInterfaceController", context: ["from":"CacheNowPlaying", "id": video.id])
     }
     
     override func awake(withContext context: Any?) {
@@ -145,6 +145,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                     self.statusLabel.setText("Error getting data")
                                     self.movieLoading.stopAnimating()
                                     self.movieLoading.setImageNamed("error")
+                                    do {try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(self.fileType)")} catch {}
                                 } else {
                                     self.movie.setMovieURL(response.value!!)
                                     self.statusLabel.setText("Ready.")

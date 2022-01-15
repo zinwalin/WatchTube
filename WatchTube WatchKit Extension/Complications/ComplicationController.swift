@@ -79,7 +79,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .graphicExtraLarge:
                 return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Extra Large")!))
             case .graphicRectangular:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Large Rectangular")!))
+                return CLKComplicationTemplateGraphicRectangularFullImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Large Rectangular")!))
             case .modularLarge:
                 return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Modular")!))
             case .modularSmall:
