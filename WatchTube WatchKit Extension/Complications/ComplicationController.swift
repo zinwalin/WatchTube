@@ -14,19 +14,33 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Complication Configuration
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
-            let descriptors = [
-                CLKComplicationDescriptor(identifier: "complication", displayName: "WatchTube", supportedFamilies: [CLKComplicationFamily.circularSmall, CLKComplicationFamily.graphicCircular, CLKComplicationFamily.graphicCorner])
-                // Multiple complication support can be added here with more descriptors
-            ]
-            
-            // Call the handler with the currently supported complication descriptors
-            handler(descriptors)
-        }
+        let descriptors = [
+            CLKComplicationDescriptor(identifier: "complication", displayName: "WatchTube", supportedFamilies: [
+                CLKComplicationFamily.circularSmall,
+                CLKComplicationFamily.extraLarge,
+                CLKComplicationFamily.graphicBezel,
+                CLKComplicationFamily.graphicCircular,
+                CLKComplicationFamily.graphicCorner,
+                CLKComplicationFamily.graphicExtraLarge,
+                CLKComplicationFamily.graphicRectangular,
+                CLKComplicationFamily.modularLarge,
+                CLKComplicationFamily.modularSmall,
+                CLKComplicationFamily.utilitarianLarge,
+                CLKComplicationFamily.utilitarianSmall,
+                CLKComplicationFamily.utilitarianSmallFlat
+               ]
+            )
+            // Multiple complication support can be added here with more descriptors
+        ]
+        
+        // Call the handler with the currently supported complication descriptors
+        handler(descriptors)
+    }
     
     func handleSharedComplicationDescriptors(_ complicationDescriptors: [CLKComplicationDescriptor]) {
         // Do any necessary work to support these newly shared complication descriptors
     }
-
+    
     // MARK: - Timeline Configuration
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
@@ -52,12 +66,30 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         func getComplicationTemplate(for complication: CLKComplication, using date: Date) -> CLKComplicationTemplate? {
             switch complication.family {
-            case .graphicCorner:
-                return CLKComplicationTemplateGraphicCornerCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Corner")!))
-            case .graphicCircular:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Circular")!))
             case .circularSmall:
                 return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Circular")!))
+            case .extraLarge:
+                return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Extra Large")!))
+            case .graphicBezel:
+                return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Graphic Bezel")!))
+            case .graphicCircular:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Circular")!))
+            case .graphicCorner:
+                return CLKComplicationTemplateGraphicCornerCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Corner")!))
+            case .graphicExtraLarge:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Extra Large")!))
+            case .graphicRectangular:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Large Rectangular")!))
+            case .modularLarge:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Modular")!))
+            case .modularSmall:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Modular")!))
+            case .utilitarianLarge:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
+            case .utilitarianSmall:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
+            case .utilitarianSmallFlat:
+                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
             default:
                 return nil
             }
