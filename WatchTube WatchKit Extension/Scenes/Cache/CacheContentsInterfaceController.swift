@@ -25,9 +25,6 @@ class CacheContentsInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         //load videos with accompanying metadata.
         
-        
-        cacheTableRow.setNumberOfRows(0, withRowType: "cachedVideoRow")
-        
         cacheTableRow.setHidden(true)
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == false {
             disabledLabel.setHidden(false)
