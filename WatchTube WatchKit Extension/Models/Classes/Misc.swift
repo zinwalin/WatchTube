@@ -37,6 +37,9 @@ class misc {
         if UserDefaults.standard.value(forKey: settingsKeys.qualityToggle) == nil {
             UserDefaults.standard.set(true, forKey: settingsKeys.qualityToggle)
         }
+        if UserDefaults.standard.value(forKey: miscKeys.pushToCacheContents) == nil {
+            UserDefaults.standard.set(false, forKey: miscKeys.pushToCacheContents)
+        }
         // this instance just works lol. idk why but some dont have a working api 
     }
 }

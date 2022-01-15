@@ -20,6 +20,9 @@ class InterfaceController: WKInterfaceController {
     override func awake(withContext context: Any?) {
         misc.defaultSettings()
         
+        loader.setImageNamed("loading")
+        loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
+        
         Video.getTrending() { videos in
             if videos.count == 0 {
                 self.internetLabel.setHidden(false)
@@ -39,10 +42,6 @@ class InterfaceController: WKInterfaceController {
     }
     
     override func willActivate() {
-        
-        loader.setImageNamed("loading")
-        loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
-        
         do {
             let cacheURL = URL(string: NSHomeDirectory()+"/Documents/cache")!
             if !FileManager.default.fileExists(atPath: cacheURL.path) {
@@ -52,10 +51,7 @@ class InterfaceController: WKInterfaceController {
         
         // This method is called when watch view controller is about to be visible to user
     }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-    }
+
     @IBAction func searchVideoButtonTapped() {
         
         var keywordsHistory = UserDefaults.standard.stringArray(forKey: preferencesKeys.keywordsHistory) ?? [String]()

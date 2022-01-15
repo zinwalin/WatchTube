@@ -20,28 +20,20 @@ class MenuInterfaceController: WKInterfaceController {
     @IBAction func CacheScreen() {
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
             cacheScreenButton.setEnabled(true)
-            self.pushController(withName: "CacheContentsInterfaceController", context: "Any")
+            self.pushController(withName: "CacheContentsInterfaceController", context: "")
         }
         else {
             cacheScreenButton.setEnabled(false)
         }
     }
-    
-    
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        
-        // Configure interface objects here.
-    }
 
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
+        if UserDefaults.standard.bool(forKey: miscKeys.pushToCacheContents) == true {
+            UserDefaults.standard.set(false, forKey: miscKeys.pushToCacheContents)
+            pushController(withName: "CacheContentsInterfaceController", context: "")
+        }
+        
         super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 
 }

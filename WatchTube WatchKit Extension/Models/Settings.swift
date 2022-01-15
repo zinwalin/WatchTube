@@ -21,3 +21,7 @@ struct settingsKeys {
     static let proxyContent = "settings.proxyContent"
     static let qualityToggle = "settings.qualityToggle"
 }
+
+struct miscKeys {
+    static let pushToCacheContents = "misc.pushToCacheContents"
+}

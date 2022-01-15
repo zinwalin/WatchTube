@@ -25,11 +25,13 @@ class CacheContentsInterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         //load videos with accompanying metadata.
         
+        
         cacheTableRow.setNumberOfRows(0, withRowType: "cachedVideoRow")
         
         cacheTableRow.setHidden(true)
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == false {
             disabledLabel.setHidden(false)
+            return
         } else {
             disabledLabel.setHidden(true)
             do {
@@ -38,6 +40,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
                 if files.count == 0 {
                     disabledLabel.setHidden(false)
                     disabledLabel.setText("Cache is empty")
+                    return
                 } else {
                     disabledLabel.setHidden(true)
                     disabledLabel.setText("Cache is disabled")
@@ -58,7 +61,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
                     guard let row = cacheTableRow.rowController(at: i) as? CacheTableRow else {
                         continue
                     }
-                        
+                    
                     row.cacheTitleLabel.setText(meta.getVideoInfo(id: videoID, key: "title") as? String)
                     row.cacheChannelLabel.setText(meta.getVideoInfo(id: videoID, key: "channelName") as? String)
                     row.cacheThumbImage.sd_setImage(with: URL(string: meta.getVideoInfo(id: videoID, key: "thumbnail") as! String))
@@ -78,6 +81,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
                     if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
                     bcf.countStyle = .file
                     let string = bcf.string(fromByteCount: totalSize)
+                    
                     row.cacheFilesize.setText(string)
                 }
                 

@@ -73,15 +73,6 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         }
     }
     
-    override func didAppear() {
-        
-        if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
-            if (!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a"))) {pop()}
-        }
-        
-        super.didAppear()
-    }
-    
     func showMovieFade(movie: WKInterfaceMovie!) {
         movie.setAlpha(0)
         animate(withDuration: 0.5) {
