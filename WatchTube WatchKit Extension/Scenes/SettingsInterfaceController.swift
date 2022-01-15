@@ -19,7 +19,9 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var itemsLabel: WKInterfaceLabel!
     @IBOutlet weak var homeVideosPicker: WKInterfacePicker!
     @IBOutlet weak var instancePicker: WKInterfacePicker!
+    @IBOutlet weak var qualityToggle: WKInterfaceSwitch!
     @IBOutlet weak var instanceStatus: WKInterfaceLabel!
+    @IBOutlet weak var proxyToggle: WKInterfaceSwitch!
     
     let userDefaults = UserDefaults.standard
     
@@ -129,6 +131,18 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBAction func audioOnlyToggle(_ value: Bool) {
         userDefaults.set(value, forKey: settingsKeys.audioOnlyToggle)
     }
+    @IBAction func proxyToggle(_ value: Bool) {
+        userDefaults.set(value, forKey: settingsKeys.proxyContent)
+    }
+    
+    @IBAction func qualityToggle(_ value: Bool) {
+        userDefaults.set(value, forKey: settingsKeys.qualityToggle)
+        if value == true {
+            qualityToggle.setTitle("HD")
+        } else {
+            qualityToggle.setTitle("SD")
+        }
+    }
     
     @IBAction func resultLower() {
         if userDefaults.integer(forKey: settingsKeys.resultsCount) > 3 {
@@ -183,6 +197,8 @@ class SettingsInterfaceController: WKInterfaceController {
         cacheToggle.setOn(userDefaults.bool(forKey: settingsKeys.cacheToggle))
         thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
         audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
+        proxyToggle.setOn(userDefaults.bool(forKey: settingsKeys.proxyContent))
+        qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
         cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
         
         // set cache button to enabled, if its empty just keep it as cleared and disable it

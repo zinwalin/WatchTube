@@ -18,4 +18,6 @@ struct settingsKeys {
     static let itemsCount = "settings.itemsCount"
     static let homePageVideoType = "settings.homePageVideoType"
     static let instanceUrl = "settings.instanceUrl"
+    static let proxyContent = "settings.proxyContent"
+    static let qualityToggle = "settings.qualityToggle"
 }

@@ -23,7 +23,7 @@ class Video {
      }
     
     class func getSearchResults(keyword: String, completion: @escaping ([Video]) -> Void) {
-        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=video&fields=title,videoId,author,videoThumbnails(url)").responseJSON { response in
+        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=video&fields=title,videoId,author,videoThumbnails").responseJSON { response in
             var videos = [Video]()
             switch response.result {
             case .success(let json):

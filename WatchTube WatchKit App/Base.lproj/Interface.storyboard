@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch45"/>
     <dependencies>
+        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -71,7 +72,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="137.37373737373738" y="632.93388429752065"/>
+            <point key="canvasLocation" x="139" y="634"/>
         </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
@@ -168,7 +169,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="138.74747474747474" y="-25.289256198347108"/>
+            <point key="canvasLocation" x="139" y="-63"/>
         </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
@@ -272,14 +273,14 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="342" y="-25"/>
+            <point key="canvasLocation" x="348" y="-77"/>
         </scene>
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
             <objects>
                 <controller identifier="AboutInterfaceController" title="About" id="252-Fw-M0F">
                     <items>
-                        <label width="1" alignment="left" text="WatchTube was made by llsc12 and Superbro. This app is open source and available on GitHub." numberOfLines="0" id="dxk-4D-zuo"/>
+                        <label width="1" alignment="left" text="WatchTube was made by llsc12 and Superbro. WatchTube is open source and available on GitHub." numberOfLines="0" id="dxk-4D-zuo"/>
                         <separator alignment="left" id="uKv-u5-Icf">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
@@ -354,7 +355,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="551.55555555555554" y="-25.640495867768593"/>
+            <point key="canvasLocation" x="552" y="-26"/>
         </scene>
         <!--Done-->
         <scene sceneID="pcw-hH-83A">
@@ -388,12 +389,24 @@
                                 <action selector="selectInstance:" destination="BVh-TY-jCX" id="xgj-rV-Mli"/>
                             </connections>
                         </picker>
-                        <label alignment="left" text="status of instance" numberOfLines="0" id="n0U-Lp-gJM">
+                        <label alignment="left" text="Waiting..." numberOfLines="0" id="n0U-Lp-gJM">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <label alignment="left" text="Choose the Invidious instance to use." numberOfLines="0" id="C3f-WG-NNX">
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <switch width="1" alignment="left" value="YES" title="Proxy" id="r1s-b2-xBh">
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            </variation>
+                            <connections>
+                                <action selector="proxyToggle:" destination="BVh-TY-jCX" id="K4m-bs-8db"/>
+                            </connections>
+                        </switch>
+                        <label alignment="left" text="Proxy through the Invidious instance." numberOfLines="0" id="QG0-4d-RzO">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <separator alignment="left" id="gWb-jl-lqV">
@@ -420,6 +433,21 @@
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <separator alignment="left" id="MaZ-ym-VES">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <switch width="1" alignment="left" value="YES" title="HD" id="qd4-zA-bGk">
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            </variation>
+                            <connections>
+                                <action selector="qualityToggle:" destination="BVh-TY-jCX" id="WzC-iC-Cpm"/>
+                            </connections>
+                        </switch>
+                        <label alignment="left" text="Make WatchTube load higher or lower quality videos." numberOfLines="0" id="aF9-xf-Iih">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="9jt-ls-pXd">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <switch width="1" height="39" alignment="left" value="YES" title="Thumbnails" numberOfLines="1" id="HVk-Ub-TRL">
@@ -560,19 +588,21 @@
                         <outlet property="instancePicker" destination="fWi-CR-JX3" id="Mb0-TR-9jp"/>
                         <outlet property="instanceStatus" destination="n0U-Lp-gJM" id="eJd-Jg-Zte"/>
                         <outlet property="itemsLabel" destination="3ka-Xy-l0s" id="Djw-7B-rXg"/>
+                        <outlet property="proxyToggle" destination="r1s-b2-xBh" id="dH1-2m-9hf"/>
+                        <outlet property="qualityToggle" destination="qd4-zA-bGk" id="aKw-rx-bCB"/>
                         <outlet property="resultsLabel" destination="bkB-nj-7Sf" id="VHz-wM-BvW"/>
                         <outlet property="thumbnailsToggle" destination="HVk-Ub-TRL" id="yF1-8l-uQw"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-117.45454545454545" y="390.22727272727269"/>
+            <point key="canvasLocation" x="-69" y="476"/>
         </scene>
         <!--Cache Now Playing-->
         <scene sceneID="DzC-je-eHb">
             <objects>
                 <controller identifier="CacheNowPlayingInterfaceController" title="Cache Now Playing" id="znb-rE-3Gy" customClass="CacheNowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="cache title" id="ptW-dh-hiu">
+                        <label alignment="left" text="cache title" numberOfLines="2" minimumScaleFactor="0.59999999999999998" id="ptW-dh-hiu">
                             <fontDescription key="font" type="system" pointSize="14"/>
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" type="system" pointSize="11"/>
@@ -623,17 +653,21 @@
                                         <action selector="cacheInfoScreenButton" destination="znb-rE-3Gy" id="7As-cN-cJK"/>
                                     </connections>
                                 </button>
-                                <label alignment="left" verticalAlignment="center" text="cache channel name" id="50l-Ru-Qjq">
-                                    <fontDescription key="font" type="system" pointSize="13"/>
-                                    <variation key="device=watch38mm">
-                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                <label width="165" alignment="left" verticalAlignment="center" text="cache channel name" minimumScaleFactor="0.5" id="qO5-UO-1WO">
+                                    <fontDescription key="font" type="system" pointSize="15"/>
+                                    <variation key="device=watch38mm" width="105">
+                                        <fontDescription key="font" type="system" pointSize="13"/>
                                     </variation>
+                                    <variation key="device=watch40mm" width="130"/>
+                                    <variation key="device=watch41mm" width="145"/>
+                                    <variation key="device=watch42mm" width="125"/>
+                                    <variation key="device=watch44mm" width="155"/>
                                 </label>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="cacheChannelLabel" destination="50l-Ru-Qjq" id="tdZ-5v-r7G"/>
+                        <outlet property="cacheChannelLabel" destination="qO5-UO-1WO" id="viY-kr-7gy"/>
                         <outlet property="cacheMovie" destination="Zwy-yF-dB0" id="Pqj-9Q-a4q"/>
                         <outlet property="cacheStatusLabel" destination="SGY-qa-pNh" id="2dE-Kd-53w"/>
                         <outlet property="cacheThumbnailBg" destination="Ss7-BF-ZeL" id="SJf-lN-wWG"/>
@@ -641,7 +675,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="635"/>
+            <point key="canvasLocation" x="348" y="634"/>
         </scene>
         <!--Information-->
         <scene sceneID="aTa-mC-Wbf">
@@ -787,7 +821,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="551.55555555555554" y="634.69008264462809"/>
+            <point key="canvasLocation" x="552" y="634"/>
         </scene>
         <!--Search-->
         <scene sceneID="6CP-fK-CVF">
@@ -848,7 +882,7 @@
             <objects>
                 <controller identifier="NowPlayingInterfaceController" title="Now Playing" contentMode="scaleAspectFit" id="IGU-mI-QIU" customClass="NowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="title" numberOfLines="2" id="MiS-2n-4v5">
+                        <label alignment="left" text="title" numberOfLines="2" minimumScaleFactor="0.59999999999999998" id="MiS-2n-4v5">
                             <fontDescription key="font" type="system" pointSize="14"/>
                             <variation key="device=watch38mm">
                                 <fontDescription key="font" type="system" pointSize="11"/>
@@ -874,7 +908,7 @@
                                         <group width="1" alignment="left" verticalAlignment="bottom" id="mHa-Je-LjY">
                                             <items>
                                                 <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="loading0" contentMode="scaleAspectFit" id="q3Q-da-SVM"/>
-                                                <label alignment="left" verticalAlignment="center" text="status" id="mYm-eV-xkZ">
+                                                <label alignment="left" verticalAlignment="center" text="status" minimumScaleFactor="0.80000000000000004" id="mYm-eV-xkZ">
                                                     <fontDescription key="font" type="system" pointSize="14"/>
                                                     <variation key="device=watch38mm">
                                                         <fontDescription key="font" type="system" pointSize="11"/>
@@ -900,11 +934,15 @@
                                         <action selector="infoScreenButton" destination="IGU-mI-QIU" id="CGj-zH-3B0"/>
                                     </connections>
                                 </button>
-                                <label alignment="left" verticalAlignment="center" text="channel name" id="P8n-0l-CSv">
-                                    <fontDescription key="font" type="system" pointSize="13"/>
-                                    <variation key="device=watch38mm">
-                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                <label width="165" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="P8n-0l-CSv">
+                                    <fontDescription key="font" type="system" pointSize="15"/>
+                                    <variation key="device=watch38mm" width="105">
+                                        <fontDescription key="font" type="system" pointSize="13"/>
                                     </variation>
+                                    <variation key="device=watch40mm" width="130"/>
+                                    <variation key="device=watch41mm" width="145"/>
+                                    <variation key="device=watch42mm" width="125"/>
+                                    <variation key="device=watch44mm" width="155"/>
                                 </label>
                             </items>
                         </group>
@@ -919,7 +957,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="340" y="268.80710659898477"/>
+            <point key="canvasLocation" x="348" y="282"/>
         </scene>
         <!--SubInfoInterfaceController-->
         <scene sceneID="X0g-ra-rul">

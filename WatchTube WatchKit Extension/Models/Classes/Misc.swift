@@ -31,6 +31,12 @@ class misc {
         if UserDefaults.standard.value(forKey: settingsKeys.instanceUrl) == nil {
             UserDefaults.standard.set("vid.puffyan.us", forKey: settingsKeys.instanceUrl)
         }
+        if UserDefaults.standard.value(forKey: settingsKeys.proxyContent) == nil {
+            UserDefaults.standard.set(true, forKey: settingsKeys.proxyContent)
+        }
+        if UserDefaults.standard.value(forKey: settingsKeys.qualityToggle) == nil {
+            UserDefaults.standard.set(true, forKey: settingsKeys.qualityToggle)
+        }
         // this instance just works lol. idk why but some dont have a working api 
     }
 }

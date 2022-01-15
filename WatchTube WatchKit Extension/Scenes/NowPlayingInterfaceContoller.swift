@@ -99,7 +99,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         }
                         print(aacFormats)
                         var highestBitrate: Int = 0
-                        var format: Dictionary<String, Any> = ["ea": "sports", "its": "in the game"]
+                        var format: Dictionary<String, Any> = [:]
                         if aacFormats.count != 1 {
                             for item in aacFormats {
                                 if (item["bitrate"] as! NSString).integerValue > highestBitrate {
@@ -110,6 +110,12 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         } else {format = aacFormats[0]}
                         print(format)
                         self.streamUrl = format["url"] as! String
+                    }
+                    
+                    if UserDefaults.standard.bool(forKey: settingsKeys.proxyContent) {
+                        // modify streamURL to use instance proxying
+                        let host = (URL(string: self.streamUrl)?.host)! as String
+                        self.streamUrl = self.streamUrl.replacingOccurrences(of: host, with: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")
                     }
                             
                     // dont forget about caching system
@@ -127,12 +133,26 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     if cachingSetting == true {
                         AF.download(self.streamUrl, to: destinationCached).response { response in
                             if response.value != nil {
-                                self.movie.setMovieURL(response.value!!)
-                                self.statusLabel.setText("Ready.")
-                                self.isDownloading = false
-                                self.showMovieFade(movie: self.movie)
-                                self.movieLoading.setHidden(true)
-                                self.movieLoading.stopAnimating()
+                                var totalSize = 0 as Int64
+                                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(self.fileType)") {
+                                    if let bytes = fileAttributes[.size] as? Int64 {
+                                        totalSize = totalSize+bytes
+                                    }
+                                }
+                                
+                                if totalSize == 0 {
+                                    self.isDownloading = false
+                                    self.statusLabel.setText("Error getting data")
+                                    self.movieLoading.stopAnimating()
+                                    self.movieLoading.setImageNamed("error")
+                                } else {
+                                    self.movie.setMovieURL(response.value!!)
+                                    self.statusLabel.setText("Ready.")
+                                    self.isDownloading = false
+                                    self.showMovieFade(movie: self.movie)
+                                    self.movieLoading.setHidden(true)
+                                    self.movieLoading.stopAnimating()
+                                }
                             }
                         }.downloadProgress(closure: { (progress) in
                             let percent = round((progress.fractionCompleted*100) * 10) / 10.0
@@ -141,12 +161,26 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     } else {
                         AF.download(self.streamUrl, to: destination).response { response in
                             if response.value != nil {
-                                self.movie.setMovieURL(response.value!!)
-                                self.statusLabel.setText("Ready.")
-                                self.isDownloading = false
-                                self.showMovieFade(movie: self.movie)
-                                self.movieLoading.setHidden(true)
-                                self.movieLoading.stopAnimating()
+                                var totalSize = 0 as Int64
+                                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/tmp/video.\(self.fileType)") {
+                                    if let bytes = fileAttributes[.size] as? Int64 {
+                                        totalSize = totalSize+bytes
+                                    }
+                                }
+                                
+                                if totalSize == 0 {
+                                    self.isDownloading = false
+                                    self.statusLabel.setText("Error getting data")
+                                    self.movieLoading.stopAnimating()
+                                    self.movieLoading.setImageNamed("error")
+                                } else {
+                                    self.movie.setMovieURL(response.value!!)
+                                    self.statusLabel.setText("Ready.")
+                                    self.isDownloading = false
+                                    self.showMovieFade(movie: self.movie)
+                                    self.movieLoading.setHidden(true)
+                                    self.movieLoading.stopAnimating()
+                                }
                             }
                         }.downloadProgress(closure: { (progress) in
             //                let percent = Int((round(100 * progress.fractionCompleted) / 100) * 100)
