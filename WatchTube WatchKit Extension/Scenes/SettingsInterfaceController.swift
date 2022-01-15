@@ -262,7 +262,7 @@ class SettingsInterfaceController: WKInterfaceController {
         self.instancePicker.setEnabled(false)
         self.instanceStatus.setTextColor(.lightGray)
         self.instanceStatus.setText("Loading...")
-        AF.request("https://\(instances[value])/api/v1/search?q=e").validate().responseJSON {resp in
+        AF.request("https://\(instances[value])/api/v1/search?q=e") { $0.timeoutInterval = 10 }.validate().responseJSON {resp in
             switch resp.result {
             case .success(_):
                 self.instancePicker.setEnabled(true)
