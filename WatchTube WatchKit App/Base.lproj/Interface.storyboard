@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38"/>
+    <device id="watch45"/>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -972,6 +972,7 @@
                     <items>
                         <label alignment="left" numberOfLines="0" id="ExP-9i-K8r">
                             <string key="text">No context data was provided, and somehow you ended up here. Quite odd, don't you think? In all seriousness, do report this in our server.</string>
+                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
                     </items>
                     <connections>

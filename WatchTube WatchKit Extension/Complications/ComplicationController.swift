@@ -69,7 +69,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .circularSmall:
                 return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Circular")!))
             case .extraLarge:
-                return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Extra Large")!))
+                return CLKComplicationTemplateExtraLargeSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Extra Large")!))
             case .graphicBezel:
                 return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Graphic Bezel")!))
             case .graphicCircular:
@@ -77,13 +77,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .graphicCorner:
                 return CLKComplicationTemplateGraphicCornerCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Corner")!))
             case .graphicExtraLarge:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Extra Large")!))
+                return CLKComplicationTemplateExtraLargeSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Graphic Extra Large")!))
             case .graphicRectangular:
                 return CLKComplicationTemplateGraphicRectangularFullImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Large Rectangular")!))
             case .modularLarge:
                 return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Modular")!))
             case .modularSmall:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Modular")!))
+                return CLKComplicationTemplateModularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Modular")!))
             case .utilitarianLarge:
                 return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
             case .utilitarianSmall:
