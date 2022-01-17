@@ -19,6 +19,7 @@ class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var likesLabel: WKInterfaceLabel!
     @IBOutlet weak var dateLabel: WKInterfaceLabel!
     @IBOutlet weak var authorLabel: WKInterfaceLabel!
+    
     @IBOutlet weak var showDescriptionButton: WKInterfaceButton!
     @IBOutlet weak var InfoCacheDeleteButton: WKInterfaceButton!
     
