@@ -18,31 +18,33 @@ class InterfaceController: WKInterfaceController {
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
-        misc.defaultSettings()
+        misc.defaultSettings() // set any missing setting values now to avoid issues
         
-        loader.setImageNamed("loading")
+        loader.setImageNamed("loading") // animate spinner
         loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
-        Video.getTrending() { videos in
-            if videos.count == 0 {
+        Video.getTrending() { videos in // get trending videos 
+            if videos.count == 0 { // show that there are no videos on trending, also means no internet
+                // wait for the day when youtube gets rid of trending, then you can change this :)
                 self.internetLabel.setHidden(false)
-                self.searchButton.setEnabled(false)
-                
+                //self.searchButton.setEnabled(false) // dont disable the search, internet might be working. sometimes internet is available but no trending data shows idk why. 
+                // it seems to fail when you quickly quit and relaunch the app :uhh:
             } else {
                 self.internetLabel.setHidden(true)
-                self.searchButton.setEnabled(true)
+                //self.searchButton.setEnabled(true)
             }
             self.videos = videos
-            self.setupTable()
+            self.setupTable() // add videos to the table 
             self.TrendingTableRow.setHidden(false)
-            self.loader.setHidden(true)
-            self.tooltipLabel.setHidden(false)
-            self.loader.stopAnimating()
+            self.loader.setHidden(true) // hide the spinner
+            self.tooltipLabel.setHidden(false) // show the tiny text at the bottom
+            self.loader.stopAnimating() // save resources idk
         }
     }
     
     override func willActivate() {
         do {
+            // make cache folder or else you cant save here with alamofire
             let cacheURL = URL(string: NSHomeDirectory()+"/Documents/cache")!
             if !FileManager.default.fileExists(atPath: cacheURL.path) {
                 try FileManager.default.createDirectory(atPath: cacheURL.path, withIntermediateDirectories: true, attributes: nil)
