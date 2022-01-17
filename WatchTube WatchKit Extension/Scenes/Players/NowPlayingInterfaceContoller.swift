@@ -28,7 +28,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     
     @IBAction func infoScreenButton() {
         infoViewed=true
-        self.pushController(withName: "InfoInterfaceController", context: ["from":"CacheNowPlaying", "id": video.id])
+        self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id])
     }
     
     override func awake(withContext context: Any?) {

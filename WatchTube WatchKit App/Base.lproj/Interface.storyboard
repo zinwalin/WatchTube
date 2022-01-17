@@ -72,7 +72,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="924"/>
+            <point key="canvasLocation" x="139" y="632"/>
         </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="139" y="-63"/>
         </scene>
-        <!--Back-->
+        <!--Channel View-->
         <scene sceneID="EgX-Dg-W5F">
             <objects>
-                <controller identifier="ChannelViewInterfaceController" title="Back" id="Hw8-iJ-rG8" customClass="ChannelViewInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                <controller identifier="ChannelViewInterfaceController" title="Channel View" id="Hw8-iJ-rG8" customClass="ChannelViewInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
                         <group width="1" height="58" alignment="center" layout="overlap" radius="0.0" id="I7i-ah-WMY" userLabel="header">
                             <items>
@@ -219,7 +219,7 @@
                         </label>
                         <table alignment="left" pagingScroll="YES" id="NFp-6R-271">
                             <items>
-                                <tableRow identifier="ChannelRow" id="2Tv-K0-tO4" customClass="ChannelRow" customModule="WatchTube_WatchKit_Extension">
+                                <tableRow identifier="ChannelVideoRow" id="2Tv-K0-tO4" customClass="ChannelVideoRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="35V-jx-pR5">
                                         <items>
                                             <separator alignment="left" id="UiB-HR-V0T">
@@ -235,21 +235,112 @@
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="thumbImg" destination="rdG-yp-2aS" id="ka6-na-sU4"/>
-                                        <outlet property="titleLabel" destination="2oH-su-H1x" id="GXg-Uu-3Xu"/>
+                                        <outlet property="channelVideoThumbImg" destination="rdG-yp-2aS" id="4UT-Cb-Oti"/>
+                                        <outlet property="channelVideoTitleLabel" destination="2oH-su-H1x" id="N3m-Wq-doi"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
+                        <separator alignment="left" id="1ax-iP-Bwv">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="More" id="lwv-p1-Ksd">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <button width="1" widthAdjustment="1" height="35" alignment="left" title="Details" id="sLZ-2i-AYg">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <variation key="device=watch38mm" height="30">
+                                <fontDescription key="font" type="system" pointSize="15"/>
+                            </variation>
+                            <variation key="device=watch40mm" height="34">
+                                <fontDescription key="font" type="system" pointSize="20"/>
+                            </variation>
+                            <variation key="device=watch42mm" height="33">
+                                <fontDescription key="font" type="system" pointSize="17"/>
+                            </variation>
+                            <connections>
+                                <action selector="Details" destination="Hw8-iJ-rG8" id="APf-XH-KFg"/>
+                            </connections>
+                        </button>
+                        <button width="1" widthAdjustment="1" height="35" alignment="left" title="Related Channels" id="dMu-6y-CyV">
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <variation key="device=watch38mm" height="30">
+                                <fontDescription key="font" type="system" pointSize="15"/>
+                            </variation>
+                            <variation key="device=watch40mm" height="34">
+                                <fontDescription key="font" type="system" pointSize="20"/>
+                            </variation>
+                            <variation key="device=watch42mm" height="33">
+                                <fontDescription key="font" type="system" pointSize="17"/>
+                            </variation>
+                            <connections>
+                                <action selector="RelatedChannels" destination="Hw8-iJ-rG8" id="y8o-R9-D1T"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
+                        <outlet property="ChannelTableRow" destination="NFp-6R-271" id="2xN-co-1tM"/>
                         <outlet property="bannerImage" destination="8MP-SY-aBr" id="GFJ-qk-K6T"/>
                         <outlet property="channelImage" destination="6XW-xt-am3" id="Usr-tO-ddn"/>
                         <outlet property="channelLabel" destination="zwn-U8-R6O" id="jX8-v8-uw5"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="138.74747474747474" y="633.63636363636363"/>
+            <point key="canvasLocation" x="139" y="1027"/>
+        </scene>
+        <!--Related Channels-->
+        <scene sceneID="HAj-sg-jOC">
+            <objects>
+                <controller identifier="RelatedChannelsInterfaceController" title="Related Channels" id="k61-lI-SHN" customClass="RelatedChannelsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Related Channels" id="22R-we-3Ci">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <table alignment="left" id="p9P-1T-nCS">
+                            <items>
+                                <tableRow identifier="ChannelsRow" id="Lu1-Fm-e43" customClass="ChannelsRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="ZLG-qm-rnY">
+                                        <items>
+                                            <separator alignment="left" id="kAN-u2-cbX">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </separator>
+                                            <group width="1" alignment="center" verticalAlignment="center" id="vce-UL-3UY" userLabel="horizontal">
+                                                <items>
+                                                    <group width="50" height="50" alignment="left" radius="25" id="UeK-Sv-1Yy" userLabel="pfp img">
+                                                        <items>
+                                                            <imageView width="1" height="1" alignment="left" image="pfp" id="J9f-ya-jZG"/>
+                                                        </items>
+                                                        <variation key="device=watch38mm" height="35" radius="18" width="35"/>
+                                                        <variation key="device=watch40mm" height="40" radius="20" width="40"/>
+                                                    </group>
+                                                    <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="rml-lW-Vmv"/>
+                                                </items>
+                                            </group>
+                                            <separator alignment="left" verticalAlignment="bottom" id="8Oj-cK-hZB">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </separator>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="channelThumbImg" destination="J9f-ya-jZG" id="kBP-Kw-Ynf"/>
+                                        <outlet property="channelTitleLabel" destination="rml-lW-Vmv" id="LYY-7b-emg"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <label alignment="center" verticalAlignment="center" hidden="YES" text="No related channels" minimumScaleFactor="0.0" id="rba-9e-yrW">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="ChannelsTableRow" destination="p9P-1T-nCS" id="mXL-4E-0mU"/>
+                        <outlet property="emptyLabel" destination="rba-9e-yrW" id="Kja-Ic-kAQ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="348" y="893"/>
         </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">

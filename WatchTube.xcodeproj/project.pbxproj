@@ -15,6 +15,8 @@
 		89826E802778B13800896853 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89826E7F2778B13800896853 /* ComplicationController.swift */; };
 		89AA9B7E27711F7000694329 /* MenuInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA9B7D27711F7000694329 /* MenuInterfaceController.swift */; };
 		AA3BD6542767E1870010FF99 /* SubInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */; };
+		AA485F012795F0D100206BCC /* ChannelsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F002795F0D100206BCC /* ChannelsTableRow.swift */; };
+		AA485F052795FE4100206BCC /* RelatedChannelsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */; };
 		AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72E0FB2768FF990094113C /* TrendingTableRow.swift */; };
 		AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */; };
 		AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA9C8B202794F95B00C0CDD8 /* pfp.jpg */; };
@@ -88,6 +90,8 @@
 		89826E7F2778B13800896853 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		89AA9B7D27711F7000694329 /* MenuInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInterfaceController.swift; sourceTree = "<group>"; };
 		AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubInfoInterfaceController.swift; sourceTree = "<group>"; };
+		AA485F002795F0D100206BCC /* ChannelsTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableRow.swift; sourceTree = "<group>"; };
+		AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedChannelsInterfaceController.swift; sourceTree = "<group>"; };
 		AA72E0FB2768FF990094113C /* TrendingTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
 		AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
 		AA9C8B202794F95B00C0CDD8 /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
@@ -148,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				AAF50E3E275FC74500E4679D /* CacheContentsInterfaceController.swift */,
-				AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -159,6 +162,21 @@
 				89826E7F2778B13800896853 /* ComplicationController.swift */,
 			);
 			path = Complications;
+			sourceTree = "<group>";
+		};
+		AA485F022795FDAA00206BCC /* Related Channels */ = {
+			isa = PBXGroup;
+			children = (
+				AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */,
+			);
+			path = "Related Channels";
+			sourceTree = "<group>";
+		};
+		AA485F032795FDBA00206BCC /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		AAC670AD278E0A0D0023E505 /* Classes */ = {
@@ -180,12 +198,13 @@
 			path = Content;
 			sourceTree = "<group>";
 		};
-		AAFF5E48279494CB006A7149 /* Player */ = {
+		AAFF5E48279494CB006A7149 /* Players */ = {
 			isa = PBXGroup;
 			children = (
+				AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */,
 				D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */,
 			);
-			path = Player;
+			path = Players;
 			sourceTree = "<group>";
 		};
 		AAFF5E49279494E2006A7149 /* Home */ = {
@@ -225,6 +244,8 @@
 		AAFF5E532794C203006A7149 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
+				AA485F032795FDBA00206BCC /* Details */,
+				AA485F022795FDAA00206BCC /* Related Channels */,
 				AAFF5E542794C264006A7149 /* ChannelViewInterfaceController.swift */,
 			);
 			path = Channel;
@@ -287,7 +308,7 @@
 		D72C940E257DABF60056D0BA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AAFF5E48279494CB006A7149 /* Player */,
+				AAFF5E48279494CB006A7149 /* Players */,
 				894C689B27668EDC00B8B403 /* Cache */,
 				AAFF5E4727949465006A7149 /* Content */,
 				AAFF5E49279494E2006A7149 /* Home */,
@@ -303,6 +324,7 @@
 				AAE7513D2762A03000628BC7 /* CacheTableRow.swift */,
 				AA72E0FB2768FF990094113C /* TrendingTableRow.swift */,
 				AAFF5E562794E1E6006A7149 /* ChannelTableRow.swift */,
+				AA485F002795F0D100206BCC /* ChannelsTableRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,6 +480,8 @@
 				89AA9B7E27711F7000694329 /* MenuInterfaceController.swift in Sources */,
 				D72C9401257D997F0056D0BA /* NowPlayingInterfaceContoller.swift in Sources */,
 				AAFF5E552794C264006A7149 /* ChannelViewInterfaceController.swift in Sources */,
+				AA485F052795FE4100206BCC /* RelatedChannelsInterfaceController.swift in Sources */,
+				AA485F012795F0D100206BCC /* ChannelsTableRow.swift in Sources */,
 				89826E802778B13800896853 /* ComplicationController.swift in Sources */,
 				D72C9410257DAC210056D0BA /* VideoListInterfaceController.swift in Sources */,
 				AAFF5E572794E1E6006A7149 /* ChannelTableRow.swift in Sources */,

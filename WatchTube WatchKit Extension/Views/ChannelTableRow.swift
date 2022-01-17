@@ -9,10 +9,10 @@ import Foundation
 import WatchKit
 
 
-class ChannelRow: NSObject {
+class ChannelVideoRow: NSObject {
     
-    @IBOutlet var titleLabel: WKInterfaceLabel!
-    @IBOutlet var thumbImg: WKInterfaceImage!
+    @IBOutlet var channelVideoTitleLabel: WKInterfaceLabel!
+    @IBOutlet var channelVideoThumbImg: WKInterfaceImage!
     var videoId: String!
 }
 

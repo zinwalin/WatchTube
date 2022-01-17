@@ -95,6 +95,8 @@ class meta {
             switch response.result {
             case .success(let json):
                 let channelDetails = json as! Dictionary<String, Any>
+                
+                if channelDetails["error"] != nil {break}
                 var data = [String: Any]()
                 data["name"] = channelDetails["author"] as? String
                 data["udid"] = channelDetails["authorId"] as? String
@@ -108,7 +110,11 @@ class meta {
                 var array: Array<Dictionary<String,String>> = []
                 for channel in channelDetails["relatedChannels"] as! Array<Dictionary<String, Any>> {
                     var dict: [String:String]
-                    dict = ["name":channel["author"] as! String, "udid":channel["authorId"] as! String]
+                    dict = [
+                        "name": channel["author"] as! String,
+                        "udid": channel["authorId"] as! String,
+                        "thumbnail": (channelDetails["authorThumbnails"] as! Array<Dictionary<String, Any>>)[(channelDetails["authorThumbnails"] as! Array<Dictionary<String, Any>>).count - 1]["url"] as! String
+                    ]
                     array.append(dict)
                 }
                 data["relatedChannels"]=array
@@ -128,9 +134,10 @@ class meta {
                     }
                 } catch {print(error)}
                 
-                for channel in channelDetails["relatedChannels"] as! Array<Dictionary<String, Any>> {
-                    meta.cacheChannelInfo(udid: channel["authorId"] as! String)
-                }
+                //for channel in channelDetails["relatedChannels"] as! Array<Dictionary<String, Any>> {
+                //    meta.cacheChannelInfo(udid: channel["authorId"] as! String)
+                //}
+                // this could go on forever lmao why did i do this
             case .failure(let error):
                 print(error)
             }
