@@ -72,9 +72,9 @@ class SettingsInterfaceController: WKInterfaceController {
                             //what happened lol
                         }
                         do {
-                            let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/miscCache")
+                            let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/videoCache")
                             for file in files {
-                                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/miscCache/\(file)")
+                                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache/\(file)")
                             }
                         } catch {
                             //what happened lol
@@ -100,20 +100,11 @@ class SettingsInterfaceController: WKInterfaceController {
         let action1 = WKAlertAction(title: "Delete Cache", style: .destructive) { [weak self] in
             
             do {
-                let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache")
-                for file in files {
-                    try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(file)")
-                }
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/")
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache/")
+                
                 self!.cacheDeleteButton.setTitle("Cleared")
                 self!.cacheDeleteButton.setEnabled(false)
-            } catch {
-                //what happened lol
-            }
-            do {
-                let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/miscCache")
-                for file in files {
-                    try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/miscCache/\(file)")
-                }
             } catch {
                 //what happened lol
             }
@@ -152,7 +143,7 @@ class SettingsInterfaceController: WKInterfaceController {
     }
     
     @IBAction func resultHigher() {
-        if userDefaults.integer(forKey: settingsKeys.resultsCount) < 30 {
+        if userDefaults.integer(forKey: settingsKeys.resultsCount) < 20 {
             userDefaults.set(userDefaults.value(forKey: settingsKeys.resultsCount) as! Int+1, forKey: settingsKeys.resultsCount)
             updateLabel()
         }

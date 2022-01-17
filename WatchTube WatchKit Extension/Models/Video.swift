@@ -15,30 +15,54 @@ class Video {
     var title: String
     var img: String
     var channel: String
-    public init(id: String, title: String, img: String, channel: String) {
+    var udid: String
+    public init(id: String, title: String, img: String, channel: String, udid: String) {
         self.id = id
         self.title = title
         self.img = img
         self.channel = channel
+        self.udid = udid
      }
     
     class func getSearchResults(keyword: String, completion: @escaping ([Video]) -> Void) {
-        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=video&fields=title,videoId,author,videoThumbnails").responseJSON { response in
+        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=all").responseJSON { response in
             var videos = [Video]()
             switch response.result {
             case .success(let json):
                     let response = json as! Array<Dictionary<String, Any>>
-                    for (_, item) in response.enumerated() {
-                        let title = item["title"]
-                        let vidId = item["videoId"]
-                        let channel = item["author"] as? String
-                        let url = (item["videoThumbnails"] as! Array<Dictionary<String, Any>>)[0]["url"] as! String
-                        // cool also btw this is the search results thingy
-                        if title == nil || vidId == nil || channel == nil {
-                            //where data moment
-                        } else {
-                            let video = Video(id: vidId as! String, title: title as! String, img: url, channel: channel!)
-                            videos.append(video)
+                    for (i, item) in response.enumerated() {
+                        
+                        if i > UserDefaults.standard.integer(forKey: settingsKeys.resultsCount) {break}
+                        let type = item["type"] as! String
+                        switch type {
+                        case "video":
+                            
+                            if (item["videoId"] as! String).count != 11 {continue}
+                            
+                            // is video, add necessary data
+                            let id = item["videoId"] as! String
+                            let title = item["title"] as! String
+                            let thumbs = item["videoThumbnails"] as! Array<Dictionary<String,Any>>
+                            let url = thumbs[0]["url"] as! String
+                            let channel = item["author"] as! String
+                            let vid = Video(id: id, title: title, img: url, channel: channel, udid: "")
+                            videos.append(vid)
+                            
+                        case "channel":
+                            
+                            if (item["authorId"] as! String).count != 24 {continue}
+                            
+                            // is channel, add necessary data
+                            
+                            let udid = item["authorId"] as! String
+                            let thumbs = item["authorThumbnails"] as! Array<Dictionary<String,Any>>
+                            let url = thumbs[thumbs.count - 1]["url"] as! String
+                            let channel = item["author"] as! String
+                            let vid = Video(id: "", title: "", img: "https:\(url)", channel: channel, udid: udid)
+                            videos.append(vid)
+                            
+                        default:
+                            break
                         }
                     }
             case .failure(let error):
@@ -64,7 +88,7 @@ class Video {
                             if title == nil || vidId == nil || channel == nil {
                                 continue
                             } else {
-                                let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String)
+                                let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String, udid: "")
                                 videos.append(video)
                             }
                         }

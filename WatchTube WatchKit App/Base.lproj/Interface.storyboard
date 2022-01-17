@@ -72,7 +72,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="634"/>
+            <point key="canvasLocation" x="139" y="924"/>
         </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
@@ -171,6 +171,86 @@
             </objects>
             <point key="canvasLocation" x="139" y="-63"/>
         </scene>
+        <!--Back-->
+        <scene sceneID="EgX-Dg-W5F">
+            <objects>
+                <controller identifier="ChannelViewInterfaceController" title="Back" id="Hw8-iJ-rG8" customClass="ChannelViewInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="58" alignment="center" layout="overlap" radius="0.0" id="I7i-ah-WMY" userLabel="header">
+                            <items>
+                                <group width="1" alignment="left" radius="2" id="znt-w6-u8C">
+                                    <items>
+                                        <imageView width="1" alignment="center" contentMode="scaleAspectFit" id="8MP-SY-aBr"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" verticalAlignment="bottom" id="olU-dJ-iU8" userLabel="pfp">
+                                    <items>
+                                        <label alignment="right" verticalAlignment="bottom" text="channel" minimumScaleFactor="0.40000000000000002" id="zwn-U8-R6O"/>
+                                        <group width="46" height="46" alignment="left" verticalAlignment="center" radius="23" id="vc4-23-Fox" userLabel="pfp bg">
+                                            <items>
+                                                <group width="1" widthAdjustment="-3" height="1" heightAdjustment="-3" alignment="center" verticalAlignment="center" radius="21" id="xcS-aT-VQa" userLabel="pfp rounding">
+                                                    <items>
+                                                        <imageView alignment="center" verticalAlignment="center" image="pfp" contentMode="scaleAspectFit" id="6XW-xt-am3"/>
+                                                    </items>
+                                                    <variation key="device=watch38mm" radius="18"/>
+                                                    <variation key="device=watch40mm" radius="22"/>
+                                                    <variation key="device=watch42mm" radius="22"/>
+                                                    <variation key="device=watch44mm" radius="22"/>
+                                                </group>
+                                            </items>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <variation key="device=watch38mm" height="40" radius="20" width="40"/>
+                                            <variation key="device=watch40mm" radius="24"/>
+                                            <variation key="device=watch42mm" radius="24"/>
+                                            <variation key="device=watch44mm" radius="24"/>
+                                        </group>
+                                    </items>
+                                    <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                            </items>
+                            <variation key="device=watch38mm" height="50"/>
+                        </group>
+                        <separator alignment="left" id="KwC-gi-6bT">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="Videos" id="zgI-JP-9zl">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <table alignment="left" pagingScroll="YES" id="NFp-6R-271">
+                            <items>
+                                <tableRow identifier="ChannelRow" id="2Tv-K0-tO4" customClass="ChannelRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="35V-jx-pR5">
+                                        <items>
+                                            <separator alignment="left" id="UiB-HR-V0T">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </separator>
+                                            <label alignment="left" text="Label" numberOfLines="2" id="2oH-su-H1x">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                            </label>
+                                            <imageView alignment="center" contentMode="scaleAspectFit" id="rdG-yp-2aS"/>
+                                            <separator alignment="left" id="HlH-4S-fXk">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </separator>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="thumbImg" destination="rdG-yp-2aS" id="ka6-na-sU4"/>
+                                        <outlet property="titleLabel" destination="2oH-su-H1x" id="GXg-Uu-3Xu"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="bannerImage" destination="8MP-SY-aBr" id="GFJ-qk-K6T"/>
+                        <outlet property="channelImage" destination="6XW-xt-am3" id="Usr-tO-ddn"/>
+                        <outlet property="channelLabel" destination="zwn-U8-R6O" id="jX8-v8-uw5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="138.74747474747474" y="633.63636363636363"/>
+        </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
             <objects>
@@ -265,6 +345,11 @@
                             </group>
                             <connections>
                                 <segue destination="252-Fw-M0F" kind="push" id="FyO-Gm-rY6"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="uwu button" id="NP9-lp-ILy">
+                            <connections>
+                                <segue destination="Hw8-iJ-rG8" kind="push" id="aTN-Yg-EXM"/>
                             </connections>
                         </button>
                     </items>
@@ -839,31 +924,57 @@
                                 <tableRow identifier="VideoRow" id="mqx-3d-RrS" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="tYe-qQ-bVm">
                                         <items>
-                                            <separator alignment="center" alpha="0.0" id="ax7-Sj-stS"/>
-                                            <label alignment="left" text="channel name" id="dsR-DS-y2v">
-                                                <fontDescription key="font" type="system" pointSize="12"/>
-                                                <variation key="device=watch38mm">
-                                                    <fontDescription key="font" type="system" pointSize="10"/>
-                                                </variation>
-                                            </label>
-                                            <group alignment="left" radius="5" id="Keg-qX-0in">
+                                            <group width="1" height="0.0" alignment="left" hidden="YES" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
                                                 <items>
-                                                    <imageView alignment="center" verticalAlignment="center" id="C3B-Bo-uae"/>
+                                                    <separator alignment="center" alpha="0.0" id="Jvr-u4-RZH"/>
+                                                    <label alignment="left" text="channel name" id="RsW-0s-2xw">
+                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                        <variation key="device=watch38mm">
+                                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                                        </variation>
+                                                    </label>
+                                                    <group alignment="left" radius="5" id="mGU-DS-KSt">
+                                                        <items>
+                                                            <imageView alignment="center" verticalAlignment="center" id="lff-0m-tMK"/>
+                                                        </items>
+                                                    </group>
+                                                    <label alignment="left" verticalAlignment="bottom" text="title" numberOfLines="2" id="zri-e2-Leg">
+                                                        <fontDescription key="font" type="system" pointSize="12"/>
+                                                        <variation key="device=watch38mm">
+                                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                                        </variation>
+                                                    </label>
+                                                    <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="e9M-H6-a9G"/>
                                                 </items>
                                             </group>
-                                            <label alignment="left" verticalAlignment="bottom" text="title" numberOfLines="2" id="s08-8O-Sw8">
-                                                <fontDescription key="font" type="system" pointSize="12"/>
-                                                <variation key="device=watch38mm">
-                                                    <fontDescription key="font" type="system" pointSize="10"/>
-                                                </variation>
-                                            </label>
-                                            <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="jAd-xy-ylA"/>
+                                            <group width="1" alignment="left" layout="vertical" id="OmS-P5-sNF" userLabel="channelGroup">
+                                                <items>
+                                                    <separator alignment="center" alpha="0.0" id="ax7-Sj-stS"/>
+                                                    <group width="1" alignment="center" verticalAlignment="center" id="vth-4M-0PD" userLabel="horizontal">
+                                                        <items>
+                                                            <group width="50" height="50" alignment="left" radius="25" id="g4w-fq-F8a" userLabel="pfp img">
+                                                                <items>
+                                                                    <imageView width="1" height="1" alignment="left" image="pfp" id="oha-VV-JS3"/>
+                                                                </items>
+                                                                <variation key="device=watch38mm" height="35" radius="18" width="35"/>
+                                                                <variation key="device=watch40mm" height="40" radius="20" width="40"/>
+                                                            </group>
+                                                            <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="vrL-gB-OjL"/>
+                                                        </items>
+                                                    </group>
+                                                    <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="jAd-xy-ylA"/>
+                                                </items>
+                                            </group>
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="channelLabel" destination="dsR-DS-y2v" id="HkN-AW-uFJ"/>
-                                        <outlet property="thumbImg" destination="C3B-Bo-uae" id="rDg-n9-hpK"/>
-                                        <outlet property="titleLabel" destination="s08-8O-Sw8" id="pwG-uQ-iDH"/>
+                                        <outlet property="channelGroup" destination="OmS-P5-sNF" id="HtK-Tw-Rmr"/>
+                                        <outlet property="channelImg" destination="oha-VV-JS3" id="3qa-Lb-QFm"/>
+                                        <outlet property="channelLabel" destination="RsW-0s-2xw" id="tku-ga-d4C"/>
+                                        <outlet property="channelTitle" destination="vrL-gB-OjL" id="f57-U3-dYc"/>
+                                        <outlet property="thumbImg" destination="lff-0m-tMK" id="Mfd-7c-nTj"/>
+                                        <outlet property="titleLabel" destination="zri-e2-Leg" id="Geo-D6-gTV"/>
+                                        <outlet property="videoGroup" destination="Lki-bu-xbE" id="eL1-cC-fsa"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -1020,6 +1131,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="114"/>
         <image name="person" catalog="system" width="128" height="120"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="pfp" width="512" height="512"/>
         <image name="twitter" width="556" height="556"/>
         <image name="watchtube" width="556" height="556"/>
         <namedColor name="AccentColor">

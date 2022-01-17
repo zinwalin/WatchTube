@@ -14,4 +14,9 @@ class VideoRow: NSObject {
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var thumbImg: WKInterfaceImage!
     var videoId: String!
+    var udid: String!
+    @IBOutlet weak var channelTitle: WKInterfaceLabel!
+    @IBOutlet weak var channelImg: WKInterfaceImage!
+    @IBOutlet weak var videoGroup: WKInterfaceGroup!
+    @IBOutlet weak var channelGroup: WKInterfaceGroup!
 }
