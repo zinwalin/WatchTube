@@ -40,6 +40,8 @@ class VideoListInterfaceController: WKInterfaceController {
     }
     
     func setupTable() {
+        
+        videoTableRow.setHidden(false)
         videoTableRow.setNumberOfRows(videos.count, withRowType: "VideoRow")
         
         for i in 0 ..< videos.count {
@@ -59,8 +61,17 @@ class VideoListInterfaceController: WKInterfaceController {
             } else {
                 // something has gone really wrong bruh
                 continue
-                
             }
+            
+            switch type {
+            case "video":
+                meta.cacheVideoInfo(id: video.id)
+            case "channel":
+                meta.cacheChannelInfo(udid: video.udid)
+            default:
+                break
+            }
+            
             row.titleLabel.setText(video.title)
             row.videoId = video.id
             row.channelLabel.setText(video.channel)
@@ -81,16 +92,9 @@ class VideoListInterfaceController: WKInterfaceController {
                     break
                 }
             }
-            
-            switch type {
-            case "video":
-                meta.cacheVideoInfo(id: video.id)
-            case "channel":
-                meta.cacheChannelInfo(udid: video.udid)
-            default:
-                break
-            }
         }
+        
+        videoTableRow.setHidden(false)
     }
         
     override func table(_ table: WKInterfaceTable, didSelectRowAt i: Int) {
@@ -103,11 +107,22 @@ class VideoListInterfaceController: WKInterfaceController {
         }
         switch type {
         case "video":
-            self.pushController(withName: "NowPlayingInterfaceController", context: video)
+            if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {
+                let ok = WKAlertAction(title: "Okay", style: .default) {}
+                presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+            } else {
+                self.pushController(withName: "NowPlayingInterfaceController", context: video)
+            }
         case "channel":
-            self.pushController(withName: "ChannelViewInterfaceController", context: video.udid)
+            if (meta.getChannelInfo(udid: video.udid, key: "name") as! String) == "???" {
+                let ok = WKAlertAction(title: "Okay", style: .default) {}
+                presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+            } else {
+                self.pushController(withName: "ChannelViewInterfaceController", context: video.udid)
+            }
         default:
-            self.pushController(withName: "NowPlayingInterfaceController", context: video)
+            let ok = WKAlertAction(title: "Okay", style: .default) {}
+            presentAlert(withTitle: "Malformed", message: "We don't know what just happened but it's bad. Please report this issue in our server or via TestFlight!", preferredStyle: .alert, actions: [ok])
         }
     }
     
