@@ -34,7 +34,7 @@ class InfoInterfaceController: WKInterfaceController {
         let data = context as! Dictionary<String, String>
         from = data["from"]!
         videoId = data["id"]!
-        udid = meta.getVideoInfo(id: videoId, key: "channelId")
+        udid = meta.getVideoInfo(id: videoId, key: "channelId") as! String
 
         self.showDescriptionButton.setEnabled(false)
         self.likesLabel.setText("Loading Likes")
