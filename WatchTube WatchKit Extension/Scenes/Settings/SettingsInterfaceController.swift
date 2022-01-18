@@ -170,10 +170,6 @@ class SettingsInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        // Configure interface objects here.
-    }
-
-    override func willActivate() {
         
         // set the picker items up
         let pickerItems: [WKPickerItem] = videoTypes.map {
@@ -244,9 +240,16 @@ class SettingsInterfaceController: WKInterfaceController {
                 self.instancePicker.setItems(instanceItems)
                 self.instancePicker.setSelectedItemIndex(Int(self.instances.firstIndex(of: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!)!))
             case .failure(_):
-                break
+                var instanceItems: [WKPickerItem] = []
+                let pickerItem = WKPickerItem()
+                pickerItem.title = UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!
+                instanceItems.append(pickerItem)
+                self.instancePicker.setSelectedItemIndex(Int(self.instances.firstIndex(of: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!)!))
+                self.instanceStatus.setText("Unable to load")
+                
             }
         }
+        // Configure interface objects here.
     }
     
     @IBAction func selectInstance(_ value: Int) {

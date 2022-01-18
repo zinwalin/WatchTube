@@ -19,7 +19,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     var udid = ""
 
     override func awake(withContext context: Any?) {
-        setTitle("Back")
+        setTitle("Channel")
         super.awake(withContext: context)
         udid = context as! String
         
@@ -91,6 +91,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     }
     
     @IBAction func Details() {
+        pushController(withName: "ChannelDetailsInterfaceController", context: udid)
     }
     
     @IBAction func RelatedChannels() {

@@ -34,7 +34,6 @@ class MenuInterfaceController: WKInterfaceController {
         }
         
         super.willActivate()
-        meta.cacheChannelInfo(udid: "UCYzPXprvl5Y-Sf0g4vX-m6g")
     }
 
 }

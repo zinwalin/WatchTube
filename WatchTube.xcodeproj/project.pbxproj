@@ -17,6 +17,7 @@
 		AA3BD6542767E1870010FF99 /* SubInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */; };
 		AA485F012795F0D100206BCC /* ChannelsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F002795F0D100206BCC /* ChannelsTableRow.swift */; };
 		AA485F052795FE4100206BCC /* RelatedChannelsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */; };
+		AA485F07279624C600206BCC /* ChannelDetailsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F06279624C600206BCC /* ChannelDetailsInterfaceController.swift */; };
 		AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72E0FB2768FF990094113C /* TrendingTableRow.swift */; };
 		AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */; };
 		AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA9C8B202794F95B00C0CDD8 /* pfp.jpg */; };
@@ -92,6 +93,7 @@
 		AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubInfoInterfaceController.swift; sourceTree = "<group>"; };
 		AA485F002795F0D100206BCC /* ChannelsTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableRow.swift; sourceTree = "<group>"; };
 		AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedChannelsInterfaceController.swift; sourceTree = "<group>"; };
+		AA485F06279624C600206BCC /* ChannelDetailsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailsInterfaceController.swift; sourceTree = "<group>"; };
 		AA72E0FB2768FF990094113C /* TrendingTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
 		AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
 		AA9C8B202794F95B00C0CDD8 /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		AA485F032795FDBA00206BCC /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				AA485F06279624C600206BCC /* ChannelDetailsInterfaceController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				AAE7513E2762A03000628BC7 /* CacheTableRow.swift in Sources */,
 				891B09D5275D0F8B00696841 /* SettingsInterfaceController.swift in Sources */,
 				AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */,
+				AA485F07279624C600206BCC /* ChannelDetailsInterfaceController.swift in Sources */,
 				AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */,
 				D72C9430257DB42D0056D0BA /* VideoTableRow.swift in Sources */,
 				D72C9418257DACCE0056D0BA /* Video.swift in Sources */,

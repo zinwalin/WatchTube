@@ -220,7 +220,7 @@
                         <table alignment="left" pagingScroll="YES" id="NFp-6R-271">
                             <items>
                                 <tableRow identifier="ChannelVideoRow" id="2Tv-K0-tO4" customClass="ChannelVideoRow" customModule="WatchTube_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="35V-jx-pR5">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="35V-jx-pR5">
                                         <items>
                                             <separator alignment="left" id="UiB-HR-V0T">
                                                 <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,7 +228,11 @@
                                             <label alignment="left" text="Label" numberOfLines="2" id="2oH-su-H1x">
                                                 <fontDescription key="font" type="system" pointSize="12"/>
                                             </label>
-                                            <imageView alignment="center" contentMode="scaleAspectFit" id="rdG-yp-2aS"/>
+                                            <group width="1" alignment="center" radius="5" id="YkH-qJ-Pmm">
+                                                <items>
+                                                    <imageView alignment="center" contentMode="scaleAspectFit" id="rdG-yp-2aS"/>
+                                                </items>
+                                            </group>
                                             <separator alignment="left" id="HlH-4S-fXk">
                                                 <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </separator>
@@ -289,6 +293,129 @@
             </objects>
             <point key="canvasLocation" x="139" y="1027"/>
         </scene>
+        <!--Channel Details-->
+        <scene sceneID="tpQ-1i-nF4">
+            <objects>
+                <controller identifier="ChannelDetailsInterfaceController" title="Channel Details" id="swr-F0-4ie" customClass="ChannelDetailsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="58" alignment="center" layout="overlap" radius="0.0" id="E9R-a0-dMN" userLabel="header">
+                            <items>
+                                <group width="1" alignment="left" radius="2" id="EeZ-iF-67d">
+                                    <items>
+                                        <imageView width="1" alignment="center" contentMode="scaleAspectFit" id="vTV-DT-M5f"/>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" verticalAlignment="bottom" id="nsE-PI-aoH" userLabel="pfp">
+                                    <items>
+                                        <label alignment="right" verticalAlignment="bottom" text="channel" minimumScaleFactor="0.40000000000000002" id="F7O-Wy-uQo"/>
+                                        <group width="46" height="46" alignment="left" verticalAlignment="center" radius="23" id="dOx-2p-Ohg" userLabel="pfp bg">
+                                            <items>
+                                                <group width="1" widthAdjustment="-3" height="1" heightAdjustment="-3" alignment="center" verticalAlignment="center" radius="21" id="rqt-I1-HrQ" userLabel="pfp rounding">
+                                                    <items>
+                                                        <imageView alignment="center" verticalAlignment="center" image="pfp" contentMode="scaleAspectFit" id="MXV-O3-rfv"/>
+                                                    </items>
+                                                    <variation key="device=watch38mm" radius="18"/>
+                                                    <variation key="device=watch40mm" radius="22"/>
+                                                    <variation key="device=watch42mm" radius="22"/>
+                                                    <variation key="device=watch44mm" radius="22"/>
+                                                </group>
+                                            </items>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <variation key="device=watch38mm" height="40" radius="20" width="40"/>
+                                            <variation key="device=watch40mm" radius="24"/>
+                                            <variation key="device=watch42mm" radius="24"/>
+                                            <variation key="device=watch44mm" radius="24"/>
+                                        </group>
+                                    </items>
+                                    <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                            </items>
+                            <variation key="device=watch38mm" height="50"/>
+                        </group>
+                        <separator alignment="left" id="0eN-TQ-IbF">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="description body" numberOfLines="0" id="eQ1-Gt-KXi">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <separator alignment="left" id="iNP-CD-aNY">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="Stats" id="FcI-Xo-AXR">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" alignment="left" id="85i-KT-TBt">
+                            <items>
+                                <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="person.crop.circle.fill" catalog="system" contentMode="scaleAspectFit" id="cjL-ZY-KpX">
+                                    <color key="tintColor" name="AccentColor"/>
+                                </imageView>
+                                <label alignment="left" verticalAlignment="center" text="sprinkle of subs" id="rxa-Vu-PTx">
+                                    <fontDescription key="font" type="system" pointSize="16"/>
+                                    <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="14"/>
+                                    </variation>
+                                    <variation key="device=watch41mm">
+                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                    </variation>
+                                    <variation key="device=watch44mm">
+                                        <fontDescription key="font" type="system" pointSize="16"/>
+                                    </variation>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="TB2-gh-bYn">
+                            <items>
+                                <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="eye.circle.fill" catalog="system" contentMode="scaleAspectFit" id="GeP-9M-BFj">
+                                    <color key="tintColor" name="AccentColor"/>
+                                </imageView>
+                                <label alignment="left" verticalAlignment="center" text="dash of views" id="eL9-Bx-2FL">
+                                    <fontDescription key="font" type="system" pointSize="16"/>
+                                    <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="14"/>
+                                    </variation>
+                                    <variation key="device=watch41mm">
+                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                    </variation>
+                                    <variation key="device=watch44mm">
+                                        <fontDescription key="font" type="system" pointSize="16"/>
+                                    </variation>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="GFT-f2-I7C">
+                            <items>
+                                <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="clock.circle.fill" catalog="system" contentMode="scaleAspectFit" id="CBl-R6-afD">
+                                    <color key="tintColor" name="AccentColor"/>
+                                </imageView>
+                                <label height="20" alignment="left" verticalAlignment="center" text="hint of joined" id="ieI-uN-6Qn">
+                                    <fontDescription key="font" type="system" pointSize="16"/>
+                                    <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="14"/>
+                                    </variation>
+                                    <variation key="device=watch41mm">
+                                        <fontDescription key="font" type="system" pointSize="15"/>
+                                    </variation>
+                                    <variation key="device=watch44mm">
+                                        <fontDescription key="font" type="system" pointSize="16"/>
+                                    </variation>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="bannerImage" destination="vTV-DT-M5f" id="Coi-kW-ASd"/>
+                        <outlet property="channelDescription" destination="eQ1-Gt-KXi" id="Ogi-rk-cUu"/>
+                        <outlet property="channelImage" destination="MXV-O3-rfv" id="r03-kp-tZU"/>
+                        <outlet property="channelLabel" destination="F7O-Wy-uQo" id="j6e-SS-MtX"/>
+                        <outlet property="joinedLabel" destination="ieI-uN-6Qn" id="mKL-3F-cJ5"/>
+                        <outlet property="subsLabel" destination="rxa-Vu-PTx" id="2fF-gm-S1V"/>
+                        <outlet property="viewsLabel" destination="eL9-Bx-2FL" id="j5S-Uo-J2X"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="346.86868686868689" y="1155.5785123966941"/>
+        </scene>
         <!--Related Channels-->
         <scene sceneID="HAj-sg-jOC">
             <objects>
@@ -301,7 +428,7 @@
                         <table alignment="left" id="p9P-1T-nCS">
                             <items>
                                 <tableRow identifier="ChannelsRow" id="Lu1-Fm-e43" customClass="ChannelsRow" customModule="WatchTube_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="ZLG-qm-rnY">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="ZLG-qm-rnY">
                                         <items>
                                             <separator alignment="left" id="kAN-u2-cbX">
                                                 <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -436,11 +563,6 @@
                             </group>
                             <connections>
                                 <segue destination="252-Fw-M0F" kind="push" id="FyO-Gm-rY6"/>
-                            </connections>
-                        </button>
-                        <button width="1" alignment="left" title="uwu button" id="NP9-lp-ILy">
-                            <connections>
-                                <segue destination="Hw8-iJ-rG8" kind="push" id="aTN-Yg-EXM"/>
                             </connections>
                         </button>
                     </items>
@@ -861,7 +983,7 @@
                         <group width="1" alignment="left" id="FuA-Vd-NCt">
                             <items>
                                 <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="eye.circle.fill" catalog="system" contentMode="scaleAspectFit" id="Oqe-lG-sut">
-                                    <color key="tintColor" red="0.92693163680000001" green="0.2829501472" blue="0.27253608270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" name="AccentColor"/>
                                 </imageView>
                                 <label alignment="left" verticalAlignment="center" text="5839424 Views" id="cNV-ZP-pwb">
                                     <fontDescription key="font" type="system" pointSize="16"/>
@@ -883,7 +1005,7 @@
                         <group width="1" alignment="left" id="6IK-r5-mG1">
                             <items>
                                 <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="hand.thumbsup.circle.fill" catalog="system" contentMode="scaleAspectFit" id="EfO-DB-i1K">
-                                    <color key="tintColor" red="0.0" green="0.47931504250000001" blue="0.99918800590000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" name="AccentColor"/>
                                 </imageView>
                                 <label alignment="left" verticalAlignment="center" text="95000 Likes" id="hOb-jj-96W">
                                     <fontDescription key="font" type="system" pointSize="16"/>
@@ -905,7 +1027,7 @@
                         <group width="1" alignment="left" id="HFm-tb-QLe">
                             <items>
                                 <imageView width="25" height="25" alignment="left" image="person.circle.fill" catalog="system" contentMode="scaleAspectFit" id="Cqd-XW-KTC">
-                                    <color key="tintColor" red="0.047211882121020093" green="0.99918800590000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" name="AccentColor"/>
                                 </imageView>
                                 <label alignment="left" verticalAlignment="center" text="Josh Sidhu" numberOfLines="2" id="Z5G-Di-wrf">
                                     <fontDescription key="font" type="system" pointSize="16"/>
@@ -927,7 +1049,7 @@
                         <group width="1" alignment="left" id="jy6-er-ZnX">
                             <items>
                                 <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="arrow.up.circle.fill" catalog="system" contentMode="scaleAspectFit" id="vq9-Xl-mvV">
-                                    <color key="tintColor" red="1" green="0.90119162628628602" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" name="AccentColor"/>
                                 </imageView>
                                 <label alignment="left" verticalAlignment="center" text="Uploaded 25/12/2021" numberOfLines="2" id="ys0-Yn-yYo">
                                     <fontDescription key="font" type="system" pointSize="16"/>
@@ -1015,7 +1137,7 @@
                                 <tableRow identifier="VideoRow" id="mqx-3d-RrS" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="tYe-qQ-bVm">
                                         <items>
-                                            <group width="1" height="0.0" alignment="left" hidden="YES" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
+                                            <group width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="Jvr-u4-RZH"/>
                                                     <label alignment="left" text="channel name" id="RsW-0s-2xw">
@@ -1038,7 +1160,7 @@
                                                     <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="e9M-H6-a9G"/>
                                                 </items>
                                             </group>
-                                            <group width="1" alignment="left" layout="vertical" id="OmS-P5-sNF" userLabel="channelGroup">
+                                            <group width="1" alignment="left" hidden="YES" layout="vertical" id="OmS-P5-sNF" userLabel="channelGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="ax7-Sj-stS"/>
                                                     <group width="1" alignment="center" verticalAlignment="center" id="vth-4M-0PD" userLabel="horizontal">
@@ -1210,6 +1332,7 @@
     <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
         <image name="folder" catalog="system" width="128" height="96"/>
@@ -1222,6 +1345,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="114"/>
         <image name="person" catalog="system" width="128" height="120"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pfp" width="512" height="512"/>
         <image name="twitter" width="556" height="556"/>
         <image name="watchtube" width="556" height="556"/>

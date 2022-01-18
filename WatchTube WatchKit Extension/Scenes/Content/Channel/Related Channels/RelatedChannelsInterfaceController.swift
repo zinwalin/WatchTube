@@ -18,7 +18,7 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        setTitle("Back")
+        setTitle("Channels")
         udid = context as! String
         setupChannelsTable(udid: udid)
         
@@ -42,6 +42,7 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
             dict["udid"] = channel["udid"]
             dict["name"] = channel["name"]
             dict["thumbnail"] = meta.getChannelInfo(udid: dict["udid"]!, key: "thumbnail") as? String
+            dict["subscribers"] = meta.getChannelInfo(udid: dict["udid"]!, key: "subscribers") as? String
             channels.append(dict)
         }
         if channels.isEmpty {
@@ -57,6 +58,8 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
                 let channel = channels[i]
                 row.channelTitleLabel.setText(channel["name"])
                 row.videoId = channel["udid"]
+                
+                // ill add subscribers later
                 
                 if UserDefaults.standard.value(forKey: settingsKeys.thumbnailsToggle) == nil {
                     UserDefaults.standard.set(true, forKey: settingsKeys.thumbnailsToggle)
