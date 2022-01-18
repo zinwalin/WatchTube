@@ -952,6 +952,13 @@
                                     </connections>
                                 </button>
                                 <label width="165" alignment="left" verticalAlignment="center" text="cache channel name" minimumScaleFactor="0.5" id="qO5-UO-1WO">
+                                    <gestureRecognizers>
+                                        <tapGestureRecognizer id="lcD-Rp-fBL">
+                                            <connections>
+                                                <action selector="openChannel:" destination="znb-rE-3Gy" id="Mwi-Ha-xcd"/>
+                                            </connections>
+                                        </tapGestureRecognizer>
+                                    </gestureRecognizers>
                                     <fontDescription key="font" type="system" pointSize="15"/>
                                     <variation key="device=watch38mm" width="105">
                                         <fontDescription key="font" type="system" pointSize="13"/>
@@ -970,6 +977,7 @@
                         <outlet property="cacheStatusLabel" destination="SGY-qa-pNh" id="2dE-Kd-53w"/>
                         <outlet property="cacheThumbnailBg" destination="Ss7-BF-ZeL" id="SJf-lN-wWG"/>
                         <outlet property="cacheTitleLabel" destination="ptW-dh-hiu" id="ICB-ib-cRU"/>
+                        <outlet property="openChannel" destination="lcD-Rp-fBL" id="KTV-we-krc"/>
                     </connections>
                 </controller>
             </objects>
@@ -1042,6 +1050,13 @@
                                     </variation>
                                 </label>
                             </items>
+                            <gestureRecognizers>
+                                <tapGestureRecognizer id="DTN-ad-pi1">
+                                    <connections>
+                                        <action selector="openChannel:" destination="xFy-2C-kW2" id="epR-4D-9vm"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
                         </group>
                         <separator alignment="left" id="eX7-xw-8He">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1265,6 +1280,13 @@
                                     </connections>
                                 </button>
                                 <label width="165" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="P8n-0l-CSv">
+                                    <gestureRecognizers>
+                                        <tapGestureRecognizer id="v2Z-tc-pCk">
+                                            <connections>
+                                                <action selector="openChannel:" destination="IGU-mI-QIU" id="Mbe-0y-jM5"/>
+                                            </connections>
+                                        </tapGestureRecognizer>
+                                    </gestureRecognizers>
                                     <fontDescription key="font" type="system" pointSize="15"/>
                                     <variation key="device=watch38mm" width="105">
                                         <fontDescription key="font" type="system" pointSize="13"/>

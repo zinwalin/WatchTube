@@ -25,9 +25,13 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     var title: String = ""
     var img: String = ""
     var channel: String = ""
-
+    
     @IBAction func cacheInfoScreenButton() {
         self.pushController(withName: "InfoInterfaceController", context: ["from":"CacheNowPlaying", "id": self.videoId])
+    }
+    
+    @IBAction func openChannel(_ sender: Any) {
+        pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: videoId, key: "channelId"))
     }
     
     override func awake(withContext context: Any?) {

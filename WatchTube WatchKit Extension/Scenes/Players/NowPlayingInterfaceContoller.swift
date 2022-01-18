@@ -31,6 +31,10 @@ class NowPlayingInterfaceController: WKInterfaceController {
         self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id])
     }
     
+    @IBAction func openChannel(_ sender: Any) {
+        pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: video.id, key: "channelId"))
+    }
+    
     override func awake(withContext context: Any?) {
         if context != nil {
             video = context as? Video

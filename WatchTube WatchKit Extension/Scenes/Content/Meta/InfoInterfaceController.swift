@@ -25,7 +25,8 @@ class InfoInterfaceController: WKInterfaceController {
     
     var videoId: String = ""
     var from: String = ""
-    
+    var udid: String = ""
+
     var videoDetails: Dictionary<String, Any> = [:]
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -33,7 +34,8 @@ class InfoInterfaceController: WKInterfaceController {
         let data = context as! Dictionary<String, String>
         from = data["from"]!
         videoId = data["id"]!
-                
+        udid = meta.getVideoInfo(id: videoId, key: "channelId")
+
         self.showDescriptionButton.setEnabled(false)
         self.likesLabel.setText("Loading Likes")
         self.viewsLabel.setText("Loading Views")
@@ -51,6 +53,11 @@ class InfoInterfaceController: WKInterfaceController {
         
         // Configure interface objects here.
     }
+    
+    @IBAction func openChannel(_ sender: Any) {
+        pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: videoId, key: "channelId"))
+    }
+    
     @IBAction func showDescription() {
         self.pushController(withName: "SubInfoInterfaceController", context: meta.getVideoInfo(id: videoId, key: "description"))
     }
