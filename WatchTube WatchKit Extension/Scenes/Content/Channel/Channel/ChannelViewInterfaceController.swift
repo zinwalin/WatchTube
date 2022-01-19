@@ -91,10 +91,20 @@ class ChannelViewInterfaceController: WKInterfaceController {
     }
     
     @IBAction func Details() {
-        pushController(withName: "ChannelDetailsInterfaceController", context: udid)
+        if meta.getChannelInfo(udid: udid) as! String == "???" {
+            let ok = WKAlertAction(title: "Okay", style: .default) {}
+            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+        } else {
+            pushController(withName: "ChannelDetailsInterfaceController", context: udid)
+        }
     }
     
     @IBAction func RelatedChannels() {
-        pushController(withName: "RelatedChannelsInterfaceController", context: udid)
+        if meta.getChannelInfo(udid: udid) as! String == "???" {
+            let ok = WKAlertAction(title: "Okay", style: .default) {}
+            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+        } else {
+            pushController(withName: "RelatedChannelsInterfaceController", context: udid)
+        }
     }
 }
