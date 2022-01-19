@@ -486,13 +486,6 @@
             </objects>
             <point key="canvasLocation" x="348" y="974"/>
         </scene>
-        <!--Interface Controller-->
-        <scene sceneID="a9P-Vx-Lra">
-            <objects>
-                <controller id="Xyz-Zg-kuR"/>
-            </objects>
-            <point key="canvasLocation" x="808" y="634"/>
-        </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
             <objects>

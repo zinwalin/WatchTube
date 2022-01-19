@@ -200,13 +200,6 @@
 			path = Results;
 			sourceTree = "<group>";
 		};
-		AA51D2742798C2F50098832E /* Keyboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Keyboard;
-			sourceTree = "<group>";
-		};
 		AA51D2752798CB2E0098832E /* Profile Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,7 +265,6 @@
 		AAFF5E522794C1FB006A7149 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				AA51D2742798C2F50098832E /* Keyboard */,
 				AA51D2732798C2EA0098832E /* Results */,
 			);
 			path = Search;
