@@ -22,20 +22,14 @@ class VideoListInterfaceController: WKInterfaceController {
         searchLoader.setImageNamed("loading")
         searchLoader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
-        if let dictionary = context as? Dictionary<String, Any> {
-            if let action = dictionary["action"] as? String {
-                if action == "search" {
-                    let keyword = dictionary["query"] as! String
-                    Video.getSearchResults(keyword: keyword) { videos in
-                        if videos.count == 0 {self.searchInternetLabel.setHidden(false)} else {self.searchInternetLabel.setHidden(true)}
-                        self.videos = videos
-                        self.setupTable()
-                        self.videoTableRow.setHidden(false)
-                        self.searchLoader.stopAnimating()
-                        self.searchLoader.setHidden(true)
-                    }
-                }
-            }
+        let keyword = context as! String
+        Video.getSearchResults(keyword: keyword) { videos in
+            if videos.count == 0 {self.searchInternetLabel.setHidden(false)} else {self.searchInternetLabel.setHidden(true)}
+            self.videos = videos
+            self.setupTable()
+            self.videoTableRow.setHidden(false)
+            self.searchLoader.stopAnimating()
+            self.searchLoader.setHidden(true)
         }
     }
     

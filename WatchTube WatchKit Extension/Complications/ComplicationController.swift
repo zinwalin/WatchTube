@@ -71,13 +71,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .extraLarge:
                 return CLKComplicationTemplateExtraLargeSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Extra Large")!))
             case .graphicBezel:
-                return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Graphic Bezel")!))
+                return CLKComplicationTemplateGraphicBezelCircularText(circularTemplate: CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Bezel")!)), textProvider: CLKTextProvider(format: "WatchTube"))
             case .graphicCircular:
                 return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Circular")!))
             case .graphicCorner:
                 return CLKComplicationTemplateGraphicCornerCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Corner")!))
             case .graphicExtraLarge:
-                return CLKComplicationTemplateExtraLargeSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Graphic Extra Large")!))
+                return CLKComplicationTemplateGraphicExtraLargeCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Extra Large")!))
             case .graphicRectangular:
                 return CLKComplicationTemplateGraphicRectangularFullImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Large Rectangular")!))
             case .modularLarge:
@@ -85,11 +85,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             case .modularSmall:
                 return CLKComplicationTemplateModularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Modular")!))
             case .utilitarianLarge:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
+                return CLKComplicationTemplateUtilitarianLargeFlat(textProvider: CLKTextProvider(format: "WatchTube"), imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!))
             case .utilitarianSmall:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
+                return CLKComplicationTemplateUtilitarianSmallRingImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!), fillFraction: 1, ringStyle: CLKComplicationRingStyle(rawValue: 1)!)
             case .utilitarianSmallFlat:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Utilitarian")!))
+                return CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: "WatchTube"), imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!))
             default:
                 return nil
             }

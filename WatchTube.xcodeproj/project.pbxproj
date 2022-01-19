@@ -182,6 +182,14 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		AA51D272279898CE0098832E /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				AAFF5E542794C264006A7149 /* ChannelViewInterfaceController.swift */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
 		AAC670AD278E0A0D0023E505 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,7 +204,7 @@
 			children = (
 				AAFF5E532794C203006A7149 /* Channel */,
 				AAFF5E522794C1FB006A7149 /* Search */,
-				AAFF5E512794C1E7006A7149 /* Meta */,
+				AAFF5E512794C1E7006A7149 /* Info */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -227,13 +235,13 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		AAFF5E512794C1E7006A7149 /* Meta */ = {
+		AAFF5E512794C1E7006A7149 /* Info */ = {
 			isa = PBXGroup;
 			children = (
 				AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */,
 				AA3BD6532767E1870010FF99 /* SubInfoInterfaceController.swift */,
 			);
-			path = Meta;
+			path = Info;
 			sourceTree = "<group>";
 		};
 		AAFF5E522794C1FB006A7149 /* Search */ = {
@@ -249,7 +257,7 @@
 			children = (
 				AA485F032795FDBA00206BCC /* Details */,
 				AA485F022795FDAA00206BCC /* Related Channels */,
-				AAFF5E542794C264006A7149 /* ChannelViewInterfaceController.swift */,
+				AA51D272279898CE0098832E /* Channel */,
 			);
 			path = Channel;
 			sourceTree = "<group>";

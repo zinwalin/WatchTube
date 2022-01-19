@@ -66,9 +66,7 @@ class InterfaceController: WKInterfaceController {
                     }
                     keywordsHistory.append(keyword[0])
                     UserDefaults.standard.set(keywordsHistory, forKey: preferencesKeys.keywordsHistory)
-                    let context = ["action": "search",
-                                   "query": keyword[0]]
-                    self.pushController(withName: "VideoListInterfaceController", context: context)
+                    self.pushController(withName: "VideoListInterfaceController", context: keyword[0])
                 }
             }
         }

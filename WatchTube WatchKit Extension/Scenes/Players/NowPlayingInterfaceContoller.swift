@@ -32,7 +32,12 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     @IBAction func openChannel(_ sender: Any) {
-        pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: video.id, key: "channelId"))
+        if (meta.getChannelInfo(udid: meta.getVideoInfo(id: video.id, key: "channelId") as! String, key: "name") as! String) == "???" {
+            let ok = WKAlertAction(title: "Okay", style: .default) {}
+            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+        } else {
+            pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: video.id, key: "channelId"))
+        }
     }
     
     override func awake(withContext context: Any?) {
@@ -65,6 +70,8 @@ class NowPlayingInterfaceController: WKInterfaceController {
         self.movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         self.movie.setHidden(true)
         
+        meta.cacheChannelInfo(udid: meta.getVideoInfo(id: video.id, key: "channelId") as! String)
+        
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(self.fileType)") == true {
             self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(self.fileType)"))
             self.statusLabel.setText("Ready.")
@@ -86,6 +93,16 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     // - dlType (to use)
                     
                     // parse the video info for links. check dl type to set streamUrl to src of audio or video
+                    
+                    if (videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>).count == 0 || (videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>).count == 0 {
+                        self.statusLabel.setText("No streams found")
+                        self.movieLoading.stopAnimating()
+                        self.movieLoading.setImageNamed("error")
+                        break
+                    }
+                    
+                    print((videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>).count, (videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>).count)
+                    
                     if dlType == "video" {
                         let formatStreams = videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>
                         let streamData = formatStreams[formatStreams.count - 1]
