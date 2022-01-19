@@ -18,6 +18,7 @@
 		AA485F012795F0D100206BCC /* ChannelsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F002795F0D100206BCC /* ChannelsTableRow.swift */; };
 		AA485F052795FE4100206BCC /* RelatedChannelsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */; };
 		AA485F07279624C600206BCC /* ChannelDetailsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA485F06279624C600206BCC /* ChannelDetailsInterfaceController.swift */; };
+		AA51D2772798CB470098832E /* ProfileViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51D2762798CB470098832E /* ProfileViewInterfaceController.swift */; };
 		AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72E0FB2768FF990094113C /* TrendingTableRow.swift */; };
 		AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */; };
 		AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA9C8B202794F95B00C0CDD8 /* pfp.jpg */; };
@@ -94,6 +95,7 @@
 		AA485F002795F0D100206BCC /* ChannelsTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsTableRow.swift; sourceTree = "<group>"; };
 		AA485F042795FE4100206BCC /* RelatedChannelsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedChannelsInterfaceController.swift; sourceTree = "<group>"; };
 		AA485F06279624C600206BCC /* ChannelDetailsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelDetailsInterfaceController.swift; sourceTree = "<group>"; };
+		AA51D2762798CB470098832E /* ProfileViewInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewInterfaceController.swift; sourceTree = "<group>"; };
 		AA72E0FB2768FF990094113C /* TrendingTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
 		AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
 		AA9C8B202794F95B00C0CDD8 /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
@@ -190,6 +192,29 @@
 			path = Channel;
 			sourceTree = "<group>";
 		};
+		AA51D2732798C2EA0098832E /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				D72C940F257DAC210056D0BA /* VideoListInterfaceController.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		AA51D2742798C2F50098832E /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		AA51D2752798CB2E0098832E /* Profile Image */ = {
+			isa = PBXGroup;
+			children = (
+				AA51D2762798CB470098832E /* ProfileViewInterfaceController.swift */,
+			);
+			path = "Profile Image";
+			sourceTree = "<group>";
+		};
 		AAC670AD278E0A0D0023E505 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +272,8 @@
 		AAFF5E522794C1FB006A7149 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D72C940F257DAC210056D0BA /* VideoListInterfaceController.swift */,
+				AA51D2742798C2F50098832E /* Keyboard */,
+				AA51D2732798C2EA0098832E /* Results */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -255,6 +281,7 @@
 		AAFF5E532794C203006A7149 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
+				AA51D2752798CB2E0098832E /* Profile Image */,
 				AA485F032795FDBA00206BCC /* Details */,
 				AA485F022795FDAA00206BCC /* Related Channels */,
 				AA51D272279898CE0098832E /* Channel */,
@@ -484,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA51D2772798CB470098832E /* ProfileViewInterfaceController.swift in Sources */,
 				191C9DE3277BB54E00D9CC27 /* MetadataCache.swift in Sources */,
 				AA3BD6542767E1870010FF99 /* SubInfoInterfaceController.swift in Sources */,
 				AAA7362127640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift in Sources */,

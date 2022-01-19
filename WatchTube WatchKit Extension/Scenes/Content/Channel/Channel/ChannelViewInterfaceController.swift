@@ -107,4 +107,10 @@ class ChannelViewInterfaceController: WKInterfaceController {
             pushController(withName: "RelatedChannelsInterfaceController", context: udid)
         }
     }
+    
+    @IBAction func showProfileImage(_ sender: Any) {
+        if udid != "" {
+            presentController(withName: "ProfileViewInterfaceController", context: meta.getChannelInfo(udid: udid, key: "thumbnail"))
+        }
+    }
 }
