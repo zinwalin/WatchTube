@@ -171,6 +171,24 @@
             </objects>
             <point key="canvasLocation" x="139" y="-63"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="an7-zY-X1X">
+            <objects>
+                <controller identifier="ProfileViewInterfaceController" title="Profile" id="9BZ-Hz-dwF" customClass="ProfileViewInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group alignment="center" radius="10" id="UB5-cR-mJ0" userLabel="rounding">
+                            <items>
+                                <imageView alignment="center" verticalAlignment="center" image="pfp" contentMode="scaleAspectFit" id="epK-0D-1MR"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="epK-0D-1MR" id="NGP-nt-yZp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-69" y="1235"/>
+        </scene>
         <!--Channel View-->
         <scene sceneID="EgX-Dg-W5F">
             <objects>
@@ -183,30 +201,29 @@
                                         <imageView width="1" alignment="center" contentMode="scaleAspectFit" id="8MP-SY-aBr"/>
                                     </items>
                                 </group>
-                                <group width="1" alignment="left" verticalAlignment="bottom" id="olU-dJ-iU8" userLabel="pfp">
-                                    <items>
-                                        <label alignment="right" verticalAlignment="bottom" text="channel" minimumScaleFactor="0.40000000000000002" id="zwn-U8-R6O"/>
-                                        <group width="46" height="46" alignment="left" verticalAlignment="center" radius="23" id="vc4-23-Fox" userLabel="pfp bg">
-                                            <items>
-                                                <group width="1" widthAdjustment="-3" height="1" heightAdjustment="-3" alignment="center" verticalAlignment="center" radius="21" id="xcS-aT-VQa" userLabel="pfp rounding">
-                                                    <items>
-                                                        <imageView alignment="center" verticalAlignment="center" image="pfp" contentMode="scaleAspectFit" id="6XW-xt-am3"/>
-                                                    </items>
-                                                    <variation key="device=watch38mm" radius="18"/>
-                                                    <variation key="device=watch40mm" radius="22"/>
-                                                    <variation key="device=watch42mm" radius="22"/>
-                                                    <variation key="device=watch44mm" radius="22"/>
-                                                </group>
-                                            </items>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <variation key="device=watch38mm" height="40" radius="20" width="40"/>
-                                            <variation key="device=watch40mm" radius="24"/>
-                                            <variation key="device=watch42mm" radius="24"/>
-                                            <variation key="device=watch44mm" radius="24"/>
-                                        </group>
-                                    </items>
-                                    <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
-                                </group>
+                                <button alignment="left" verticalAlignment="bottom" id="GJ6-iy-stW" userLabel="pfp view">
+                                    <group key="contentGroup" width="1" alignment="left" id="bcB-zM-jzr">
+                                        <items>
+                                            <label alignment="right" verticalAlignment="bottom" text="channel" minimumScaleFactor="0.40000000000000002" id="zwn-U8-R6O"/>
+                                            <group width="46" height="46" alignment="left" verticalAlignment="center" radius="24" id="vc4-23-Fox" userLabel="pfp bg">
+                                                <items>
+                                                    <group width="1" widthAdjustment="-3" height="1" heightAdjustment="-3" alignment="center" verticalAlignment="center" radius="22" id="xcS-aT-VQa" userLabel="pfp rounding">
+                                                        <items>
+                                                            <imageView alignment="center" verticalAlignment="center" image="pfp" contentMode="scaleAspectFit" id="6XW-xt-am3"/>
+                                                        </items>
+                                                        <variation key="device=watch38mm" radius="18"/>
+                                                    </group>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <variation key="device=watch38mm" height="40" radius="20" width="40"/>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="showProfileImage:" destination="Hw8-iJ-rG8" id="ahi-TZ-9kH"/>
+                                    </connections>
+                                </button>
                             </items>
                             <variation key="device=watch38mm" height="50"/>
                         </group>
@@ -291,7 +308,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="1027"/>
+            <point key="canvasLocation" x="139" y="1091"/>
         </scene>
         <!--Channel Details-->
         <scene sceneID="tpQ-1i-nF4">
@@ -414,7 +431,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="346.86868686868689" y="1155.5785123966941"/>
+            <point key="canvasLocation" x="348" y="1313"/>
         </scene>
         <!--Related Channels-->
         <scene sceneID="HAj-sg-jOC">
@@ -467,7 +484,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="893"/>
+            <point key="canvasLocation" x="348" y="974"/>
         </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
