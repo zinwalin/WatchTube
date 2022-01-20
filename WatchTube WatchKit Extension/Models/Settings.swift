@@ -25,3 +25,7 @@ struct settingsKeys {
 struct miscKeys {
     static let pushToCacheContents = "misc.pushToCacheContents"
 }
+
+struct Constants {
+    static let defaultInstance = "inv.riverside.rocks"
+}

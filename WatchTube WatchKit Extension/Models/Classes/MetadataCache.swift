@@ -10,7 +10,8 @@ import Alamofire
 
 class meta {
     class func cacheVideoInfo(id: String) {
-        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/videos/\(id)?fields=title,author,authorId,videoThumbnails(url),likeCount,description,viewCount,genre,lengthSeconds,published").responseJSON { response in
+        let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)?fields=title,author,authorId,videoThumbnails(url),likeCount,description,viewCount,genre,lengthSeconds,published"
+        AF.request(path).responseJSON { response in
             switch response.result {
             case .success(let json):
                 let videoDetails = json as! Dictionary<String, Any>
@@ -91,16 +92,23 @@ class meta {
     
     
     class func cacheChannelInfo(udid: String) {
-        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/channels/\(udid)").responseJSON { response in
+        let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/channels/\(udid)"
+        AF.request(path).responseJSON { response in
             switch response.result {
             case .success(let json):
                 let channelDetails = json as! Dictionary<String, Any>
                 
-                if channelDetails["error"] != nil {break}
+                if channelDetails["error"] != nil {
+                    break
+                }
                 var data = [String: Any]()
                 data["name"] = channelDetails["author"] as? String
                 data["udid"] = channelDetails["authorId"] as? String
-                data["banner"] = (channelDetails["authorBanners"] as! Array<Dictionary<String, Any>>)[(channelDetails["authorBanners"] as! Array<Dictionary<String, Any>>).count - 1]["url"] as! String
+                if (channelDetails["authorBanners"] as! Array<Any>).isEmpty {
+                    data["banner"] = "https://yt3.ggpht.com/Ibexi5OCdDM15HGOs2FbuHLA_wL_Nh37qQM9uKdCeU5jf1lI-kJ_LeeUaJerGC9iCv5xXn15EQ=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+                } else {
+                    data["banner"] = (channelDetails["authorBanners"] as! Array<Dictionary<String, Any>>)[(channelDetails["authorBanners"] as! Array<Dictionary<String, Any>>).count - 1]["url"] as! String
+                }
                 data["thumbnail"] = (channelDetails["authorThumbnails"] as! Array<Dictionary<String, Any>>)[(channelDetails["authorThumbnails"] as! Array<Dictionary<String, Any>>).count - 1]["url"] as! String
                 data["subscribers"] = channelDetails["subCount"] as! Int
                 data["views"] = channelDetails["totalViews"] as? Int

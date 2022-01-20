@@ -56,7 +56,7 @@ class InfoInterfaceController: WKInterfaceController {
     
     @IBAction func openChannel(_ sender: Any) {
         if (meta.getChannelInfo(udid: udid, key: "name") as! String) == "???" {
-            let download = WKAlertAction(title: "Download Now", style: .default) { [self] in meta.cacheChannelInfo(udid: udid)}
+            let download = WKAlertAction(title: "Load Now", style: .default) { [self] in meta.cacheChannelInfo(udid: udid)}
             let cancel = WKAlertAction(title: "Cancel", style: .cancel) {}
             presentAlert(withTitle: "Grab now?", message: "The data you requested is not on your device, get it now?", preferredStyle: .alert, actions: [download, cancel])
         } else {

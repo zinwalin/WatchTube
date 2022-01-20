@@ -32,7 +32,8 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     @IBAction func openChannel(_ sender: Any) {
-        if (meta.getChannelInfo(udid: meta.getVideoInfo(id: video.id, key: "channelId") as! String, key: "name") as! String) == "???" {
+        let udid = meta.getVideoInfo(id: video.id, key: "channelId") as! String
+        if (meta.getChannelInfo(udid: udid, key: "name") as! String) == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
@@ -45,6 +46,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
             video = context as? Video
         }
         meta.cacheVideoInfo(id: video.id)
+        meta.cacheChannelInfo(udid: meta.getVideoInfo(id: video.id, key: "channelId") as! String)
         
         if video != nil {
             self.titleLabel.setText(video.title)
@@ -63,15 +65,13 @@ class NowPlayingInterfaceController: WKInterfaceController {
                 
         super.awake(withContext: context)
 
-        let dataPath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/videos/\(video.id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
+        let dataPath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(video.id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
         
         self.statusLabel.setText("Downloading data...")
         self.movieLoading.setImageNamed("loading")
         self.movieLoading.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         self.movie.setHidden(true)
-        
-        meta.cacheChannelInfo(udid: meta.getVideoInfo(id: video.id, key: "channelId") as! String)
-        
+                
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(video.id).\(self.fileType)") == true {
             self.movie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache").appendingPathComponent("\(video.id).\(self.fileType)"))
             self.statusLabel.setText("Ready.")
@@ -100,9 +100,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         self.movieLoading.setImageNamed("error")
                         break
                     }
-                    
-                    print((videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>).count, (videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>).count)
-                    
+                                        
                     if dlType == "video" {
                         let formatStreams = videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>
                         let streamData = formatStreams[formatStreams.count - 1]
@@ -118,7 +116,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                 }
                             }
                         }
-                        print(aacFormats)
                         var highestBitrate: Int = 0
                         var format: Dictionary<String, Any> = [:]
                         if aacFormats.count != 1 {
@@ -129,14 +126,13 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                 }
                             }
                         } else {format = aacFormats[0]}
-                        print(format)
                         self.streamUrl = format["url"] as! String
                     }
                     
                     if UserDefaults.standard.bool(forKey: settingsKeys.proxyContent) {
                         // modify streamURL to use instance proxying
                         let host = (URL(string: self.streamUrl)?.host)! as String
-                        self.streamUrl = self.streamUrl.replacingOccurrences(of: host, with: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")
+                        self.streamUrl = self.streamUrl.replacingOccurrences(of: host, with: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)
                     }
                             
                     // dont forget about caching system

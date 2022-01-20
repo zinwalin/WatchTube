@@ -25,14 +25,14 @@ class Video {
      }
     
     class func getSearchResults(keyword: String, completion: @escaping ([Video]) -> Void) {
-        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=all").responseJSON { response in
+        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=all").responseJSON { response in
             var videos = [Video]()
             switch response.result {
             case .success(let json):
                     let response = json as! Array<Dictionary<String, Any>>
                     for (i, item) in response.enumerated() {
                         
-                        if i > UserDefaults.standard.integer(forKey: settingsKeys.resultsCount) {break}
+                        if i > (UserDefaults.standard.integer(forKey: settingsKeys.resultsCount) - 1) {break}
                         let type = item["type"] as! String
                         switch type {
                         case "video":
@@ -74,7 +74,7 @@ class Video {
     
     class func getTrending(completion: @escaping ([Video]) -> Void) {
         if UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) != "channels" {
-            AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? "vid.puffyan.us")/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails(url)").responseJSON { response in
+            AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails(url)").responseJSON { response in
                 var videos = [Video]()
                 switch response.result {
                 case .success(let json):
