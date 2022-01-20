@@ -104,5 +104,6 @@ class InterfaceController: WKInterfaceController {
             presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
             self.pushController(withName: "NowPlayingInterfaceController", context: video)
-        }    }
+        }
+    }
 }
