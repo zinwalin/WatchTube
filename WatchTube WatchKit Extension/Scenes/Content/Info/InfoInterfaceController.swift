@@ -55,9 +55,10 @@ class InfoInterfaceController: WKInterfaceController {
     }
     
     @IBAction func openChannel(_ sender: Any) {
-        if (meta.getChannelInfo(udid: meta.getVideoInfo(id: videoId, key: "channelId") as! String, key: "name") as! String) == "???" {
-            let ok = WKAlertAction(title: "Okay", style: .default) {}
-            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+        if (meta.getChannelInfo(udid: udid, key: "name") as! String) == "???" {
+            let download = WKAlertAction(title: "Download Now", style: .default) { [self] in meta.cacheChannelInfo(udid: udid)}
+            let cancel = WKAlertAction(title: "Cancel", style: .cancel) {}
+            presentAlert(withTitle: "Grab now?", message: "The data you requested is not on your device, get it now?", preferredStyle: .alert, actions: [download, cancel])
         } else {
             pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: videoId, key: "channelId"))
         }
