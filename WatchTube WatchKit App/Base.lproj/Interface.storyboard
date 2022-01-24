@@ -72,7 +72,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="632"/>
+            <point key="canvasLocation" x="348" y="259"/>
         </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
@@ -169,7 +169,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="-63"/>
+            <point key="canvasLocation" x="-69" y="-78"/>
         </scene>
         <!--Profile-->
         <scene sceneID="an7-zY-X1X">
@@ -187,7 +187,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-69" y="1235"/>
+            <point key="canvasLocation" x="-277" y="1121"/>
         </scene>
         <!--Channel View-->
         <scene sceneID="EgX-Dg-W5F">
@@ -308,7 +308,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="1091"/>
+            <point key="canvasLocation" x="-69" y="977"/>
         </scene>
         <!--Channel Details-->
         <scene sceneID="tpQ-1i-nF4">
@@ -431,7 +431,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="1313"/>
+            <point key="canvasLocation" x="139" y="1199"/>
         </scene>
         <!--Related Channels-->
         <scene sceneID="HAj-sg-jOC">
@@ -484,7 +484,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="974"/>
+            <point key="canvasLocation" x="139" y="860"/>
         </scene>
         <!--Menu-->
         <scene sceneID="e9U-2b-0f5">
@@ -588,7 +588,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="-77"/>
+            <point key="canvasLocation" x="348" y="-78"/>
         </scene>
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
@@ -670,7 +670,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="552" y="-26"/>
+            <point key="canvasLocation" x="604" y="-195"/>
         </scene>
         <!--Done-->
         <scene sceneID="pcw-hH-83A">
@@ -681,7 +681,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="808" y="-138"/>
+            <point key="canvasLocation" x="839" y="-306"/>
         </scene>
         <!--Done-->
         <scene sceneID="Lfh-Li-BDP">
@@ -692,7 +692,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="999" y="-138"/>
+            <point key="canvasLocation" x="1030" y="-306"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5UF-dP-8ee">
@@ -910,7 +910,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-69" y="476"/>
+            <point key="canvasLocation" x="-299" y="155"/>
         </scene>
         <!--Cache Now Playing-->
         <scene sceneID="DzC-je-eHb">
@@ -998,7 +998,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="634"/>
+            <point key="canvasLocation" x="348" y="606"/>
         </scene>
         <!--Information-->
         <scene sceneID="aTa-mC-Wbf">
@@ -1157,7 +1157,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="552" y="634"/>
+            <point key="canvasLocation" x="604" y="366"/>
         </scene>
         <!--Search-->
         <scene sceneID="6CP-fK-CVF">
@@ -1169,7 +1169,7 @@
                                 <tableRow identifier="VideoRow" id="mqx-3d-RrS" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="tYe-qQ-bVm">
                                         <items>
-                                            <group width="1" height="0.0" alignment="left" hidden="YES" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
+                                            <group width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="Jvr-u4-RZH"/>
                                                     <label alignment="left" text="channel name" id="RsW-0s-2xw">
@@ -1210,7 +1210,7 @@
                                                     <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="jAd-xy-ylA"/>
                                                 </items>
                                             </group>
-                                            <group width="1" alignment="left" layout="vertical" id="XLv-5G-DMJ" userLabel="playlistGroup">
+                                            <group width="1" alignment="left" hidden="YES" layout="vertical" id="XLv-5G-DMJ" userLabel="playlistGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="URh-Rr-k6f"/>
                                                     <group width="1" alignment="center" verticalAlignment="center" id="37X-S1-p8g" userLabel="horizontal">
@@ -1265,7 +1265,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="282"/>
+            <point key="canvasLocation" x="-69" y="259"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="osD-rO-mxG">
@@ -1354,7 +1354,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="282"/>
+            <point key="canvasLocation" x="139" y="259"/>
         </scene>
         <!--SubInfoInterfaceController-->
         <scene sceneID="X0g-ra-rul">
@@ -1371,7 +1371,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="552" y="283"/>
+            <point key="canvasLocation" x="862" y="364"/>
         </scene>
         <!--Done-->
         <scene sceneID="oAe-4v-6TH">
@@ -1382,7 +1382,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="808" y="110"/>
+            <point key="canvasLocation" x="839" y="-58"/>
         </scene>
         <!--Done-->
         <scene sceneID="5lP-if-Mfh">
@@ -1393,7 +1393,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="999" y="110"/>
+            <point key="canvasLocation" x="1030" y="-58"/>
         </scene>
     </scenes>
     <color key="tintColor" name="AccentColor"/>
