@@ -46,9 +46,17 @@ class SettingsInterfaceController: WKInterfaceController {
         else {
             do {
                 var totalSize = 0 as Int64
-                let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/")
+                var files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/sd/")
                 for file in files {
-                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(file)") {
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(file)") {
+                        if let bytes = fileAttributes[.size] as? Int64 {
+                            totalSize = totalSize+bytes
+                        }
+                    }
+                }
+                files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/hd/")
+                for file in files {
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(file)") {
                         if let bytes = fileAttributes[.size] as? Int64 {
                             totalSize = totalSize+bytes
                         }
@@ -64,23 +72,25 @@ class SettingsInterfaceController: WKInterfaceController {
                         self!.userDefaults.set(value, forKey: settingsKeys.cacheToggle)
                         
                         do {
-                            let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache")
-                            for file in files {
-                                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(file)")
+                            // delete everything
+                            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache")
+                            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache")
+                            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/channelCache")
+                            
+                            // make cache folder or else you cant save here with alamofire
+                            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
+                                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
+                            }
+                            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
+                                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
                             }
                         } catch {
                             //what happened lol
                         }
-                        do {
-                            let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/videoCache")
-                            for file in files {
-                                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache/\(file)")
-                            }
-                        } catch {
-                            //what happened lol
-                        }
+                        
                         self!.cacheDeleteButton.setHidden(true)
                     }
+                    
                     let action2 = WKAlertAction(title: "Cancel", style: .cancel) { [weak self] in
                         self!.cacheToggle.setOn(true)
                     }
@@ -100,8 +110,18 @@ class SettingsInterfaceController: WKInterfaceController {
         let action1 = WKAlertAction(title: "Delete Cache", style: .destructive) { [weak self] in
             
             do {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/")
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache/")
+                // delete everything
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache")
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache")
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/channelCache")
+                
+                // make cache folder or else you cant save here with alamofire
+                if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
+                    try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
+                }
+                if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
+                    try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
+                }
                 
                 self!.cacheDeleteButton.setTitle("Cleared")
                 self!.cacheDeleteButton.setEnabled(false)
@@ -187,19 +207,29 @@ class SettingsInterfaceController: WKInterfaceController {
         proxyToggle.setOn(userDefaults.bool(forKey: settingsKeys.proxyContent))
         qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
         cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
+        if userDefaults.bool(forKey: settingsKeys.qualityToggle) == true {qualityToggle.setTitle("HD")} else {qualityToggle.setTitle("SD")}
         
         // set cache button to enabled, if its empty just keep it as cleared and disable it
         cacheDeleteButton.setEnabled(true)
         do {
             var totalSize = 0 as Int64
-            let files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/")
+            var files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/sd/")
             for file in files {
-                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(file)") {
+                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(file)") {
                     if let bytes = fileAttributes[.size] as? Int64 {
                         totalSize = totalSize+bytes
                     }
                 }
             }
+            files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/hd/")
+            for file in files {
+                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(file)") {
+                    if let bytes = fileAttributes[.size] as? Int64 {
+                        totalSize = totalSize+bytes
+                    }
+                }
+            }
+
             let bcf = ByteCountFormatter()
             if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
             bcf.countStyle = .file

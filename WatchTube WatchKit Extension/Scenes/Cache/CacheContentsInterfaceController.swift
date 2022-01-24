@@ -28,7 +28,8 @@ class CacheContentsInterfaceController: WKInterfaceController {
             disabledLabel.setHidden(true)
             do {
                 var files = [String]()
-                files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache")
+                files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/sd")
+                files.append(contentsOf: try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/hd"))
                 if files.count == 0 {
                     disabledLabel.setHidden(false)
                     disabledLabel.setText("Cache is empty")
@@ -49,22 +50,33 @@ class CacheContentsInterfaceController: WKInterfaceController {
                 cacheTableRow.setHidden(false)
                 
                 for i in 0 ..< ids.count {
-                    let videoID = ids[i]
                     guard let row = cacheTableRow.rowController(at: i) as? CacheTableRow else {
                         continue
                     }
-                    
+                    let videoID = ids[i]
+
                     row.cacheTitleLabel.setText(meta.getVideoInfo(id: videoID, key: "title") as? String)
                     row.cacheChannelLabel.setText(meta.getVideoInfo(id: videoID, key: "channelName") as? String)
                     row.cacheThumbImage.sd_setImage(with: URL(string: meta.getVideoInfo(id: videoID, key: "thumbnail") as! String))
                     row.videoId = videoID
+                    
                     var totalSize = 0 as Int64
-                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).mp4") {
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoID).mp4") {
                         if let bytes = fileAttributes[.size] as? Int64 {
                             totalSize = totalSize+bytes
                         }
                     }
-                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoID).m4a") {
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoID).m4a") {
+                        if let bytes = fileAttributes[.size] as? Int64 {
+                            totalSize = totalSize+bytes
+                        }
+                    }
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoID).mp4") {
+                        if let bytes = fileAttributes[.size] as? Int64 {
+                            totalSize = totalSize+bytes
+                        }
+                    }
+                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoID).m4a") {
                         if let bytes = fileAttributes[.size] as? Int64 {
                             totalSize = totalSize+bytes
                         }

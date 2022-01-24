@@ -26,6 +26,7 @@ class InfoInterfaceController: WKInterfaceController {
     var videoId: String = ""
     var from: String = ""
     var udid: String = ""
+    var quality: String = ""
 
     var videoDetails: Dictionary<String, Any> = [:]
     override func awake(withContext context: Any?) {
@@ -34,6 +35,7 @@ class InfoInterfaceController: WKInterfaceController {
         let data = context as! Dictionary<String, String>
         from = data["from"]!
         videoId = data["id"]!
+        videoId = data["quality"]!
         udid = meta.getVideoInfo(id: videoId, key: "channelId") as! String
 
         self.showDescriptionButton.setEnabled(false)
@@ -41,7 +43,7 @@ class InfoInterfaceController: WKInterfaceController {
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
-        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")))
+        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(videoId).m4a")))
                 
         self.likesLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "likes"))) Likes")
         self.viewsLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "views"))) Views")
@@ -70,11 +72,17 @@ class InfoInterfaceController: WKInterfaceController {
     
     @IBAction func infoDeleteCache() {
         do {
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).mp4")
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).mp4")) {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).mp4")
             }
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(videoId).m4a")
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).m4a")) {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).m4a")
+            }
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).mp4")) {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).mp4")
+            }
+            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).m4a")) {
+                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).m4a")
             }
         } catch {}
         if from == "CacheNowPlaying" {

@@ -45,9 +45,11 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         do {
             // make cache folder or else you cant save here with alamofire
-            let cacheURL = URL(string: NSHomeDirectory()+"/Documents/cache")!
-            if !FileManager.default.fileExists(atPath: cacheURL.path) {
-                try FileManager.default.createDirectory(atPath: cacheURL.path, withIntermediateDirectories: true, attributes: nil)
+            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
+                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
+            }
+            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
+                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
             }
         } catch {}
         
