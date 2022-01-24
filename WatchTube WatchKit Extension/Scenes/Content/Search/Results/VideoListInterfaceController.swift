@@ -43,13 +43,11 @@ class VideoListInterfaceController: WKInterfaceController {
                 continue
             }
             let video = videos[i]
-            var type = ""
-            if video.id != "" {
-                type = "video"
+            let type = video.type
+            if type == "video" {
                 row.videoGroup.setHidden(false)
                 row.channelGroup.setHidden(true)
-            } else if video.udid != "" {
-                type = "channel"
+            } else if type == "channel" {
                 row.videoGroup.setHidden(true)
                 row.channelGroup.setHidden(false)
             } else {
@@ -61,7 +59,7 @@ class VideoListInterfaceController: WKInterfaceController {
             case "video":
                 meta.cacheVideoInfo(id: video.id)
             case "channel":
-                meta.cacheChannelInfo(udid: video.udid)
+                meta.cacheChannelInfo(udid: video.id)
             default:
                 break
             }
@@ -70,8 +68,9 @@ class VideoListInterfaceController: WKInterfaceController {
             row.videoId = video.id
             row.channelLabel.setText(video.channel)
             
-            row.udid = video.udid
+            row.udid = video.id
             row.channelTitle.setText(video.channel)
+            row.subscribersLabel.setText("\(video.subs) Subscribers")
 
             if UserDefaults.standard.bool(forKey: settingsKeys.thumbnailsToggle) == false {
                 row.thumbImg.setHidden(true)
@@ -93,12 +92,8 @@ class VideoListInterfaceController: WKInterfaceController {
         
     override func table(_ table: WKInterfaceTable, didSelectRowAt i: Int) {
         let video = self.videos[i]
-        var type = ""
-        if video.id != "" {
-            type = "video"
-        } else if video.udid != "" {
-            type = "channel"
-        }
+        let type = video.type
+
         switch type {
         case "video":
             if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {
@@ -108,12 +103,14 @@ class VideoListInterfaceController: WKInterfaceController {
                 self.pushController(withName: "NowPlayingInterfaceController", context: video)
             }
         case "channel":
-            if (meta.getChannelInfo(udid: video.udid, key: "name") as! String) == "???" {
+            if (meta.getChannelInfo(udid: video.id, key: "name") as! String) == "???" {
                 let ok = WKAlertAction(title: "Okay", style: .default) {}
                 presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
             } else {
-                self.pushController(withName: "ChannelViewInterfaceController", context: video.udid)
+                self.pushController(withName: "ChannelViewInterfaceController", context: video.id)
             }
+        case "playlist":
+            print("egg")
         default:
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Malformed", message: "We don't know what just happened but it's bad. Please report this issue in our server or via TestFlight!", preferredStyle: .alert, actions: [ok])

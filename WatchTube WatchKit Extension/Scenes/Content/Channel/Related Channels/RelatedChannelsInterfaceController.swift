@@ -24,16 +24,6 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
         
         // Configure interface objects here.
     }
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
     
     func setupChannelsTable(udid: String) {
         
@@ -42,7 +32,7 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
             dict["udid"] = channel["udid"]
             dict["name"] = channel["name"]
             dict["thumbnail"] = meta.getChannelInfo(udid: dict["udid"]!, key: "thumbnail") as? String
-            dict["subscribers"] = meta.getChannelInfo(udid: dict["udid"]!, key: "subscribers") as? String
+            dict["subscribers"] = (meta.getChannelInfo(udid: dict["udid"]!, key: "subscribers") as! Int).abbreviated
             channels.append(dict)
         }
         if channels.isEmpty {
@@ -58,7 +48,8 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
                 let channel = channels[i]
                 row.channelTitleLabel.setText(channel["name"])
                 row.videoId = channel["udid"]
-                
+                row.channelSubsLabel.setText("\(channel["subscribers"]!) Subscribers")
+
                 // ill add subscribers later
                 
                 if UserDefaults.standard.value(forKey: settingsKeys.thumbnailsToggle) == nil {

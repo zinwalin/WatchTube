@@ -35,7 +35,7 @@ class InfoInterfaceController: WKInterfaceController {
         let data = context as! Dictionary<String, String>
         from = data["from"]!
         videoId = data["id"]!
-        videoId = data["quality"]!
+        quality = data["quality"]!
         udid = meta.getVideoInfo(id: videoId, key: "channelId") as! String
 
         self.showDescriptionButton.setEnabled(false)
@@ -43,10 +43,17 @@ class InfoInterfaceController: WKInterfaceController {
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
-        self.InfoCacheDeleteButton.setHidden(!(FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(videoId).mp4") || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(videoId).m4a")))
-                
-        self.likesLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "likes"))) Likes")
-        self.viewsLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "views"))) Views")
+        self.InfoCacheDeleteButton.setHidden(!(
+            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).mp4") ||
+            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).m4a") ||
+            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).mp4") ||
+            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).m4a")
+        ))
+        
+        let likes = (meta.getVideoInfo(id: videoId, key: "likes") as! Int).abbreviated
+        let views = (meta.getVideoInfo(id: videoId, key: "views") as! Int).abbreviated
+        self.likesLabel.setText("\(likes) Likes")
+        self.viewsLabel.setText("\(views) Views")
         self.dateLabel.setText("Uploaded \(String(describing: meta.getVideoInfo(id: videoId, key: "publishedDate")))")
         self.authorLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "channelName")))")
         self.showDescriptionButton.setEnabled(true)

@@ -459,7 +459,14 @@
                                                         <variation key="device=watch38mm" height="35" radius="18" width="35"/>
                                                         <variation key="device=watch40mm" height="40" radius="20" width="40"/>
                                                     </group>
-                                                    <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="rml-lW-Vmv"/>
+                                                    <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="QGX-Cv-zMv">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="rml-lW-Vmv"/>
+                                                            <label alignment="left" verticalAlignment="center" text="subs" minimumScaleFactor="0.0" id="X6o-F7-gPx">
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
                                                 </items>
                                             </group>
                                             <separator alignment="left" verticalAlignment="bottom" id="8Oj-cK-hZB">
@@ -468,6 +475,7 @@
                                         </items>
                                     </group>
                                     <connections>
+                                        <outlet property="channelSubsLabel" destination="X6o-F7-gPx" id="dAE-AM-1Xt"/>
                                         <outlet property="channelThumbImg" destination="J9f-ya-jZG" id="kBP-Kw-Ynf"/>
                                         <outlet property="channelTitleLabel" destination="rml-lW-Vmv" id="LYY-7b-emg"/>
                                     </connections>
@@ -1169,7 +1177,7 @@
                                 <tableRow identifier="VideoRow" id="mqx-3d-RrS" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="tYe-qQ-bVm">
                                         <items>
-                                            <group width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
+                                            <group width="1" height="0.0" alignment="left" hidden="YES" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="Jvr-u4-RZH"/>
                                                     <label alignment="left" text="channel name" id="RsW-0s-2xw">
@@ -1192,7 +1200,7 @@
                                                     <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="e9M-H6-a9G"/>
                                                 </items>
                                             </group>
-                                            <group width="1" alignment="left" hidden="YES" layout="vertical" id="OmS-P5-sNF" userLabel="channelGroup">
+                                            <group width="1" alignment="left" layout="vertical" id="OmS-P5-sNF" userLabel="channelGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="ax7-Sj-stS"/>
                                                     <group width="1" alignment="center" verticalAlignment="center" id="vth-4M-0PD" userLabel="horizontal">
@@ -1204,7 +1212,14 @@
                                                                 <variation key="device=watch38mm" height="35" radius="18" width="35"/>
                                                                 <variation key="device=watch40mm" height="40" radius="20" width="40"/>
                                                             </group>
-                                                            <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="vrL-gB-OjL"/>
+                                                            <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="Qh1-GF-PQ6">
+                                                                <items>
+                                                                    <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="vrL-gB-OjL"/>
+                                                                    <label alignment="left" verticalAlignment="center" text="subs" minimumScaleFactor="0.0" id="nIv-0G-U84">
+                                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
                                                         </items>
                                                     </group>
                                                     <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="jAd-xy-ylA"/>
@@ -1245,6 +1260,7 @@
                                         <outlet property="channelImg" destination="oha-VV-JS3" id="3qa-Lb-QFm"/>
                                         <outlet property="channelLabel" destination="RsW-0s-2xw" id="tku-ga-d4C"/>
                                         <outlet property="channelTitle" destination="vrL-gB-OjL" id="f57-U3-dYc"/>
+                                        <outlet property="subscribersLabel" destination="nIv-0G-U84" id="PJd-xJ-MkK"/>
                                         <outlet property="thumbImg" destination="lff-0m-tMK" id="Mfd-7c-nTj"/>
                                         <outlet property="titleLabel" destination="zri-e2-Leg" id="Geo-D6-gTV"/>
                                         <outlet property="videoGroup" destination="Lki-bu-xbE" id="eL1-cC-fsa"/>

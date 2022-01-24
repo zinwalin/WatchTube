@@ -15,13 +15,15 @@ class Video {
     var title: String
     var img: String
     var channel: String
-    var udid: String
-    public init(id: String, title: String, img: String, channel: String, udid: String) {
+    var subs: String
+    var type: String
+    public init(id: String, title: String, img: String, channel: String, subs: String, type: String) {
         self.id = id
         self.title = title
         self.img = img
         self.channel = channel
-        self.udid = udid
+        self.subs = subs
+        self.type = type
      }
     
     class func getSearchResults(keyword: String, completion: @escaping ([Video]) -> Void) {
@@ -45,7 +47,7 @@ class Video {
                             let thumbs = item["videoThumbnails"] as! Array<Dictionary<String,Any>>
                             let url = thumbs[0]["url"] as! String
                             let channel = item["author"] as! String
-                            let vid = Video(id: id, title: title, img: url, channel: channel, udid: "")
+                            let vid = Video(id: id, title: title, img: url, channel: channel, subs: "", type: item["type"] as! String)
                             videos.append(vid)
                             
                         case "channel":
@@ -58,9 +60,12 @@ class Video {
                             let thumbs = item["authorThumbnails"] as! Array<Dictionary<String,Any>>
                             let url = thumbs[thumbs.count - 1]["url"] as! String
                             let channel = item["author"] as! String
-                            let vid = Video(id: "", title: "", img: "https:\(url)", channel: channel, udid: udid)
+                            let subs = (item["subCount"] as! Int).abbreviated
+                            let vid = Video(id: udid, title: "", img: "https:\(url)", channel: channel, subs: subs, type: item["type"] as! String)
                             videos.append(vid)
                             
+                        case "playlist":
+                            print("egg")
                         default:
                             break
                         }
@@ -88,7 +93,7 @@ class Video {
                         if title == nil || vidId == nil || channel == nil {
                             continue
                         } else {
-                            let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String, udid: "")
+                            let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String, subs: "", type: "video")
                             videos.append(video)
                         }
                     }
@@ -112,3 +117,4 @@ class Video {
         }
     }
 }
+

@@ -303,8 +303,8 @@
 		D72C93D7257D97740056D0BA /* WatchTube WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				D72C93D8257D97740056D0BA /* Interface.storyboard */,
 				D72C93DB257D97770056D0BA /* Assets.xcassets */,
+				D72C93D8257D97740056D0BA /* Interface.storyboard */,
 				AA9C8B202794F95B00C0CDD8 /* pfp.jpg */,
 				D72C93DD257D97770056D0BA /* Info.plist */,
 			);

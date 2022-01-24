@@ -12,6 +12,7 @@ class ChannelsRow: NSObject {
     
     @IBOutlet var channelTitleLabel: WKInterfaceLabel!
     @IBOutlet var channelThumbImg: WKInterfaceImage!
+    @IBOutlet weak var channelSubsLabel: WKInterfaceLabel!
     var videoId: String!
 }
 

@@ -38,7 +38,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
             let title = vid["title"] as! String
             let img = (vid["videoThumbnails"] as! Array<Dictionary<String,Any>>)[0]["url"] as! String
             let channel = vid["author"] as! String
-            let final = Video(id: id, title: title, img: img, channel: channel, udid: udid)
+            let final = Video(id: id, title: title, img: img, channel: channel, subs: "", type: "video")
             videos.append(final)
             meta.cacheVideoInfo(id: id)
         }
@@ -49,16 +49,6 @@ class ChannelViewInterfaceController: WKInterfaceController {
         for channel in (meta.getChannelInfo(udid: udid, key: "relatedChannels") as! Array<Dictionary<String,String>>) {
             meta.cacheChannelInfo(udid: channel["udid"]!)
         }
-    }
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-    }
-
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 
     func setupTable() {
@@ -91,7 +81,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     }
     
     @IBAction func Details() {
-        if meta.getChannelInfo(udid: udid) as! String == "???" {
+        if meta.getChannelInfo(udid: udid, key: "name") as! String == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
@@ -100,7 +90,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     }
     
     @IBAction func RelatedChannels() {
-        if meta.getChannelInfo(udid: udid) as! String == "???" {
+        if meta.getChannelInfo(udid: udid, key: "name") as! String == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {

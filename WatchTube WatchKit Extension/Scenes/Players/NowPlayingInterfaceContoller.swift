@@ -18,6 +18,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     var isDownloading: Bool = false
     var fileType: String = ""
     var streamUrl: String = ""
+    var quality: String = ""
 
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceMovie!
@@ -28,7 +29,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     
     @IBAction func infoScreenButton() {
         infoViewed=true
-        self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id])
+        self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id, "quality": quality])
     }
     
     @IBAction func openChannel(_ sender: Any) {
@@ -66,7 +67,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
         }
         
         // true is hd
-        var quality: String
         if UserDefaults.standard.bool(forKey: settingsKeys.qualityToggle) == true {
             quality="hd"
         } else {
@@ -117,11 +117,11 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                         
                     if dlType == "video" {
                         let formatStreams = videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>
-                        if quality == "hd" {
+                        if self.quality == "hd" {
                             let streamData = formatStreams[formatStreams.count - 1]
                             self.streamUrl = streamData["url"] as! String
                             self.fileType = "mp4"
-                        } else if quality == "sd" {
+                        } else if self.quality == "sd" {
                             var streamData: Dictionary<String,String>
                             if formatStreams.count >= 2 {
                                 streamData = formatStreams[1] as! Dictionary<String,String>
@@ -145,12 +145,12 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         var format: Dictionary<String, Any> = [:]
                         if aacFormats.count != 1 {
                             for item in aacFormats {
-                                if quality == "hd" {
+                                if self.quality == "hd" {
                                     if (item["bitrate"] as! NSString).integerValue > highestBitrate {
                                         highestBitrate = (item["bitrate"] as! NSString).integerValue
                                         format = item
                                     }
-                                } else if quality == "sd" {
+                                } else if self.quality == "sd" {
                                     if (item["bitrate"] as! NSString).integerValue < highestBitrate {
                                         highestBitrate = (item["bitrate"] as! NSString).integerValue
                                         format = item
@@ -172,7 +172,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     let cachingSetting = UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle)
 
                     let destinationCached: DownloadRequest.Destination = { _, _ in
-                        let cachingFileURL = URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache/\(quality)").appendingPathComponent("\(video.id).\(self.fileType)")
+                        let cachingFileURL = URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache/\(self.quality)").appendingPathComponent("\(video.id).\(self.fileType)")
                         return (cachingFileURL, [.removePreviousFile, .createIntermediateDirectories])
                     }
                     let destination: DownloadRequest.Destination = { _, _ in
@@ -184,7 +184,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         AF.download(self.streamUrl, to: destinationCached).response { response in
                             if response.value != nil {
                                 var totalSize = 0 as Int64
-                                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(video.id).\(self.fileType)") {
+                                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/\(self.quality)/\(video.id).\(self.fileType)") {
                                     if let bytes = fileAttributes[.size] as? Int64 {
                                         totalSize = totalSize+bytes
                                     }
@@ -195,7 +195,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                     self.statusLabel.setText("Error getting data")
                                     self.movieLoading.stopAnimating()
                                     self.movieLoading.setImageNamed("error")
-                                    do {try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(video.id).\(self.fileType)")} catch {}
+                                    do {try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(self.quality)/\(video.id).\(self.fileType)")} catch {}
                                 } else {
                                     self.movie.setMovieURL(response.value!!)
                                     self.statusLabel.setText("Ready.")
