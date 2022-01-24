@@ -78,22 +78,32 @@ class Video {
                 var videos = [Video]()
                 switch response.result {
                 case .success(let json):
-                        let items = json as! [[String: Any]]
-                        for (i, item) in items.enumerated() {
-                            if i > (UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) - 1) {continue}
-                            let title = item["title"]
-                            let vidId = item["videoId"]
-                            let channel = item["author"]
-                            let thumbnail = (item["videoThumbnails"] as! Array<Dictionary<String, Any>>)[1]["url"] as! String
-                            if title == nil || vidId == nil || channel == nil {
-                                continue
-                            } else {
-                                let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String, udid: "")
-                                videos.append(video)
-                            }
+                    let items = json as! [[String: Any]]
+                    for (i, item) in items.enumerated() {
+                        if i > (UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) - 1) {continue}
+                        let title = item["title"]
+                        let vidId = item["videoId"]
+                        let channel = item["author"]
+                        let thumbnail = (item["videoThumbnails"] as! Array<Dictionary<String, Any>>)[1]["url"] as! String
+                        if title == nil || vidId == nil || channel == nil {
+                            continue
+                        } else {
+                            let video = Video(id: vidId as! String, title: title as! String, img: thumbnail, channel: channel as! String, udid: "")
+                            videos.append(video)
                         }
-                case .failure(let error):
-                    print(error)
+                    }
+                    //if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    //    let fileURL = dir.appendingPathComponent("trending.json")
+                    //    NSArray(array: videos).write(to: fileURL, atomically: true)
+                    //}
+                    /// why wont the file generate woe
+                case .failure(_):
+                    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                        let fileURL = dir.appendingPathComponent("trending.json")
+                        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/trending.json") == true {
+                            videos = NSArray(contentsOf: fileURL) as! Array<Video>
+                        }
+                    }
                 }
                 completion(videos)
             }

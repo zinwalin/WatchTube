@@ -33,11 +33,13 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
     @IBAction func openChannel(_ sender: Any) {
         let udid = meta.getVideoInfo(id: videoId, key: "channelId") as! String
         if (meta.getChannelInfo(udid: udid, key: "name") as! String) == "???" {
-            let ok = WKAlertAction(title: "Okay", style: .default) {}
-            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+            let download = WKAlertAction(title: "Load Now", style: .default) { meta.cacheChannelInfo(udid: udid)}
+            let cancel = WKAlertAction(title: "Cancel", style: .cancel) {}
+            presentAlert(withTitle: "Grab now?", message: "The data you requested is not on your device, get it now?", preferredStyle: .alert, actions: [download, cancel])
         } else {
             pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: videoId, key: "channelId"))
-        }    }
+        }
+    }
     
     override func awake(withContext context: Any?) {
         cacheMovie.setHidden(true)

@@ -1169,7 +1169,7 @@
                                 <tableRow identifier="VideoRow" id="mqx-3d-RrS" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="tYe-qQ-bVm">
                                         <items>
-                                            <group width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
+                                            <group width="1" height="0.0" alignment="left" hidden="YES" layout="vertical" radius="15" id="Lki-bu-xbE" userLabel="videoGroup">
                                                 <items>
                                                     <separator alignment="center" alpha="0.0" id="Jvr-u4-RZH"/>
                                                     <label alignment="left" text="channel name" id="RsW-0s-2xw">
@@ -1208,6 +1208,34 @@
                                                         </items>
                                                     </group>
                                                     <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="jAd-xy-ylA"/>
+                                                </items>
+                                            </group>
+                                            <group width="1" alignment="left" layout="vertical" id="XLv-5G-DMJ" userLabel="playlistGroup">
+                                                <items>
+                                                    <separator alignment="center" alpha="0.0" id="URh-Rr-k6f"/>
+                                                    <group width="1" alignment="center" verticalAlignment="center" id="37X-S1-p8g" userLabel="horizontal">
+                                                        <items>
+                                                            <group width="50" height="50" alignment="left" layout="overlap" radius="0.0" id="Lkc-yW-veL" userLabel="icons">
+                                                                <items>
+                                                                    <imageView width="0.5" height="0.5" alignment="left" image="pfp" id="GgE-Y1-mpm" userLabel="1"/>
+                                                                    <imageView width="0.5" height="0.5" alignment="right" image="pfp" id="4hc-V8-T7L" userLabel="2"/>
+                                                                    <imageView width="0.5" height="0.5" alignment="left" verticalAlignment="bottom" image="pfp" id="1pT-kX-DL3" userLabel="3"/>
+                                                                    <imageView width="0.5" height="0.5" alignment="right" verticalAlignment="bottom" image="pfp" id="ga8-f3-Uv5" userLabel="4"/>
+                                                                </items>
+                                                                <variation key="device=watch38mm" height="35" width="35"/>
+                                                                <variation key="device=watch40mm" height="40" width="40"/>
+                                                            </group>
+                                                            <group width="0.69999999999999996" alignment="left" verticalAlignment="center" layout="vertical" id="eoV-5O-hUM" userLabel="info">
+                                                                <items>
+                                                                    <label alignment="left" text="playlist name" minimumScaleFactor="0.0" id="14x-ju-3rn"/>
+                                                                    <label alignment="left" text="channel" minimumScaleFactor="0.0" id="fZc-ry-Iad">
+                                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                    <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="TRs-JQ-jJ8"/>
                                                 </items>
                                             </group>
                                         </items>

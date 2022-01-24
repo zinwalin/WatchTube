@@ -34,7 +34,7 @@ class InterfaceController: WKInterfaceController {
                 //self.searchButton.setEnabled(true)
             }
             self.videos = videos
-            self.setupTable() // add videos to the table 
+            self.setupTable() // add videos to the table
             self.TrendingTableRow.setHidden(false)
             self.loader.setHidden(true) // hide the spinner
             self.tooltipLabel.setHidden(false) // show the tiny text at the bottom
@@ -72,7 +72,7 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    func setupTable() {
+    func setupTable() -> Void {
         TrendingTableRow.setNumberOfRows(videos.count, withRowType: "TrendingRow")
         
         for i in 0 ..< videos.count {

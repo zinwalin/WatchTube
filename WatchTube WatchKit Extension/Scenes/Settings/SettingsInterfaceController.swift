@@ -244,8 +244,9 @@ class SettingsInterfaceController: WKInterfaceController {
                 let pickerItem = WKPickerItem()
                 pickerItem.title = UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!
                 instanceItems.append(pickerItem)
-                self.instancePicker.setSelectedItemIndex(Int(self.instances.firstIndex(of: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!)!))
-                self.instanceStatus.setText("Unable to load")
+                self.instancePicker.setItems(instanceItems)
+                self.instancePicker.setSelectedItemIndex(0)
+                self.instanceStatus.setText("Unable to load instances")
                 
             }
         }

@@ -30,6 +30,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
         bannerImage.sd_setImage(with: URL(string: banner))
         channelImage.sd_setImage(with: URL(string: thumbnail))
         channelLabel.setText(channelName)
+        
         let videosArray = meta.getChannelInfo(udid: udid, key: "videos") as! Array<Dictionary<String,Any>>
         for (i, vid) in videosArray.enumerated() {
             if i >= UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) {break}
