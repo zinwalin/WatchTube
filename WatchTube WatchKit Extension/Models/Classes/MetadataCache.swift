@@ -20,9 +20,9 @@ class meta {
                 data["channelId"] = videoDetails["authorId"] as? String
                 data["channelName"] = videoDetails["author"] as? String
                 data["thumbnail"] = (videoDetails["videoThumbnails"] as! Array<Dictionary<String, Any>>)[0]["url"] as! String
-                data["likes"] = videoDetails["likeCount"] as? Int
+                data["likes"] = videoDetails["likeCount"] as? Double
                 data["description"] = videoDetails["description"] as? String
-                data["views"] = videoDetails["viewCount"] as? Int
+                data["views"] = videoDetails["viewCount"] as? Double
                 data["category"] = videoDetails["genre"] as? String
                 data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
 //                data["related_videos"] = videoDetails["recommendedVideos"] this causes meta to not save, causes nilErrors
@@ -110,9 +110,9 @@ class meta {
                     data["banner"] = (channelDetails["authorBanners"] as! Array<Dictionary<String, Any>>)[(channelDetails["authorBanners"] as! Array<Dictionary<String, Any>>).count - 1]["url"] as! String
                 }
                 data["thumbnail"] = (channelDetails["authorThumbnails"] as! Array<Dictionary<String, Any>>)[(channelDetails["authorThumbnails"] as! Array<Dictionary<String, Any>>).count - 1]["url"] as! String
-                data["subscribers"] = channelDetails["subCount"] as! Int
-                data["views"] = channelDetails["totalViews"] as? Int
-                data["description"] = channelDetails["description"] as? String
+                data["subscribers"] = channelDetails["subCount"] as! Double
+                data["views"] = channelDetails["totalViews"] as! Double
+                data["description"] = channelDetails["description"] as! String
                 data["videos"] = channelDetails["latestVideos"] as! Array<Dictionary<String, Any>>
                 
                 var array: Array<Dictionary<String,String>> = []

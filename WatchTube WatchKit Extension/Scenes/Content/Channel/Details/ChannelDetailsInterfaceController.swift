@@ -24,8 +24,8 @@ class ChannelDetailsInterfaceController: WKInterfaceController {
         let udid = context as! String
         
         let descript = meta.getChannelInfo(udid: udid, key: "description") as! String
-        let views = (meta.getChannelInfo(udid: udid, key: "views") as! Int).abbreviated
-        let subs = (meta.getChannelInfo(udid: udid, key: "subscribers") as! Int).abbreviated
+        let views = (meta.getChannelInfo(udid: udid, key: "views") as! Double).abbreviated
+        let subs = (meta.getChannelInfo(udid: udid, key: "subscribers") as! Double).abbreviated
         let joined = meta.getChannelInfo(udid: udid, key: "joined") as! String
         channelDescription.setText(descript)
         setTitle("Details")
