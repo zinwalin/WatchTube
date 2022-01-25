@@ -98,14 +98,14 @@ class VideoListInterfaceController: WKInterfaceController {
         case "video":
             if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {
                 let ok = WKAlertAction(title: "Okay", style: .default) {}
-                presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
             } else {
                 self.pushController(withName: "NowPlayingInterfaceController", context: video)
             }
         case "channel":
             if (meta.getChannelInfo(udid: video.id, key: "name") as! String) == "???" {
                 let ok = WKAlertAction(title: "Okay", style: .default) {}
-                presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
             } else {
                 self.pushController(withName: "ChannelViewInterfaceController", context: video.id)
             }

@@ -103,7 +103,7 @@ class InterfaceController: WKInterfaceController {
         let video = videos[rowIndex]
         if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
-            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+            presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
             self.pushController(withName: "NowPlayingInterfaceController", context: video)
         }

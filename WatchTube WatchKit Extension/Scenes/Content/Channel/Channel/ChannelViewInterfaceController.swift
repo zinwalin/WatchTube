@@ -83,7 +83,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     @IBAction func Details() {
         if meta.getChannelInfo(udid: udid, key: "name") as! String == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
-            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+            presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
             pushController(withName: "ChannelDetailsInterfaceController", context: udid)
         }
@@ -92,7 +92,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     @IBAction func RelatedChannels() {
         if meta.getChannelInfo(udid: udid, key: "name") as! String == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
-            presentAlert(withTitle: "Slow Down!", message: "We can't get the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+            presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
             pushController(withName: "RelatedChannelsInterfaceController", context: udid)
         }
