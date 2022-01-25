@@ -66,6 +66,8 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
         
         cacheThumbnailBg.sd_setImage(with: URL(string: img))
         cacheChannelLabel.setText(channel)
+        cacheTitleLabel.setText(title)
+
         
         if UserDefaults.standard.bool(forKey: settingsKeys.qualityToggle) == true {
             quality="hd"
@@ -73,40 +75,31 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
             quality="sd"
         } // set preferred quality
         
-        if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).mp4") == false) {
+        if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).mp4") == false || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).mp4") == false) {
             fileType = "m4a"
-            quality="sd"
-            self.cacheStatusLabel.setText("Using SD m4a.")
-            
         }
-        if fileType == "m4a" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).m4a") == false) {
+        if fileType == "m4a" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).m4a") == false || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).m4a") == false) {
             fileType = "mp4"
+        }
+        if quality == "sd" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).\(fileType)") == false) {
+            quality="hd"
+        }
+        if quality == "hd" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).\(fileType)") == false) {
             quality="sd"
-            self.cacheStatusLabel.setText("Using SD mp4.")
-            
         }
-        if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).mp4") == false) {
-            fileType = "m4a"
-            quality="hd"
-            self.cacheStatusLabel.setText("Using HD m4a.")
-            
-        }
-        if fileType == "m4a" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).m4a") == false) {
-            fileType = "mp4"
-            quality="hd"
-            self.cacheStatusLabel.setText("Using HD mp4.")
-            
-        }
-        if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).m4a") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).mp4") == false) && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).m4a") == false) {
+        if
+            (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).mp4") == false) &&
+            (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).m4a") == false) &&
+            (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).mp4") == false) &&
+            (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).m4a") == false) {
             self.cacheStatusLabel.setText("No cache data found.")
-        }
-                
-        self.showMovieFade(movie: cacheMovie)
-        self.cacheTitleLabel.setText(self.title)
+        } else {
+            self.showMovieFade(movie: cacheMovie)
 
-        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(self.videoId).\(fileType)") == true {
-            self.cacheMovie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache/\(quality)").appendingPathComponent("\(self.videoId).\(fileType)"))
-            self.cacheStatusLabel.setText("Ready.")
+            if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/\(quality)/\(self.videoId).\(fileType)") == true {
+                self.cacheMovie.setMovieURL(URL(fileURLWithPath: NSHomeDirectory()+"/Documents/cache/\(quality)").appendingPathComponent("\(self.videoId).\(fileType)"))
+                self.cacheStatusLabel.setText("Ready.")
+            }
         }
     }
     

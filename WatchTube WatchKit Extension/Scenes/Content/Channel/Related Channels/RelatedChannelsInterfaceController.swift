@@ -74,7 +74,7 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
-            pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: tableUdid, key: "channelId"))
+            pushController(withName: "ChannelViewInterfaceController", context: tableUdid)
         }
     }
 }
