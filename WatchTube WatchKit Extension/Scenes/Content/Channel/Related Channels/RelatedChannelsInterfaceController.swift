@@ -32,7 +32,7 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
             dict["udid"] = channel["udid"]
             dict["name"] = channel["name"]
             dict["thumbnail"] = meta.getChannelInfo(udid: dict["udid"]!, key: "thumbnail") as? String
-            dict["subscribers"] = (meta.getChannelInfo(udid: dict["udid"]!, key: "subscribers") as! Int).abbreviated
+            dict["subscribers"] = (meta.getChannelInfo(udid: dict["udid"]!, key: "subscribers") as! Double).abbreviated
             channels.append(dict)
         }
         if channels.isEmpty {
@@ -68,6 +68,13 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt i: Int) {
-        print(i)
+        let channel = channels[i]
+        let tableUdid = channel["udid"]!
+        if (meta.getChannelInfo(udid: tableUdid, key: "name") as! String) == "???" {
+            let ok = WKAlertAction(title: "Okay", style: .default) {}
+            presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+        } else {
+            pushController(withName: "ChannelViewInterfaceController", context: meta.getVideoInfo(id: tableUdid, key: "channelId"))
+        }
     }
 }
