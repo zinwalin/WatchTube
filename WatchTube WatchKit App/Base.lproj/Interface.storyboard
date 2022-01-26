@@ -773,6 +773,21 @@
                         <separator alignment="left" id="9jt-ls-pXd">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
+                        <switch width="1" alignment="left" title="Audio Only" id="5qL-2L-XaO">
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            </variation>
+                            <connections>
+                                <action selector="audioOnlyToggle:" destination="BVh-TY-jCX" id="Bk9-be-HSi"/>
+                            </connections>
+                        </switch>
+                        <label alignment="left" text="Use audio only to save data." numberOfLines="0" id="ZMD-IY-hUU">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="BhW-To-hPy">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                         <switch width="1" height="39" alignment="left" value="YES" title="Thumbnails" numberOfLines="1" id="HVk-Ub-TRL">
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                             <variation key="device=watch38mm">
@@ -787,21 +802,6 @@
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <separator alignment="left" id="mJP-VR-Nt5">
-                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <switch width="1" alignment="left" title="Audio Only" id="5qL-2L-XaO">
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                            </variation>
-                            <connections>
-                                <action selector="audioOnlyToggle:" destination="BVh-TY-jCX" id="Bk9-be-HSi"/>
-                            </connections>
-                        </switch>
-                        <label alignment="left" text="Use audio only to save data." numberOfLines="0" id="ZMD-IY-hUU">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator alignment="left" id="BhW-To-hPy">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <group width="1" height="40" alignment="left" id="WBM-cw-F2V">
@@ -1309,9 +1309,9 @@
                                     <variation key="device=watch44mm" height="104"/>
                                     <variation key="device=watch45mm" height="110"/>
                                 </movie>
-                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="qB2-m4-rl2">
+                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="qB2-m4-rl2" userLabel="gradient box">
                                     <items>
-                                        <group width="1" alignment="left" verticalAlignment="bottom" id="mHa-Je-LjY">
+                                        <group width="1" alignment="left" verticalAlignment="bottom" id="mHa-Je-LjY" userLabel="status">
                                             <items>
                                                 <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="loading0" contentMode="scaleAspectFit" id="q3Q-da-SVM"/>
                                                 <label alignment="left" verticalAlignment="center" text="status" minimumScaleFactor="0.80000000000000004" id="mYm-eV-xkZ">
@@ -1326,59 +1326,79 @@
                                 </group>
                             </items>
                         </group>
-                        <group width="1" alignment="center" verticalAlignment="bottom" id="0NX-sl-Gby">
+                        <group width="1" alignment="center" verticalAlignment="bottom" layout="overlap" radius="0.0" id="0NX-sl-Gby" userLabel="details footer">
                             <items>
-                                <button alignment="right" verticalAlignment="center" id="Er5-7Q-3Kp">
-                                    <group key="contentGroup" width="25" height="25" alignment="left" id="lHc-vp-X6B">
-                                        <items>
-                                            <imageView width="1" height="1" alignment="left" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="ypN-nZ-W4k">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </imageView>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <action selector="infoScreenButton" destination="IGU-mI-QIU" id="CGj-zH-3B0"/>
-                                    </connections>
-                                </button>
-                                <label width="165" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="P8n-0l-CSv">
-                                    <gestureRecognizers>
-                                        <tapGestureRecognizer id="v2Z-tc-pCk">
+                                <group width="1" height="1" alignment="center" layout="overlap" radius="11" id="Zae-fU-zxr" userLabel="bar">
+                                    <items>
+                                        <group width="1" height="24.5" alignment="left" layout="overlap" id="TFi-Io-A5N" userLabel="bar bg">
+                                            <items>
+                                                <imageView width="300" height="30" alignment="left" verticalAlignment="center" image="barWhite" id="y3u-uv-xji"/>
+                                                <imageView width="300" height="30" alignment="left" verticalAlignment="center" alpha="0.80000000000000004" image="barRed" id="9MY-z2-7Bt"/>
+                                            </items>
+                                        </group>
+                                        <group width="0.012999999999999999" height="24.5" alignment="left" verticalAlignment="center" id="ulH-nS-HPW" userLabel="bar itself">
+                                            <items>
+                                                <imageView width="300" height="30" alignment="left" verticalAlignment="center" image="barRed" id="Zp1-cD-lqa"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="1" alignment="left" id="xq5-pi-9dJ" userLabel="footer content">
+                                    <items>
+                                        <button alignment="right" verticalAlignment="center" id="Er5-7Q-3Kp">
+                                            <group key="contentGroup" width="25" height="25" alignment="left" id="lHc-vp-X6B">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="left" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="ypN-nZ-W4k">
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                </items>
+                                            </group>
                                             <connections>
-                                                <action selector="openChannel:" destination="IGU-mI-QIU" id="Mbe-0y-jM5"/>
+                                                <action selector="infoScreenButton" destination="IGU-mI-QIU" id="CGj-zH-3B0"/>
                                             </connections>
-                                        </tapGestureRecognizer>
-                                    </gestureRecognizers>
-                                    <fontDescription key="font" type="system" pointSize="15"/>
-                                    <variation key="device=watch38mm" width="105">
-                                        <fontDescription key="font" type="system" pointSize="13"/>
-                                    </variation>
-                                    <variation key="device=watch40mm" width="130"/>
-                                    <variation key="device=watch41mm" width="145"/>
-                                    <variation key="device=watch42mm" width="125"/>
-                                    <variation key="device=watch44mm" width="155"/>
-                                </label>
+                                        </button>
+                                        <label width="165" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="P8n-0l-CSv">
+                                            <gestureRecognizers>
+                                                <tapGestureRecognizer id="v2Z-tc-pCk">
+                                                    <connections>
+                                                        <action selector="openChannel:" destination="IGU-mI-QIU" id="Mbe-0y-jM5"/>
+                                                    </connections>
+                                                </tapGestureRecognizer>
+                                            </gestureRecognizers>
+                                            <fontDescription key="font" type="system" pointSize="15"/>
+                                            <variation key="device=watch38mm" width="105">
+                                                <fontDescription key="font" type="system" pointSize="13"/>
+                                            </variation>
+                                            <variation key="device=watch40mm" width="130"/>
+                                            <variation key="device=watch41mm" width="145"/>
+                                            <variation key="device=watch42mm" width="125"/>
+                                            <variation key="device=watch44mm" width="155"/>
+                                        </label>
+                                    </items>
+                                </group>
                             </items>
                         </group>
                     </items>
                     <connections>
                         <outlet property="channelLabel" destination="P8n-0l-CSv" id="N7J-zO-PZE"/>
+                        <outlet property="entireBar" destination="Zae-fU-zxr" id="gSe-yN-pbb"/>
                         <outlet property="movie" destination="T1W-VJ-tpl" id="Ty4-Wd-Ism"/>
                         <outlet property="movieLoading" destination="q3Q-da-SVM" id="CAM-aB-OAL"/>
+                        <outlet property="progressBar" destination="ulH-nS-HPW" id="2U8-rw-pnj"/>
                         <outlet property="statusLabel" destination="mYm-eV-xkZ" id="1ec-WO-HGF"/>
                         <outlet property="thumbnailBg" destination="1uf-0x-jTJ" id="lUg-kN-S3p"/>
                         <outlet property="titleLabel" destination="MiS-2n-4v5" id="oxW-mj-BkM"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="259"/>
+            <point key="canvasLocation" x="138.06060606060606" y="258.51239669421489"/>
         </scene>
         <!--SubInfoInterfaceController-->
         <scene sceneID="X0g-ra-rul">
             <objects>
                 <controller identifier="SubInfoInterfaceController" id="lf9-W1-Yzb" customClass="SubInfoInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" numberOfLines="0" id="ExP-9i-K8r">
-                            <string key="text">No context data was provided, and somehow you ended up here. Quite odd, don't you think? In all seriousness, do report this in our server.</string>
+                        <label alignment="left" text="wait no " numberOfLines="0" id="ExP-9i-K8r">
                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
                     </items>
@@ -1415,6 +1435,8 @@
     <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="barRed" width="400" height="50"/>
+        <image name="barWhite" width="400" height="50"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>

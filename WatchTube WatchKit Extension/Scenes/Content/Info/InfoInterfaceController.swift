@@ -7,6 +7,9 @@
 
 import WatchKit
 import Foundation
+import AVKit
+import AVFAudio
+import AVFoundation
 
 class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var viewsIcon: WKInterfaceImage!
@@ -106,7 +109,7 @@ class InfoInterfaceController: WKInterfaceController {
         authorIcon.setTintColor(.random())
         uploadIcon.setTintColor(.random())
     }
-
+    
 }
 
 extension CGFloat {
