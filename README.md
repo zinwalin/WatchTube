@@ -4,7 +4,7 @@ WatchTube is a standalone WatchOS youtube player utilizing [Invidious](https://i
 
 2. Not requiring people to provide a YouTube API Key for usage
 
-3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially a gimmick
+3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially, a gimmick
 
 4. There are no working apps that do this on GitHub already
 
