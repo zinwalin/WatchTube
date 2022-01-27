@@ -1294,7 +1294,7 @@
                                 <fontDescription key="font" type="system" pointSize="11"/>
                             </variation>
                         </label>
-                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" radius="5" id="ULh-ny-Dp1">
+                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
@@ -1309,17 +1309,24 @@
                                     <variation key="device=watch44mm" height="104"/>
                                     <variation key="device=watch45mm" height="110"/>
                                 </movie>
-                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="qB2-m4-rl2" userLabel="gradient box">
+                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" radius="0.0" id="qB2-m4-rl2" userLabel="gradient box">
                                     <items>
-                                        <group width="1" alignment="left" verticalAlignment="bottom" id="mHa-Je-LjY" userLabel="status">
+                                        <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" radius="0.0" spacing="0.0" id="bVg-m9-SyX" userLabel="status box">
                                             <items>
-                                                <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="loading0" contentMode="scaleAspectFit" id="q3Q-da-SVM"/>
-                                                <label alignment="left" verticalAlignment="center" text="status" minimumScaleFactor="0.80000000000000004" id="mYm-eV-xkZ">
-                                                    <fontDescription key="font" type="system" pointSize="14"/>
-                                                    <variation key="device=watch38mm">
-                                                        <fontDescription key="font" type="system" pointSize="11"/>
-                                                    </variation>
-                                                </label>
+                                                <group width="1" alignment="left" id="mHa-Je-LjY" userLabel="status">
+                                                    <items>
+                                                        <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="loading0" contentMode="scaleAspectFit" id="q3Q-da-SVM"/>
+                                                        <label alignment="left" verticalAlignment="center" text="status" minimumScaleFactor="0.80000000000000004" id="mYm-eV-xkZ">
+                                                            <fontDescription key="font" type="system" pointSize="14"/>
+                                                            <variation key="device=watch38mm">
+                                                                <fontDescription key="font" type="system" pointSize="11"/>
+                                                            </variation>
+                                                        </label>
+                                                    </items>
+                                                </group>
+                                                <group width="0.5" height="2" alignment="left" verticalAlignment="bottom" radius="1" id="p26-Zz-dXc" userLabel="bar itself">
+                                                    <color key="backgroundColor" red="0.88735562560000003" green="0.3409103751" blue="0.31024518610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </group>
                                             </items>
                                         </group>
                                     </items>
@@ -1328,21 +1335,6 @@
                         </group>
                         <group width="1" alignment="center" verticalAlignment="bottom" layout="overlap" radius="0.0" id="0NX-sl-Gby" userLabel="details footer">
                             <items>
-                                <group width="1" height="1" alignment="center" layout="overlap" radius="11" id="Zae-fU-zxr" userLabel="bar">
-                                    <items>
-                                        <group width="1" height="24.5" alignment="left" layout="overlap" id="TFi-Io-A5N" userLabel="bar bg">
-                                            <items>
-                                                <imageView width="300" height="30" alignment="left" verticalAlignment="center" image="barWhite" id="y3u-uv-xji"/>
-                                                <imageView width="300" height="30" alignment="left" verticalAlignment="center" alpha="0.80000000000000004" image="barRed" id="9MY-z2-7Bt"/>
-                                            </items>
-                                        </group>
-                                        <group width="0.012999999999999999" height="24.5" alignment="left" verticalAlignment="center" id="ulH-nS-HPW" userLabel="bar itself">
-                                            <items>
-                                                <imageView width="300" height="30" alignment="left" verticalAlignment="center" image="barRed" id="Zp1-cD-lqa"/>
-                                            </items>
-                                        </group>
-                                    </items>
-                                </group>
                                 <group width="1" alignment="left" id="xq5-pi-9dJ" userLabel="footer content">
                                     <items>
                                         <button alignment="right" verticalAlignment="center" id="Er5-7Q-3Kp">
@@ -1381,10 +1373,9 @@
                     </items>
                     <connections>
                         <outlet property="channelLabel" destination="P8n-0l-CSv" id="N7J-zO-PZE"/>
-                        <outlet property="entireBar" destination="Zae-fU-zxr" id="gSe-yN-pbb"/>
                         <outlet property="movie" destination="T1W-VJ-tpl" id="Ty4-Wd-Ism"/>
                         <outlet property="movieLoading" destination="q3Q-da-SVM" id="CAM-aB-OAL"/>
-                        <outlet property="progressBar" destination="ulH-nS-HPW" id="2U8-rw-pnj"/>
+                        <outlet property="progressBar" destination="p26-Zz-dXc" id="3WZ-rW-4ky"/>
                         <outlet property="statusLabel" destination="mYm-eV-xkZ" id="1ec-WO-HGF"/>
                         <outlet property="thumbnailBg" destination="1uf-0x-jTJ" id="lUg-kN-S3p"/>
                         <outlet property="titleLabel" destination="MiS-2n-4v5" id="oxW-mj-BkM"/>
@@ -1435,8 +1426,6 @@
     <color key="tintColor" name="AccentColor"/>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="barRed" width="400" height="50"/>
-        <image name="barWhite" width="400" height="50"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>

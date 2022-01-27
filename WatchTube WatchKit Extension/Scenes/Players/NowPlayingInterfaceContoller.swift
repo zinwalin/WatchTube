@@ -26,8 +26,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     @IBOutlet var thumbnailBg: WKInterfaceImage!
     @IBOutlet var channelLabel: WKInterfaceLabel!
     @IBOutlet var movieLoading: WKInterfaceImage!
-    @IBOutlet weak var entireBar: WKInterfaceGroup!
-    @IBOutlet weak var progressBar: WKInterfaceGroup!
+    @IBOutlet var progressBar: WKInterfaceGroup!
     
     @IBAction func infoScreenButton() {
         infoViewed=true
@@ -53,7 +52,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         meta.cacheVideoInfo(id: video.id)
         meta.cacheChannelInfo(udid: meta.getVideoInfo(id: video.id, key: "channelId") as! String)
         
-        entireBar.setHidden(true)
+        progressBar.setHidden(true)
         progressBar.setRelativeWidth(0.0001, withAdjustment: 0)
         
         if video != nil {
@@ -98,9 +97,9 @@ class NowPlayingInterfaceController: WKInterfaceController {
             showMovieFade(movie: self.movie)
             self.movieLoading.setHidden(true)
             self.movieLoading.stopAnimating()
-            self.entireBar.setHidden(true)
+            self.progressBar.setHidden(true)
         } else {
-            entireBar.setHidden(false)
+            progressBar.setHidden(false)
             
             progressBar.setRelativeWidth(0.05, withAdjustment: 0)
             AF.request(dataPath).responseJSON { res in
@@ -109,7 +108,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     let videoDetails = data as! Dictionary<String, Any>
                     self.isDownloading = true
                     self.statusLabel.setText("Parsing data...")
-                    self.progressBar.setRelativeWidth(0.1, withAdjustment: 0)
+                    self.progressBar.setRelativeWidth(0.35, withAdjustment: 0)
 
                     // Required variables in this scope
                     // - streamUrl (to set)
@@ -122,7 +121,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         self.statusLabel.setText("No streams found")
                         self.movieLoading.stopAnimating()
                         self.movieLoading.setImageNamed("error")
-                        self.entireBar.setHidden(true)
+                        self.progressBar.setHidden(true)
                         break
                     }
                                         
@@ -141,8 +140,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
                             }
                             self.streamUrl = streamData["url"]!
                             self.fileType = "mp4"
-                            
-                            self.progressBar.setRelativeWidth(0.2, withAdjustment: 0)
                         }
                     } else if dlType == "audio" {
                         let adaptiveFormats = videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>
@@ -154,7 +151,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                 }
                             }
                         }
-                        self.progressBar.setRelativeWidth(0.2, withAdjustment: 0)
                         
                         var highestBitrate: Int = 0
                         if self.quality == "sd" {highestBitrate = Int.max}
@@ -176,8 +172,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         } else {format = aacFormats[0]}
                         self.streamUrl = format["url"] as! String
                         self.fileType = "m4a"
-                        
-                        self.progressBar.setRelativeWidth(0.3, withAdjustment: 0)
                     }
                     
                     if UserDefaults.standard.bool(forKey: settingsKeys.proxyContent) {
@@ -198,7 +192,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                         return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
                     }
                     
-                    self.progressBar.setRelativeWidth(0.5, withAdjustment: 0)
+                    self.progressBar.setRelativeWidth(0.65, withAdjustment: 0)
 
                     if cachingSetting == true {
                         AF.download(self.streamUrl, to: destinationCached).response { response in
@@ -215,7 +209,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                     self.statusLabel.setText("Error getting data")
                                     self.movieLoading.stopAnimating()
                                     self.movieLoading.setImageNamed("error")
-                                    self.entireBar.setHidden(true)
+                                    self.progressBar.setHidden(true)
                                     
                                     do {try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/\(self.quality)/\(video.id).\(self.fileType)")} catch {}
                                 } else {
@@ -225,7 +219,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                     self.showMovieFade(movie: self.movie)
                                     self.movieLoading.setHidden(true)
                                     self.movieLoading.stopAnimating()
-                                    self.entireBar.setHidden(true)
+                                    self.progressBar.setHidden(true)
                                 }
                             }
                         }.downloadProgress(closure: { (progress) in
@@ -248,7 +242,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                     self.statusLabel.setText("Error getting data")
                                     self.movieLoading.stopAnimating()
                                     self.movieLoading.setImageNamed("error")
-                                    self.entireBar.setHidden(true)
+                                    self.progressBar.setHidden(true)
                                 } else {
                                     self.movie.setMovieURL(response.value!!)
                                     self.statusLabel.setText("Ready.")
@@ -256,7 +250,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                                     self.showMovieFade(movie: self.movie)
                                     self.movieLoading.setHidden(true)
                                     self.movieLoading.stopAnimating()
-                                    self.entireBar.setHidden(true)
+                                    self.progressBar.setHidden(true)
                                 }
                             }
                         }.downloadProgress(closure: { (progress) in
@@ -271,7 +265,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     self.statusLabel.setText("Error getting data")
                     self.movieLoading.stopAnimating()
                     self.movieLoading.setImageNamed("error")
-                    self.entireBar.setHidden(true)
+                    self.progressBar.setHidden(true)
                 }
             }
         }
