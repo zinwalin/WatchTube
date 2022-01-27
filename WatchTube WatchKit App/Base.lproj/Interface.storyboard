@@ -1325,7 +1325,7 @@
                                                     </items>
                                                 </group>
                                                 <group width="0.5" height="2" alignment="left" verticalAlignment="bottom" radius="1" id="p26-Zz-dXc" userLabel="bar itself">
-                                                    <color key="backgroundColor" red="0.88735562560000003" green="0.3409103751" blue="0.31024518610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" name="AccentColor"/>
                                                 </group>
                                             </items>
                                         </group>
