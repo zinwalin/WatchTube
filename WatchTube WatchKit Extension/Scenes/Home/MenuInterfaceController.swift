@@ -12,19 +12,13 @@ import Foundation
 class MenuInterfaceController: WKInterfaceController {
 
     @IBAction func openSettingsButton() {
-        self.pushController(withName: "SettingsInterfaceController", context: "Any")
+        self.pushController(withName: "SettingsInterfaceController", context: "")
     }
     
     @IBOutlet weak var cacheScreenButton: WKInterfaceButton!
     
     @IBAction func CacheScreen() {
-        if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == true {
-            cacheScreenButton.setEnabled(true)
-            self.pushController(withName: "CacheContentsInterfaceController", context: "")
-        }
-        else {
-            cacheScreenButton.setEnabled(false)
-        }
+        self.pushController(withName: "CacheContentsInterfaceController", context: "")
     }
 
     override func willActivate() {

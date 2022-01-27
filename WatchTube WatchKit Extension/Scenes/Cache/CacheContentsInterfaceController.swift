@@ -14,6 +14,7 @@ class CacheContentsInterfaceController: WKInterfaceController {
     @IBOutlet weak var cacheTableRow: WKInterfaceTable!
     var ids = [String]()
     @IBOutlet weak var disabledLabel: WKInterfaceLabel!
+    @IBOutlet weak var disabled2label: WKInterfaceLabel!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -22,10 +23,13 @@ class CacheContentsInterfaceController: WKInterfaceController {
         
         cacheTableRow.setHidden(true)
         if UserDefaults.standard.bool(forKey: settingsKeys.cacheToggle) == false {
+            disabledLabel.setText("Cache is disabled")
             disabledLabel.setHidden(false)
+            disabled2label.setHidden(false)
             return
         } else {
             disabledLabel.setHidden(true)
+            disabled2label.setHidden(true)
             do {
                 var files = [String]()
                 files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/sd")
