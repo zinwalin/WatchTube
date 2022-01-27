@@ -459,7 +459,7 @@
                                                         <variation key="device=watch38mm" height="35" radius="18" width="35"/>
                                                         <variation key="device=watch40mm" height="40" radius="20" width="40"/>
                                                     </group>
-                                                    <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="QGX-Cv-zMv">
+                                                    <group width="0.69999999999999996" alignment="left" verticalAlignment="center" layout="vertical" id="QGX-Cv-zMv">
                                                         <items>
                                                             <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="rml-lW-Vmv"/>
                                                             <label alignment="left" verticalAlignment="center" text="subs" minimumScaleFactor="0.0" id="X6o-F7-gPx">
@@ -1212,7 +1212,7 @@
                                                                 <variation key="device=watch38mm" height="35" radius="18" width="35"/>
                                                                 <variation key="device=watch40mm" height="40" radius="20" width="40"/>
                                                             </group>
-                                                            <group width="1" alignment="left" verticalAlignment="center" layout="vertical" id="Qh1-GF-PQ6">
+                                                            <group width="0.69999999999999996" alignment="left" verticalAlignment="center" layout="vertical" id="Qh1-GF-PQ6">
                                                                 <items>
                                                                     <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="vrL-gB-OjL"/>
                                                                     <label alignment="left" verticalAlignment="center" text="subs" minimumScaleFactor="0.0" id="nIv-0G-U84">
@@ -1232,10 +1232,21 @@
                                                         <items>
                                                             <group width="50" height="50" alignment="left" layout="overlap" radius="0.0" id="Lkc-yW-veL" userLabel="icons">
                                                                 <items>
-                                                                    <imageView width="0.5" height="0.5" alignment="left" image="pfp" id="GgE-Y1-mpm" userLabel="1"/>
-                                                                    <imageView width="0.5" height="0.5" alignment="right" image="pfp" id="4hc-V8-T7L" userLabel="2"/>
-                                                                    <imageView width="0.5" height="0.5" alignment="left" verticalAlignment="bottom" image="pfp" id="1pT-kX-DL3" userLabel="3"/>
-                                                                    <imageView width="0.5" height="0.5" alignment="right" verticalAlignment="bottom" image="pfp" id="ga8-f3-Uv5" userLabel="4"/>
+                                                                    <group width="35" height="25" alignment="left" verticalAlignment="center" layout="overlap" radius="0.0" id="u9K-Z8-sRR" userLabel="1">
+                                                                        <items>
+                                                                            <imageView width="35" alignment="right" verticalAlignment="bottom" image="maxresdefault" contentMode="scaleAspectFit" id="zyL-Mu-GuC" userLabel="1"/>
+                                                                        </items>
+                                                                    </group>
+                                                                    <group width="42" height="32" alignment="left" verticalAlignment="center" layout="overlap" radius="0.0" id="MWn-Iu-Yfe" userLabel="2">
+                                                                        <items>
+                                                                            <imageView width="35" alignment="right" verticalAlignment="bottom" image="maxresdefault" contentMode="scaleAspectFit" id="xEj-0x-11h" userLabel="2"/>
+                                                                        </items>
+                                                                    </group>
+                                                                    <group width="49" height="39" alignment="left" verticalAlignment="center" layout="overlap" radius="0.0" id="4ib-67-p3h" userLabel="3">
+                                                                        <items>
+                                                                            <imageView width="35" alignment="right" verticalAlignment="bottom" image="maxresdefault" contentMode="scaleAspectFit" id="juY-ir-3IQ" userLabel="3"/>
+                                                                        </items>
+                                                                    </group>
                                                                 </items>
                                                                 <variation key="device=watch38mm" height="35" width="35"/>
                                                                 <variation key="device=watch40mm" height="40" width="40"/>
@@ -1437,6 +1448,7 @@
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="loading0" width="164" height="181"/>
         <image name="magnifyingglass" catalog="system" width="128" height="114"/>
+        <image name="maxresdefault" width="1280" height="720"/>
         <image name="person" catalog="system" width="128" height="120"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
