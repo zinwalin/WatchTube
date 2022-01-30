@@ -943,12 +943,17 @@
                                 <fontDescription key="font" type="system" pointSize="11"/>
                             </variation>
                         </label>
-                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" radius="0.0" id="bvE-dh-DIM">
+                        <group width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="bvE-dh-DIM">
                             <items>
-                                <group width="1" alignment="center" verticalAlignment="center" radius="5" id="6n6-5x-Txw">
+                                <group width="1" height="2" alignment="center" verticalAlignment="center" radius="5" id="6n6-5x-Txw">
                                     <items>
                                         <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
                                     </items>
+                                    <variation key="device=watch38mm" height="76"/>
+                                    <variation key="device=watch40mm" height="93"/>
+                                    <variation key="device=watch42mm" height="89"/>
+                                    <variation key="device=watch44mm" height="104"/>
+                                    <variation key="device=watch45mm" height="110"/>
                                 </group>
                                 <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="Zwy-yF-dB0">
                                     <variation key="device=watch38mm" height="76"/>
@@ -1479,10 +1484,16 @@
                         </label>
                         <group width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
                             <items>
-                                <group width="1" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
+                                <group width="1" height="2" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
                                         <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
+                                    <variation key="device=watch38mm" height="76"/>
+                                    <variation key="device=watch40mm" height="93"/>
+                                    <variation key="device=watch41mm" height="100"/>
+                                    <variation key="device=watch42mm" height="89"/>
+                                    <variation key="device=watch44mm" height="104"/>
+                                    <variation key="device=watch45mm" height="110"/>
                                 </group>
                                 <movie width="1" height="2" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
                                     <variation key="device=watch38mm" height="76"/>
