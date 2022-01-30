@@ -75,10 +75,10 @@ class CacheNowPlayingInterfaceController: WKInterfaceController {
             quality="sd"
         } // set preferred quality
         
-        if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).mp4") == false || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).mp4") == false) {
+        if fileType == "mp4" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).mp4") == false && FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).mp4") == false) {
             fileType = "m4a"
         }
-        if fileType == "m4a" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).m4a") == false || FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).m4a") == false) {
+        if fileType == "m4a" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).m4a") == false && FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(self.videoId).m4a") == false) {
             fileType = "mp4"
         }
         if quality == "sd" && (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(self.videoId).\(fileType)") == false) {

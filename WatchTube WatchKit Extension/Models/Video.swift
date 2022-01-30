@@ -27,7 +27,8 @@ class Video {
      }
     
     class func getSearchResults(keyword: String, completion: @escaping ([Video]) -> Void) {
-        AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=all").responseJSON { response in
+        let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=playlist"
+        AF.request(path).responseJSON { response in
             var videos = [Video]()
             switch response.result {
             case .success(let json):
@@ -35,6 +36,7 @@ class Video {
                     for (i, item) in response.enumerated() {
                         
                         if i > (UserDefaults.standard.integer(forKey: settingsKeys.resultsCount) - 1) {break}
+                        
                         let type = item["type"] as! String
                         switch type {
                         case "video":
@@ -65,7 +67,30 @@ class Video {
                             videos.append(vid)
                             
                         case "playlist":
-                            print("egg")
+                            
+                            let plid = item["playlistId"] as! String
+                            let videosArray = item["videos"] as! Array<Any>
+                            var plThumb: String = "egg"
+                            var two = ""
+                            var one = (((videosArray[0] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>)[((videosArray[0] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>).count - 1] as! Dictionary<String,Any>)["url"] as! String
+                            if videosArray.count > 1 {
+                                two = (((videosArray[1] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>)[((videosArray[1] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>).count - 1] as! Dictionary<String,Any>)["url"] as! String
+                            }
+                            
+                            // because low res thumbnails are shit, imma change them to highres ones
+                            one = (URL(string: one)?.deletingLastPathComponent().appendingPathComponent("maxresdefault.jpg").absoluteString)!
+                            if two.contains("http"){
+                            two = (URL(string: two)?.deletingLastPathComponent().appendingPathComponent("maxresdefault.jpg").absoluteString)!
+                            }
+                            
+                            plThumb = "\(one)\n\(two)"
+                            
+                            let name = item["title"] as! String
+                            let channel = item["author"] as! String
+                            let udid = item["authorId"] as! String
+                            
+                            let vid = Video(id: plid, title: name, img: plThumb, channel: channel, subs: udid, type: item["type"] as! String)
+                            videos.append(vid)
                         default:
                             break
                         }

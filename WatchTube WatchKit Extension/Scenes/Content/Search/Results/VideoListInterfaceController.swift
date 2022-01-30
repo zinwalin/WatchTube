@@ -44,15 +44,20 @@ class VideoListInterfaceController: WKInterfaceController {
             }
             let video = videos[i]
             let type = video.type
-            if type == "video" {
+            
+            row.videoGroup.setHidden(true)
+            row.channelGroup.setHidden(true)
+            row.playlistGroup.setHidden(true)
+
+            switch type {
+            case "video":
                 row.videoGroup.setHidden(false)
-                row.channelGroup.setHidden(true)
-            } else if type == "channel" {
-                row.videoGroup.setHidden(true)
+            case "channel":
                 row.channelGroup.setHidden(false)
-            } else {
-                // something has gone really wrong bruh
-                continue
+            case "playlist":
+                row.playlistGroup.setHidden(false)
+            default:
+                break
             }
             
             switch type {
@@ -60,15 +65,16 @@ class VideoListInterfaceController: WKInterfaceController {
                 meta.cacheVideoInfo(id: video.id)
             case "channel":
                 meta.cacheChannelInfo(udid: video.id)
+            case "playlist":
+                meta.cacheChannelInfo(udid: video.subs)
             default:
                 break
             }
             
-            row.titleLabel.setText(video.title)
+            row.playlistName.setText(video.title)
             row.videoId = video.id
-            row.channelLabel.setText(video.channel)
+            row.playlistChannel.setText(video.channel)
             
-            row.udid = video.id
             row.channelTitle.setText(video.channel)
             row.subscribersLabel.setText("\(video.subs) Subscribers")
 
@@ -81,6 +87,12 @@ class VideoListInterfaceController: WKInterfaceController {
                     row.thumbImg.sd_setImage(with: URL(string: video.img))
                 case "channel":
                     row.channelImg.sd_setImage(with: URL(string: video.img))
+                case "playlist":
+                    let thumbnails = video.img.components(separatedBy: "\n")
+                    row.playlistIcon1.sd_setImage(with: URL(string: thumbnails[0]))
+                    if thumbnails.count >= 2 {
+                        row.playlistIcon2.sd_setImage(with: URL(string: thumbnails[1]))
+                    }
                 default:
                     break
                 }
@@ -97,23 +109,32 @@ class VideoListInterfaceController: WKInterfaceController {
         switch type {
         case "video":
             if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {
-                let ok = WKAlertAction(title: "Okay", style: .default) {}
-                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [WKAlertAction(title: "Okay", style: .default) {}])
             } else {
                 self.pushController(withName: "NowPlayingInterfaceController", context: video)
             }
         case "channel":
             if (meta.getChannelInfo(udid: video.id, key: "name") as! String) == "???" {
-                let ok = WKAlertAction(title: "Okay", style: .default) {}
-                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [WKAlertAction(title: "Okay", style: .default) {}])
             } else {
                 self.pushController(withName: "ChannelViewInterfaceController", context: video.id)
             }
         case "playlist":
-            print("egg")
+            if (meta.getChannelInfo(udid: video.subs, key: "name") as! String) == "???" {
+                presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [WKAlertAction(title: "Okay", style: .default) {}])
+            } else {
+                var dict: [String:String] = [:]
+                dict["title"] = video.title
+                dict["channelName"] = video.channel
+                let thumbnails = video.img.components(separatedBy: "\n")
+                dict["1"] = thumbnails[0]
+                dict["2"] = thumbnails[1]
+                dict["plid"] = video.id
+                dict["udid"] = video.subs
+                self.pushController(withName: "PlaylistInterfaceController", context: dict)
+            }
         default:
-            let ok = WKAlertAction(title: "Okay", style: .default) {}
-            presentAlert(withTitle: "Malformed", message: "We don't know what just happened but it's bad. Please report this issue in our server or via TestFlight!", preferredStyle: .alert, actions: [ok])
+            presentAlert(withTitle: "Malformed", message: "We don't know what just happened but it's bad. Please report this issue in our server or via TestFlight!", preferredStyle: .alert, actions: [WKAlertAction(title: "Okay", style: .default) {}])
         }
     }
     
