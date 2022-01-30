@@ -24,6 +24,7 @@ class PlaylistInterfaceController: WKInterfaceController {
     @IBOutlet weak var playlistTableRow: WKInterfaceTable!
     
     var list: Array<Dictionary<String,Any>> = []
+    var udid = ""
     
     override func awake(withContext context: Any?) {
         
@@ -32,6 +33,7 @@ class PlaylistInterfaceController: WKInterfaceController {
         let channelName = plData["channelName"] as! String
         let title = plData["title"] as! String
         let plid = plData["plid"] as! String
+        udid = plData["udid"] as! String
         plTitleLabel.setText(title)
         plChannelName.setText(channelName)
         bannerImage1.sd_setImage(with: URL(string: plData["1"] as! String))
@@ -60,7 +62,7 @@ class PlaylistInterfaceController: WKInterfaceController {
                     self.bannerImage3.sd_setImage(with: URL(string: url))
                 }
                 // if the page max is greater than list length, dont show the controls
-                if (self.list.count > UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)) == false {
+                if (self.list.count >= UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)) == false {
                     self.pageControl.setHidden(true)
                 } else {
                     self.pageControl.setHidden(false)
@@ -98,9 +100,10 @@ class PlaylistInterfaceController: WKInterfaceController {
         var rangeHigher = rangeLower + (constant - 1)
         if list.count < rangeHigher {rangeHigher = list.count}
         
-        playlistTableRow.setNumberOfRows(rangeHigher, withRowType: "PlaylistRow")
+        playlistTableRow.setNumberOfRows((rangeHigher - rangeLower) + 1, withRowType: "PlaylistRow")
         
-        for i in rangeLower ..< rangeHigher {
+        for index in rangeLower ..< rangeHigher + 1 {
+            let i = index
             guard let row = playlistTableRow.rowController(at: i) as? PlaylistTableRow else {
                 continue
             }
@@ -124,5 +127,25 @@ class PlaylistInterfaceController: WKInterfaceController {
         
         playlistTableRow.setHidden(false)
     }
-
+    
+    override func table(_ table: WKInterfaceTable, didSelectRowAt i: Int) {
+        let item = list[i]
+        let id = item["videoId"] as! String
+        let title = item["title"] as! String
+        let thumbs = item["videoThumbnails"] as! Array<Dictionary<String,Any>>
+        let img = thumbs[0]["url"] as! String
+        let channel = item["author"] as! String
+        let type = "video"
+        let vid = Video.init(id: id, title: title, img: img, channel: channel, subs: "", type: type)
+        pushController(withName: "NowPlayingInterfaceController", context: vid)
+    }
+    
+    @IBAction func openChannel(_ sender: Any) {
+        if (meta.getChannelInfo(udid: udid, key: "name") as! String) == "???" {
+            let ok = WKAlertAction(title: "Okay", style: .default) {}
+            presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
+        } else {
+            pushController(withName: "ChannelViewInterfaceController", context: udid)
+        }
+    }
 }

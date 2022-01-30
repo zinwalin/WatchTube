@@ -27,7 +27,7 @@ class Video {
      }
     
     class func getSearchResults(keyword: String, completion: @escaping ([Video]) -> Void) {
-        let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=playlist"
+        let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search?q=\(keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")&type=all"
         AF.request(path).responseJSON { response in
             var videos = [Video]()
             switch response.result {

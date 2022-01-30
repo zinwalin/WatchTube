@@ -10,6 +10,7 @@ import Foundation
 import SDWebImage
 
 class ChannelViewInterfaceController: WKInterfaceController {
+    @IBOutlet weak var noVideosLabel: WKInterfaceLabel!
     @IBOutlet weak var channelLabel: WKInterfaceLabel!
     @IBOutlet weak var bannerImage: WKInterfaceImage!
     @IBOutlet weak var channelImage: WKInterfaceImage!
@@ -30,7 +31,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
         bannerImage.sd_setImage(with: URL(string: banner))
         channelImage.sd_setImage(with: URL(string: thumbnail))
         channelLabel.setText(channelName)
-        
+        noVideosLabel.setHidden(true)
         let videosArray = meta.getChannelInfo(udid: udid, key: "videos") as! Array<Dictionary<String,Any>>
         for (i, vid) in videosArray.enumerated() {
             if i >= UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) {break}
@@ -42,10 +43,13 @@ class ChannelViewInterfaceController: WKInterfaceController {
             videos.append(final)
             meta.cacheVideoInfo(id: id)
         }
-        setupTable()
-        ChannelTableRow.setHidden(false)
-        // Configure interface objects here.
-        
+        if videos.count == 0 {
+            noVideosLabel.setHidden(false)
+        } else {
+            setupTable()
+            ChannelTableRow.setHidden(false)
+            // Configure interface objects here.
+        }
         for channel in (meta.getChannelInfo(udid: udid, key: "relatedChannels") as! Array<Dictionary<String,String>>) {
             meta.cacheChannelInfo(udid: channel["udid"]!)
         }

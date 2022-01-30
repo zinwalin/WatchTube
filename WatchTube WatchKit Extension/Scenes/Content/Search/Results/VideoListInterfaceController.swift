@@ -71,6 +71,8 @@ class VideoListInterfaceController: WKInterfaceController {
                 break
             }
             
+            row.channelLabel.setText(video.channel)
+            row.titleLabel.setText(video.title)
             row.playlistName.setText(video.title)
             row.videoId = video.id
             row.playlistChannel.setText(video.channel)

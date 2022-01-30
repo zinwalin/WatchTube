@@ -270,6 +270,9 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <label alignment="center" text="This channel has no videos." minimumScaleFactor="0.0" id="GGz-rU-Swq">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </label>
                         <separator alignment="left" id="1ax-iP-Bwv">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
@@ -313,6 +316,7 @@
                         <outlet property="bannerImage" destination="8MP-SY-aBr" id="GFJ-qk-K6T"/>
                         <outlet property="channelImage" destination="6XW-xt-am3" id="Usr-tO-ddn"/>
                         <outlet property="channelLabel" destination="zwn-U8-R6O" id="jX8-v8-uw5"/>
+                        <outlet property="noVideosLabel" destination="GGz-rU-Swq" id="WX9-Oi-Ekc"/>
                     </connections>
                 </controller>
             </objects>
@@ -740,6 +744,36 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
+                        <separator alignment="left" id="MaZ-ym-VES">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <switch width="1" alignment="left" value="YES" title="HD" id="qd4-zA-bGk">
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            </variation>
+                            <connections>
+                                <action selector="qualityToggle:" destination="BVh-TY-jCX" id="WzC-iC-Cpm"/>
+                            </connections>
+                        </switch>
+                        <label alignment="left" text="Make WatchTube load higher or lower quality videos. Affects speed accordingly." numberOfLines="0" id="aF9-xf-Iih">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="9jt-ls-pXd">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <switch width="1" alignment="left" title="Audio Only" id="5qL-2L-XaO">
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            </variation>
+                            <connections>
+                                <action selector="audioOnlyToggle:" destination="BVh-TY-jCX" id="Bk9-be-HSi"/>
+                            </connections>
+                        </switch>
+                        <label alignment="left" text="Use audio only to save data." numberOfLines="0" id="ZMD-IY-hUU">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                         <separator alignment="left" id="gWb-jl-lqV">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
@@ -760,36 +794,6 @@
                             </connections>
                         </button>
                         <label alignment="left" text="Cache videos on your watch, only recommended if you have lots of free storage." numberOfLines="0" id="1fG-0q-IlS">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator alignment="left" id="MaZ-ym-VES">
-                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <switch width="1" alignment="left" value="YES" title="HD" id="qd4-zA-bGk">
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                            </variation>
-                            <connections>
-                                <action selector="qualityToggle:" destination="BVh-TY-jCX" id="WzC-iC-Cpm"/>
-                            </connections>
-                        </switch>
-                        <label alignment="left" text="Make WatchTube load higher or lower quality videos." numberOfLines="0" id="aF9-xf-Iih">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator alignment="left" id="9jt-ls-pXd">
-                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <switch width="1" alignment="left" title="Audio Only" id="5qL-2L-XaO">
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                            </variation>
-                            <connections>
-                                <action selector="audioOnlyToggle:" destination="BVh-TY-jCX" id="Bk9-be-HSi"/>
-                            </connections>
-                        </switch>
-                        <label alignment="left" text="Use audio only to save data." numberOfLines="0" id="ZMD-IY-hUU">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -894,7 +898,7 @@
                             <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <variation key="device=watch38mm" height="30"/>
                         </group>
-                        <label width="1" alignment="left" text="The quantity of trending items to display, lowering this causes less slowdown on app startup." numberOfLines="0" id="0er-Mf-5T2">
+                        <label width="1" alignment="left" text="The quantity of items to show in lists of content other than what appears in search." numberOfLines="0" id="0er-Mf-5T2">
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -1272,7 +1276,7 @@
                                     <connections>
                                         <outlet property="channelGroup" destination="OmS-P5-sNF" id="HtK-Tw-Rmr"/>
                                         <outlet property="channelImg" destination="oha-VV-JS3" id="3qa-Lb-QFm"/>
-                                        <outlet property="channelLabel" destination="RsW-0s-2xw" id="tku-ga-d4C"/>
+                                        <outlet property="channelLabel" destination="RsW-0s-2xw" id="oBI-NQ-lOm"/>
                                         <outlet property="channelTitle" destination="vrL-gB-OjL" id="f57-U3-dYc"/>
                                         <outlet property="playlistChannel" destination="fZc-ry-Iad" id="BNv-kI-Sam"/>
                                         <outlet property="playlistGroup" destination="XLv-5G-DMJ" id="Knx-gQ-393"/>
@@ -1281,7 +1285,7 @@
                                         <outlet property="playlistName" destination="14x-ju-3rn" id="fBh-hY-R2A"/>
                                         <outlet property="subscribersLabel" destination="nIv-0G-U84" id="PJd-xJ-MkK"/>
                                         <outlet property="thumbImg" destination="lff-0m-tMK" id="Mfd-7c-nTj"/>
-                                        <outlet property="titleLabel" destination="zri-e2-Leg" id="Geo-D6-gTV"/>
+                                        <outlet property="titleLabel" destination="zri-e2-Leg" id="HjA-md-Ih0"/>
                                         <outlet property="videoGroup" destination="Lki-bu-xbE" id="eL1-cC-fsa"/>
                                     </connections>
                                 </tableRow>
@@ -1319,7 +1323,7 @@
                                 <label alignment="left" text="playlist name" numberOfLines="3" minimumScaleFactor="0.0" id="mzP-qt-EvV">
                                     <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                 </label>
-                                <group width="1" alignment="left" id="akU-Ie-7LY">
+                                <group width="1" alignment="left" id="akU-Ie-7LY" userLabel="channel">
                                     <items>
                                         <label alignment="right" verticalAlignment="center" text="channel" numberOfLines="3" minimumScaleFactor="0.0" id="Jg3-9K-BrY">
                                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
@@ -1330,6 +1334,13 @@
                                             </items>
                                         </group>
                                     </items>
+                                    <gestureRecognizers>
+                                        <tapGestureRecognizer id="cLT-Vc-5tH">
+                                            <connections>
+                                                <action selector="openChannel:" destination="nLz-XF-vnv" id="zx4-cP-K48"/>
+                                            </connections>
+                                        </tapGestureRecognizer>
+                                    </gestureRecognizers>
                                 </group>
                             </items>
                         </group>
@@ -1405,12 +1416,15 @@
                             <items>
                                 <button width="0.25" height="1" alignment="left" verticalAlignment="center" title="&lt;" id="Ysm-eE-0ao">
                                     <fontDescription key="font" type="system" pointSize="30"/>
+                                    <connections>
+                                        <action selector="prevPage" destination="10s-IW-GEK" id="Xno-bt-SJh"/>
+                                    </connections>
                                 </button>
                                 <label alignment="center" verticalAlignment="center" text="Page 1" id="K0i-o2-xet"/>
                                 <button width="0.25" height="1" alignment="right" verticalAlignment="center" title="&gt;" id="tyV-hF-Y4n">
                                     <fontDescription key="font" type="system" pointSize="30"/>
                                     <connections>
-                                        <action selector="nextPagePressed" destination="nLz-XF-vnv" id="WTa-Ts-gqb"/>
+                                        <action selector="nextPage" destination="10s-IW-GEK" id="O9v-pR-IuO"/>
                                     </connections>
                                 </button>
                             </items>
@@ -1463,21 +1477,14 @@
                                 <fontDescription key="font" type="system" pointSize="11"/>
                             </variation>
                         </label>
-                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
+                        <group width="1" height="0.59999999999999998" heightAdjustment="-9" alignment="center" verticalAlignment="center" backgroundImage="maxresdefault" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
                                         <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
                                 </group>
-                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
-                                    <variation key="device=watch38mm" height="76"/>
-                                    <variation key="device=watch40mm" height="93"/>
-                                    <variation key="device=watch41mm" height="100"/>
-                                    <variation key="device=watch42mm" height="89"/>
-                                    <variation key="device=watch44mm" height="104"/>
-                                    <variation key="device=watch45mm" height="110"/>
-                                </movie>
+                                <movie width="1" height="1" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl"/>
                                 <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" radius="0.0" id="qB2-m4-rl2" userLabel="gradient box">
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" radius="0.0" spacing="0.0" id="bVg-m9-SyX" userLabel="status box">
@@ -1558,7 +1565,7 @@
             <objects>
                 <controller identifier="SubInfoInterfaceController" id="lf9-W1-Yzb" customClass="SubInfoInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="wait no " numberOfLines="0" id="ExP-9i-K8r">
+                        <label alignment="left" text="description body" numberOfLines="0" id="ExP-9i-K8r">
                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                         </label>
                     </items>
