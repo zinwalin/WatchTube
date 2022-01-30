@@ -1477,14 +1477,21 @@
                                 <fontDescription key="font" type="system" pointSize="11"/>
                             </variation>
                         </label>
-                        <group width="1" height="0.59999999999999998" heightAdjustment="-9" alignment="center" verticalAlignment="center" backgroundImage="maxresdefault" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
+                        <group width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
                             <items>
                                 <group width="1" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
                                         <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
                                 </group>
-                                <movie width="1" height="1" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl"/>
+                                <movie width="1" height="2" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
+                                    <variation key="device=watch38mm" height="76"/>
+                                    <variation key="device=watch40mm" height="93"/>
+                                    <variation key="device=watch41mm" height="100"/>
+                                    <variation key="device=watch42mm" height="89"/>
+                                    <variation key="device=watch44mm" height="104"/>
+                                    <variation key="device=watch45mm" height="110"/>
+                                </movie>
                                 <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" radius="0.0" id="qB2-m4-rl2" userLabel="gradient box">
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" radius="0.0" spacing="0.0" id="bVg-m9-SyX" userLabel="status box">
