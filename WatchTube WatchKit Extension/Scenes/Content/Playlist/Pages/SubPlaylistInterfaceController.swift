@@ -47,15 +47,16 @@ class SubPlaylistInterfaceController: WKInterfaceController {
         var rangeHigher = rangeLower + (constant - 1)
         if list.count < rangeHigher {
             rangeHigher = list.count
+            subPlaylistTableRow.setNumberOfRows((rangeHigher - rangeLower), withRowType: "SubPlaylistRow")
+        } else {
+            subPlaylistTableRow.setNumberOfRows((rangeHigher - rangeLower) + 1, withRowType: "SubPlaylistRow")
         }
-        
-        subPlaylistTableRow.setNumberOfRows((rangeHigher - rangeLower) + 1, withRowType: "SubPlaylistRow")
-        
         for index in rangeLower ..< rangeHigher + 1 {
             let i = index - rangeLower
             guard let row = subPlaylistTableRow.rowController(at: i) as? SubPlaylistTableRow else {
                 continue
             }
+            if list.count == index {continue}
             let video = list[index]
             
             meta.cacheVideoInfo(id: video["videoId"] as! String)
