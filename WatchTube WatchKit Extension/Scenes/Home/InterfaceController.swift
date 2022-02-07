@@ -15,11 +15,14 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var internetLabel: WKInterfaceLabel!
     @IBOutlet weak var searchButton: WKInterfaceButton!
     @IBOutlet weak var tooltipLabel: WKInterfaceLabel!
+    @IBOutlet weak var reloadButton: WKInterfaceButton!
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
         misc.defaultSettings() // set any missing setting values now to avoid issues
-        
+        reloadButton.setHidden(true)
+        loader.setHidden(false)
+        internetLabel.setHidden(true)
         loader.setImageNamed("loading") // animate spinner
         loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
@@ -27,6 +30,10 @@ class InterfaceController: WKInterfaceController {
             if videos.count == 0 { // show that there are no videos on trending, also means no internet
                 // wait for the day when youtube gets rid of trending, then you can change this :)
                 self.internetLabel.setHidden(false)
+                self.reloadButton.setHidden(false)
+                self.loader.setHidden(true) // hide the spinner
+                self.loader.stopAnimating() // save resources idk
+                return
                 //self.searchButton.setEnabled(false) // dont disable the search, internet might be working. sometimes internet is available but no trending data shows idk why. 
                 // it seems to fail when you quickly quit and relaunch the app :uhh:
             } else {
@@ -41,21 +48,11 @@ class InterfaceController: WKInterfaceController {
             self.loader.stopAnimating() // save resources idk
         }
     }
-    
-    override func willActivate() {
-        do {
-            // make cache folder or else you cant save here with alamofire
-            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
-                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
-            }
-            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
-                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
-            }
-        } catch {}
-        
-        // This method is called when watch view controller is about to be visible to user
-    }
 
+    @IBAction func reloadData() {
+        awake(withContext: "")
+    }
+    
     @IBAction func searchVideoButtonTapped() {
         
         var keywordsHistory = UserDefaults.standard.stringArray(forKey: preferencesKeys.keywordsHistory) ?? [String]()

@@ -18,6 +18,15 @@
           "revision": "a72df4849408da7e5d3c1b586797b7c601c41d1b",
           "version": "5.12.1"
         }
+      },
+      {
+        "package": "YouTubeKit",
+        "repositoryURL": "http://github.com/alexeichhorn/YouTubeKit",
+        "state": {
+          "branch": "main",
+          "revision": "b560b85039512ed4d1bf0bce52300afcbeacfba9",
+          "version": null
+        }
       }
     ]
   },

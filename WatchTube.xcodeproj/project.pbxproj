@@ -23,6 +23,7 @@
 		AA5A623727A6AD55002ACD5F /* PlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A623627A6AD55002ACD5F /* PlaylistTableRow.swift */; };
 		AA5A623A27A6F312002ACD5F /* SubPlaylistInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A623927A6F312002ACD5F /* SubPlaylistInterfaceController.swift */; };
 		AA5A623C27A6F70E002ACD5F /* SubPlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A623B27A6F70E002ACD5F /* SubPlaylistTableRow.swift */; };
+		AA5F49EB27B038EB00D5105B /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA5F49EA27B038EB00D5105B /* YouTubeKit */; };
 		AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA678D6627A326F200C70893 /* maxresdefault.jpg */; };
 		AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72E0FB2768FF990094113C /* TrendingTableRow.swift */; };
 		AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */; };
@@ -139,6 +140,7 @@
 			files = (
 				890FEA34275D579A00B573B8 /* SDWebImage in Frameworks */,
 				AAA25C53278C932000E23892 /* Alamofire in Frameworks */,
+				AA5F49EB27B038EB00D5105B /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +420,7 @@
 			packageProductDependencies = (
 				890FEA33275D579A00B573B8 /* SDWebImage */,
 				AAA25C52278C932000E23892 /* Alamofire */,
+				AA5F49EA27B038EB00D5105B /* YouTubeKit */,
 			);
 			productName = WatchTube;
 			productReference = D72C93CF257D97740056D0BA /* WatchTube.app */;
@@ -497,6 +500,7 @@
 			packageReferences = (
 				890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */,
 			);
 			productRefGroup = D72C93D0257D97740056D0BA /* Products */;
 			projectDirPath = "";
@@ -887,6 +891,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "http://github.com/alexeichhorn/YouTubeKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -912,6 +924,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		AA5F49EA27B038EB00D5105B /* YouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */;
+			productName = YouTubeKit;
 		};
 		AAA25C52278C932000E23892 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

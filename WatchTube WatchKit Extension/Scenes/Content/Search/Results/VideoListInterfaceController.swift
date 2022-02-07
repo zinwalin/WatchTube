@@ -13,24 +13,40 @@ class VideoListInterfaceController: WKInterfaceController {
     
     @IBOutlet weak var searchLoader: WKInterfaceImage!
     @IBOutlet var videoTableRow: WKInterfaceTable!
+    @IBOutlet weak var reloadButton: WKInterfaceButton!
     @IBOutlet weak var searchInternetLabel: WKInterfaceLabel!
     
     var videos: [Video]!
+    var searchTerms = ""
     
     override func awake(withContext context: Any?) {
+        reloadButton.setHidden(true)
+        searchLoader.setHidden(false)
+        searchInternetLabel.setHidden(true)
         super.awake(withContext: context)
         searchLoader.setImageNamed("loading")
         searchLoader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
         let keyword = context as! String
+        searchTerms = keyword
         Video.getSearchResults(keyword: keyword) { videos in
-            if videos.count == 0 {self.searchInternetLabel.setHidden(false)} else {self.searchInternetLabel.setHidden(true)}
+            if videos.count == 0 {
+                self.searchInternetLabel.setHidden(false)
+                self.searchLoader.setHidden(true)
+                self.searchLoader.stopAnimating()
+                self.reloadButton.setHidden(false)
+                return
+            }
             self.videos = videos
             self.setupTable()
             self.videoTableRow.setHidden(false)
             self.searchLoader.stopAnimating()
             self.searchLoader.setHidden(true)
         }
+    }
+    
+    @IBAction func reload() {
+        awake(withContext: searchTerms)
     }
     
     func setupTable() {
