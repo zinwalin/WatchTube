@@ -25,6 +25,9 @@
 		AA5A623C27A6F70E002ACD5F /* SubPlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5A623B27A6F70E002ACD5F /* SubPlaylistTableRow.swift */; };
 		AA5F49EB27B038EB00D5105B /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA5F49EA27B038EB00D5105B /* YouTubeKit */; };
 		AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA678D6627A326F200C70893 /* maxresdefault.jpg */; };
+		AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */; };
+		AA71A0D027B59DA80099BDC9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CF27B59DA80099BDC9 /* playerView.swift */; };
+		AA71A0D227B5C1560099BDC9 /* PreloadInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0D127B5C1560099BDC9 /* PreloadInterfaceController.swift */; };
 		AA72E0FC2768FF990094113C /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72E0FB2768FF990094113C /* TrendingTableRow.swift */; };
 		AA8B0B0D2766AE6400A50D7E /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */; };
 		AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA9C8B202794F95B00C0CDD8 /* pfp.jpg */; };
@@ -107,6 +110,9 @@
 		AA5A623927A6F312002ACD5F /* SubPlaylistInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPlaylistInterfaceController.swift; sourceTree = "<group>"; };
 		AA5A623B27A6F70E002ACD5F /* SubPlaylistTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubPlaylistTableRow.swift; sourceTree = "<group>"; };
 		AA678D6627A326F200C70893 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
+		AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hlsPlayer.swift; sourceTree = "<group>"; };
+		AA71A0CF27B59DA80099BDC9 /* playerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
+		AA71A0D127B5C1560099BDC9 /* PreloadInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadInterfaceController.swift; sourceTree = "<group>"; };
 		AA72E0FB2768FF990094113C /* TrendingTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
 		AA8B0B0C2766AE6400A50D7E /* InfoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
 		AA9C8B202794F95B00C0CDD8 /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
@@ -270,6 +276,9 @@
 			children = (
 				AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */,
 				D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */,
+				AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */,
+				AA71A0CF27B59DA80099BDC9 /* playerView.swift */,
+				AA71A0D127B5C1560099BDC9 /* PreloadInterfaceController.swift */,
 			);
 			path = Players;
 			sourceTree = "<group>";
@@ -551,6 +560,7 @@
 				191C9DE3277BB54E00D9CC27 /* MetadataCache.swift in Sources */,
 				AA3BD6542767E1870010FF99 /* SubInfoInterfaceController.swift in Sources */,
 				AAA7362127640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift in Sources */,
+				AA71A0D227B5C1560099BDC9 /* PreloadInterfaceController.swift in Sources */,
 				AAC670AF278E0A2D0023E505 /* Misc.swift in Sources */,
 				AA1E313F27A5C30200DB86F3 /* PlaylistInterfaceController.swift in Sources */,
 				89AA9B7E27711F7000694329 /* MenuInterfaceController.swift in Sources */,
@@ -560,7 +570,9 @@
 				AA485F012795F0D100206BCC /* ChannelsTableRow.swift in Sources */,
 				AA5A623727A6AD55002ACD5F /* PlaylistTableRow.swift in Sources */,
 				89826E802778B13800896853 /* ComplicationController.swift in Sources */,
+				AA71A0D027B59DA80099BDC9 /* playerView.swift in Sources */,
 				D72C9410257DAC210056D0BA /* VideoListInterfaceController.swift in Sources */,
+				AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */,
 				AAFF5E572794E1E6006A7149 /* ChannelTableRow.swift in Sources */,
 				D72C93EA257D97770056D0BA /* ExtensionDelegate.swift in Sources */,
 				D72C93E8257D97770056D0BA /* InterfaceController.swift in Sources */,
@@ -750,7 +762,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = N36Z4HYRU9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -798,7 +810,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = N36Z4HYRU9;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp;
@@ -832,7 +844,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = N36Z4HYRU9;
+				DEVELOPMENT_TEAM = "";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube;
 				PRODUCT_NAME = WatchTube;

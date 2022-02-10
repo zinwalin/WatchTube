@@ -102,7 +102,11 @@ class InterfaceController: WKInterfaceController {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
-            self.pushController(withName: "NowPlayingInterfaceController", context: video)
+            if UserDefaults.standard.bool(forKey: settingsKeys.hlsToggle) == true {
+                self.pushController(withName: "HlsPreload", context: video.id)
+            } else {
+                self.pushController(withName: "NowPlayingInterfaceController", context: video)
+            }
         }
     }
 }

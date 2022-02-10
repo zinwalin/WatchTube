@@ -81,7 +81,12 @@ class ChannelViewInterfaceController: WKInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt i: Int) {
-        pushController(withName: "NowPlayingInterfaceController", context: videos[i])
+        let video = videos[i]
+        if UserDefaults.standard.bool(forKey: settingsKeys.hlsToggle) == true {
+            self.pushController(withName: "HlsPreload", context: video.id)
+        } else {
+            self.pushController(withName: "NowPlayingInterfaceController", context: video)
+        }
     }
     
     @IBAction func Details() {

@@ -22,6 +22,9 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var qualityToggle: WKInterfaceSwitch!
     @IBOutlet weak var instanceStatus: WKInterfaceLabel!
     @IBOutlet weak var proxyToggle: WKInterfaceSwitch!
+    @IBOutlet weak var hlsToggle: WKInterfaceSwitch!
+    @IBOutlet weak var hlsLabel: WKInterfaceLabel!
+    @IBOutlet weak var cacheLabel: WKInterfaceLabel!
     
     let userDefaults = UserDefaults.standard
     
@@ -206,9 +209,21 @@ class SettingsInterfaceController: WKInterfaceController {
         audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
         proxyToggle.setOn(userDefaults.bool(forKey: settingsKeys.proxyContent))
         qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
+        hlsToggle.setOn(userDefaults.bool(forKey: settingsKeys.hlsToggle))
         cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
         if userDefaults.bool(forKey: settingsKeys.qualityToggle) == true {qualityToggle.setTitle("HD")} else {qualityToggle.setTitle("SD")}
-        
+        if userDefaults.bool(forKey: miscKeys.isDebug) == true {
+            hlsToggle.setEnabled(true)
+            cacheLabel.setHidden(false)
+            cacheToggle.setHidden(false)
+            cacheDeleteButton.setHidden(false)
+        } else {
+            hlsToggle.setEnabled(false)
+            cacheLabel.setHidden(true)
+            cacheToggle.setHidden(true)
+            cacheDeleteButton.setHidden(true)
+        }
+
         // set cache button to enabled, if its empty just keep it as cleared and disable it
         cacheDeleteButton.setEnabled(true)
         do {
@@ -307,11 +322,6 @@ class SettingsInterfaceController: WKInterfaceController {
     
     @IBAction func homeVideosSelection(_ value: Int) {
         userDefaults.set(videoTypes[value], forKey: settingsKeys.homePageVideoType)
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 }
 

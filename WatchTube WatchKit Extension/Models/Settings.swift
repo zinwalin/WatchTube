@@ -20,12 +20,14 @@ struct settingsKeys {
     static let instanceUrl = "settings.instanceUrl"
     static let proxyContent = "settings.proxyContent"
     static let qualityToggle = "settings.qualityToggle"
+    static let hlsToggle = "settings.hlsToggle"
 }
 
 struct miscKeys {
     static let pushToCacheContents = "misc.pushToCacheContents"
+    static let isDebug = "misc.isDebug"
 }
 
 struct Constants {
-    static let defaultInstance = "inv.riverside.rocks"
+    static let defaultInstance = "invidious.osi.kr"
 }

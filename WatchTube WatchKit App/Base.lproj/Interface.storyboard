@@ -830,6 +830,22 @@
                         <separator alignment="left" id="mJP-VR-Nt5">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
+                        <switch width="1" height="39" alignment="left" value="YES" title="HLS Player" numberOfLines="1" id="o8S-vk-xe5">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                            </variation>
+                            <connections>
+                                <action selector="thumbnailsToggle:" destination="BVh-TY-jCX" id="fGe-cU-w80"/>
+                            </connections>
+                        </switch>
+                        <separator alignment="left" id="Aig-gO-K9X">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="Play videos instantly without buffering the whole video" numberOfLines="0" id="OuN-bN-ueY">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                         <group width="1" height="40" alignment="left" id="WBM-cw-F2V">
                             <items>
                                 <button width="45" height="45" alignment="left" verticalAlignment="center" title="-" id="mXd-4l-Y2G">
@@ -932,7 +948,10 @@
                     <connections>
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
                         <outlet property="cacheDeleteButton" destination="sfx-11-473" id="QBq-K9-6d4"/>
+                        <outlet property="cacheLabel" destination="1fG-0q-IlS" id="03a-RU-Say"/>
                         <outlet property="cacheToggle" destination="Ntz-r1-kFg" id="ZHl-K6-3dY"/>
+                        <outlet property="hlsLabel" destination="OuN-bN-ueY" id="ljB-Gf-vQG"/>
+                        <outlet property="hlsToggle" destination="o8S-vk-xe5" id="XQ4-Ih-dKw"/>
                         <outlet property="homeVideosPicker" destination="zLD-cy-jC8" id="y2H-Hm-jJ4"/>
                         <outlet property="instancePicker" destination="fWi-CR-JX3" id="Mb0-TR-9jp"/>
                         <outlet property="instanceStatus" destination="n0U-Lp-gJM" id="eJd-Jg-Zte"/>
@@ -1197,6 +1216,25 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="604" y="366"/>
+        </scene>
+        <!--Preload-->
+        <scene sceneID="cWd-Ha-fl2">
+            <objects>
+                <controller identifier="HlsPreload" title="Preload" id="Fex-hv-ix1" customClass="PreloadInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" text="Loading Video..." id="BQs-89-Dfa"/>
+                        <imageView width="0.40000000000000002" height="0.40000000000000002" alignment="center" verticalAlignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="gSo-Bu-72p"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="569" y="673"/>
+        </scene>
+        <!--Now Playing-->
+        <scene sceneID="Kmj-Tq-jQ3">
+            <objects>
+                <hostingController identifier="HlsPlayer" title="Now Playing" id="5nk-Sf-ssK" customClass="hlsPlayer" customModule="WatchTube_WatchKit_Extension"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="950"/>
         </scene>
         <!--Search-->
         <scene sceneID="6CP-fK-CVF">
@@ -1658,6 +1696,7 @@
         <image name="gradient" width="259" height="58"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="loading" width="128" height="128"/>
         <image name="loading0" width="164" height="181"/>
         <image name="magnifyingglass" catalog="system" width="128" height="114"/>
         <image name="maxresdefault" width="1280" height="720"/>

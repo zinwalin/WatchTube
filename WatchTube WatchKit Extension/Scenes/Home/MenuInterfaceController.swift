@@ -26,7 +26,11 @@ class MenuInterfaceController: WKInterfaceController {
             UserDefaults.standard.set(false, forKey: miscKeys.pushToCacheContents)
             pushController(withName: "CacheContentsInterfaceController", context: "")
         }
-        
+        if UserDefaults.standard.bool(forKey: miscKeys.isDebug) == true {
+            cacheScreenButton.setHidden(false)
+        } else {
+            cacheScreenButton.setHidden(true)
+        }
         super.willActivate()
     }
 

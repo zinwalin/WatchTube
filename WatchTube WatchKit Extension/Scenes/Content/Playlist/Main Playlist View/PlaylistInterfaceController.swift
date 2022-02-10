@@ -137,7 +137,11 @@ class PlaylistInterfaceController: WKInterfaceController {
         let channel = item["author"] as! String
         let type = "video"
         let vid = Video.init(id: id, title: title, img: img, channel: channel, subs: "", type: type)
-        pushController(withName: "NowPlayingInterfaceController", context: vid)
+        if UserDefaults.standard.bool(forKey: settingsKeys.hlsToggle) == true {
+            self.pushController(withName: "HlsPreload", context: vid.id)
+        } else {
+            self.pushController(withName: "NowPlayingInterfaceController", context: vid)
+        }
     }
     
     @IBAction func openChannel(_ sender: Any) {

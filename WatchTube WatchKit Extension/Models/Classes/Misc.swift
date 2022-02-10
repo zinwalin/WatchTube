@@ -11,7 +11,7 @@ class misc {
     class func defaultSettings() {
         // if userdefaults don't exist (like when the app is freshly installed), set them all now.
         if UserDefaults.standard.value(forKey: settingsKeys.cacheToggle) == nil {
-            UserDefaults.standard.set(true, forKey: settingsKeys.cacheToggle)
+            UserDefaults.standard.set(false, forKey: settingsKeys.cacheToggle)
         }
         if UserDefaults.standard.value(forKey: settingsKeys.thumbnailsToggle) == nil {
             UserDefaults.standard.set(true, forKey: settingsKeys.thumbnailsToggle)
@@ -37,10 +37,19 @@ class misc {
         if UserDefaults.standard.value(forKey: settingsKeys.qualityToggle) == nil {
             UserDefaults.standard.set(true, forKey: settingsKeys.qualityToggle)
         }
+        if UserDefaults.standard.value(forKey: settingsKeys.hlsToggle) == nil {
+            UserDefaults.standard.set(true, forKey: settingsKeys.hlsToggle)
+        }
         if UserDefaults.standard.value(forKey: miscKeys.pushToCacheContents) == nil {
             UserDefaults.standard.set(false, forKey: miscKeys.pushToCacheContents)
         }
-        // this instance just works lol. idk why but some dont have a working api 
+        if UserDefaults.standard.value(forKey: miscKeys.isDebug) == nil {
+            #if DEBUG
+                UserDefaults.standard.set(true, forKey: miscKeys.isDebug)
+            #else
+                UserDefaults.standard.set(false, forKey: miscKeys.isDebug)
+            #endif
+        }
     }
 }
 
