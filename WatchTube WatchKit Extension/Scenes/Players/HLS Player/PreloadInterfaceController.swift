@@ -32,9 +32,12 @@ class PreloadInterfaceController: WKInterfaceController {
             quality="sd"
         }
         
-        let dataPath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
+        let dataPath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)?fields=title,author,authorId,formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
         var streamUrl = ""
-        
+        var udid = ""
+        var title = ""
+        var channel = ""
+
         AF.request(dataPath).responseJSON { res in
             switch res.result {
             case .success(let data):
@@ -51,7 +54,11 @@ class PreloadInterfaceController: WKInterfaceController {
                     self.presentAlert(withTitle: "An error occurred", message: "We couldn't find a stream, this might be an invalid video.", preferredStyle: .alert, actions: [WKAlertAction(title: "Ok", style: .default, handler: {})])
                     return
                 }
-                                    
+                
+                udid = videoDetails["authorId"] as! String
+                channel = videoDetails["author"] as! String
+                title = videoDetails["title"] as! String
+
                 if dlType == "video" {
                     let formatStreams = videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>
                     if quality == "hd" {
@@ -104,7 +111,12 @@ class PreloadInterfaceController: WKInterfaceController {
                     streamUrl = streamUrl.replacingOccurrences(of: host, with: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)
                 }
                 
-                UserDefaults.standard.set(streamUrl, forKey: "hlsStreamUrlContext")
+                UserDefaults.standard.set(streamUrl, forKey: hls.url)
+                UserDefaults.standard.set(title, forKey: hls.title)
+                UserDefaults.standard.set(id, forKey: hls.id)
+                UserDefaults.standard.set(channel, forKey: hls.channel)
+                UserDefaults.standard.set(udid, forKey: hls.udid)
+
                 self.shouldPop = 1
                 self.pushController(withName: "HlsPlayer", context: "")
             case .failure(_):

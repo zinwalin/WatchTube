@@ -186,6 +186,25 @@
 			path = Complications;
 			sourceTree = "<group>";
 		};
+		AA0A1B4327B6C08F00F74920 /* Old Player */ = {
+			isa = PBXGroup;
+			children = (
+				AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */,
+				D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */,
+			);
+			path = "Old Player";
+			sourceTree = "<group>";
+		};
+		AA0A1B4427B6C0A100F74920 /* HLS Player */ = {
+			isa = PBXGroup;
+			children = (
+				AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */,
+				AA71A0CF27B59DA80099BDC9 /* playerView.swift */,
+				AA71A0D127B5C1560099BDC9 /* PreloadInterfaceController.swift */,
+			);
+			path = "HLS Player";
+			sourceTree = "<group>";
+		};
 		AA1E313D27A5C2B100DB86F3 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,11 +293,8 @@
 		AAFF5E48279494CB006A7149 /* Players */ = {
 			isa = PBXGroup;
 			children = (
-				AAA7362027640DC500BF0EBF /* CacheNowPlayingInterfaceController.swift */,
-				D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */,
-				AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */,
-				AA71A0CF27B59DA80099BDC9 /* playerView.swift */,
-				AA71A0D127B5C1560099BDC9 /* PreloadInterfaceController.swift */,
+				AA0A1B4327B6C08F00F74920 /* Old Player */,
+				AA0A1B4427B6C0A100F74920 /* HLS Player */,
 			);
 			path = Players;
 			sourceTree = "<group>";

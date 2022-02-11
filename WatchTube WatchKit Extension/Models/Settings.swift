@@ -31,3 +31,11 @@ struct miscKeys {
 struct Constants {
     static let defaultInstance = "invidious.osi.kr"
 }
+
+struct hls {
+    static let url = "hls.streamUrl"
+    static let title = "hls.title"
+    static let id = "hls.id"
+    static let udid = "hls.udid"
+    static let channel = "hls.channel"
+}
