@@ -839,13 +839,13 @@
                                 <action selector="thumbnailsToggle:" destination="BVh-TY-jCX" id="fGe-cU-w80"/>
                             </connections>
                         </switch>
-                        <separator alignment="left" id="Aig-gO-K9X">
-                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
                         <label alignment="left" text="Play videos instantly without buffering the whole video" numberOfLines="0" id="OuN-bN-ueY">
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
+                        <separator alignment="left" id="Aig-gO-K9X">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                         <group width="1" height="40" alignment="left" id="WBM-cw-F2V">
                             <items>
                                 <button width="45" height="45" alignment="left" verticalAlignment="center" title="-" id="mXd-4l-Y2G">

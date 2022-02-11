@@ -33,7 +33,7 @@ class SettingsInterfaceController: WKInterfaceController {
         "music",
         "gaming",
         "news",
-        "channels"
+//        "channels"
     ]
     
     var instances: Array<String> = []
@@ -216,7 +216,7 @@ class SettingsInterfaceController: WKInterfaceController {
             hlsToggle.setEnabled(true)
             cacheLabel.setHidden(false)
             cacheToggle.setHidden(false)
-            cacheDeleteButton.setHidden(false)
+            cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
         } else {
             hlsToggle.setEnabled(false)
             cacheLabel.setHidden(true)
@@ -273,6 +273,7 @@ class SettingsInterfaceController: WKInterfaceController {
                 for inst in data {
                     let name = inst[0] as! String
                     let info = inst[1] as! Dictionary<String, Any>
+                    if info["type"] as! String != "https" {continue}
                     if info["type"] as! String != "https" {continue}
                     self.instances.append(name)
                 }
