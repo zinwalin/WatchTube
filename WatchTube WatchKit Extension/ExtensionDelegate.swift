@@ -10,16 +10,6 @@ import WatchKit
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
-        do {
-            // make cache folder or else you cant save here with alamofire
-            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
-                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
-            }
-            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
-                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
-            }
-        } catch {}
-        
         // Perform any final initialization of your application.
     }
 

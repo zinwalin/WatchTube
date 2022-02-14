@@ -8,80 +8,6 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
-        <!--Cache Contents-->
-        <scene sceneID="09Q-dN-mHl">
-            <objects>
-                <controller identifier="CacheContentsInterfaceController" title="Cache Contents" id="B9M-T2-Qe7" customClass="CacheContentsInterfaceController" customModule="WatchTube_WatchKit_Extension">
-                    <items>
-                        <table alignment="center" id="VRc-BZ-fnW" userLabel="Cache Table Row">
-                            <items>
-                                <tableRow identifier="cachedVideoRow" id="uBO-zy-wCy" userLabel="CacheVideoRow" customClass="CacheTableRow" customModule="WatchTube_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="50" alignment="left" radius="5" id="m74-j7-9oP">
-                                        <items>
-                                            <imageView width="55" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="rrD-ku-Mln">
-                                                <variation key="device=watch38mm" width="40"/>
-                                            </imageView>
-                                            <group width="133" height="1" alignment="left" layout="vertical" id="4wP-dG-FlE">
-                                                <items>
-                                                    <label width="1" alignment="left" text="title" numberOfLines="3" id="uD7-4I-4s5">
-                                                        <fontDescription key="font" type="system" pointSize="10"/>
-                                                    </label>
-                                                    <group width="1" alignment="left" verticalAlignment="bottom" id="6ik-ps-pNb">
-                                                        <items>
-                                                            <label alignment="left" verticalAlignment="bottom" text="filesizes" id="G3W-oi-JTy">
-                                                                <fontDescription key="font" type="system" pointSize="8"/>
-                                                            </label>
-                                                            <label alignment="right" verticalAlignment="bottom" text="channel" id="hfm-7q-WoP">
-                                                                <fontDescription key="font" type="system" pointSize="9"/>
-                                                                <variation key="device=watch38mm">
-                                                                    <fontDescription key="font" type="system" pointSize="8"/>
-                                                                </variation>
-                                                            </label>
-                                                        </items>
-                                                    </group>
-                                                </items>
-                                                <variation key="device=watch38mm" width="80"/>
-                                                <variation key="device=watch40mm" width="96"/>
-                                                <variation key="device=watch41mm" width="111"/>
-                                                <variation key="device=watch42mm" width="90"/>
-                                                <variation key="device=watch44mm" width="119"/>
-                                            </group>
-                                        </items>
-                                        <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
-                                    </group>
-                                    <connections>
-                                        <outlet property="cacheChannelLabel" destination="hfm-7q-WoP" id="80D-QV-Akh"/>
-                                        <outlet property="cacheFilesize" destination="G3W-oi-JTy" id="Dsv-tp-n3d"/>
-                                        <outlet property="cacheThumbImage" destination="rrD-ku-Mln" id="f2o-27-YMn"/>
-                                        <outlet property="cacheTitleLabel" destination="uD7-4I-4s5" id="UsI-Of-Lgc"/>
-                                    </connections>
-                                </tableRow>
-                            </items>
-                        </table>
-                        <label alignment="center" verticalAlignment="center" text="Loading" id="Mz8-af-ba1">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" type="system" pointSize="23"/>
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" type="system" pointSize="16"/>
-                            </variation>
-                        </label>
-                        <label alignment="center" verticalAlignment="center" text="Enable it in settings" id="8dK-i3-d48">
-                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" type="system" pointSize="13"/>
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" type="system" pointSize="11"/>
-                            </variation>
-                        </label>
-                    </items>
-                    <connections>
-                        <outlet property="cacheTableRow" destination="VRc-BZ-fnW" id="nVg-jR-LhM"/>
-                        <outlet property="disabled2label" destination="8dK-i3-d48" id="ERQ-bZ-Aun"/>
-                        <outlet property="disabledLabel" destination="Mz8-af-ba1" id="65Y-b2-2ko"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="348" y="259"/>
-        </scene>
         <!--WatchTube-->
         <scene sceneID="aou-V4-d1y">
             <objects>
@@ -525,36 +451,6 @@
             <objects>
                 <controller identifier="MenuInterfaceController" title="Menu" id="eRE-Qe-NAa" customClass="MenuInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <button alignment="left" id="UxN-MC-lgp">
-                            <group key="contentGroup" width="1" height="40" alignment="left" radius="10" id="Ffd-Th-C3c">
-                                <items>
-                                    <separator alignment="left" id="tjb-ge-Q9M">
-                                        <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </separator>
-                                    <separator alignment="left" id="Fen-c3-EZk">
-                                        <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </separator>
-                                    <separator alignment="left" id="vcy-Wt-cW3">
-                                        <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </separator>
-                                    <imageView width="35" height="35" alignment="left" verticalAlignment="center" image="folder" catalog="system" contentMode="scaleAspectFit" id="jdB-MJ-VhW">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <variation key="device=watch38mm" height="20" width="20"/>
-                                    </imageView>
-                                    <label alignment="center" verticalAlignment="center" text="Cache" id="Vve-Ea-Rvh">
-                                        <fontDescription key="font" type="system" pointSize="21"/>
-                                        <variation key="device=watch38mm">
-                                            <fontDescription key="font" type="system" pointSize="16"/>
-                                        </variation>
-                                    </label>
-                                </items>
-                                <color key="backgroundColor" name="buttons"/>
-                                <variation key="device=watch38mm" height="35"/>
-                            </group>
-                            <connections>
-                                <action selector="CacheScreen" destination="eRE-Qe-NAa" id="TBD-GC-71B"/>
-                            </connections>
-                        </button>
                         <button alignment="left" id="r6R-AC-F9f">
                             <group key="contentGroup" width="1" height="40" alignment="left" radius="10" id="kqA-Zp-svP">
                                 <items>
@@ -617,9 +513,6 @@
                             </connections>
                         </button>
                     </items>
-                    <connections>
-                        <outlet property="cacheScreenButton" destination="UxN-MC-lgp" id="lmS-S2-GzE"/>
-                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="348" y="-78"/>
@@ -791,29 +684,6 @@
                         <separator alignment="left" id="gWb-jl-lqV">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
-                        <switch width="1" height="39" alignment="left" value="YES" title="Video Cache" id="Ntz-r1-kFg">
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                            </variation>
-                            <connections>
-                                <action selector="cacheToggle:" destination="BVh-TY-jCX" id="kqZ-OR-5s8"/>
-                            </connections>
-                        </switch>
-                        <button width="1" height="39" alignment="left" title="Clear Cache" enabled="NO" id="sfx-11-473">
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" type="system" pointSize="12"/>
-                            </variation>
-                            <connections>
-                                <action selector="deleteCacheButton" destination="BVh-TY-jCX" id="uVf-zB-wCL"/>
-                            </connections>
-                        </button>
-                        <label alignment="left" text="Cache videos on your watch, only recommended if you have lots of free storage." numberOfLines="0" id="1fG-0q-IlS">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator alignment="left" id="BhW-To-hPy">
-                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
                         <switch width="1" height="39" alignment="left" value="YES" title="Thumbnails" numberOfLines="1" id="HVk-Ub-TRL">
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                             <variation key="device=watch38mm">
@@ -825,22 +695,6 @@
                         </switch>
                         <label alignment="left" text="Enable video thumbnails in search results, can save data if disabled and speedup loads." numberOfLines="0" id="ow9-gW-XgZ">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator alignment="left" id="mJP-VR-Nt5">
-                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <switch width="1" height="39" alignment="left" value="YES" title="HLS Player" numberOfLines="1" id="o8S-vk-xe5">
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                            </variation>
-                            <connections>
-                                <action selector="thumbnailsToggle:" destination="BVh-TY-jCX" id="fGe-cU-w80"/>
-                            </connections>
-                        </switch>
-                        <label alignment="left" text="Play videos instantly without buffering the whole video" numberOfLines="0" id="OuN-bN-ueY">
-                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <separator alignment="left" id="Aig-gO-K9X">
@@ -947,11 +801,6 @@
                     </items>
                     <connections>
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
-                        <outlet property="cacheDeleteButton" destination="sfx-11-473" id="QBq-K9-6d4"/>
-                        <outlet property="cacheLabel" destination="1fG-0q-IlS" id="03a-RU-Say"/>
-                        <outlet property="cacheToggle" destination="Ntz-r1-kFg" id="ZHl-K6-3dY"/>
-                        <outlet property="hlsLabel" destination="OuN-bN-ueY" id="ljB-Gf-vQG"/>
-                        <outlet property="hlsToggle" destination="o8S-vk-xe5" id="XQ4-Ih-dKw"/>
                         <outlet property="homeVideosPicker" destination="zLD-cy-jC8" id="y2H-Hm-jJ4"/>
                         <outlet property="instancePicker" destination="fWi-CR-JX3" id="Mb0-TR-9jp"/>
                         <outlet property="instanceStatus" destination="n0U-Lp-gJM" id="eJd-Jg-Zte"/>
@@ -964,99 +813,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="-299" y="155"/>
-        </scene>
-        <!--Cache Now Playing-->
-        <scene sceneID="DzC-je-eHb">
-            <objects>
-                <controller identifier="CacheNowPlayingInterfaceController" title="Cache Now Playing" id="znb-rE-3Gy" customClass="CacheNowPlayingInterfaceController" customModule="WatchTube_WatchKit_Extension">
-                    <items>
-                        <label alignment="left" text="cache title" numberOfLines="2" minimumScaleFactor="0.59999999999999998" id="ptW-dh-hiu">
-                            <fontDescription key="font" type="system" pointSize="14"/>
-                            <variation key="device=watch38mm">
-                                <fontDescription key="font" type="system" pointSize="11"/>
-                            </variation>
-                        </label>
-                        <group width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="bvE-dh-DIM">
-                            <items>
-                                <group width="1" height="2" alignment="center" verticalAlignment="center" radius="5" id="6n6-5x-Txw">
-                                    <items>
-                                        <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="Ss7-BF-ZeL"/>
-                                    </items>
-                                    <variation key="device=watch38mm" height="76"/>
-                                    <variation key="device=watch40mm" height="93"/>
-                                    <variation key="device=watch42mm" height="89"/>
-                                    <variation key="device=watch44mm" height="104"/>
-                                    <variation key="device=watch45mm" height="110"/>
-                                </group>
-                                <movie width="1" height="96" alignment="center" verticalAlignment="center" alpha="0.5" id="Zwy-yF-dB0">
-                                    <variation key="device=watch38mm" height="76"/>
-                                    <variation key="device=watch40mm" height="93"/>
-                                    <variation key="device=watch41mm" height="100"/>
-                                    <variation key="device=watch42mm" height="89"/>
-                                    <variation key="device=watch44mm" height="104"/>
-                                    <variation key="device=watch45mm" height="110"/>
-                                </movie>
-                                <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" id="ySW-SW-ZMY">
-                                    <items>
-                                        <group width="1" alignment="left" verticalAlignment="bottom" id="5kQ-cl-9yF">
-                                            <items>
-                                                <label alignment="left" verticalAlignment="center" text="cache status" id="SGY-qa-pNh">
-                                                    <fontDescription key="font" type="system" pointSize="14"/>
-                                                    <variation key="device=watch38mm">
-                                                        <fontDescription key="font" type="system" pointSize="11"/>
-                                                    </variation>
-                                                </label>
-                                            </items>
-                                        </group>
-                                    </items>
-                                </group>
-                            </items>
-                        </group>
-                        <group width="1" alignment="center" verticalAlignment="bottom" id="vhI-dR-xq3">
-                            <items>
-                                <button alignment="right" verticalAlignment="center" id="Vs7-RL-pmZ">
-                                    <group key="contentGroup" width="25" height="25" alignment="left" id="Q9x-pr-oF1">
-                                        <items>
-                                            <imageView width="1" height="1" alignment="left" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="26W-fg-HU8">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </imageView>
-                                        </items>
-                                    </group>
-                                    <connections>
-                                        <action selector="cacheInfoScreenButton" destination="znb-rE-3Gy" id="7As-cN-cJK"/>
-                                    </connections>
-                                </button>
-                                <label width="165" alignment="left" verticalAlignment="center" text="cache channel name" minimumScaleFactor="0.5" id="qO5-UO-1WO">
-                                    <gestureRecognizers>
-                                        <tapGestureRecognizer id="lcD-Rp-fBL">
-                                            <connections>
-                                                <action selector="openChannel:" destination="znb-rE-3Gy" id="Mwi-Ha-xcd"/>
-                                            </connections>
-                                        </tapGestureRecognizer>
-                                    </gestureRecognizers>
-                                    <fontDescription key="font" type="system" pointSize="15"/>
-                                    <variation key="device=watch38mm" width="105">
-                                        <fontDescription key="font" type="system" pointSize="13"/>
-                                    </variation>
-                                    <variation key="device=watch40mm" width="130"/>
-                                    <variation key="device=watch41mm" width="145"/>
-                                    <variation key="device=watch42mm" width="125"/>
-                                    <variation key="device=watch44mm" width="155"/>
-                                </label>
-                            </items>
-                        </group>
-                    </items>
-                    <connections>
-                        <outlet property="cacheChannelLabel" destination="qO5-UO-1WO" id="viY-kr-7gy"/>
-                        <outlet property="cacheMovie" destination="Zwy-yF-dB0" id="Pqj-9Q-a4q"/>
-                        <outlet property="cacheStatusLabel" destination="SGY-qa-pNh" id="2dE-Kd-53w"/>
-                        <outlet property="cacheThumbnailBg" destination="Ss7-BF-ZeL" id="SJf-lN-wWG"/>
-                        <outlet property="cacheTitleLabel" destination="ptW-dh-hiu" id="ICB-ib-cRU"/>
-                        <outlet property="openChannel" destination="lcD-Rp-fBL" id="KTV-we-krc"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="348" y="606"/>
         </scene>
         <!--Information-->
         <scene sceneID="aTa-mC-Wbf">
@@ -1182,27 +938,10 @@
                                         <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
                                     </connections>
                                 </button>
-                                <button width="1" height="35" alignment="left" title="Delete" id="1lm-mc-oK8">
-                                    <color key="titleColor" red="0.90588235289999997" green="0.34901960780000002" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <fontDescription key="font" type="system" pointSize="20"/>
-                                    <variation key="device=watch38mm" height="30">
-                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                    </variation>
-                                    <variation key="device=watch40mm" height="34">
-                                        <fontDescription key="font" type="system" pointSize="20"/>
-                                    </variation>
-                                    <variation key="device=watch42mm" height="33">
-                                        <fontDescription key="font" type="system" pointSize="17"/>
-                                    </variation>
-                                    <connections>
-                                        <action selector="infoDeleteCache" destination="xFy-2C-kW2" id="8nt-b0-xyb"/>
-                                    </connections>
-                                </button>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="InfoCacheDeleteButton" destination="1lm-mc-oK8" id="kSS-NU-Y39"/>
                         <outlet property="authorIcon" destination="Cqd-XW-KTC" id="6xK-Aw-uiI"/>
                         <outlet property="authorLabel" destination="Z5G-Di-wrf" id="iYI-TY-2Oi"/>
                         <outlet property="dateLabel" destination="ys0-Yn-yYo" id="u6E-NN-Qhh"/>
@@ -1215,26 +954,14 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="604" y="366"/>
-        </scene>
-        <!--Preload-->
-        <scene sceneID="cWd-Ha-fl2">
-            <objects>
-                <controller identifier="HlsPreload" title="Preload" id="Fex-hv-ix1" customClass="PreloadInterfaceController" customModule="WatchTube_WatchKit_Extension">
-                    <items>
-                        <label alignment="center" text="Loading Video..." id="BQs-89-Dfa"/>
-                        <imageView width="0.40000000000000002" height="0.40000000000000002" alignment="center" verticalAlignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="gSo-Bu-72p"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="569" y="673"/>
+            <point key="canvasLocation" x="348" y="549"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="Kmj-Tq-jQ3">
             <objects>
                 <hostingController identifier="HlsPlayer" title="Now Playing" id="5nk-Sf-ssK" customClass="hlsPlayer" customModule="WatchTube_WatchKit_Extension"/>
             </objects>
-            <point key="canvasLocation" x="569" y="950"/>
+            <point key="canvasLocation" x="348" y="259"/>
         </scene>
         <!--Search-->
         <scene sceneID="6CP-fK-CVF">
@@ -1548,11 +1275,11 @@
                                 <fontDescription key="font" type="system" pointSize="11"/>
                             </variation>
                         </label>
-                        <group width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="ULh-ny-Dp1">
+                        <group width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" layout="overlap" radius="0.0" id="ULh-ny-Dp1" userLabel="movie box">
                             <items>
                                 <group width="1" height="2" alignment="center" verticalAlignment="center" radius="5" id="RxU-f4-zDF">
                                     <items>
-                                        <imageView width="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
+                                        <imageView width="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="1uf-0x-jTJ"/>
                                     </items>
                                     <variation key="device=watch38mm" height="76"/>
                                     <variation key="device=watch40mm" height="93"/>
@@ -1561,14 +1288,25 @@
                                     <variation key="device=watch44mm" height="104"/>
                                     <variation key="device=watch45mm" height="110"/>
                                 </group>
-                                <movie width="1" height="2" alignment="center" verticalAlignment="center" alpha="0.5" id="T1W-VJ-tpl">
-                                    <variation key="device=watch38mm" height="76"/>
-                                    <variation key="device=watch40mm" height="93"/>
-                                    <variation key="device=watch41mm" height="100"/>
-                                    <variation key="device=watch42mm" height="89"/>
-                                    <variation key="device=watch44mm" height="104"/>
-                                    <variation key="device=watch45mm" height="110"/>
-                                </movie>
+                                <button alignment="center" verticalAlignment="center" id="s6O-Pu-W8w">
+                                    <group key="contentGroup" width="1" height="2" alignment="left" alpha="0.59999999999999998" contentMode="scaleAspectFit" radius="0.0" id="wW8-c6-G8e">
+                                        <items>
+                                            <imageView width="1" height="0.5" alignment="center" verticalAlignment="center" image="play.circle" catalog="system" contentMode="scaleAspectFit" id="TxC-kD-LZk">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                        </items>
+                                        <color key="backgroundColor" red="0.066091635790000006" green="0.066091635790000006" blue="0.066091635790000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <variation key="device=watch38mm" height="76"/>
+                                        <variation key="device=watch40mm" height="93"/>
+                                        <variation key="device=watch41mm" height="100"/>
+                                        <variation key="device=watch42mm" height="89"/>
+                                        <variation key="device=watch44mm" height="104"/>
+                                        <variation key="device=watch45mm" height="110"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="pushToMovie" destination="IGU-mI-QIU" id="fur-OT-Pyi"/>
+                                    </connections>
+                                </button>
                                 <group width="1" height="40" alignment="center" verticalAlignment="bottom" backgroundImage="gradient" radius="0.0" id="qB2-m4-rl2" userLabel="gradient box">
                                     <items>
                                         <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" radius="0.0" spacing="0.0" id="bVg-m9-SyX" userLabel="status box">
@@ -1633,7 +1371,7 @@
                     </items>
                     <connections>
                         <outlet property="channelLabel" destination="P8n-0l-CSv" id="N7J-zO-PZE"/>
-                        <outlet property="movie" destination="T1W-VJ-tpl" id="Ty4-Wd-Ism"/>
+                        <outlet property="movie" destination="s6O-Pu-W8w" id="mAd-yu-dmn"/>
                         <outlet property="movieLoading" destination="q3Q-da-SVM" id="CAM-aB-OAL"/>
                         <outlet property="progressBar" destination="p26-Zz-dXc" id="3WZ-rW-4ky"/>
                         <outlet property="statusLabel" destination="mYm-eV-xkZ" id="1ec-WO-HGF"/>
@@ -1658,7 +1396,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="862" y="364"/>
+            <point key="canvasLocation" x="604" y="549"/>
         </scene>
         <!--Done-->
         <scene sceneID="oAe-4v-6TH">
@@ -1690,13 +1428,11 @@
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="folder" catalog="system" width="128" height="96"/>
         <image name="gear" catalog="system" width="128" height="118"/>
         <image name="github" width="556" height="556"/>
         <image name="gradient" width="259" height="58"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="loading" width="128" height="128"/>
         <image name="loading0" width="164" height="181"/>
         <image name="magnifyingglass" catalog="system" width="128" height="114"/>
         <image name="maxresdefault" width="1280" height="720"/>
@@ -1704,6 +1440,7 @@
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pfp" width="512" height="512"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="twitter" width="556" height="556"/>
         <image name="watchtube" width="556" height="556"/>
         <namedColor name="AccentColor">

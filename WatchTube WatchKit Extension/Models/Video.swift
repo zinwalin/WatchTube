@@ -122,18 +122,8 @@ class Video {
                             videos.append(video)
                         }
                     }
-                    //if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                    //    let fileURL = dir.appendingPathComponent("trending.json")
-                    //    NSArray(array: videos).write(to: fileURL, atomically: true)
-                    //}
-                    /// why wont the file generate woe
                 case .failure(_):
-                    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        let fileURL = dir.appendingPathComponent("trending.json")
-                        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/trending.json") == true {
-                            videos = NSArray(contentsOf: fileURL) as! Array<Video>
-                        }
-                    }
+                    print("man")
                 }
                 completion(videos)
             }

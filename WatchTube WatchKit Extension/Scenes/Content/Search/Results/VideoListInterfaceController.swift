@@ -129,11 +129,7 @@ class VideoListInterfaceController: WKInterfaceController {
             if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {
                 presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [WKAlertAction(title: "Okay", style: .default) {}])
             } else {
-                if UserDefaults.standard.bool(forKey: settingsKeys.hlsToggle) == true {
-                    self.pushController(withName: "HlsPreload", context: video.id)
-                } else {
-                    self.pushController(withName: "NowPlayingInterfaceController", context: video)
-                }
+                self.pushController(withName: "NowPlayingInterfaceController", context: video)
             }
         case "channel":
             if (meta.getChannelInfo(udid: video.id, key: "name") as! String) == "???" {

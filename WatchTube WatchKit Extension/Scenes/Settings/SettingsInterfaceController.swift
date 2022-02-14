@@ -11,8 +11,6 @@ import Alamofire
 
 class SettingsInterfaceController: WKInterfaceController {
     
-    @IBOutlet weak var cacheToggle: WKInterfaceSwitch!
-    @IBOutlet weak var cacheDeleteButton: WKInterfaceButton!
     @IBOutlet weak var thumbnailsToggle: WKInterfaceSwitch!
     @IBOutlet weak var audioOnlyToggle: WKInterfaceSwitch!
     @IBOutlet weak var resultsLabel: WKInterfaceLabel!
@@ -21,10 +19,6 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var instancePicker: WKInterfacePicker!
     @IBOutlet weak var qualityToggle: WKInterfaceSwitch!
     @IBOutlet weak var instanceStatus: WKInterfaceLabel!
-    @IBOutlet weak var proxyToggle: WKInterfaceSwitch!
-    @IBOutlet weak var hlsToggle: WKInterfaceSwitch!
-    @IBOutlet weak var hlsLabel: WKInterfaceLabel!
-    @IBOutlet weak var cacheLabel: WKInterfaceLabel!
     
     let userDefaults = UserDefaults.standard
     
@@ -37,106 +31,6 @@ class SettingsInterfaceController: WKInterfaceController {
     ]
     
     var instances: Array<String> = []
-
-    @IBAction func cacheToggle(_ value: Bool) {
-        if value == true {
-            userDefaults.set(value, forKey: settingsKeys.cacheToggle)
-            cacheDeleteButton.setHidden(false)
-            
-            willActivate()
-
-        }
-        else {
-            do {
-                var totalSize = 0 as Int64
-                var files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/sd/")
-                for file in files {
-                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(file)") {
-                        if let bytes = fileAttributes[.size] as? Int64 {
-                            totalSize = totalSize+bytes
-                        }
-                    }
-                }
-                files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/hd/")
-                for file in files {
-                    if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(file)") {
-                        if let bytes = fileAttributes[.size] as? Int64 {
-                            totalSize = totalSize+bytes
-                        }
-                    }
-                }
-                let bcf = ByteCountFormatter()
-                if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
-                bcf.countStyle = .file
-                let string = bcf.string(fromByteCount: totalSize)
-                
-                if totalSize != 0 {
-                    let action1 = WKAlertAction(title: "Delete And Turn Off", style: .destructive) { [weak self] in
-                        self!.userDefaults.set(value, forKey: settingsKeys.cacheToggle)
-                        
-                        do {
-                            // delete everything
-                            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache")
-                            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache")
-                            try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/channelCache")
-                            
-                            // make cache folder or else you cant save here with alamofire
-                            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
-                                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
-                            }
-                            if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
-                                try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
-                            }
-                        } catch {
-                            //what happened lol
-                        }
-                        
-                        self!.cacheDeleteButton.setHidden(true)
-                    }
-                    
-                    let action2 = WKAlertAction(title: "Cancel", style: .cancel) { [weak self] in
-                        self!.cacheToggle.setOn(true)
-                    }
-                    presentAlert(withTitle: "Warning", message: "You currently have \(string) of cache, are you sure you want to turn off caching?", preferredStyle: .alert, actions: [action1, action2])
-                } else {
-                    userDefaults.set(value, forKey: settingsKeys.cacheToggle)
-                    cacheDeleteButton.setHidden(true)
-                }
-            } catch {
-                //thonk
-            }
-        }
-    }
-    
-    @IBAction func deleteCacheButton() {
-        
-        let action1 = WKAlertAction(title: "Delete Cache", style: .destructive) { [weak self] in
-            
-            do {
-                // delete everything
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache")
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache")
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/channelCache")
-                
-                // make cache folder or else you cant save here with alamofire
-                if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path) {
-                    try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/sd")!.path, withIntermediateDirectories: true, attributes: nil)
-                }
-                if !FileManager.default.fileExists(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path) {
-                    try FileManager.default.createDirectory(atPath: URL(string: NSHomeDirectory()+"/Documents/cache/hd")!.path, withIntermediateDirectories: true, attributes: nil)
-                }
-                
-                self!.cacheDeleteButton.setTitle("Cleared")
-                self!.cacheDeleteButton.setEnabled(false)
-            } catch {
-                //what happened lol
-            }
-        }
-        
-        let action2 = WKAlertAction(title: "Cancel", style: .cancel) {}
-        
-        presentAlert(withTitle: "Delete Cache?", message: "Are you sure you want to delete the cache?", preferredStyle: .alert, actions: [action1, action2])
-    }
     
     @IBAction func thumbnailsToggle(_ value: Bool) {
         userDefaults.set(value, forKey: settingsKeys.thumbnailsToggle)
@@ -144,9 +38,6 @@ class SettingsInterfaceController: WKInterfaceController {
     
     @IBAction func audioOnlyToggle(_ value: Bool) {
         userDefaults.set(value, forKey: settingsKeys.audioOnlyToggle)
-    }
-    @IBAction func proxyToggle(_ value: Bool) {
-        userDefaults.set(value, forKey: settingsKeys.proxyContent)
     }
     
     @IBAction func qualityToggle(_ value: Bool) {
@@ -204,61 +95,10 @@ class SettingsInterfaceController: WKInterfaceController {
         
         // set all the properties of settings to match userdefaults
         homeVideosPicker.setSelectedItemIndex(Int(videoTypes.firstIndex(of: userDefaults.string(forKey: settingsKeys.homePageVideoType)!)!))
-        cacheToggle.setOn(userDefaults.bool(forKey: settingsKeys.cacheToggle))
         thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
         audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
-        proxyToggle.setOn(userDefaults.bool(forKey: settingsKeys.proxyContent))
         qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
-        hlsToggle.setOn(userDefaults.bool(forKey: settingsKeys.hlsToggle))
-        cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
         if userDefaults.bool(forKey: settingsKeys.qualityToggle) == true {qualityToggle.setTitle("HD")} else {qualityToggle.setTitle("SD")}
-        if userDefaults.bool(forKey: miscKeys.isDebug) == true {
-            hlsToggle.setEnabled(true)
-            cacheLabel.setHidden(false)
-            cacheToggle.setHidden(false)
-            cacheDeleteButton.setHidden(!userDefaults.bool(forKey: settingsKeys.cacheToggle))
-        } else {
-            hlsToggle.setEnabled(false)
-            cacheLabel.setHidden(true)
-            cacheToggle.setHidden(true)
-            cacheDeleteButton.setHidden(true)
-        }
-
-        // set cache button to enabled, if its empty just keep it as cleared and disable it
-        cacheDeleteButton.setEnabled(true)
-        do {
-            var totalSize = 0 as Int64
-            var files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/sd/")
-            for file in files {
-                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(file)") {
-                    if let bytes = fileAttributes[.size] as? Int64 {
-                        totalSize = totalSize+bytes
-                    }
-                }
-            }
-            files = try FileManager.default.contentsOfDirectory(atPath: NSHomeDirectory()+"/Documents/cache/hd/")
-            for file in files {
-                if let fileAttributes = try? FileManager.default.attributesOfItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(file)") {
-                    if let bytes = fileAttributes[.size] as? Int64 {
-                        totalSize = totalSize+bytes
-                    }
-                }
-            }
-
-            let bcf = ByteCountFormatter()
-            if ((totalSize >= 1024000000) == true) {bcf.allowedUnits = [.useGB]} else {bcf.allowedUnits = [.useMB]}
-            bcf.countStyle = .file
-            let string = bcf.string(fromByteCount: totalSize)
-            if totalSize == 0 {
-                cacheDeleteButton.setEnabled(false)
-                cacheDeleteButton.setTitle("Cleared")
-            } else {
-                cacheDeleteButton.setTitle("Clear Cache (\(string))")
-            }
-        } catch {
-            cacheDeleteButton.setEnabled(false)
-            cacheDeleteButton.setTitle("Cleared")
-        }
         
         updateLabel()
 

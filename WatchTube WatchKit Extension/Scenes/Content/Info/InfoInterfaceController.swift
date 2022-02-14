@@ -1,5 +1,5 @@
 //
-//  CacheInfoInterfaceController.swift
+//  InfoInterfaceController.swift
 //  WatchTube WatchKit Extension
 //
 //  Created by llsc12 on 12/12/2021.
@@ -24,10 +24,8 @@ class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var authorLabel: WKInterfaceLabel!
     
     @IBOutlet weak var showDescriptionButton: WKInterfaceButton!
-    @IBOutlet weak var InfoCacheDeleteButton: WKInterfaceButton!
     
     var videoId: String = ""
-    var from: String = ""
     var udid: String = ""
     var quality: String = ""
 
@@ -36,7 +34,6 @@ class InfoInterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         let data = context as! Dictionary<String, String>
-        from = data["from"]!
         videoId = data["id"]!
         quality = data["quality"]!
         udid = meta.getVideoInfo(id: videoId, key: "channelId") as! String
@@ -46,12 +43,6 @@ class InfoInterfaceController: WKInterfaceController {
         self.viewsLabel.setText("Loading Views")
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
-        self.InfoCacheDeleteButton.setHidden(!(
-            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).mp4") ||
-            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).m4a") ||
-            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).mp4") ||
-            FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).m4a")
-        ))
         
         let likes = (meta.getVideoInfo(id: videoId, key: "likes") as! Int).abbreviated
         let views = (meta.getVideoInfo(id: videoId, key: "views") as! Int).abbreviated
@@ -78,29 +69,6 @@ class InfoInterfaceController: WKInterfaceController {
     
     @IBAction func showDescription() {
         self.pushController(withName: "SubInfoInterfaceController", context: meta.getVideoInfo(id: videoId, key: "description"))
-    }
-    
-    @IBAction func infoDeleteCache() {
-        do {
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).mp4")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).mp4")
-            }
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).m4a")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/sd/\(videoId).m4a")
-            }
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).mp4")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).mp4")
-            }
-            if (FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).m4a")) {
-                try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/cache/hd/\(videoId).m4a")
-            }
-        } catch {}
-        if from == "CacheNowPlaying" {
-            UserDefaults.standard.set(true, forKey: miscKeys.pushToCacheContents)
-            popToRootController()
-        } else if from == "NowPlaying" {
-            pop()
-        }
     }
     
     @IBAction func randomise(_ sender: Any) {
