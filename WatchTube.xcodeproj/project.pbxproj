@@ -730,8 +730,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = 9Q5DU84SYV;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -753,8 +753,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = N36Z4HYRU9;
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -779,7 +779,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 9Q5DU84SYV;
 				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
@@ -801,8 +801,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = N36Z4HYRU9;
 				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
 				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp;
@@ -820,7 +820,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 9Q5DU84SYV;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.watchtube;
@@ -835,8 +835,8 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = N36Z4HYRU9;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube;
 				PRODUCT_NAME = WatchTube;
