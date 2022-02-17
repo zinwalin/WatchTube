@@ -12,7 +12,7 @@ import AVKit
 
 struct playerView: View {
     var body: some View {
-        VideoPlayer(player:AVPlayer(playerItem:AVPlayerItem(url: URL(string: UserDefaults.standard.string(forKey: hls.url) ?? "https://invidious.osi.kr/latest_version?id=bYCUt4sPlKc&itag=22")!)))
+        VideoPlayer(player:AVPlayer(url: URL(string: UserDefaults.standard.string(forKey: hls.url) ?? "https://invidious.osi.kr/latest_version?id=bYCUt4sPlKc&itag=22")!))
             .scaledToFill().cornerRadius(0)
     }
 }

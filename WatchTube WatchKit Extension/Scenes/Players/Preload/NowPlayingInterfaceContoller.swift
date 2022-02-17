@@ -85,7 +85,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
         self.movie.setHidden(true)
         progressBar.setHidden(false)
         
-        progressBar.setRelativeWidth(0.05, withAdjustment: 0)
         AF.request(dataPath).responseJSON { res in
             switch res.result {
             case .success(let data):
@@ -178,6 +177,8 @@ class NowPlayingInterfaceController: WKInterfaceController {
                 self.movieLoading.setImageNamed("error")
                 self.progressBar.setHidden(true)
             }
+        }.downloadProgress { progress in
+            self.progressBar.setRelativeWidth(progress.fractionCompleted, withAdjustment: 0)
         }
     }
     
