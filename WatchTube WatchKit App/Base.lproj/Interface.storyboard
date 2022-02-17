@@ -1151,7 +1151,11 @@
                                 <tableRow identifier="PlaylistRow" id="NKG-X1-1CY" customClass="PlaylistTableRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="50" alignment="left" id="d3X-GW-e6z">
                                         <items>
-                                            <imageView width="0.29999999999999999" height="0.59999999999999998" alignment="left" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="D4f-Qu-XHW"/>
+                                            <group width="0.29999999999999999" height="0.59999999999999998" alignment="left" verticalAlignment="center" radius="5" id="5XX-1n-EQp">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="D4f-Qu-XHW"/>
+                                                </items>
+                                            </group>
                                             <group width="0.71999999999999997" height="1" alignment="left" layout="overlap" id="d8Q-RH-9mb">
                                                 <items>
                                                     <label alignment="left" text="vid name" numberOfLines="2" minimumScaleFactor="0.0" id="4Xz-Nt-FNd">
@@ -1232,7 +1236,11 @@
                                 <tableRow identifier="SubPlaylistRow" id="h38-Kf-ywK" customClass="SubPlaylistTableRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="50" alignment="left" id="h8k-7q-SQF">
                                         <items>
-                                            <imageView width="0.29999999999999999" height="0.59999999999999998" alignment="left" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="ygW-WY-1Fl"/>
+                                            <group width="0.29999999999999999" height="0.59999999999999998" alignment="left" verticalAlignment="center" radius="5" id="Kt2-jf-6ku">
+                                                <items>
+                                                    <imageView width="1" height="1" alignment="center" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="ygW-WY-1Fl"/>
+                                                </items>
+                                            </group>
                                             <group width="0.71999999999999997" height="1" alignment="left" layout="overlap" id="wK7-Ud-MPK">
                                                 <items>
                                                     <label alignment="left" text="vid name" numberOfLines="2" minimumScaleFactor="0.0" id="kr5-pl-xwM">

@@ -104,7 +104,8 @@ class Video {
     
     class func getTrending(completion: @escaping ([Video]) -> Void) {
         if UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) != "channels" {
-            AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails(url)").responseJSON { response in
+            let trendingpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails(url)"
+            AF.request(trendingpath).responseJSON { response in
                 var videos = [Video]()
                 switch response.result {
                 case .success(let json):

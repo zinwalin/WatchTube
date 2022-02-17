@@ -170,12 +170,12 @@
 			path = Complications;
 			sourceTree = "<group>";
 		};
-		AA0A1B4327B6C08F00F74920 /* Old Player */ = {
+		AA0A1B4327B6C08F00F74920 /* Preload */ = {
 			isa = PBXGroup;
 			children = (
 				D72C9400257D997F0056D0BA /* NowPlayingInterfaceContoller.swift */,
 			);
-			path = "Old Player";
+			path = Preload;
 			sourceTree = "<group>";
 		};
 		AA0A1B4427B6C0A100F74920 /* HLS Player */ = {
@@ -275,7 +275,7 @@
 		AAFF5E48279494CB006A7149 /* Players */ = {
 			isa = PBXGroup;
 			children = (
-				AA0A1B4327B6C08F00F74920 /* Old Player */,
+				AA0A1B4327B6C08F00F74920 /* Preload */,
 				AA0A1B4427B6C0A100F74920 /* HLS Player */,
 			);
 			path = Players;
