@@ -2,7 +2,6 @@
 //  ExtensionDelegate.swift
 //  WatchTube WatchKit Extension
 //
-//  Created by developer on 12/6/20.
 //
 
 import WatchKit
