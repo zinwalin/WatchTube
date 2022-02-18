@@ -49,6 +49,7 @@
 		AA7B3BFD27C038C400C7703B /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFB27C038C400C7703B /* Video.swift */; };
 		AA7B3C0127C038D600C7703B /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFF27C038D600C7703B /* Misc.swift */; };
 		AA7B3C0227C038D600C7703B /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3C0027C038D600C7703B /* MetadataCache.swift */; };
+		AA9ED75427C051A800670116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9ED75327C051A800670116 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +97,6 @@
 /* Begin PBXFileReference section */
 		AA04856027C02BA100A02BAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA04856227C02BA100A02BAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AA04856927C02BA500A02BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA04856C27C02BA500A02BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA04856E27C02BA500A02BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA04857127C02BA500A02BAD /* WatchTube WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchTube WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +112,6 @@
 		AA2605E627C03F1C00FAE672 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA26060627C0412600FAE672 /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA26060827C0412600FAE672 /* WatchTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTubeApp.swift; sourceTree = "<group>"; };
-		AA26060A27C0412600FAE672 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA26060C27C0412800FAE672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA26060F27C0412800FAE672 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA7B3BB827C0359700C7703B /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		AA7B3BFB27C038C400C7703B /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		AA7B3BFF27C038D600C7703B /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		AA7B3C0027C038D600C7703B /* MetadataCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataCache.swift; sourceTree = "<group>"; };
+		AA9ED75327C051A800670116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +171,6 @@
 				AA04855F27C02BA100A02BAD /* WatchTube */,
 				AA04857527C02BA500A02BAD /* WatchTube WatchKit App */,
 				AA04858327C02BA700A02BAD /* WatchTube WatchKit Extension */,
-				AA26060727C0412600FAE672 /* WatchTube */,
 				AA04855E27C02BA100A02BAD /* Products */,
 				AA2605DF27C03B1B00FAE672 /* Frameworks */,
 			);
@@ -190,12 +189,14 @@
 		AA04855F27C02BA100A02BAD /* WatchTube */ = {
 			isa = PBXGroup;
 			children = (
+				AA9ED75327C051A800670116 /* Assets.xcassets */,
+				AA26060827C0412600FAE672 /* WatchTubeApp.swift */,
 				AA04856027C02BA100A02BAD /* AppDelegate.swift */,
 				AA04856227C02BA100A02BAD /* SceneDelegate.swift */,
-				AA04856927C02BA500A02BAD /* Assets.xcassets */,
+				AA2605E627C03F1C00FAE672 /* ContentView.swift */,
 				AA04856B27C02BA500A02BAD /* LaunchScreen.storyboard */,
 				AA04856E27C02BA500A02BAD /* Info.plist */,
-				AA2605E627C03F1C00FAE672 /* ContentView.swift */,
+				AA26060E27C0412800FAE672 /* Preview Content */,
 			);
 			path = WatchTube;
 			sourceTree = "<group>";
@@ -232,17 +233,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AA26060727C0412600FAE672 /* WatchTube */ = {
-			isa = PBXGroup;
-			children = (
-				AA26060827C0412600FAE672 /* WatchTubeApp.swift */,
-				AA26060A27C0412600FAE672 /* ContentView.swift */,
-				AA26060C27C0412800FAE672 /* Assets.xcassets */,
-				AA26060E27C0412800FAE672 /* Preview Content */,
-			);
-			path = WatchTube;
 			sourceTree = "<group>";
 		};
 		AA26060E27C0412800FAE672 /* Preview Content */ = {
