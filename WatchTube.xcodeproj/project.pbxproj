@@ -14,12 +14,12 @@
 		AA04858927C02BA700A02BAD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04858827C02BA700A02BAD /* NotificationController.swift */; };
 		AA04858B27C02BA700A02BAD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04858A27C02BA700A02BAD /* ComplicationController.swift */; };
 		AA04858D27C02BA900A02BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA04858C27C02BA900A02BAD /* Assets.xcassets */; };
+		AA0C350E27C1685000353CD4 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C350D27C1685000353CD4 /* PlansView.swift */; };
 		AA2605E127C03B1B00FAE672 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA2605E027C03B1B00FAE672 /* YouTubeKit */; };
 		AA2605E327C03B1B00FAE672 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA2605E227C03B1B00FAE672 /* SDWebImage */; };
 		AA2605E527C03B1B00FAE672 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AA2605E427C03B1B00FAE672 /* Alamofire */; };
 		AA26060927C0412600FAE672 /* WatchTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26060827C0412600FAE672 /* WatchTubeApp.swift */; };
-		AA26060B27C0412600FAE672 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26060A27C0412600FAE672 /* ContentView.swift */; };
-		AA26060D27C0412800FAE672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA26060C27C0412800FAE672 /* Assets.xcassets */; };
+		AA26060B27C0412600FAE672 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AA26061027C0412800FAE672 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA26060F27C0412800FAE672 /* Preview Assets.xcassets */; };
 		AA26061427C0413A00FAE672 /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AA04857127C02BA500A02BAD /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		AA7B3BBA27C0359700C7703B /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7B3BB827C0359700C7703B /* maxresdefault.jpg */; };
@@ -49,7 +49,7 @@
 		AA7B3BFD27C038C400C7703B /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFB27C038C400C7703B /* Video.swift */; };
 		AA7B3C0127C038D600C7703B /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFF27C038D600C7703B /* Misc.swift */; };
 		AA7B3C0227C038D600C7703B /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3C0027C038D600C7703B /* MetadataCache.swift */; };
-		AA9ED75427C051A800670116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9ED75327C051A800670116 /* Assets.xcassets */; };
+		AA9ED75727C0525500670116 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9ED75627C0525400670116 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,10 +109,9 @@
 		AA04858C27C02BA900A02BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA04858E27C02BA900A02BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA04858F27C02BA900A02BAD /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		AA2605E627C03F1C00FAE672 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0C350D27C1685000353CD4 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
 		AA26060627C0412600FAE672 /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA26060827C0412600FAE672 /* WatchTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTubeApp.swift; sourceTree = "<group>"; };
-		AA26060C27C0412800FAE672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA26060F27C0412800FAE672 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA7B3BB827C0359700C7703B /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
 		AA7B3BB927C0359700C7703B /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 		AA7B3BFF27C038D600C7703B /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		AA7B3C0027C038D600C7703B /* MetadataCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataCache.swift; sourceTree = "<group>"; };
 		AA9ED75327C051A800670116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA9ED75627C0525400670116 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,10 +190,10 @@
 			isa = PBXGroup;
 			children = (
 				AA9ED75327C051A800670116 /* Assets.xcassets */,
+				AA0C350C27C1683500353CD4 /* Views */,
 				AA26060827C0412600FAE672 /* WatchTubeApp.swift */,
 				AA04856027C02BA100A02BAD /* AppDelegate.swift */,
 				AA04856227C02BA100A02BAD /* SceneDelegate.swift */,
-				AA2605E627C03F1C00FAE672 /* ContentView.swift */,
 				AA04856B27C02BA500A02BAD /* LaunchScreen.storyboard */,
 				AA04856E27C02BA500A02BAD /* Info.plist */,
 				AA26060E27C0412800FAE672 /* Preview Content */,
@@ -226,6 +226,15 @@
 				AA04858F27C02BA900A02BAD /* PushNotificationPayload.apns */,
 			);
 			path = "WatchTube WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		AA0C350C27C1683500353CD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA9ED75627C0525400670116 /* ContentView.swift */,
+				AA0C350D27C1685000353CD4 /* PlansView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AA2605DF27C03B1B00FAE672 /* Frameworks */ = {
@@ -565,7 +574,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA26061027C0412800FAE672 /* Preview Assets.xcassets in Resources */,
-				AA26060D27C0412800FAE672 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,8 +619,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA26060B27C0412600FAE672 /* ContentView.swift in Sources */,
+				AA26060B27C0412600FAE672 /* (null) in Sources */,
 				AA26060927C0412600FAE672 /* WatchTubeApp.swift in Sources */,
+				AA9ED75727C0525500670116 /* ContentView.swift in Sources */,
+				AA0C350E27C1685000353CD4 /* PlansView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +778,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 566RT33SA2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchTube;
@@ -798,6 +809,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchTube;
@@ -811,7 +823,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchTube.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.WatchTube.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -831,6 +843,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 566RT33SA2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchTube_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -855,12 +868,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchTube_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.WatchTube;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchTube.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.WatchTube.watchkitapp;
 				PRODUCT_NAME = "WatchTube WatchKit App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -880,8 +894,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchTube/Preview Content\"";
+				DEVELOPMENT_TEAM = 566RT33SA2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchTube/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -910,8 +926,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchTube/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchTube/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -923,7 +941,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchTube;
+				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.WatchTube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

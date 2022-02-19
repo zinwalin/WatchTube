@@ -29,16 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func application(_ application: UIApplication,
+                     open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any] = [:] ) -> Bool {
+
+        print("url received")
+        return true
+    }
+
 }
 
-@main
-struct AppyApp: App {
-    
-    var body: some Scene {
-        WindowGroup {
-            NavigationView {
-                ContentView()
-            }
-        }
-    }
-}
