@@ -21,13 +21,12 @@ struct PlansView: View {
                 Text("• View subscriptions\n• Have a tailored video feed on your home page!\n• Manage subscriptions\n• View notifications\n• Access your private playlists")
                     .multilineTextAlignment(.leading)
                 Spacer()
-                Text("And likely more to come!\nJust know that there's a change it might not happen!")
+                Text("And likely more to come!\nJust know that there's a chance it might not happen!")
                     .multilineTextAlignment(.center)
                 Spacer()
                 Spacer()
                 Spacer()
             }
-        .foregroundColor(Color.black.opacity(0.7))
         .padding()
         }
     }
