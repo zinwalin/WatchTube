@@ -879,7 +879,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchTube_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.watchtube;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.suuperbro.watchtube;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube;
 				PRODUCT_NAME = "WatchTube WatchKit App";
