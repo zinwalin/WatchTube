@@ -14,7 +14,21 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AA26060527C0412600FAE672"
+               BlueprintIdentifier = "D72C93D2257D97740056D0BA"
+               BuildableName = "WatchTube WatchKit App.app"
+               BlueprintName = "WatchTube WatchKit App"
+               ReferencedContainer = "container:WatchTube.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D72C93CE257D97740056D0BA"
                BuildableName = "WatchTube.app"
                BlueprintName = "WatchTube"
                ReferencedContainer = "container:WatchTube.xcodeproj">
@@ -44,9 +58,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA26060527C0412600FAE672"
-            BuildableName = "WatchTube.app"
-            BlueprintName = "WatchTube"
+            BlueprintIdentifier = "D72C93D2257D97740056D0BA"
+            BuildableName = "WatchTube WatchKit App.app"
+            BlueprintName = "WatchTube WatchKit App"
             ReferencedContainer = "container:WatchTube.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +75,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AA26060527C0412600FAE672"
-            BuildableName = "WatchTube.app"
-            BlueprintName = "WatchTube"
+            BlueprintIdentifier = "D72C93D2257D97740056D0BA"
+            BuildableName = "WatchTube WatchKit App.app"
+            BlueprintName = "WatchTube WatchKit App"
             ReferencedContainer = "container:WatchTube.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

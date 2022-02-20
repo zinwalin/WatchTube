@@ -2,34 +2,19 @@
 //  ComplicationController.swift
 //  WatchTube WatchKit Extension
 //
-//  Created by Hugo Mason on 26/12/2021.
+//  Created by developer on 12/6/20.
 //
 
-import WatchKit
 import ClockKit
 
-import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Complication Configuration
+
     func getComplicationDescriptors(handler: @escaping ([CLKComplicationDescriptor]) -> Void) {
         let descriptors = [
-            CLKComplicationDescriptor(identifier: "complication", displayName: "WatchTube", supportedFamilies: [
-                CLKComplicationFamily.circularSmall,
-                CLKComplicationFamily.extraLarge,
-                CLKComplicationFamily.graphicBezel,
-                CLKComplicationFamily.graphicCircular,
-                CLKComplicationFamily.graphicCorner,
-                CLKComplicationFamily.graphicExtraLarge,
-                CLKComplicationFamily.graphicRectangular,
-                CLKComplicationFamily.modularLarge,
-                CLKComplicationFamily.modularSmall,
-                CLKComplicationFamily.utilitarianLarge,
-                CLKComplicationFamily.utilitarianSmall,
-                CLKComplicationFamily.utilitarianSmallFlat
-               ]
-            )
+            CLKComplicationDescriptor(identifier: "complication", displayName: "WatchTube", supportedFamilies: CLKComplicationFamily.allCases)
             // Multiple complication support can be added here with more descriptors
         ]
         
@@ -40,7 +25,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func handleSharedComplicationDescriptors(_ complicationDescriptors: [CLKComplicationDescriptor]) {
         // Do any necessary work to support these newly shared complication descriptors
     }
-    
+
     // MARK: - Timeline Configuration
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
@@ -56,44 +41,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-            if let template = getComplicationTemplate(for: complication, using: Date()) {
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            } else {
-                handler(nil)
-            }
-        }
-        
-        func getComplicationTemplate(for complication: CLKComplication, using date: Date) -> CLKComplicationTemplate? {
-            switch complication.family {
-            case .circularSmall:
-                return CLKComplicationTemplateCircularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Circular")!))
-            case .extraLarge:
-                return CLKComplicationTemplateExtraLargeSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Extra Large")!))
-            case .graphicBezel:
-                return CLKComplicationTemplateGraphicBezelCircularText(circularTemplate: CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Bezel")!)), textProvider: CLKTextProvider(format: "WatchTube"))
-            case .graphicCircular:
-                return CLKComplicationTemplateGraphicCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Circular")!))
-            case .graphicCorner:
-                return CLKComplicationTemplateGraphicCornerCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Corner")!))
-            case .graphicExtraLarge:
-                return CLKComplicationTemplateGraphicExtraLargeCircularImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Extra Large")!))
-            case .graphicRectangular:
-                return CLKComplicationTemplateGraphicRectangularFullImage(imageProvider: CLKFullColorImageProvider(fullColorImage: UIImage(named: "Complication/Graphic Large Rectangular")!))
-            case .modularLarge:
-                return CLKComplicationTemplateModularLargeTable(headerImageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Modular")!), headerTextProvider: CLKTextProvider(format: "WatchTube"), row1Column1TextProvider: CLKTextProvider(format: " "), row1Column2TextProvider: CLKTextProvider(format: " "), row2Column1TextProvider: CLKTextProvider(format: " "), row2Column2TextProvider: CLKTextProvider(format: " "))
-            case .modularSmall:
-                return CLKComplicationTemplateModularSmallSimpleImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Modular")!))
-            case .utilitarianLarge:
-                return CLKComplicationTemplateUtilitarianLargeFlat(textProvider: CLKTextProvider(format: "WatchTube"), imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!))
-            case .utilitarianSmall:
-                return CLKComplicationTemplateUtilitarianSmallRingImage(imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!), fillFraction: 1, ringStyle: CLKComplicationRingStyle(rawValue: 1)!)
-            case .utilitarianSmallFlat:
-                return CLKComplicationTemplateUtilitarianSmallFlat(textProvider: CLKTextProvider(format: "WatchTube"), imageProvider: CLKImageProvider(onePieceImage: UIImage(named: "Complication/Utilitarian")!))
-            default:
-                return nil
-            }
-        }
+        // Call the handler with the current timeline entry
+        handler(nil)
+    }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
         // Call the handler with the timeline entries after the given date
@@ -103,11 +53,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Sample Templates
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-            let template = getComplicationTemplate(for: complication, using: Date())
-            if let t = template {
-                handler(t)
-            } else {
-                handler(nil)
-            }
-        }
+        // This method will be called once per supported complication, and the results will be cached
+        handler(nil)
+    }
 }

@@ -3,95 +3,86 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8969443F27C2DB5A00E4AF70 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8969443E27C2DB5A00E4AF70 /* SDWebImage */; };
-		8969444227C2DB6A00E4AF70 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444127C2DB6A00E4AF70 /* Alamofire */; };
-		8969444527C2DBB400E4AF70 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444427C2DBB400E4AF70 /* YouTubeKit */; };
-		8969444727C2DC1700E4AF70 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444627C2DC1700E4AF70 /* SDWebImage */; };
-		8969444927C2DC1700E4AF70 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444827C2DC1700E4AF70 /* Alamofire */; };
-		8969444B27C2DC1700E4AF70 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444A27C2DC1700E4AF70 /* YouTubeKit */; };
-		AA04857827C02BA500A02BAD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA04857627C02BA500A02BAD /* Interface.storyboard */; };
-		AA04857A27C02BA700A02BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA04857927C02BA700A02BAD /* Assets.xcassets */; };
-		AA04858027C02BA700A02BAD /* WatchTube WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA04857F27C02BA700A02BAD /* WatchTube WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AA04858727C02BA700A02BAD /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04858627C02BA700A02BAD /* ExtensionDelegate.swift */; };
-		AA04858927C02BA700A02BAD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04858827C02BA700A02BAD /* NotificationController.swift */; };
-		AA04858B27C02BA700A02BAD /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA04858A27C02BA700A02BAD /* ComplicationController.swift */; };
-		AA04858D27C02BA900A02BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA04858C27C02BA900A02BAD /* Assets.xcassets */; };
-		AA0B1A3527C28551003EA87E /* SearchInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B1A3427C28551003EA87E /* SearchInterfaceController.swift */; };
-		AA0B1A3727C2941D003EA87E /* SearchTermsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B1A3627C2941D003EA87E /* SearchTermsTableRow.swift */; };
-		AA0C350E27C1685000353CD4 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C350D27C1685000353CD4 /* PlansView.swift */; };
-		AA26060927C0412600FAE672 /* WatchTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26060827C0412600FAE672 /* WatchTubeApp.swift */; };
-		AA26060B27C0412600FAE672 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		AA26061027C0412800FAE672 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA26060F27C0412800FAE672 /* Preview Assets.xcassets */; };
-		AA26061427C0413A00FAE672 /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AA04857127C02BA500A02BAD /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AA7B3BBA27C0359700C7703B /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7B3BB827C0359700C7703B /* maxresdefault.jpg */; };
-		AA7B3BBB27C0359700C7703B /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA7B3BB927C0359700C7703B /* pfp.jpg */; };
-		AA7B3BC427C0363000C7703B /* VideoTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BBE27C0363000C7703B /* VideoTableRow.swift */; };
-		AA7B3BC527C0363000C7703B /* PlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BBF27C0363000C7703B /* PlaylistTableRow.swift */; };
-		AA7B3BC627C0363000C7703B /* SubPlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BC027C0363000C7703B /* SubPlaylistTableRow.swift */; };
-		AA7B3BC727C0363000C7703B /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BC127C0363000C7703B /* TrendingTableRow.swift */; };
-		AA7B3BC827C0363000C7703B /* ChannelsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BC227C0363000C7703B /* ChannelsTableRow.swift */; };
-		AA7B3BC927C0363000C7703B /* ChannelTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BC327C0363000C7703B /* ChannelTableRow.swift */; };
-		AA7B3BD027C036A100C7703B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BCE27C036A100C7703B /* InterfaceController.swift */; };
-		AA7B3BD327C036B100C7703B /* SettingsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BD227C036B100C7703B /* SettingsInterfaceController.swift */; };
-		AA7B3BDA27C0371B00C7703B /* SubInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BD827C0371B00C7703B /* SubInfoInterfaceController.swift */; };
-		AA7B3BDB27C0371B00C7703B /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BD927C0371B00C7703B /* InfoInterfaceController.swift */; };
-		AA7B3BDD27C0373D00C7703B /* VideoListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BDC27C0373D00C7703B /* VideoListInterfaceController.swift */; };
-		AA7B3BE327C0378C00C7703B /* ChannelViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BE227C0378C00C7703B /* ChannelViewInterfaceController.swift */; };
-		AA7B3BE527C0379D00C7703B /* ChannelDetailsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BE427C0379D00C7703B /* ChannelDetailsInterfaceController.swift */; };
-		AA7B3BE727C037CD00C7703B /* RelatedChannelsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BE627C037CD00C7703B /* RelatedChannelsInterfaceController.swift */; };
-		AA7B3BE927C037D900C7703B /* ProfileViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BE827C037D900C7703B /* ProfileViewInterfaceController.swift */; };
-		AA7B3BED27C0380000C7703B /* PlaylistInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BEC27C0380000C7703B /* PlaylistInterfaceController.swift */; };
-		AA7B3BEF27C0380C00C7703B /* SubPlaylistInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BEE27C0380C00C7703B /* SubPlaylistInterfaceController.swift */; };
-		AA7B3BF427C0384C00C7703B /* hlsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BF227C0384C00C7703B /* hlsPlayer.swift */; };
-		AA7B3BF527C0384C00C7703B /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BF327C0384C00C7703B /* playerView.swift */; };
-		AA7B3BF727C0385B00C7703B /* NowPlayingInterfaceContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BF627C0385B00C7703B /* NowPlayingInterfaceContoller.swift */; };
-		AA7B3BFC27C038C400C7703B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFA27C038C400C7703B /* Settings.swift */; };
-		AA7B3BFD27C038C400C7703B /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFB27C038C400C7703B /* Video.swift */; };
-		AA7B3C0127C038D600C7703B /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3BFF27C038D600C7703B /* Misc.swift */; };
-		AA7B3C0227C038D600C7703B /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7B3C0027C038D600C7703B /* MetadataCache.swift */; };
-		AA9ED75727C0525500670116 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9ED75627C0525400670116 /* ContentView.swift */; };
+		890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA37275D57AA00B573B8 /* SDWebImage */; };
+		89826E802778B13800896853 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89826E7F2778B13800896853 /* ComplicationController.swift */; };
+		AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA678D6627A326F200C70893 /* maxresdefault.jpg */; };
+		AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */; };
+		AA71A0D027B59DA80099BDC9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CF27B59DA80099BDC9 /* playerView.swift */; };
+		AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA9C8B202794F95B00C0CDD8 /* pfp.jpg */; };
+		AAA25C55278C933700E23892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AAA25C54278C933700E23892 /* Alamofire */; };
+		AAF0F23027C2FFF900BE51C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */; };
+		AAF0F23327C3000100BE51C5 /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23127C3000100BE51C5 /* MetadataCache.swift */; };
+		AAF0F23427C3000100BE51C5 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23227C3000100BE51C5 /* Misc.swift */; };
+		AAF0F23727C3000800BE51C5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23527C3000800BE51C5 /* Video.swift */; };
+		AAF0F23827C3000800BE51C5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23627C3000800BE51C5 /* Settings.swift */; };
+		AAF0F23D27C3002500BE51C5 /* ProfileViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23927C3002400BE51C5 /* ProfileViewInterfaceController.swift */; };
+		AAF0F23E27C3002500BE51C5 /* RelatedChannelsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23A27C3002500BE51C5 /* RelatedChannelsInterfaceController.swift */; };
+		AAF0F23F27C3002500BE51C5 /* ChannelViewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23B27C3002500BE51C5 /* ChannelViewInterfaceController.swift */; };
+		AAF0F24027C3002500BE51C5 /* ChannelDetailsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23C27C3002500BE51C5 /* ChannelDetailsInterfaceController.swift */; };
+		AAF0F24327C3002E00BE51C5 /* SubInfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24127C3002E00BE51C5 /* SubInfoInterfaceController.swift */; };
+		AAF0F24427C3002E00BE51C5 /* InfoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24227C3002E00BE51C5 /* InfoInterfaceController.swift */; };
+		AAF0F24727C3003700BE51C5 /* SubPlaylistInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24527C3003700BE51C5 /* SubPlaylistInterfaceController.swift */; };
+		AAF0F24827C3003700BE51C5 /* PlaylistInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24627C3003700BE51C5 /* PlaylistInterfaceController.swift */; };
+		AAF0F24A27C3003F00BE51C5 /* VideoListInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24927C3003F00BE51C5 /* VideoListInterfaceController.swift */; };
+		AAF0F24C27C3004D00BE51C5 /* NowPlayingInterfaceContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24B27C3004D00BE51C5 /* NowPlayingInterfaceContoller.swift */; };
+		AAF0F25027C3005900BE51C5 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24D27C3005800BE51C5 /* InterfaceController.swift */; };
+		AAF0F25127C3005900BE51C5 /* SearchInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24E27C3005900BE51C5 /* SearchInterfaceController.swift */; };
+		AAF0F25227C3005900BE51C5 /* SettingsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F24F27C3005900BE51C5 /* SettingsInterfaceController.swift */; };
+		AAF0F25527C3006F00BE51C5 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AAF0F25427C3006F00BE51C5 /* YouTubeKit */; };
+		AAF0F25D27C3013300BE51C5 /* ChannelsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25627C3013300BE51C5 /* ChannelsTableRow.swift */; };
+		AAF0F25E27C3013300BE51C5 /* TrendingTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25727C3013300BE51C5 /* TrendingTableRow.swift */; };
+		AAF0F25F27C3013300BE51C5 /* SubPlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25827C3013300BE51C5 /* SubPlaylistTableRow.swift */; };
+		AAF0F26027C3013300BE51C5 /* VideoTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25927C3013300BE51C5 /* VideoTableRow.swift */; };
+		AAF0F26127C3013300BE51C5 /* PlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25A27C3013300BE51C5 /* PlaylistTableRow.swift */; };
+		AAF0F26227C3013300BE51C5 /* ChannelTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25B27C3013300BE51C5 /* ChannelTableRow.swift */; };
+		AAF0F26327C3013300BE51C5 /* SearchTermsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25C27C3013300BE51C5 /* SearchTermsTableRow.swift */; };
+		D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72C93D8257D97740056D0BA /* Interface.storyboard */; };
+		D72C93E3257D97770056D0BA /* WatchTube WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D72C93EA257D97770056D0BA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */; };
+		D72C93EE257D97780056D0BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D72C93ED257D97780056D0BA /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AA04858127C02BA700A02BAD /* PBXContainerItemProxy */ = {
+		D72C93D5257D97740056D0BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AA04855527C02BA100A02BAD /* Project object */;
+			containerPortal = D72C93C9257D97740056D0BA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AA04857E27C02BA700A02BAD;
-			remoteInfo = "WatchTube WatchKit Extension";
-		};
-		AA26061527C0413A00FAE672 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AA04855527C02BA100A02BAD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AA04857027C02BA500A02BAD;
+			remoteGlobalIDString = D72C93D2257D97740056D0BA;
 			remoteInfo = "WatchTube WatchKit App";
+		};
+		D72C93E4257D97770056D0BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D72C93C9257D97740056D0BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D72C93E1257D97770056D0BA;
+			remoteInfo = "WatchTube WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AA04859527C02BA900A02BAD /* Embed App Extensions */ = {
+		D72C93F5257D97780056D0BA /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AA04858027C02BA700A02BAD /* WatchTube WatchKit Extension.appex in Embed App Extensions */,
+				D72C93E3257D97770056D0BA /* WatchTube WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA26061727C0413B00FAE672 /* Embed Watch Content */ = {
+		D72C93F9257D97780056D0BA /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				AA26061427C0413A00FAE672 /* WatchTube WatchKit App.app in Embed Watch Content */,
+				D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,377 +90,320 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AA04856027C02BA100A02BAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA04856227C02BA100A02BAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AA04856C27C02BA500A02BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AA04856E27C02BA500A02BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA04857127C02BA500A02BAD /* WatchTube WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchTube WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA04857727C02BA500A02BAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		AA04857927C02BA700A02BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA04857F27C02BA700A02BAD /* WatchTube WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchTube WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA04858627C02BA700A02BAD /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		AA04858827C02BA700A02BAD /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		AA04858A27C02BA700A02BAD /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		AA04858C27C02BA900A02BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA04858E27C02BA900A02BAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA04858F27C02BA900A02BAD /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		AA0B1A3427C28551003EA87E /* SearchInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInterfaceController.swift; sourceTree = "<group>"; };
-		AA0B1A3627C2941D003EA87E /* SearchTermsTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTermsTableRow.swift; sourceTree = "<group>"; };
-		AA0C350D27C1685000353CD4 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
-		AA26060627C0412600FAE672 /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA26060827C0412600FAE672 /* WatchTubeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTubeApp.swift; sourceTree = "<group>"; };
-		AA26060F27C0412800FAE672 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AA7B3BB827C0359700C7703B /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
-		AA7B3BB927C0359700C7703B /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
-		AA7B3BBE27C0363000C7703B /* VideoTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableRow.swift; sourceTree = "<group>"; };
-		AA7B3BBF27C0363000C7703B /* PlaylistTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableRow.swift; sourceTree = "<group>"; };
-		AA7B3BC027C0363000C7703B /* SubPlaylistTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubPlaylistTableRow.swift; sourceTree = "<group>"; };
-		AA7B3BC127C0363000C7703B /* TrendingTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
-		AA7B3BC227C0363000C7703B /* ChannelsTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsTableRow.swift; sourceTree = "<group>"; };
-		AA7B3BC327C0363000C7703B /* ChannelTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableRow.swift; sourceTree = "<group>"; };
-		AA7B3BCE27C036A100C7703B /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BD227C036B100C7703B /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BD827C0371B00C7703B /* SubInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubInfoInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BD927C0371B00C7703B /* InfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BDC27C0373D00C7703B /* VideoListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BE227C0378C00C7703B /* ChannelViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BE427C0379D00C7703B /* ChannelDetailsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailsInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BE627C037CD00C7703B /* RelatedChannelsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatedChannelsInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BE827C037D900C7703B /* ProfileViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BEC27C0380000C7703B /* PlaylistInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BEE27C0380C00C7703B /* SubPlaylistInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubPlaylistInterfaceController.swift; sourceTree = "<group>"; };
-		AA7B3BF227C0384C00C7703B /* hlsPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hlsPlayer.swift; sourceTree = "<group>"; };
-		AA7B3BF327C0384C00C7703B /* playerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
-		AA7B3BF627C0385B00C7703B /* NowPlayingInterfaceContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingInterfaceContoller.swift; sourceTree = "<group>"; };
-		AA7B3BFA27C038C400C7703B /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		AA7B3BFB27C038C400C7703B /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		AA7B3BFF27C038D600C7703B /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
-		AA7B3C0027C038D600C7703B /* MetadataCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataCache.swift; sourceTree = "<group>"; };
-		AA9ED75327C051A800670116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AA9ED75627C0525400670116 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		89826E7F2778B13800896853 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		AA678D6627A326F200C70893 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
+		AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hlsPlayer.swift; sourceTree = "<group>"; };
+		AA71A0CF27B59DA80099BDC9 /* playerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
+		AA9C8B202794F95B00C0CDD8 /* pfp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pfp.jpg; sourceTree = "<group>"; };
+		AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAF0F23127C3000100BE51C5 /* MetadataCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetadataCache.swift; sourceTree = "<group>"; };
+		AAF0F23227C3000100BE51C5 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		AAF0F23527C3000800BE51C5 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		AAF0F23627C3000800BE51C5 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		AAF0F23927C3002400BE51C5 /* ProfileViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F23A27C3002500BE51C5 /* RelatedChannelsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatedChannelsInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F23B27C3002500BE51C5 /* ChannelViewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F23C27C3002500BE51C5 /* ChannelDetailsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelDetailsInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24127C3002E00BE51C5 /* SubInfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubInfoInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24227C3002E00BE51C5 /* InfoInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24527C3003700BE51C5 /* SubPlaylistInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubPlaylistInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24627C3003700BE51C5 /* PlaylistInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24927C3003F00BE51C5 /* VideoListInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoListInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24B27C3004D00BE51C5 /* NowPlayingInterfaceContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingInterfaceContoller.swift; sourceTree = "<group>"; };
+		AAF0F24D27C3005800BE51C5 /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24E27C3005900BE51C5 /* SearchInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F24F27C3005900BE51C5 /* SettingsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceController.swift; sourceTree = "<group>"; };
+		AAF0F25627C3013300BE51C5 /* ChannelsTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsTableRow.swift; sourceTree = "<group>"; };
+		AAF0F25727C3013300BE51C5 /* TrendingTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingTableRow.swift; sourceTree = "<group>"; };
+		AAF0F25827C3013300BE51C5 /* SubPlaylistTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubPlaylistTableRow.swift; sourceTree = "<group>"; };
+		AAF0F25927C3013300BE51C5 /* VideoTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableRow.swift; sourceTree = "<group>"; };
+		AAF0F25A27C3013300BE51C5 /* PlaylistTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableRow.swift; sourceTree = "<group>"; };
+		AAF0F25B27C3013300BE51C5 /* ChannelTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableRow.swift; sourceTree = "<group>"; };
+		AAF0F25C27C3013300BE51C5 /* SearchTermsTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTermsTableRow.swift; sourceTree = "<group>"; };
+		D72C93CF257D97740056D0BA /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchTube WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72C93D9257D97740056D0BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		D72C93DD257D97770056D0BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchTube WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		D72C93ED257D97780056D0BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D72C93EF257D97780056D0BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AA04857C27C02BA700A02BAD /* Frameworks */ = {
+		44A5716629B292B9B34290AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8969444727C2DC1700E4AF70 /* SDWebImage in Frameworks */,
-				8969444927C2DC1700E4AF70 /* Alamofire in Frameworks */,
-				8969444B27C2DC1700E4AF70 /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA26060327C0412600FAE672 /* Frameworks */ = {
+		B784D5D7CFC88F2ABC78F9B4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8969443F27C2DB5A00E4AF70 /* SDWebImage in Frameworks */,
-				8969444227C2DB6A00E4AF70 /* Alamofire in Frameworks */,
-				8969444527C2DBB400E4AF70 /* YouTubeKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D72C93DF257D97770056D0BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */,
+				AAA25C55278C933700E23892 /* Alamofire in Frameworks */,
+				AAF0F25527C3006F00BE51C5 /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA04855427C02BA100A02BAD = {
+		89826E7E2778B10600896853 /* Complications */ = {
 			isa = PBXGroup;
 			children = (
-				AA04855F27C02BA100A02BAD /* WatchTube */,
-				AA04857527C02BA500A02BAD /* WatchTube WatchKit App */,
-				AA04858327C02BA700A02BAD /* WatchTube WatchKit Extension */,
-				AA04855E27C02BA100A02BAD /* Products */,
-				AA2605DF27C03B1B00FAE672 /* Frameworks */,
+				89826E7F2778B13800896853 /* ComplicationController.swift */,
 			);
+			path = Complications;
 			sourceTree = "<group>";
 		};
-		AA04855E27C02BA100A02BAD /* Products */ = {
+		AA0A1B4327B6C08F00F74920 /* Preload */ = {
 			isa = PBXGroup;
 			children = (
-				AA04857127C02BA500A02BAD /* WatchTube WatchKit App.app */,
-				AA04857F27C02BA700A02BAD /* WatchTube WatchKit Extension.appex */,
-				AA26060627C0412600FAE672 /* WatchTube.app */,
+				AAF0F24B27C3004D00BE51C5 /* NowPlayingInterfaceContoller.swift */,
 			);
-			name = Products;
+			path = Preload;
 			sourceTree = "<group>";
 		};
-		AA04855F27C02BA100A02BAD /* WatchTube */ = {
+		AA0A1B4427B6C0A100F74920 /* HLS Player */ = {
 			isa = PBXGroup;
 			children = (
-				AA9ED75327C051A800670116 /* Assets.xcassets */,
-				AA0C350C27C1683500353CD4 /* Views */,
-				AA26060827C0412600FAE672 /* WatchTubeApp.swift */,
-				AA04856027C02BA100A02BAD /* AppDelegate.swift */,
-				AA04856227C02BA100A02BAD /* SceneDelegate.swift */,
-				AA04856B27C02BA500A02BAD /* LaunchScreen.storyboard */,
-				AA04856E27C02BA500A02BAD /* Info.plist */,
-				AA26060E27C0412800FAE672 /* Preview Content */,
+				AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */,
+				AA71A0CF27B59DA80099BDC9 /* playerView.swift */,
 			);
-			path = WatchTube;
+			path = "HLS Player";
 			sourceTree = "<group>";
 		};
-		AA04857527C02BA500A02BAD /* WatchTube WatchKit App */ = {
+		AA1E313D27A5C2B100DB86F3 /* Playlist */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BB827C0359700C7703B /* maxresdefault.jpg */,
-				AA7B3BB927C0359700C7703B /* pfp.jpg */,
-				AA04857627C02BA500A02BAD /* Interface.storyboard */,
-				AA04857927C02BA700A02BAD /* Assets.xcassets */,
+				AAF0F24627C3003700BE51C5 /* PlaylistInterfaceController.swift */,
+				AAF0F24527C3003700BE51C5 /* SubPlaylistInterfaceController.swift */,
 			);
-			path = "WatchTube WatchKit App";
+			path = Playlist;
 			sourceTree = "<group>";
 		};
-		AA04858327C02BA700A02BAD /* WatchTube WatchKit Extension */ = {
+		AAC670AD278E0A0D0023E505 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BB727C033AC00C7703B /* Scenes */,
-				AA7B3BBC27C035C900C7703B /* Views */,
-				AA7B3BF827C0388800C7703B /* Models */,
-				AA04858627C02BA700A02BAD /* ExtensionDelegate.swift */,
-				AA04858827C02BA700A02BAD /* NotificationController.swift */,
-				AA04858A27C02BA700A02BAD /* ComplicationController.swift */,
-				AA04858C27C02BA900A02BAD /* Assets.xcassets */,
-				AA04858E27C02BA900A02BAD /* Info.plist */,
-				AA04858F27C02BA900A02BAD /* PushNotificationPayload.apns */,
+				AAF0F23127C3000100BE51C5 /* MetadataCache.swift */,
+				AAF0F23227C3000100BE51C5 /* Misc.swift */,
 			);
-			path = "WatchTube WatchKit Extension";
+			path = Classes;
 			sourceTree = "<group>";
 		};
-		AA0C350C27C1683500353CD4 /* Views */ = {
+		AAF0F22C27C2FFCF00BE51C5 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				AA9ED75627C0525400670116 /* ContentView.swift */,
-				AA0C350D27C1685000353CD4 /* PlansView.swift */,
+				AAF0F23627C3000800BE51C5 /* Settings.swift */,
+				AAF0F23527C3000800BE51C5 /* Video.swift */,
 			);
-			path = Views;
+			path = Structures;
 			sourceTree = "<group>";
 		};
-		AA2605DF27C03B1B00FAE672 /* Frameworks */ = {
+		AAF0F25327C3006F00BE51C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AA26060E27C0412800FAE672 /* Preview Content */ = {
+		AAFF5E4727949465006A7149 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				AA26060F27C0412800FAE672 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		AA7B3BB727C033AC00C7703B /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BCC27C0366B00C7703B /* Home */,
-				AA7B3BCB27C0366200C7703B /* Content */,
-				AA7B3BCA27C0365D00C7703B /* Players */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		AA7B3BBC27C035C900C7703B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BC227C0363000C7703B /* ChannelsTableRow.swift */,
-				AA7B3BC327C0363000C7703B /* ChannelTableRow.swift */,
-				AA7B3BBF27C0363000C7703B /* PlaylistTableRow.swift */,
-				AA7B3BC027C0363000C7703B /* SubPlaylistTableRow.swift */,
-				AA7B3BC127C0363000C7703B /* TrendingTableRow.swift */,
-				AA7B3BBE27C0363000C7703B /* VideoTableRow.swift */,
-				AA0B1A3627C2941D003EA87E /* SearchTermsTableRow.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AA7B3BCA27C0365D00C7703B /* Players */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BF027C0382200C7703B /* Preload */,
-				AA7B3BF127C0382800C7703B /* Player */,
-			);
-			path = Players;
-			sourceTree = "<group>";
-		};
-		AA7B3BCB27C0366200C7703B /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BD727C036FA00C7703B /* Info */,
-				AA7B3BD627C036F600C7703B /* Search */,
-				AA7B3BD527C036F100C7703B /* Channel */,
-				AA7B3BD427C036EB00C7703B /* Playlist */,
+				AA1E313D27A5C2B100DB86F3 /* Playlist */,
+				AAFF5E532794C203006A7149 /* Channel */,
+				AAFF5E522794C1FB006A7149 /* Search */,
+				AAFF5E512794C1E7006A7149 /* Info */,
 			);
 			path = Content;
 			sourceTree = "<group>";
 		};
-		AA7B3BCC27C0366B00C7703B /* Home */ = {
+		AAFF5E48279494CB006A7149 /* Players */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BCE27C036A100C7703B /* InterfaceController.swift */,
-				AA0B1A3427C28551003EA87E /* SearchInterfaceController.swift */,
-				AA7B3BD227C036B100C7703B /* SettingsInterfaceController.swift */,
+				AA0A1B4327B6C08F00F74920 /* Preload */,
+				AA0A1B4427B6C0A100F74920 /* HLS Player */,
+			);
+			path = Players;
+			sourceTree = "<group>";
+		};
+		AAFF5E49279494E2006A7149 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AAF0F24D27C3005800BE51C5 /* InterfaceController.swift */,
+				AAF0F24E27C3005900BE51C5 /* SearchInterfaceController.swift */,
+				AAF0F24F27C3005900BE51C5 /* SettingsInterfaceController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		AA7B3BD427C036EB00C7703B /* Playlist */ = {
+		AAFF5E512794C1E7006A7149 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BEA27C037E800C7703B /* Main */,
-				AA7B3BEB27C037EC00C7703B /* Sub */,
-			);
-			path = Playlist;
-			sourceTree = "<group>";
-		};
-		AA7B3BD527C036F100C7703B /* Channel */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BDE27C0374F00C7703B /* Main */,
-				AA7B3BDF27C0375300C7703B /* Details */,
-				AA7B3BE027C0375A00C7703B /* Related Channels */,
-				AA7B3BE127C0376200C7703B /* Profile Image */,
-			);
-			path = Channel;
-			sourceTree = "<group>";
-		};
-		AA7B3BD627C036F600C7703B /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BDC27C0373D00C7703B /* VideoListInterfaceController.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		AA7B3BD727C036FA00C7703B /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BD927C0371B00C7703B /* InfoInterfaceController.swift */,
-				AA7B3BD827C0371B00C7703B /* SubInfoInterfaceController.swift */,
+				AAF0F24227C3002E00BE51C5 /* InfoInterfaceController.swift */,
+				AAF0F24127C3002E00BE51C5 /* SubInfoInterfaceController.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
 		};
-		AA7B3BDE27C0374F00C7703B /* Main */ = {
+		AAFF5E522794C1FB006A7149 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BE227C0378C00C7703B /* ChannelViewInterfaceController.swift */,
+				AAF0F24927C3003F00BE51C5 /* VideoListInterfaceController.swift */,
 			);
-			path = Main;
+			path = Search;
 			sourceTree = "<group>";
 		};
-		AA7B3BDF27C0375300C7703B /* Details */ = {
+		AAFF5E532794C203006A7149 /* Channel */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BE427C0379D00C7703B /* ChannelDetailsInterfaceController.swift */,
+				AAF0F23C27C3002500BE51C5 /* ChannelDetailsInterfaceController.swift */,
+				AAF0F23B27C3002500BE51C5 /* ChannelViewInterfaceController.swift */,
+				AAF0F23927C3002400BE51C5 /* ProfileViewInterfaceController.swift */,
+				AAF0F23A27C3002500BE51C5 /* RelatedChannelsInterfaceController.swift */,
 			);
-			path = Details;
+			path = Channel;
 			sourceTree = "<group>";
 		};
-		AA7B3BE027C0375A00C7703B /* Related Channels */ = {
+		D72C93C8257D97740056D0BA = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BE627C037CD00C7703B /* RelatedChannelsInterfaceController.swift */,
+				D72C93D7257D97740056D0BA /* WatchTube WatchKit App */,
+				D72C93E6257D97770056D0BA /* WatchTube WatchKit Extension */,
+				D72C93D0257D97740056D0BA /* Products */,
+				AAF0F25327C3006F00BE51C5 /* Frameworks */,
 			);
-			path = "Related Channels";
 			sourceTree = "<group>";
 		};
-		AA7B3BE127C0376200C7703B /* Profile Image */ = {
+		D72C93D0257D97740056D0BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BE827C037D900C7703B /* ProfileViewInterfaceController.swift */,
+				D72C93CF257D97740056D0BA /* WatchTube.app */,
+				D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */,
+				D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */,
 			);
-			path = "Profile Image";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		AA7B3BEA27C037E800C7703B /* Main */ = {
+		D72C93D7257D97740056D0BA /* WatchTube WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BEC27C0380000C7703B /* PlaylistInterfaceController.swift */,
+				D72C93D8257D97740056D0BA /* Interface.storyboard */,
+				AA678D6627A326F200C70893 /* maxresdefault.jpg */,
+				AA9C8B202794F95B00C0CDD8 /* pfp.jpg */,
+				D72C93DD257D97770056D0BA /* Info.plist */,
+				AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */,
 			);
-			path = Main;
+			path = "WatchTube WatchKit App";
 			sourceTree = "<group>";
 		};
-		AA7B3BEB27C037EC00C7703B /* Sub */ = {
+		D72C93E6257D97770056D0BA /* WatchTube WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BEE27C0380C00C7703B /* SubPlaylistInterfaceController.swift */,
+				89826E7E2778B10600896853 /* Complications */,
+				D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */,
+				D72C942E257DB3EF0056D0BA /* Views */,
+				D72C940E257DABF60056D0BA /* Scenes */,
+				D72C9408257DA8BB0056D0BA /* Models */,
+				D72C93ED257D97780056D0BA /* Assets.xcassets */,
+				D72C93EF257D97780056D0BA /* Info.plist */,
 			);
-			path = Sub;
+			path = "WatchTube WatchKit Extension";
 			sourceTree = "<group>";
 		};
-		AA7B3BF027C0382200C7703B /* Preload */ = {
+		D72C9408257DA8BB0056D0BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BF627C0385B00C7703B /* NowPlayingInterfaceContoller.swift */,
-			);
-			path = Preload;
-			sourceTree = "<group>";
-		};
-		AA7B3BF127C0382800C7703B /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BF227C0384C00C7703B /* hlsPlayer.swift */,
-				AA7B3BF327C0384C00C7703B /* playerView.swift */,
-			);
-			path = Player;
-			sourceTree = "<group>";
-		};
-		AA7B3BF827C0388800C7703B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				AA7B3BFE27C038C600C7703B /* Classes */,
-				AA7B3BF927C0388D00C7703B /* Structures */,
+				AAF0F22C27C2FFCF00BE51C5 /* Structures */,
+				AAC670AD278E0A0D0023E505 /* Classes */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AA7B3BF927C0388D00C7703B /* Structures */ = {
+		D72C940E257DABF60056D0BA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3BFA27C038C400C7703B /* Settings.swift */,
-				AA7B3BFB27C038C400C7703B /* Video.swift */,
+				AAFF5E48279494CB006A7149 /* Players */,
+				AAFF5E4727949465006A7149 /* Content */,
+				AAFF5E49279494E2006A7149 /* Home */,
 			);
-			path = Structures;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
-		AA7B3BFE27C038C600C7703B /* Classes */ = {
+		D72C942E257DB3EF0056D0BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AA7B3C0027C038D600C7703B /* MetadataCache.swift */,
-				AA7B3BFF27C038D600C7703B /* Misc.swift */,
+				AAF0F25627C3013300BE51C5 /* ChannelsTableRow.swift */,
+				AAF0F25B27C3013300BE51C5 /* ChannelTableRow.swift */,
+				AAF0F25A27C3013300BE51C5 /* PlaylistTableRow.swift */,
+				AAF0F25C27C3013300BE51C5 /* SearchTermsTableRow.swift */,
+				AAF0F25827C3013300BE51C5 /* SubPlaylistTableRow.swift */,
+				AAF0F25727C3013300BE51C5 /* TrendingTableRow.swift */,
+				AAF0F25927C3013300BE51C5 /* VideoTableRow.swift */,
 			);
-			path = Classes;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AA04857027C02BA500A02BAD /* WatchTube WatchKit App */ = {
+		D72C93CE257D97740056D0BA /* WatchTube */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA04859627C02BA900A02BAD /* Build configuration list for PBXNativeTarget "WatchTube WatchKit App" */;
+			buildConfigurationList = D72C93FA257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube" */;
 			buildPhases = (
-				AA04856F27C02BA500A02BAD /* Resources */,
-				AA04859527C02BA900A02BAD /* Embed App Extensions */,
+				D72C93CD257D97740056D0BA /* Resources */,
+				D72C93F9257D97780056D0BA /* Embed Watch Content */,
+				44A5716629B292B9B34290AC /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AA04858227C02BA700A02BAD /* PBXTargetDependency */,
+				D72C93D6257D97740056D0BA /* PBXTargetDependency */,
+			);
+			name = WatchTube;
+			packageProductDependencies = (
+			);
+			productName = WatchTube;
+			productReference = D72C93CF257D97740056D0BA /* WatchTube.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		D72C93D2257D97740056D0BA /* WatchTube WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D72C93F6257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit App" */;
+			buildPhases = (
+				D72C93D1257D97740056D0BA /* Resources */,
+				D72C93F5257D97780056D0BA /* Embed App Extensions */,
+				B784D5D7CFC88F2ABC78F9B4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D72C93E5257D97770056D0BA /* PBXTargetDependency */,
 			);
 			name = "WatchTube WatchKit App";
+			packageProductDependencies = (
+			);
 			productName = "WatchTube WatchKit App";
-			productReference = AA04857127C02BA500A02BAD /* WatchTube WatchKit App.app */;
+			productReference = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		AA04857E27C02BA700A02BAD /* WatchTube WatchKit Extension */ = {
+		D72C93E1257D97770056D0BA /* WatchTube WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA04859227C02BA900A02BAD /* Build configuration list for PBXNativeTarget "WatchTube WatchKit Extension" */;
+			buildConfigurationList = D72C93F2257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit Extension" */;
 			buildPhases = (
-				AA04857B27C02BA700A02BAD /* Sources */,
-				AA04857C27C02BA700A02BAD /* Frameworks */,
-				AA04857D27C02BA700A02BAD /* Resources */,
+				D72C93DE257D97770056D0BA /* Sources */,
+				D72C93DF257D97770056D0BA /* Frameworks */,
+				D72C93E0257D97770056D0BA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -477,190 +411,144 @@
 			);
 			name = "WatchTube WatchKit Extension";
 			packageProductDependencies = (
-				8969444627C2DC1700E4AF70 /* SDWebImage */,
-				8969444827C2DC1700E4AF70 /* Alamofire */,
-				8969444A27C2DC1700E4AF70 /* YouTubeKit */,
+				890FEA37275D57AA00B573B8 /* SDWebImage */,
+				AAA25C54278C933700E23892 /* Alamofire */,
+				AAF0F25427C3006F00BE51C5 /* YouTubeKit */,
 			);
 			productName = "WatchTube WatchKit Extension";
-			productReference = AA04857F27C02BA700A02BAD /* WatchTube WatchKit Extension.appex */;
+			productReference = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
-		};
-		AA26060527C0412600FAE672 /* WatchTube */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AA26061127C0412800FAE672 /* Build configuration list for PBXNativeTarget "WatchTube" */;
-			buildPhases = (
-				AA26060227C0412600FAE672 /* Sources */,
-				AA26060327C0412600FAE672 /* Frameworks */,
-				AA26060427C0412600FAE672 /* Resources */,
-				AA26061727C0413B00FAE672 /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AA26061627C0413A00FAE672 /* PBXTargetDependency */,
-			);
-			name = WatchTube;
-			packageProductDependencies = (
-				8969443E27C2DB5A00E4AF70 /* SDWebImage */,
-				8969444127C2DB6A00E4AF70 /* Alamofire */,
-				8969444427C2DBB400E4AF70 /* YouTubeKit */,
-			);
-			productName = WatchTube;
-			productReference = AA26060627C0412600FAE672 /* WatchTube.app */;
-			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AA04855527C02BA100A02BAD /* Project object */ = {
+		D72C93C9257D97740056D0BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					AA04857027C02BA500A02BAD = {
-						CreatedOnToolsVersion = 13.2.1;
+					D72C93CE257D97740056D0BA = {
+						CreatedOnToolsVersion = 12.2;
 					};
-					AA04857E27C02BA700A02BAD = {
-						CreatedOnToolsVersion = 13.2.1;
+					D72C93D2257D97740056D0BA = {
+						CreatedOnToolsVersion = 12.2;
 					};
-					AA26060527C0412600FAE672 = {
-						CreatedOnToolsVersion = 13.2.1;
+					D72C93E1257D97770056D0BA = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
-			buildConfigurationList = AA04855827C02BA100A02BAD /* Build configuration list for PBXProject "WatchTube" */;
-			compatibilityVersion = "Xcode 13.0";
+			buildConfigurationList = D72C93CC257D97740056D0BA /* Build configuration list for PBXProject "WatchTube" */;
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = AA04855427C02BA100A02BAD;
+			mainGroup = D72C93C8257D97740056D0BA;
 			packageReferences = (
-				8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */,
+				890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */,
 			);
-			productRefGroup = AA04855E27C02BA100A02BAD /* Products */;
+			productRefGroup = D72C93D0257D97740056D0BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AA26060527C0412600FAE672 /* WatchTube */,
-				AA04857027C02BA500A02BAD /* WatchTube WatchKit App */,
-				AA04857E27C02BA700A02BAD /* WatchTube WatchKit Extension */,
+				D72C93CE257D97740056D0BA /* WatchTube */,
+				D72C93D2257D97740056D0BA /* WatchTube WatchKit App */,
+				D72C93E1257D97770056D0BA /* WatchTube WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AA04856F27C02BA500A02BAD /* Resources */ = {
+		D72C93CD257D97740056D0BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA7B3BBB27C0359700C7703B /* pfp.jpg in Resources */,
-				AA04857A27C02BA700A02BAD /* Assets.xcassets in Resources */,
-				AA7B3BBA27C0359700C7703B /* maxresdefault.jpg in Resources */,
-				AA04857827C02BA500A02BAD /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA04857D27C02BA700A02BAD /* Resources */ = {
+		D72C93D1257D97740056D0BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA04858D27C02BA900A02BAD /* Assets.xcassets in Resources */,
+				AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */,
+				AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */,
+				AAF0F23027C2FFF900BE51C5 /* Assets.xcassets in Resources */,
+				D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AA26060427C0412600FAE672 /* Resources */ = {
+		D72C93E0257D97770056D0BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA26061027C0412800FAE672 /* Preview Assets.xcassets in Resources */,
+				D72C93EE257D97780056D0BA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AA04857B27C02BA700A02BAD /* Sources */ = {
+		D72C93DE257D97770056D0BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA7B3BEF27C0380C00C7703B /* SubPlaylistInterfaceController.swift in Sources */,
-				AA7B3BC527C0363000C7703B /* PlaylistTableRow.swift in Sources */,
-				AA7B3BDD27C0373D00C7703B /* VideoListInterfaceController.swift in Sources */,
-				AA7B3C0127C038D600C7703B /* Misc.swift in Sources */,
-				AA0B1A3727C2941D003EA87E /* SearchTermsTableRow.swift in Sources */,
-				AA7B3BC727C0363000C7703B /* TrendingTableRow.swift in Sources */,
-				AA04858927C02BA700A02BAD /* NotificationController.swift in Sources */,
-				AA7B3BF427C0384C00C7703B /* hlsPlayer.swift in Sources */,
-				AA7B3BED27C0380000C7703B /* PlaylistInterfaceController.swift in Sources */,
-				AA7B3BC627C0363000C7703B /* SubPlaylistTableRow.swift in Sources */,
-				AA0B1A3527C28551003EA87E /* SearchInterfaceController.swift in Sources */,
-				AA7B3BFD27C038C400C7703B /* Video.swift in Sources */,
-				AA7B3BFC27C038C400C7703B /* Settings.swift in Sources */,
-				AA7B3BC427C0363000C7703B /* VideoTableRow.swift in Sources */,
-				AA7B3BE527C0379D00C7703B /* ChannelDetailsInterfaceController.swift in Sources */,
-				AA7B3BD027C036A100C7703B /* InterfaceController.swift in Sources */,
-				AA7B3BE327C0378C00C7703B /* ChannelViewInterfaceController.swift in Sources */,
-				AA7B3BC827C0363000C7703B /* ChannelsTableRow.swift in Sources */,
-				AA7B3BC927C0363000C7703B /* ChannelTableRow.swift in Sources */,
-				AA04858B27C02BA700A02BAD /* ComplicationController.swift in Sources */,
-				AA7B3BF727C0385B00C7703B /* NowPlayingInterfaceContoller.swift in Sources */,
-				AA7B3BF527C0384C00C7703B /* playerView.swift in Sources */,
-				AA7B3BD327C036B100C7703B /* SettingsInterfaceController.swift in Sources */,
-				AA7B3BDA27C0371B00C7703B /* SubInfoInterfaceController.swift in Sources */,
-				AA04858727C02BA700A02BAD /* ExtensionDelegate.swift in Sources */,
-				AA7B3BE927C037D900C7703B /* ProfileViewInterfaceController.swift in Sources */,
-				AA7B3BDB27C0371B00C7703B /* InfoInterfaceController.swift in Sources */,
-				AA7B3BE727C037CD00C7703B /* RelatedChannelsInterfaceController.swift in Sources */,
-				AA7B3C0227C038D600C7703B /* MetadataCache.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AA26060227C0412600FAE672 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AA26060B27C0412600FAE672 /* (null) in Sources */,
-				AA26060927C0412600FAE672 /* WatchTubeApp.swift in Sources */,
-				AA9ED75727C0525500670116 /* ContentView.swift in Sources */,
-				AA0C350E27C1685000353CD4 /* PlansView.swift in Sources */,
+				AAF0F24A27C3003F00BE51C5 /* VideoListInterfaceController.swift in Sources */,
+				AAF0F26327C3013300BE51C5 /* SearchTermsTableRow.swift in Sources */,
+				AAF0F24727C3003700BE51C5 /* SubPlaylistInterfaceController.swift in Sources */,
+				89826E802778B13800896853 /* ComplicationController.swift in Sources */,
+				AAF0F23D27C3002500BE51C5 /* ProfileViewInterfaceController.swift in Sources */,
+				AAF0F24827C3003700BE51C5 /* PlaylistInterfaceController.swift in Sources */,
+				AA71A0D027B59DA80099BDC9 /* playerView.swift in Sources */,
+				AAF0F23E27C3002500BE51C5 /* RelatedChannelsInterfaceController.swift in Sources */,
+				AAF0F23827C3000800BE51C5 /* Settings.swift in Sources */,
+				AAF0F25F27C3013300BE51C5 /* SubPlaylistTableRow.swift in Sources */,
+				AAF0F25027C3005900BE51C5 /* InterfaceController.swift in Sources */,
+				AAF0F25E27C3013300BE51C5 /* TrendingTableRow.swift in Sources */,
+				AAF0F26127C3013300BE51C5 /* PlaylistTableRow.swift in Sources */,
+				AAF0F25D27C3013300BE51C5 /* ChannelsTableRow.swift in Sources */,
+				AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */,
+				D72C93EA257D97770056D0BA /* ExtensionDelegate.swift in Sources */,
+				AAF0F23F27C3002500BE51C5 /* ChannelViewInterfaceController.swift in Sources */,
+				AAF0F25127C3005900BE51C5 /* SearchInterfaceController.swift in Sources */,
+				AAF0F24C27C3004D00BE51C5 /* NowPlayingInterfaceContoller.swift in Sources */,
+				AAF0F24427C3002E00BE51C5 /* InfoInterfaceController.swift in Sources */,
+				AAF0F26027C3013300BE51C5 /* VideoTableRow.swift in Sources */,
+				AAF0F23727C3000800BE51C5 /* Video.swift in Sources */,
+				AAF0F24027C3002500BE51C5 /* ChannelDetailsInterfaceController.swift in Sources */,
+				AAF0F25227C3005900BE51C5 /* SettingsInterfaceController.swift in Sources */,
+				AAF0F23427C3000100BE51C5 /* Misc.swift in Sources */,
+				AAF0F26227C3013300BE51C5 /* ChannelTableRow.swift in Sources */,
+				AAF0F24327C3002E00BE51C5 /* SubInfoInterfaceController.swift in Sources */,
+				AAF0F23327C3000100BE51C5 /* MetadataCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AA04858227C02BA700A02BAD /* PBXTargetDependency */ = {
+		D72C93D6257D97740056D0BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA04857E27C02BA700A02BAD /* WatchTube WatchKit Extension */;
-			targetProxy = AA04858127C02BA700A02BAD /* PBXContainerItemProxy */;
+			target = D72C93D2257D97740056D0BA /* WatchTube WatchKit App */;
+			targetProxy = D72C93D5257D97740056D0BA /* PBXContainerItemProxy */;
 		};
-		AA26061627C0413A00FAE672 /* PBXTargetDependency */ = {
+		D72C93E5257D97770056D0BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA04857027C02BA500A02BAD /* WatchTube WatchKit App */;
-			targetProxy = AA26061527C0413A00FAE672 /* PBXContainerItemProxy */;
+			target = D72C93E1257D97770056D0BA /* WatchTube WatchKit Extension */;
+			targetProxy = D72C93E4257D97770056D0BA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AA04856B27C02BA500A02BAD /* LaunchScreen.storyboard */ = {
+		D72C93D8257D97740056D0BA /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AA04856C27C02BA500A02BAD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		AA04857627C02BA500A02BAD /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA04857727C02BA500A02BAD /* Base */,
+				D72C93D9257D97740056D0BA /* Base */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -668,13 +556,13 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AA04859027C02BA900A02BAD /* Debug */ = {
+		D72C93F0257D97780056D0BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -719,21 +607,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		AA04859127C02BA900A02BAD /* Release */ = {
+		D72C93F1257D97780056D0BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -772,231 +662,171 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		AA04859327C02BA900A02BAD /* Debug */ = {
+		D72C93F3257D97780056D0BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
-				DEVELOPMENT_TEAM = N36Z4HYRU9;
-				GENERATE_INFOPLIST_FILE = YES;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WatchTube;
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchTube_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_WKExtensionDelegateClassName = WatchTube_WatchKit_Extension.ExtensionDelegate;
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.develop.watchtube.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Debug;
 		};
-		AA04859427C02BA900A02BAD /* Release */ = {
+		D72C93F4257D97780056D0BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = N36Z4HYRU9;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WatchTube;
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = WatchTube_WatchKit_Extension.ComplicationController;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_WKExtensionDelegateClassName = WatchTube_WatchKit_Extension.ExtensionDelegate;
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
-		AA04859727C02BA900A02BAD /* Debug */ = {
+		D72C93F7257D97780056D0BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = 9Q5DU84SYV;
+				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.develop.watchtube.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		D72C93F8257D97780056D0BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = N36Z4HYRU9;
-				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = WatchTube_WatchKit_Extension;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.suuperbro.watchtube;
-				MARKETING_VERSION = 1.0;
+				IBSC_MODULE = youtubedl_watchos_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchTube WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp;
-				PRODUCT_NAME = "WatchTube WatchKit App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.3;
-			};
-			name = Debug;
-		};
-		AA04859827C02BA900A02BAD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
-				DEVELOPMENT_TEAM = N36Z4HYRU9;
-				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = WatchTube_WatchKit_Extension;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.suuperbro.watchtube;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp;
-				PRODUCT_NAME = "WatchTube WatchKit App";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 8.3;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
 			};
 			name = Release;
 		};
-		AA26061227C0412800FAE672 /* Debug */ = {
+		D72C93FB257D97780056D0BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchTube/Preview Content\"";
-				DEVELOPMENT_TEAM = N36Z4HYRU9;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WatchTube/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				CURRENT_PROJECT_VERSION = 19;
+				DEVELOPMENT_TEAM = 9Q5DU84SYV;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.develop.watchtube;
+				PRODUCT_NAME = WatchTube;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		AA26061327C0412800FAE672 /* Release */ = {
+		D72C93FC257D97780056D0BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
-				DEVELOPMENT_ASSET_PATHS = "\"WatchTube/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = N36Z4HYRU9;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WatchTube/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
+				PRODUCT_NAME = WatchTube;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA04855827C02BA100A02BAD /* Build configuration list for PBXProject "WatchTube" */ = {
+		D72C93CC257D97740056D0BA /* Build configuration list for PBXProject "WatchTube" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA04859027C02BA900A02BAD /* Debug */,
-				AA04859127C02BA900A02BAD /* Release */,
+				D72C93F0257D97780056D0BA /* Debug */,
+				D72C93F1257D97780056D0BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA04859227C02BA900A02BAD /* Build configuration list for PBXNativeTarget "WatchTube WatchKit Extension" */ = {
+		D72C93F2257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA04859327C02BA900A02BAD /* Debug */,
-				AA04859427C02BA900A02BAD /* Release */,
+				D72C93F3257D97780056D0BA /* Debug */,
+				D72C93F4257D97780056D0BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA04859627C02BA900A02BAD /* Build configuration list for PBXNativeTarget "WatchTube WatchKit App" */ = {
+		D72C93F6257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA04859727C02BA900A02BAD /* Debug */,
-				AA04859827C02BA900A02BAD /* Release */,
+				D72C93F7257D97780056D0BA /* Debug */,
+				D72C93F8257D97780056D0BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA26061127C0412800FAE672 /* Build configuration list for PBXNativeTarget "WatchTube" */ = {
+		D72C93FA257D97780056D0BA /* Build configuration list for PBXNativeTarget "WatchTube" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AA26061227C0412800FAE672 /* Debug */,
-				AA26061327C0412800FAE672 /* Release */,
+				D72C93FB257D97780056D0BA /* Debug */,
+				D72C93FC257D97780056D0BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1004,15 +834,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
-				branch = master;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "http://github.com/alexeichhorn/YouTubeKit";
+			requirement = {
+				branch = main;
 				kind = branch;
 			};
 		};
-		8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
@@ -1020,48 +858,25 @@
 				version = 5.4.4;
 			};
 		};
-		8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alexeichhorn/YouTubeKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.4;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8969443E27C2DB5A00E4AF70 /* SDWebImage */ = {
+		890FEA37275D57AA00B573B8 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
-		8969444127C2DB6A00E4AF70 /* Alamofire */ = {
+		AAA25C54278C933700E23892 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		8969444427C2DBB400E4AF70 /* YouTubeKit */ = {
+		AAF0F25427C3006F00BE51C5 /* YouTubeKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */;
-			productName = YouTubeKit;
-		};
-		8969444627C2DC1700E4AF70 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		8969444827C2DC1700E4AF70 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		8969444A27C2DC1700E4AF70 /* YouTubeKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */;
+			package = AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */;
 			productName = YouTubeKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AA04855527C02BA100A02BAD /* Project object */;
+	rootObject = D72C93C9257D97740056D0BA /* Project object */;
 }

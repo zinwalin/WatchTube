@@ -12,20 +12,20 @@
       },
       {
         "package": "SDWebImage",
-        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
         "state": {
-          "branch": "master",
-          "revision": "2c53f531f1bedd253f55d85105409c28ed4a922c",
-          "version": null
+          "branch": null,
+          "revision": "a72df4849408da7e5d3c1b586797b7c601c41d1b",
+          "version": "5.12.1"
         }
       },
       {
         "package": "YouTubeKit",
-        "repositoryURL": "https://github.com/alexeichhorn/YouTubeKit",
+        "repositoryURL": "http://github.com/alexeichhorn/YouTubeKit",
         "state": {
-          "branch": null,
-          "revision": "10793dee422bd50f2be49cccd1555bb7eb870fa6",
-          "version": "0.1.4"
+          "branch": "main",
+          "revision": "b560b85039512ed4d1bf0bce52300afcbeacfba9",
+          "version": null
         }
       }
     ]
