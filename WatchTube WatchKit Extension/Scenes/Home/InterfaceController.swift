@@ -13,7 +13,6 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var loader: WKInterfaceImage!
     @IBOutlet weak var TrendingTableRow: WKInterfaceTable!
     @IBOutlet weak var internetLabel: WKInterfaceLabel!
-    @IBOutlet weak var searchButton: WKInterfaceButton!
     @IBOutlet weak var tooltipLabel: WKInterfaceLabel!
     @IBOutlet weak var reloadButton: WKInterfaceButton!
     
@@ -53,23 +52,23 @@ class InterfaceController: WKInterfaceController {
         awake(withContext: "")
     }
     
-    @IBAction func searchVideoButtonTapped() {
-        
-        var keywordsHistory = UserDefaults.standard.stringArray(forKey: preferencesKeys.keywordsHistory) ?? [String]()
-        let lastTwentyKeywordsHistory = Array(keywordsHistory.suffix(20))
-        self.presentTextInputController(withSuggestions: lastTwentyKeywordsHistory.reversed(), allowedInputMode: .plain) { (keywords) in
-            if let keyword = keywords as? [String] {
-                if keyword.count > 0 {
-                    if let index = keywordsHistory.firstIndex(of: keyword[0]) {
-                        keywordsHistory.remove(at: index)
-                    }
-                    keywordsHistory.append(keyword[0])
-                    UserDefaults.standard.set(keywordsHistory, forKey: preferencesKeys.keywordsHistory)
-                    self.pushController(withName: "VideoListInterfaceController", context: keyword[0])
-                }
-            }
-        }
-    }
+//    @IBAction func searchVideoButtonTapped() {
+//        
+//        var keywordsHistory = UserDefaults.standard.stringArray(forKey: preferencesKeys.keywordsHistory) ?? [String]()
+//        let lastTwentyKeywordsHistory = Array(keywordsHistory.suffix(20))
+//        self.presentTextInputController(withSuggestions: lastTwentyKeywordsHistory.reversed(), allowedInputMode: .plain) { (keywords) in
+//            if let keyword = keywords as? [String] {
+//                if keyword.count > 0 {
+//                    if let index = keywordsHistory.firstIndex(of: keyword[0]) {
+//                        keywordsHistory.remove(at: index)
+//                    }
+//                    keywordsHistory.append(keyword[0])
+//                    UserDefaults.standard.set(keywordsHistory, forKey: preferencesKeys.keywordsHistory)
+//                    self.pushController(withName: "VideoListInterfaceController", context: keyword[0])
+//                }
+//            }
+//        }
+//    }
     
     func setupTable() -> Void {
         TrendingTableRow.setNumberOfRows(videos.count, withRowType: "TrendingRow")

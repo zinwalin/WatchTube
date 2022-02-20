@@ -63,7 +63,13 @@ class Video {
                             let url = thumbs[thumbs.count - 1]["url"] as! String
                             let channel = item["author"] as! String
                             let subs = (item["subCount"] as! Int).abbreviated
-                            let vid = Video(id: udid, title: "", img: "https:\(url)", channel: channel, subs: subs, type: item["type"] as! String)
+                            var imgurl: String!
+                            if url.contains("https:") {
+                                imgurl = "\(url)"
+                            } else {
+                                imgurl = "https:\(url)"
+                            }
+                            let vid = Video(id: udid, title: "", img: imgurl, channel: channel, subs: subs, type: item["type"] as! String)
                             videos.append(vid)
                             
                         case "playlist":
