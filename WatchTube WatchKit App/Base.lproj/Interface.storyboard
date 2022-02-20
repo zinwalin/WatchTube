@@ -818,7 +818,6 @@
                                     <group alignment="left" verticalAlignment="center" radius="17" id="geY-WJ-aO3">
                                         <items>
                                             <imageView width="35" height="35" alignment="left" verticalAlignment="center" image="iconDark" contentMode="scaleAspectFit" id="MZf-AX-cKO">
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <variation key="device=watch38mm" height="20" width="20"/>
                                             </imageView>
                                         </items>
@@ -834,6 +833,9 @@
                                 <color key="backgroundColor" name="buttons"/>
                                 <variation key="device=watch38mm" height="35"/>
                             </group>
+                            <connections>
+                                <segue destination="252-Fw-M0F" kind="push" id="rDn-zE-fVR"/>
+                            </connections>
                         </button>
                         <separator alignment="left" id="6m8-1W-2Ve">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
