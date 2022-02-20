@@ -53,10 +53,18 @@ class SearchInterfaceController: WKInterfaceController {
                 row.text = lastTwentyKeywordsHistory[i]
                 tableContents.append(lastTwentyKeywordsHistory[i])
             }
+            if lastTwentyKeywordsHistory.count == 0 {
+                self.tableLabel.setHidden(true)
+            } else {
+                self.tableLabel.setHidden(false)
+            }
         } else {
             let suggestionpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search/suggestions?q=\(terms.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
             AF.request(suggestionpath) { $0.timeoutInterval = 3 }.validate().responseJSON {res in
                 self.tableLabel.setText("Suggestions")
+                self.tableLabel.setHidden(false)
+                self.tableContents = []
+
                 switch res.result {
                 case .success(let data):
                     let json = data as! Dictionary<String, Any>
@@ -89,6 +97,11 @@ class SearchInterfaceController: WKInterfaceController {
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         let term = tableContents[rowIndex]
+        var keywordsHistory = UserDefaults.standard.stringArray(forKey: preferencesKeys.keywordsHistory) ?? [String]()
+        if keywordsHistory.contains(term) {} else {
+            keywordsHistory.append(term)
+            UserDefaults.standard.set(keywordsHistory, forKey: preferencesKeys.keywordsHistory)
+        }
         self.pushController(withName: "VideoListInterfaceController", context: term)
     }
 }

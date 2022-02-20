@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3747E825-D636-452B-9A9E-2012C19FDB15"
-            shouldBeEnabled = "No"
+            uuid = "AC58C9E0-94B9-4A47-A937-2C961AA6CA3A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WatchTube WatchKit Extension/Scenes/Players/Preload/NowPlayingInterfaceContoller.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "main(context:)"
             landmarkType = "7">
          </BreakpointContent>
