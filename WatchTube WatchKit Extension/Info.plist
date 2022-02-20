@@ -16,5 +16,12 @@
 	<array>
 		<string>audio</string>
 	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
