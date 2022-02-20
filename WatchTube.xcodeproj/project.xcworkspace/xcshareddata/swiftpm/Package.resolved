@@ -1,32 +1,34 @@
 {
-  "pins" : [
-    {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire",
-      "state" : {
-        "revision" : "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
-        "version" : "5.4.4"
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "d120af1e8638c7da36c8481fd61a66c0c08dc4fc",
+          "version": "5.4.4"
+        }
+      },
+      {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage",
+        "state": {
+          "branch": "master",
+          "revision": "2c53f531f1bedd253f55d85105409c28ed4a922c",
+          "version": null
+        }
+      },
+      {
+        "package": "YouTubeKit",
+        "repositoryURL": "https://github.com/alexeichhorn/YouTubeKit",
+        "state": {
+          "branch": null,
+          "revision": "10793dee422bd50f2be49cccd1555bb7eb870fa6",
+          "version": "0.1.4"
+        }
       }
-    },
-    {
-      "identity" : "sdwebimage",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/SDWebImage",
-      "state" : {
-        "revision" : "2c53f531f1bedd253f55d85105409c28ed4a922c",
-        "version" : "5.12.3"
-      }
-    },
-    {
-      "identity" : "youtubekit",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/alexeichhorn/YouTubeKit",
-      "state" : {
-        "branch" : "main",
-        "revision" : "b560b85039512ed4d1bf0bce52300afcbeacfba9"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

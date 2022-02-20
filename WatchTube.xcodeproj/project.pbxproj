@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8969443F27C2DB5A00E4AF70 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8969443E27C2DB5A00E4AF70 /* SDWebImage */; };
+		8969444227C2DB6A00E4AF70 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444127C2DB6A00E4AF70 /* Alamofire */; };
+		8969444527C2DBB400E4AF70 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444427C2DBB400E4AF70 /* YouTubeKit */; };
+		8969444727C2DC1700E4AF70 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444627C2DC1700E4AF70 /* SDWebImage */; };
+		8969444927C2DC1700E4AF70 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444827C2DC1700E4AF70 /* Alamofire */; };
+		8969444B27C2DC1700E4AF70 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8969444A27C2DC1700E4AF70 /* YouTubeKit */; };
 		AA04857827C02BA500A02BAD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA04857627C02BA500A02BAD /* Interface.storyboard */; };
 		AA04857A27C02BA700A02BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA04857927C02BA700A02BAD /* Assets.xcassets */; };
 		AA04858027C02BA700A02BAD /* WatchTube WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AA04857F27C02BA700A02BAD /* WatchTube WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -17,9 +23,6 @@
 		AA0B1A3527C28551003EA87E /* SearchInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B1A3427C28551003EA87E /* SearchInterfaceController.swift */; };
 		AA0B1A3727C2941D003EA87E /* SearchTermsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B1A3627C2941D003EA87E /* SearchTermsTableRow.swift */; };
 		AA0C350E27C1685000353CD4 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0C350D27C1685000353CD4 /* PlansView.swift */; };
-		AA2605E127C03B1B00FAE672 /* YouTubeKit in Frameworks */ = {isa = PBXBuildFile; productRef = AA2605E027C03B1B00FAE672 /* YouTubeKit */; };
-		AA2605E327C03B1B00FAE672 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA2605E227C03B1B00FAE672 /* SDWebImage */; };
-		AA2605E527C03B1B00FAE672 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AA2605E427C03B1B00FAE672 /* Alamofire */; };
 		AA26060927C0412600FAE672 /* WatchTubeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26060827C0412600FAE672 /* WatchTubeApp.swift */; };
 		AA26060B27C0412600FAE672 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		AA26061027C0412800FAE672 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA26060F27C0412800FAE672 /* Preview Assets.xcassets */; };
@@ -151,9 +154,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2605E527C03B1B00FAE672 /* Alamofire in Frameworks */,
-				AA2605E327C03B1B00FAE672 /* SDWebImage in Frameworks */,
-				AA2605E127C03B1B00FAE672 /* YouTubeKit in Frameworks */,
+				8969444727C2DC1700E4AF70 /* SDWebImage in Frameworks */,
+				8969444927C2DC1700E4AF70 /* Alamofire in Frameworks */,
+				8969444B27C2DC1700E4AF70 /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +164,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8969443F27C2DB5A00E4AF70 /* SDWebImage in Frameworks */,
+				8969444227C2DB6A00E4AF70 /* Alamofire in Frameworks */,
+				8969444527C2DBB400E4AF70 /* YouTubeKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,9 +477,9 @@
 			);
 			name = "WatchTube WatchKit Extension";
 			packageProductDependencies = (
-				AA2605E027C03B1B00FAE672 /* YouTubeKit */,
-				AA2605E227C03B1B00FAE672 /* SDWebImage */,
-				AA2605E427C03B1B00FAE672 /* Alamofire */,
+				8969444627C2DC1700E4AF70 /* SDWebImage */,
+				8969444827C2DC1700E4AF70 /* Alamofire */,
+				8969444A27C2DC1700E4AF70 /* YouTubeKit */,
 			);
 			productName = "WatchTube WatchKit Extension";
 			productReference = AA04857F27C02BA700A02BAD /* WatchTube WatchKit Extension.appex */;
@@ -494,6 +500,11 @@
 				AA26061627C0413A00FAE672 /* PBXTargetDependency */,
 			);
 			name = WatchTube;
+			packageProductDependencies = (
+				8969443E27C2DB5A00E4AF70 /* SDWebImage */,
+				8969444127C2DB6A00E4AF70 /* Alamofire */,
+				8969444427C2DBB400E4AF70 /* YouTubeKit */,
+			);
 			productName = WatchTube;
 			productReference = AA26060627C0412600FAE672 /* WatchTube.app */;
 			productType = "com.apple.product-type.application";
@@ -529,9 +540,9 @@
 			);
 			mainGroup = AA04855427C02BA100A02BAD;
 			packageReferences = (
-				AA7B3C0327C0396A00C7703B /* XCRemoteSwiftPackageReference "YouTubeKit" */,
-				AA2605D927C03A9A00FAE672 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				AA2605DC27C03AD900FAE672 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */,
 			);
 			productRefGroup = AA04855E27C02BA100A02BAD /* Products */;
 			projectDirPath = "";
@@ -774,7 +785,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WatchTube;
@@ -788,7 +799,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchTube.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.watchtube;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -839,13 +850,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchTube_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.WatchTube;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.watchtube;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchTube.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.watchtube;
 				PRODUCT_NAME = "WatchTube WatchKit App";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -868,7 +879,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = WatchTube_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.WatchTube;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.llsc12.watchtube;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.suuperbro.watchtube.watchkitapp;
 				PRODUCT_NAME = "WatchTube WatchKit App";
@@ -890,7 +901,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"WatchTube/Preview Content\"";
-				DEVELOPMENT_TEAM = 566RT33SA2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WatchTube/Info.plist;
@@ -905,7 +916,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.WatchTube;
+				PRODUCT_BUNDLE_IDENTIFIER = com.llsc12.watchtube;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -989,47 +1000,62 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AA2605D927C03A9A00FAE672 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
-		AA2605DC27C03AD900FAE672 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.4.4;
+				kind = exactVersion;
+				version = 5.4.4;
 			};
 		};
-		AA7B3C0327C0396A00C7703B /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
+		8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "http://github.com/alexeichhorn/YouTubeKit";
+			repositoryURL = "https://github.com/alexeichhorn/YouTubeKit";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AA2605E027C03B1B00FAE672 /* YouTubeKit */ = {
+		8969443E27C2DB5A00E4AF70 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AA7B3C0327C0396A00C7703B /* XCRemoteSwiftPackageReference "YouTubeKit" */;
-			productName = YouTubeKit;
-		};
-		AA2605E227C03B1B00FAE672 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA2605D927C03A9A00FAE672 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = 8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
-		AA2605E427C03B1B00FAE672 /* Alamofire */ = {
+		8969444127C2DB6A00E4AF70 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AA2605DC27C03AD900FAE672 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = 8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		8969444427C2DBB400E4AF70 /* YouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */;
+			productName = YouTubeKit;
+		};
+		8969444627C2DC1700E4AF70 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8969443D27C2DB5A00E4AF70 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		8969444827C2DC1700E4AF70 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8969444027C2DB6A00E4AF70 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		8969444A27C2DC1700E4AF70 /* YouTubeKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8969444327C2DBB400E4AF70 /* XCRemoteSwiftPackageReference "YouTubeKit" */;
+			productName = YouTubeKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
