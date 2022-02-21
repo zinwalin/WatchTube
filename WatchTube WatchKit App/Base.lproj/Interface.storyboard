@@ -1474,11 +1474,52 @@
                             <string key="text">WatchTube shows whatever is trending currently on YouTube! You can tap on any of these videos to watch them! WatchTube uses a page-based system, you can swipe to different pages such as search and settings.</string>
                         </label>
                         <imageView alignment="left" image="searchrecents" contentMode="scaleAspectFit" id="i67-Z0-iQy"/>
-                        <label alignment="left" text="The guide is not finished yet." numberOfLines="0" id="FR1-OW-s0B"/>
+                        <label alignment="left" numberOfLines="0" id="FR1-OW-s0B">
+                            <string key="text">Search will store your recent searches for use later. You can type a query in and WatchTube will show you suggestions from YouTube!</string>
+                        </label>
+                        <imageView alignment="left" image="searchresults" id="h0f-ph-LDK"/>
+                        <label alignment="left" numberOfLines="0" id="1vP-az-SEC">
+                            <string key="text">Search results are also similar to YouTube, you can see videos, playlists and channels. Channels and playlists can be browsed and you can play a video inside them.</string>
+                        </label>
+                        <imageView alignment="left" image="nowplaying" id="fiX-W3-5dR"/>
+                        <label alignment="left" numberOfLines="0" id="wS8-UC-Ij8">
+                            <string key="text">Once you've tapped on a video to play, you can get watching! Just wait for it to load some data from YouTube to stream your video. From here, you can tap the play button in the center of your screen to play. You can access video information from the info button in the bottom right or tap the channel name in the bottom left to go to that channel.</string>
+                        </label>
+                        <imageView alignment="left" image="channelview" id="D4H-Sn-yAq"/>
+                        <label alignment="left" numberOfLines="0" id="AfP-Iw-ykC">
+                            <string key="text">When you open a channel, you can see a list of recent videos from the channel. The UI here was designed to follow the YouTube aesthetic! You can change the amount of videos you see here in settings. You can scroll all the way down to find details about the channel and related channels. You can tap on the profile image of a channel to enlarge it.</string>
+                        </label>
+                        <imageView alignment="left" image="playlistview" id="Ob6-Ix-MEf"/>
+                        <label alignment="left" numberOfLines="0" id="u0Y-Um-2my">
+                            <string key="text">When you open a playlist, you'll be able to see a list of all the videos in it in a paged view. You can find the page controls at the bottom of the first page, and at the top of every subsequent page. You can tap the channel on the first page to be taken to that channel.</string>
+                        </label>
+                        <imageView alignment="left" image="settingspage" id="HHH-5s-Usr"/>
+                        <label alignment="left" numberOfLines="0" id="blg-qs-jad">
+                            <mutableString key="text">The settings page is the last page in the home menu. You can change many aspects of the app and how it behaves. You can change the quality of the media WatchTube loads depending on your network conditions. You can play a video's audio only to save data and have the ability to leave WatchTube and have music play in the background. You can change your invidious instance if needed. You can disable thumbnails to save data (it's recommended that you disable thumbnails on Series 3). You can change the quantity of items and results WatchTube should load (keep these settings at default or below on Series 3). You can change what kind of content shows in your trending feed.</mutableString>
+                        </label>
+                        <separator alignment="left" id="Mmt-rw-Wso">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <separator alignment="left" id="mcP-lS-yFg">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <separator alignment="left" id="kTR-BX-G0n">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" numberOfLines="0" id="wDv-TB-EpR">
+                            <string key="text">Thank you for taking the time to read this! We hope it helps you out and you love our app! Go to About in the settings page to join our discord server!</string>
+                        </label>
+                        <separator alignment="left" id="iq2-hO-bwP">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <separator alignment="left" id="DGM-8K-pRL">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="By the way, there's a few easter eggs in WatchTube. Have fun finding them!" numberOfLines="0" id="bBG-g0-egY"/>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-44" y="497"/>
+            <point key="canvasLocation" x="1050" y="348"/>
         </scene>
         <!--Done-->
         <scene sceneID="oAe-4v-6TH">
@@ -1510,6 +1551,7 @@
         <image name="WatchTubeDark" width="2048" height="2048"/>
         <image name="arrow.triangle.2.circlepath.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="channelview" width="396" height="484"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
@@ -1519,11 +1561,15 @@
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="loading0" width="164" height="181"/>
         <image name="maxresdefault" width="1280" height="720"/>
+        <image name="nowplaying" width="396" height="484"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pfp" width="512" height="512"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
+        <image name="playlistview" width="396" height="484"/>
         <image name="searchrecents" width="396" height="484"/>
+        <image name="searchresults" width="396" height="484"/>
+        <image name="settingspage" width="396" height="484"/>
         <image name="trendingfeed" width="396" height="484"/>
         <image name="twitter" width="556" height="556"/>
         <image name="watchtube" width="556" height="556"/>
