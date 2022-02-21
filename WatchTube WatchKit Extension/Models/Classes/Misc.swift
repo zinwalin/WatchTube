@@ -28,9 +28,6 @@ class misc {
         if UserDefaults.standard.value(forKey: settingsKeys.instanceUrl) == nil {
             UserDefaults.standard.set(Constants.defaultInstance, forKey: settingsKeys.instanceUrl)
         }
-        if UserDefaults.standard.value(forKey: settingsKeys.proxyContent) == nil {
-            UserDefaults.standard.set(true, forKey: settingsKeys.proxyContent)
-        }
         if UserDefaults.standard.value(forKey: settingsKeys.qualityToggle) == nil {
             UserDefaults.standard.set(true, forKey: settingsKeys.qualityToggle)
         }

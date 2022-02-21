@@ -333,9 +333,9 @@
 		D72C940E257DABF60056D0BA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AAFF5E49279494E2006A7149 /* Home */,
 				AAFF5E48279494CB006A7149 /* Players */,
 				AAFF5E4727949465006A7149 /* Content */,
-				AAFF5E49279494E2006A7149 /* Home */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -678,7 +678,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 19;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Q5DU84SYV;
 				INFOPLIST_FILE = "WatchTube WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

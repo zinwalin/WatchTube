@@ -60,11 +60,20 @@ class SearchInterfaceController: WKInterfaceController {
             }
         } else {
             let suggestionpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search/suggestions?q=\(terms.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
+            self.tableLabel.setText("Suggestions")
+            self.tableLabel.setHidden(false)
+            self.tableContents = []
+            self.searchTermsTableRow.setNumberOfRows(1, withRowType: "SearchTermsRow")
+            for i in 0 ..< 1 {
+                guard let row = self.searchTermsTableRow.rowController(at: i) as? SearchTermsRow else {
+                    continue
+                }
+                row.label.setText(terms)
+                row.text = terms
+                self.tableContents.append(terms)
+            }
             AF.request(suggestionpath) { $0.timeoutInterval = 3 }.validate().responseJSON {res in
-                self.tableLabel.setText("Suggestions")
-                self.tableLabel.setHidden(false)
-                self.tableContents = []
-
+                
                 switch res.result {
                 case .success(let data):
                     let json = data as! Dictionary<String, Any>
@@ -80,16 +89,8 @@ class SearchInterfaceController: WKInterfaceController {
                         row.text = suggestions[i]
                         self.tableContents.append(suggestions[i])
                     }
-                case .failure(_):
-                    self.searchTermsTableRow.setNumberOfRows(1, withRowType: "SearchTermsRow")
-                    for i in 0 ..< 1 {
-                        guard let row = self.searchTermsTableRow.rowController(at: i) as? SearchTermsRow else {
-                            continue
-                        }
-                        row.label.setText(terms)
-                        row.text = terms
-                        self.tableContents.append(terms)
-                    }
+                case .failure(let error):
+                    print(error)
                 }
             }
         }

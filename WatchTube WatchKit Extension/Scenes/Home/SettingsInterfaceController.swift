@@ -17,7 +17,6 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var itemsLabel: WKInterfaceLabel!
     @IBOutlet weak var homeVideosPicker: WKInterfacePicker!
     @IBOutlet weak var instancePicker: WKInterfacePicker!
-    @IBOutlet weak var proxyToggle: WKInterfaceSwitch!
     @IBOutlet weak var qualityToggle: WKInterfaceSwitch!
     @IBOutlet weak var instanceStatus: WKInterfaceLabel!
     
@@ -48,10 +47,6 @@ class SettingsInterfaceController: WKInterfaceController {
         } else {
             qualityToggle.setTitle("SD")
         }
-    }
-    
-    @IBAction func proxyToggle(_ value: Bool) {
-            userDefaults.set(value, forKey: settingsKeys.proxyContent)
     }
     
     @IBAction func resultLower() {
@@ -103,7 +98,6 @@ class SettingsInterfaceController: WKInterfaceController {
         thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
         audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
         qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
-        proxyToggle.setOn(userDefaults.bool(forKey: settingsKeys.proxyContent))
         if userDefaults.bool(forKey: settingsKeys.qualityToggle) == true {qualityToggle.setTitle("HD")} else {qualityToggle.setTitle("SD")}
         
         updateLabel()
