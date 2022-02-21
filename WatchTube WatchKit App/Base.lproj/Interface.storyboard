@@ -141,7 +141,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-191.63636363636365" y="-798.01652892561981"/>
+            <point key="canvasLocation" x="-174" y="-798"/>
         </scene>
         <!--Profile-->
         <scene sceneID="an7-zY-X1X">
@@ -159,7 +159,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-277" y="1121"/>
+            <point key="canvasLocation" x="-906" y="579"/>
         </scene>
         <!--Channel View-->
         <scene sceneID="EgX-Dg-W5F">
@@ -284,7 +284,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-69" y="977"/>
+            <point key="canvasLocation" x="-698" y="435"/>
         </scene>
         <!--Channel Details-->
         <scene sceneID="tpQ-1i-nF4">
@@ -407,7 +407,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="1199"/>
+            <point key="canvasLocation" x="-490" y="657"/>
         </scene>
         <!--Related Channels-->
         <scene sceneID="HAj-sg-jOC">
@@ -468,12 +468,12 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="860"/>
+            <point key="canvasLocation" x="-490" y="318"/>
         </scene>
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
             <objects>
-                <controller identifier="AboutInterfaceController" title="About" id="252-Fw-M0F" customClass="AboutInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                <controller identifier="AboutInterfaceController" title="About" id="252-Fw-M0F">
                     <items>
                         <label width="1" alignment="left" text="WatchTube was made by llsc12 and Superbro. WatchTube is open source and available on GitHub." numberOfLines="0" id="dxk-4D-zuo"/>
                         <separator alignment="left" id="uKv-u5-Icf">
@@ -602,7 +602,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="604" y="-195"/>
+            <point key="canvasLocation" x="357" y="-799"/>
         </scene>
         <!--Done-->
         <scene sceneID="pcw-hH-83A">
@@ -613,7 +613,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="839" y="-306"/>
+            <point key="canvasLocation" x="592" y="-910"/>
         </scene>
         <!--Done-->
         <scene sceneID="Lfh-Li-BDP">
@@ -624,7 +624,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1030" y="-306"/>
+            <point key="canvasLocation" x="783" y="-910"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5UF-dP-8ee">
@@ -841,7 +841,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="87" y="-604"/>
+            <point key="canvasLocation" x="66" y="-619"/>
         </scene>
         <!--Information-->
         <scene sceneID="aTa-mC-Wbf">
@@ -983,14 +983,14 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="348" y="549"/>
+            <point key="canvasLocation" x="-281" y="7"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="Kmj-Tq-jQ3">
             <objects>
                 <hostingController identifier="HlsPlayer" title="Now Playing" id="5nk-Sf-ssK" customClass="hlsPlayer" customModule="WatchTube_WatchKit_Extension"/>
             </objects>
-            <point key="canvasLocation" x="348" y="259"/>
+            <point key="canvasLocation" x="-281" y="-283"/>
         </scene>
         <!--Search-->
         <scene sceneID="6CP-fK-CVF">
@@ -1131,7 +1131,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-69" y="259"/>
+            <point key="canvasLocation" x="-698" y="-283"/>
         </scene>
         <!--Playlist-->
         <scene sceneID="X50-HO-H7x">
@@ -1236,7 +1236,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-70.060606060606062" y="549.3388429752066"/>
+            <point key="canvasLocation" x="-699" y="7"/>
         </scene>
         <!--SubPlaylist-->
         <scene sceneID="msN-NY-lWl">
@@ -1299,7 +1299,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="139" y="549"/>
+            <point key="canvasLocation" x="-490" y="7"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="osD-rO-mxG">
@@ -1414,7 +1414,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="138.06060606060606" y="258.51239669421489"/>
+            <point key="canvasLocation" x="-490" y="-283"/>
         </scene>
         <!--SubInfoInterfaceController-->
         <scene sceneID="X0g-ra-rul">
@@ -1430,7 +1430,26 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="604" y="549"/>
+            <point key="canvasLocation" x="-67" y="6"/>
+        </scene>
+        <!--Close-->
+        <scene sceneID="dy8-Z2-59O">
+            <objects>
+                <controller identifier="FirstTimeInterfaceController" title="Close" id="yAx-Nv-pcz">
+                    <items>
+                        <label alignment="left" numberOfLines="0" id="gxa-56-6A0">
+                            <string key="text">WatchTube tries to present itself as close to the official YouTube app it can, though changes have to be made to fit it on a watch! Don't worry though, it's simple! </string>
+                        </label>
+                        <imageView alignment="left" image="trendingfeed" contentMode="scaleAspectFit" id="rcI-CR-3OB"/>
+                        <label alignment="left" numberOfLines="0" id="2Xd-Dt-6Qf">
+                            <string key="text">WatchTube shows whatever is trending currently on YouTube! You can tap on any of these videos to watch them! WatchTube uses a page-based system, you can swipe to different pages such as search and settings.</string>
+                        </label>
+                        <imageView alignment="left" image="searchrecents" contentMode="scaleAspectFit" id="i67-Z0-iQy"/>
+                        <label alignment="left" text="The guide is not finished yet." numberOfLines="0" id="FR1-OW-s0B"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-44" y="497"/>
         </scene>
         <!--Done-->
         <scene sceneID="oAe-4v-6TH">
@@ -1441,7 +1460,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="839" y="-58"/>
+            <point key="canvasLocation" x="592" y="-662"/>
         </scene>
         <!--Done-->
         <scene sceneID="5lP-if-Mfh">
@@ -1452,7 +1471,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="1030" y="-58"/>
+            <point key="canvasLocation" x="783" y="-662"/>
         </scene>
     </scenes>
     <color key="tintColor" name="AccentColor"/>
@@ -1475,6 +1494,8 @@
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pfp" width="512" height="512"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
+        <image name="searchrecents" width="396" height="484"/>
+        <image name="trendingfeed" width="396" height="484"/>
         <image name="twitter" width="556" height="556"/>
         <image name="watchtube" width="556" height="556"/>
         <namedColor name="AccentColor">

@@ -32,6 +32,88 @@ class SettingsInterfaceController: WKInterfaceController {
     
     var instances: Array<String> = []
     
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
+        
+        // set the picker items up
+        let pickerItems: [WKPickerItem] = videoTypes.map {
+            let pickerItem = WKPickerItem()
+            pickerItem.title = $0.capitalizingFirstLetter()
+            return pickerItem
+        }
+        homeVideosPicker.setItems(pickerItems)
+        
+        // set all the properties of settings to match userdefaults
+        homeVideosPicker.setSelectedItemIndex(Int(videoTypes.firstIndex(of: userDefaults.string(forKey: settingsKeys.homePageVideoType)!)!))
+        thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
+        audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
+        qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
+        if userDefaults.bool(forKey: settingsKeys.qualityToggle) == true {qualityToggle.setTitle("HD")} else {qualityToggle.setTitle("SD")}
+        
+        updateLabel()
+
+        AF.request("https://api.invidious.io/instances.json").responseJSON { res in
+            switch res.result {
+            case .success(let json):
+                self.instances = []
+                
+                let data = json as! Array<Array<Any>>
+                for inst in data {
+                    let name = inst[0] as! String
+                    let info = inst[1] as! Dictionary<String, Any>
+                    let apiAvailability = info["api"] as? Int ?? 0
+                    if info["type"] as! String != "https" {continue}
+                    if apiAvailability == 0 {continue}
+                    self.instances.append(name)
+                }
+                
+                let instanceItems: [WKPickerItem] = self.instances.map {
+                    let pickerItem = WKPickerItem()
+                    pickerItem.title = $0
+                    return pickerItem
+                }
+                self.instancePicker.setItems(instanceItems)
+                self.instancePicker.setSelectedItemIndex(Int(self.instances.firstIndex(of: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!) ?? 0))
+            case .failure(_):
+                var instanceItems: [WKPickerItem] = []
+                let pickerItem = WKPickerItem()
+                pickerItem.title = UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!
+                instanceItems.append(pickerItem)
+                self.instancePicker.setItems(instanceItems)
+                self.instancePicker.setSelectedItemIndex(0)
+                self.instanceStatus.setText("Unable to load instances")
+                
+            }
+        }
+        // Configure interface objects here.
+    }
+    
+    @IBAction func selectInstance(_ value: Int) {
+        self.instancePicker.setEnabled(false)
+        self.instanceStatus.setTextColor(.lightGray)
+        self.instanceStatus.setText("Loading...")
+        AF.request("https://\(instances[value])/api/v1/search?q=e") { $0.timeoutInterval = 6 }.validate().responseJSON {resp in
+            switch resp.result {
+            case .success(_):
+                self.instancePicker.setEnabled(true)
+                
+                self.instanceStatus.setTextColor(.green)
+                self.instanceStatus.setText("\(self.instances[value]) works")
+                self.userDefaults.set(self.instances[value], forKey: settingsKeys.instanceUrl)
+            case .failure(_):
+                self.instancePicker.setEnabled(true)
+
+                self.instanceStatus.setTextColor(.red)
+                self.instanceStatus.setText("\(self.instances[value]) is broken")
+                break
+            }
+        }
+    }
+    
+    @IBAction func homeVideosSelection(_ value: Int) {
+        userDefaults.set(videoTypes[value], forKey: settingsKeys.homePageVideoType)
+    }
+    
     @IBAction func thumbnailsToggle(_ value: Bool) {
         userDefaults.set(value, forKey: settingsKeys.thumbnailsToggle)
     }
@@ -80,89 +162,6 @@ class SettingsInterfaceController: WKInterfaceController {
     func updateLabel() {
         resultsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.resultsCount) as! Int)) Results")
         itemsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.itemsCount) as! Int)) Items")
-    }
-    
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
-        
-        // set the picker items up
-        let pickerItems: [WKPickerItem] = videoTypes.map {
-            let pickerItem = WKPickerItem()
-            pickerItem.title = $0.capitalizingFirstLetter()
-            return pickerItem
-        }
-        homeVideosPicker.setItems(pickerItems)
-        
-        // set all the properties of settings to match userdefaults
-        homeVideosPicker.setSelectedItemIndex(Int(videoTypes.firstIndex(of: userDefaults.string(forKey: settingsKeys.homePageVideoType)!)!))
-        thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
-        audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
-        qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
-        if userDefaults.bool(forKey: settingsKeys.qualityToggle) == true {qualityToggle.setTitle("HD")} else {qualityToggle.setTitle("SD")}
-        
-        updateLabel()
-
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-        AF.request("https://api.invidious.io/instances.json").responseJSON { res in
-            switch res.result {
-            case .success(let json):
-                self.instances = []
-                
-                let data = json as! Array<Array<Any>>
-                for inst in data {
-                    let name = inst[0] as! String
-                    let info = inst[1] as! Dictionary<String, Any>
-                    if info["type"] as! String != "https" {continue}
-                    if info["type"] as! String != "https" {continue}
-                    self.instances.append(name)
-                }
-                
-                let instanceItems: [WKPickerItem] = self.instances.map {
-                    let pickerItem = WKPickerItem()
-                    pickerItem.title = $0
-                    return pickerItem
-                }
-                self.instancePicker.setItems(instanceItems)
-                self.instancePicker.setSelectedItemIndex(Int(self.instances.firstIndex(of: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!)!))
-            case .failure(_):
-                var instanceItems: [WKPickerItem] = []
-                let pickerItem = WKPickerItem()
-                pickerItem.title = UserDefaults.standard.string(forKey: settingsKeys.instanceUrl)!
-                instanceItems.append(pickerItem)
-                self.instancePicker.setItems(instanceItems)
-                self.instancePicker.setSelectedItemIndex(0)
-                self.instanceStatus.setText("Unable to load instances")
-                
-            }
-        }
-        // Configure interface objects here.
-    }
-    
-    @IBAction func selectInstance(_ value: Int) {
-        self.instancePicker.setEnabled(false)
-        self.instanceStatus.setTextColor(.lightGray)
-        self.instanceStatus.setText("Loading...")
-        AF.request("https://\(instances[value])/api/v1/search?q=e") { $0.timeoutInterval = 10 }.validate().responseJSON {resp in
-            switch resp.result {
-            case .success(_):
-                self.instancePicker.setEnabled(true)
-                
-                self.instanceStatus.setTextColor(.green)
-                self.instanceStatus.setText("\(self.instances[value]) works")
-                self.userDefaults.set(self.instances[value], forKey: settingsKeys.instanceUrl)
-            case .failure(_):
-                self.instancePicker.setEnabled(true)
-
-                self.instanceStatus.setTextColor(.red)
-                self.instanceStatus.setText("\(self.instances[value]) is broken")
-                break
-            }
-        }
-    }
-    
-    @IBAction func homeVideosSelection(_ value: Int) {
-        userDefaults.set(videoTypes[value], forKey: settingsKeys.homePageVideoType)
     }
 }
 

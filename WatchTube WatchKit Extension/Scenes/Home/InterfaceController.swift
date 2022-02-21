@@ -95,6 +95,19 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
+    override func didAppear() {
+        super.didAppear()
+        
+        if UserDefaults.standard.bool(forKey: settingsKeys.firstTimeGuide) == false {
+            let nope = WKAlertAction(title: "Nope", style: .default, handler: {self.presentAlert(withTitle: "Okay then", message: "You can show this again in settings.", preferredStyle: .alert, actions: [WKAlertAction(title: "Okay", style: .default, handler: {})])})
+            let sure = WKAlertAction(title: "Sure", style: .default, handler: {
+                self.presentController(withName: "FirstTimeInterfaceController", context: "")
+            })
+            UserDefaults.standard.setValue(true, forKey: settingsKeys.firstTimeGuide)
+            presentAlert(withTitle: "Welcome!", message: "Thanks for downloading WatchTube! Would you like to go through the first time help guide?", preferredStyle: .sideBySideButtonsAlert, actions: [nope, sure])
+        }
+    }
+    
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         let video = videos[rowIndex]
         if (meta.getVideoInfo(id: video.id, key: "title") as! String) == "???" {

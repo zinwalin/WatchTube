@@ -311,10 +311,10 @@
 			isa = PBXGroup;
 			children = (
 				89826E7E2778B10600896853 /* Complications */,
-				D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */,
 				D72C942E257DB3EF0056D0BA /* Views */,
 				D72C940E257DABF60056D0BA /* Scenes */,
 				D72C9408257DA8BB0056D0BA /* Models */,
+				D72C93E9257D97770056D0BA /* ExtensionDelegate.swift */,
 				D72C93ED257D97780056D0BA /* Assets.xcassets */,
 				D72C93EF257D97780056D0BA /* Info.plist */,
 			);
