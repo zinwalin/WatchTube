@@ -655,7 +655,7 @@
                                 <action selector="qualityToggle:" destination="BVh-TY-jCX" id="WzC-iC-Cpm"/>
                             </connections>
                         </switch>
-                        <label alignment="left" text="Make WatchTube load higher or lower quality videos. Affects speed accordingly." numberOfLines="0" id="aF9-xf-Iih">
+                        <label alignment="left" text="Make WatchTube load higher or lower quality video or audio." numberOfLines="0" id="aF9-xf-Iih">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -686,11 +686,23 @@
                                 <action selector="thumbnailsToggle:" destination="BVh-TY-jCX" id="ZBK-QY-vIC"/>
                             </connections>
                         </switch>
-                        <label alignment="left" text="Enable video thumbnails in search results, can save data if disabled and speedup loads." numberOfLines="0" id="ow9-gW-XgZ">
+                        <label alignment="left" text="Enable video thumbnails in the app, can save data if disabled and save data." numberOfLines="0" id="ow9-gW-XgZ">
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
                         <separator alignment="left" id="Aig-gO-K9X">
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <button width="1" alignment="left" title="Clear Recent Searches" id="t6Y-7m-nia">
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" type="system" pointSize="11"/>
+                            </variation>
+                            <connections>
+                                <action selector="ClearRecentSearches" destination="BVh-TY-jCX" id="M1c-hM-IRl"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="CK0-fS-oOm">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <group width="1" height="40" alignment="left" id="WBM-cw-F2V">
@@ -823,6 +835,23 @@
                             </group>
                             <connections>
                                 <segue destination="252-Fw-M0F" kind="push" id="rDn-zE-fVR"/>
+                            </connections>
+                        </button>
+                        <button alignment="left" title="About WatchTube" id="eDy-oI-T24">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="Uej-5O-aWY">
+                                <items>
+                                    <label alignment="center" verticalAlignment="center" text="Open Guide" id="2I0-2A-woq">
+                                        <fontDescription key="font" type="system" pointSize="21"/>
+                                        <variation key="device=watch38mm">
+                                            <fontDescription key="font" type="system" pointSize="16"/>
+                                        </variation>
+                                    </label>
+                                </items>
+                                <color key="backgroundColor" name="buttons"/>
+                                <variation key="device=watch38mm" height="35"/>
+                            </group>
+                            <connections>
+                                <segue destination="yAx-Nv-pcz" kind="modal" id="efp-Eb-voa"/>
                             </connections>
                         </button>
                         <separator alignment="left" id="6m8-1W-2Ve">

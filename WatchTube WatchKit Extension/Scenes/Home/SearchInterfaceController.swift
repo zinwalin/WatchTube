@@ -16,11 +16,14 @@ class SearchInterfaceController: WKInterfaceController {
     @IBOutlet weak var clearButton: WKInterfaceButton!
     var tableContents: Array<String> = []
     
-    override func awake(withContext context: Any?) {
-        super.awake(withContext: context)
+    override func willActivate() {
+        super.willActivate()
         input.setRelativeWidth(1, withAdjustment: 0)
         updateSearch(terms: "")
+        input.setText("")
+
     }
+
 
     @IBAction func ClearField() {
         input.setText("")

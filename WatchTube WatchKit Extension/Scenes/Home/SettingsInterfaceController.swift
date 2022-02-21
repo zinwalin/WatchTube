@@ -131,6 +131,10 @@ class SettingsInterfaceController: WKInterfaceController {
         }
     }
     
+    @IBAction func ClearRecentSearches() {
+        userDefaults.setValue([], forKey: preferencesKeys.keywordsHistory)
+    }
+    
     @IBAction func resultLower() {
         if userDefaults.integer(forKey: settingsKeys.resultsCount) > 3 {
             userDefaults.set(userDefaults.value(forKey: settingsKeys.resultsCount) as! Int-1, forKey: settingsKeys.resultsCount)
