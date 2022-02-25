@@ -9,6 +9,6 @@ import SwiftUI
 
 class hlsPlayer: WKHostingController<playerView> {
     override var body: playerView {
-        return playerView()
+        return playerView(srcUrl: UserDefaults.standard.string(forKey: hls.url) ?? "", subtitleText: "hi®")
     }
 }
