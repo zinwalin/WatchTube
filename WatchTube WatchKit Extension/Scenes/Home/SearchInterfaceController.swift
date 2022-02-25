@@ -45,7 +45,8 @@ class SearchInterfaceController: WKInterfaceController {
             self.tableLabel.setText("Recents")
             // show the recent searches
             let keywordsHistory = UserDefaults.standard.stringArray(forKey: preferencesKeys.keywordsHistory) ?? [String]()
-            let lastTwentyKeywordsHistory = Array(keywordsHistory.suffix(20))
+            var lastTwentyKeywordsHistory = Array(keywordsHistory.suffix(20))
+            lastTwentyKeywordsHistory = lastTwentyKeywordsHistory.reversed()
             tableContents = []
             searchTermsTableRow.setNumberOfRows(lastTwentyKeywordsHistory.count, withRowType: "SearchTermsRow")
             for i in 0 ..< lastTwentyKeywordsHistory.count {
