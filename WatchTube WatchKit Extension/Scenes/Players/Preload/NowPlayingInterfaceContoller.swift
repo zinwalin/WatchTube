@@ -49,7 +49,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     @IBAction func pushToMovie() {
-        pushController(withName: "HlsPlayer", context: "")
+        pushController(withName: "HlsPlayer", context: streamUrl)
     }
     
     func showMovieFade(movie: WKInterfaceButton!) {
@@ -109,6 +109,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
             let streams = try await ytVideo.streams
             var stream: YouTubeKit.Stream!
             
+            //get the necessary stream
             if dlType == "video" {
                 let videoStreams = streams.filter { $0.isProgressive && $0.subtype == "mp4" }
                 if quality == "hd" {
@@ -126,6 +127,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
                     .lowestAudioBitrateStream()
                 }
             }
+            // get the stream url, could be empty if there was no stream that met the criteria
             streamUrl = stream.url.absoluteString
             if streamUrl == "" {
                 self.statusLabel.setText("Error getting data")
@@ -137,7 +139,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
             
             // start finishing up
             
-            UserDefaults.standard.set(streamUrl, forKey: hls.url)
+            //UserDefaults.standard.set(streamUrl, forKey: hls.url)
 
             statusLabel.setText("Ready.")
             showMovieFade(movie: movie)

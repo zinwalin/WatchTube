@@ -14,18 +14,28 @@ struct playerView: View {
     @State var srcUrl: String
     @State var subtitleText: String
     var body: some View {
+        let player = AVPlayer(url: (URL(string: srcUrl) ?? URL(string: "https://google.com")!))
         ZStack {
-            VideoPlayer(player:AVPlayer(playerItem:AVPlayerItem(url: URL(string: srcUrl)!)))
+            VideoPlayer(player: player)
                 .scaledToFill()
                 .cornerRadius(0)
-                .overlay(alignment: .bottomLeading, content: {
+                .overlay(alignment: .bottom, content: {
+                    Button("") {
+                          let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                          subtitleText = String((0..<15).map{ _ in letters.randomElement()! })
+                    }
                     Text(subtitleText)
-                        .font(.system(size: 10, weight: .regular, design: .default))
+                        .font(.system(size: 9))
+                        .lineLimit(5)
                         .multilineTextAlignment(.center)
-                        .lineLimit(6)
+                        .background(Color(red: 0.4, green: 0.4, blue: 0.4, opacity: 0.3))
+                        .cornerRadius(5)
                         .allowsHitTesting(false)
                 })
-                
+        }
+        .onChange(of: player.currentTime().epoch) { newValue in
+            print(newValue)
+            // why does this not work smh
         }
     }
 }
@@ -33,8 +43,8 @@ struct playerView: View {
 struct playerView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            playerView(srcUrl: "https://invidious.osi.kr/latest_version?id=w7ZcS2vEzIw&itag=22", subtitleText: "Plasma is when stuff is so hot that the nuclei and electrons can separate and flow around freely,\nwhich creates a goo like substance.")
-            playerView(srcUrl: "man", subtitleText: "i guess this is what subtitles will look like, cool.")
+//            playerView(srcUrl: "https://invidious.osi.kr/latest_version?id=w7ZcS2vEzIw&itag=22", subtitleText: "Plasma is when stuff is so hot that the nuclei and electrons can separate and flow around freely, which creates a goo like substance.")
+            playerView(srcUrl: "https://invidious.osi.kr/latest_version?id=w7ZcS2vEzIw&itag=22", subtitleText: "egg")
         }
     }
 }

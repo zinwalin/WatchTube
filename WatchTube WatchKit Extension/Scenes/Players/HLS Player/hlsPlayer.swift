@@ -8,7 +8,12 @@
 import SwiftUI
 
 class hlsPlayer: WKHostingController<playerView> {
+    var streamUrl: String = ""
     override var body: playerView {
-        return playerView(srcUrl: UserDefaults.standard.string(forKey: hls.url) ?? "", subtitleText: "hi®")
+        return playerView(srcUrl: streamUrl, subtitleText: "WatchTube")
+    }
+    override func awake(withContext context: Any?) {
+        self.streamUrl = context as! String
+        self.setNeedsBodyUpdate()
     }
 }
