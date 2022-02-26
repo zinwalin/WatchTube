@@ -8,6 +8,7 @@
 import WatchKit
 import Foundation
 import Alamofire
+import SwiftUI
 
 class SearchInterfaceController: WKInterfaceController {
     @IBOutlet weak var searchTermsTableRow: WKInterfaceTable!
@@ -63,7 +64,7 @@ class SearchInterfaceController: WKInterfaceController {
                 self.tableLabel.setHidden(false)
             }
         } else {
-            let suggestionpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/search/suggestions?q=\(terms.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
+            let suggestionpath = "http://suggestqueries.google.com/complete/search?client=youtube&q=\(terms.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
             self.tableLabel.setText("Suggestions")
             self.tableLabel.setHidden(false)
             self.tableContents = []
@@ -76,22 +77,37 @@ class SearchInterfaceController: WKInterfaceController {
                 row.text = terms
                 self.tableContents.append(terms)
             }
-            AF.request(suggestionpath) { $0.timeoutInterval = 3 }.validate().responseJSON {res in
+            AF.request(suggestionpath) { $0.timeoutInterval = 3 }.validate().responseString {res in
                 
                 switch res.result {
-                case .success(let data):
-                    let json = data as! Dictionary<String, Any>
-                    if json["error"] as? String != nil {print("api is having issues")}
-                    let suggestions = json["suggestions"] as! Array<String>
-                    
-                    self.searchTermsTableRow.setNumberOfRows(suggestions.count, withRowType: "SearchTermsRow")
-                    for i in 0 ..< suggestions.count {
-                        guard let row = self.searchTermsTableRow.rowController(at: i) as? SearchTermsRow else {
-                            continue
+                case .success(let string):
+                    do {
+                        var manipulated = String(string.dropFirst(19))
+                        manipulated = String(manipulated.dropLast())
+                        let data = Data(manipulated.utf8)
+                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? Array<Any> {
+                            // try to read out a string array
+                            let parsed = json[1] as? Array<Any> ?? []
+                            var suggestions = parsed
+                            for (i, item) in suggestions.enumerated() {
+                                let suggestion = item as! Array<Any>
+                                suggestions[i] = suggestion[0] as! String
+                            }
+                            suggestions = suggestions.suffix(9)
+                            suggestions.insert(json[0] as! String, at: 0)
+                            
+                            self.searchTermsTableRow.setNumberOfRows(suggestions.count, withRowType: "SearchTermsRow")
+                            for i in 0 ..< suggestions.count {
+                                guard let row = self.searchTermsTableRow.rowController(at: i) as? SearchTermsRow else {
+                                    continue
+                                }
+                                row.label.setText((suggestions[i] as! String))
+                                row.text = (suggestions[i] as! String)
+                                self.tableContents.append(suggestions[i] as! String)
+                            }
                         }
-                        row.label.setText(suggestions[i])
-                        row.text = suggestions[i]
-                        self.tableContents.append(suggestions[i])
+                    } catch {
+                        print(error)
                     }
                 case .failure(let error):
                     print(error)
