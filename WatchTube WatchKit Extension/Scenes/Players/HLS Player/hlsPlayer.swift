@@ -6,14 +6,10 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 class hlsPlayer: WKHostingController<playerView> {
-    var streamUrl: String = ""
     override var body: playerView {
-        return playerView(srcUrl: streamUrl)
-    }
-    override func awake(withContext context: Any?) {
-        self.streamUrl = context as! String
-        self.setNeedsBodyUpdate()
+        return playerView()
     }
 }

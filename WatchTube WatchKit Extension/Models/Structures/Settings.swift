@@ -27,4 +27,5 @@ struct Constants {
 
 struct hls {
     static let url = "hls.streamUrl"
+    static let captionsOn = "hls.captionsOn"
 }

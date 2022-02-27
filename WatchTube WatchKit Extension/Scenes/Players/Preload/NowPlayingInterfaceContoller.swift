@@ -49,6 +49,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     @IBAction func pushToMovie() {
+        UserDefaults.standard.set(streamUrl, forKey: hls.url)
         pushController(withName: "HlsPlayer", context: streamUrl)
     }
     
