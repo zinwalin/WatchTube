@@ -32,75 +32,75 @@ class Video {
             var videos = [Video]()
             switch response.result {
             case .success(let json):
-                    let response = json as! Array<Dictionary<String, Any>>
-                    for (i, item) in response.enumerated() {
+                let response = json as! Array<Dictionary<String, Any>>
+                for (i, item) in response.enumerated() {
+                    
+                    if i > (UserDefaults.standard.integer(forKey: settingsKeys.resultsCount) - 1) {break}
+                    
+                    let type = item["type"] as! String
+                    switch type {
+                    case "video":
                         
-                        if i > (UserDefaults.standard.integer(forKey: settingsKeys.resultsCount) - 1) {break}
+                        if (item["videoId"] as! String).count != 11 {continue}
                         
-                        let type = item["type"] as! String
-                        switch type {
-                        case "video":
-                            
-                            if (item["videoId"] as! String).count != 11 {continue}
-                            
-                            // is video, add necessary data
-                            let id = item["videoId"] as! String
-                            let title = item["title"] as! String
-                            let thumbs = item["videoThumbnails"] as! Array<Dictionary<String,Any>>
-                            let url = thumbs[0]["url"] as! String
-                            let channel = item["author"] as! String
-                            let vid = Video(id: id, title: title, img: url, channel: channel, subs: "", type: item["type"] as! String)
-                            videos.append(vid)
-                            
-                        case "channel":
-                            
-                            if (item["authorId"] as! String).count != 24 {continue}
-                            
-                            // is channel, add necessary data
-                            
-                            let udid = item["authorId"] as! String
-                            let thumbs = item["authorThumbnails"] as! Array<Dictionary<String,Any>>
-                            let url = thumbs[thumbs.count - 1]["url"] as! String
-                            let channel = item["author"] as! String
-                            let subs = (item["subCount"] as! Int).abbreviated
-                            var imgurl: String!
-                            if url.contains("https:") {
-                                imgurl = "\(url)"
-                            } else {
-                                imgurl = "https:\(url)"
-                            }
-                            let vid = Video(id: udid, title: "", img: imgurl, channel: channel, subs: subs, type: item["type"] as! String)
-                            videos.append(vid)
-                            
-                        case "playlist":
-                            
-                            let plid = item["playlistId"] as! String
-                            let videosArray = item["videos"] as! Array<Any>
-                            var plThumb: String = "egg"
-                            var two = ""
-                            var one = (((videosArray[0] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>)[((videosArray[0] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>).count - 1] as! Dictionary<String,Any>)["url"] as! String
-                            if videosArray.count > 1 {
-                                two = (((videosArray[1] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>)[((videosArray[1] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>).count - 1] as! Dictionary<String,Any>)["url"] as! String
-                            }
-                            
-                            // because low res thumbnails are shit, imma change them to highres ones
-                            one = (URL(string: one)?.deletingLastPathComponent().appendingPathComponent("maxresdefault.jpg").absoluteString)!
-                            if two.contains("http"){
-                            two = (URL(string: two)?.deletingLastPathComponent().appendingPathComponent("maxresdefault.jpg").absoluteString)!
-                            }
-                            
-                            plThumb = "\(one)\n\(two)"
-                            
-                            let name = item["title"] as! String
-                            let channel = item["author"] as! String
-                            let udid = item["authorId"] as! String
-                            
-                            let vid = Video(id: plid, title: name, img: plThumb, channel: channel, subs: udid, type: item["type"] as! String)
-                            videos.append(vid)
-                        default:
-                            break
+                        // is video, add necessary data
+                        let id = item["videoId"] as! String
+                        let title = item["title"] as! String
+                        let thumbs = item["videoThumbnails"] as! Array<Dictionary<String,Any>>
+                        let url = thumbs[0]["url"] as! String
+                        let channel = item["author"] as! String
+                        let vid = Video(id: id, title: title, img: url, channel: channel, subs: "", type: item["type"] as! String)
+                        videos.append(vid)
+                        
+                    case "channel":
+                        
+                        if (item["authorId"] as! String).count != 24 {continue}
+                        
+                        // is channel, add necessary data
+                        
+                        let udid = item["authorId"] as! String
+                        let thumbs = item["authorThumbnails"] as! Array<Dictionary<String,Any>>
+                        let url = thumbs[thumbs.count - 1]["url"] as! String
+                        let channel = item["author"] as! String
+                        let subs = (item["subCount"] as! Int).abbreviated
+                        var imgurl: String!
+                        if url.contains("https:") {
+                            imgurl = "\(url)"
+                        } else {
+                            imgurl = "https:\(url)"
                         }
+                        let vid = Video(id: udid, title: "", img: imgurl, channel: channel, subs: subs, type: item["type"] as! String)
+                        videos.append(vid)
+                        
+                    case "playlist":
+                        
+                        let plid = item["playlistId"] as! String
+                        let videosArray = item["videos"] as! Array<Any>
+                        var plThumb: String = "egg"
+                        var two = ""
+                        var one = (((videosArray[0] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>)[((videosArray[0] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>).count - 1] as! Dictionary<String,Any>)["url"] as! String
+                        if videosArray.count > 1 {
+                            two = (((videosArray[1] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>)[((videosArray[1] as! Dictionary<String,Any>)["videoThumbnails"] as! Array<Any>).count - 1] as! Dictionary<String,Any>)["url"] as! String
+                        }
+                        
+                        // because low res thumbnails are shit, imma change them to highres ones
+                        one = (URL(string: one)?.deletingLastPathComponent().appendingPathComponent("maxresdefault.jpg").absoluteString)!
+                        if two.contains("http"){
+                        two = (URL(string: two)?.deletingLastPathComponent().appendingPathComponent("maxresdefault.jpg").absoluteString)!
+                        }
+                        
+                        plThumb = "\(one)\n\(two)"
+                        
+                        let name = item["title"] as! String
+                        let channel = item["author"] as! String
+                        let udid = item["authorId"] as! String
+                        
+                        let vid = Video(id: plid, title: name, img: plThumb, channel: channel, subs: udid, type: item["type"] as! String)
+                        videos.append(vid)
+                    default:
+                        break
                     }
+                }
             case .failure(let error):
                 print(error)
             }

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20036.2" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch45"/>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -972,32 +971,40 @@
                         <separator alignment="left" id="8mi-NI-qlu">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
-                        <group width="1" alignment="left" layout="vertical" id="fDQ-px-Et6">
-                            <items>
-                                <button width="1" widthAdjustment="1" height="35" alignment="left" title="Description" id="8Kc-tu-iLL">
-                                    <gestureRecognizers>
-                                        <longPressGestureRecognizer delaysTouchesEnded="NO" allowableMovement="0.0" id="mHA-ge-0If">
-                                            <connections>
-                                                <action selector="randomise:" destination="xFy-2C-kW2" id="plc-ee-I68"/>
-                                            </connections>
-                                        </longPressGestureRecognizer>
-                                    </gestureRecognizers>
-                                    <fontDescription key="font" type="system" pointSize="20"/>
-                                    <variation key="device=watch38mm" height="30">
-                                        <fontDescription key="font" type="system" pointSize="15"/>
-                                    </variation>
-                                    <variation key="device=watch40mm" height="34">
-                                        <fontDescription key="font" type="system" pointSize="20"/>
-                                    </variation>
-                                    <variation key="device=watch42mm" height="33">
-                                        <fontDescription key="font" type="system" pointSize="17"/>
-                                    </variation>
+                        <button width="1" widthAdjustment="1" height="35" alignment="left" title="Description" id="8Kc-tu-iLL">
+                            <gestureRecognizers>
+                                <longPressGestureRecognizer delaysTouchesEnded="NO" allowableMovement="0.0" id="mHA-ge-0If">
                                     <connections>
-                                        <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
+                                        <action selector="randomise:" destination="xFy-2C-kW2" id="plc-ee-I68"/>
                                     </connections>
-                                </button>
-                            </items>
-                        </group>
+                                </longPressGestureRecognizer>
+                            </gestureRecognizers>
+                            <fontDescription key="font" type="system" pointSize="20"/>
+                            <variation key="device=watch38mm" height="30">
+                                <fontDescription key="font" type="system" pointSize="15"/>
+                            </variation>
+                            <variation key="device=watch40mm" height="34">
+                                <fontDescription key="font" type="system" pointSize="20"/>
+                            </variation>
+                            <variation key="device=watch42mm" height="33">
+                                <fontDescription key="font" type="system" pointSize="17"/>
+                            </variation>
+                            <connections>
+                                <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="sXO-Yr-dfh">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <label alignment="left" text="Captions" id="0Iw-5k-UkY">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <picker height="60" alignment="left" focusStyle="sequence" indicatorMode="shownWhileFocused" id="pHI-YD-lbW">
+                            <connections>
+                                <action selector="pickerChanged:" destination="xFy-2C-kW2" id="NPg-zC-nnb"/>
+                            </connections>
+                        </picker>
                     </items>
                     <connections>
                         <outlet property="authorIcon" destination="Cqd-XW-KTC" id="6xK-Aw-uiI"/>
@@ -1006,13 +1013,15 @@
                         <outlet property="likesIcon" destination="EfO-DB-i1K" id="GEN-bw-Rxa"/>
                         <outlet property="likesLabel" destination="hOb-jj-96W" id="yaR-BC-VLt"/>
                         <outlet property="showDescriptionButton" destination="8Kc-tu-iLL" id="PNq-Y0-drO"/>
+                        <outlet property="subsLabel" destination="0Iw-5k-UkY" id="M3X-EP-GSo"/>
+                        <outlet property="subtitlePicker" destination="pHI-YD-lbW" id="47d-gl-o5G"/>
                         <outlet property="uploadIcon" destination="vq9-Xl-mvV" id="Gf3-BI-mPX"/>
                         <outlet property="viewsIcon" destination="Oqe-lG-sut" id="e8X-eT-qJr"/>
                         <outlet property="viewsLabel" destination="cNV-ZP-pwb" id="P88-Zf-mlZ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-281" y="7"/>
+            <point key="canvasLocation" x="-281.61616161616161" y="-3.5123966942148761"/>
         </scene>
         <!--Now Playing-->
         <scene sceneID="Kmj-Tq-jQ3">

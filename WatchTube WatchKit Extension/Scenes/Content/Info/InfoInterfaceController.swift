@@ -7,9 +7,7 @@
 
 import WatchKit
 import Foundation
-import AVKit
-import AVFAudio
-import AVFoundation
+import Alamofire
 
 class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var viewsIcon: WKInterfaceImage!
@@ -17,6 +15,8 @@ class InfoInterfaceController: WKInterfaceController {
     @IBOutlet weak var authorIcon: WKInterfaceImage!
     @IBOutlet weak var uploadIcon: WKInterfaceImage!
     
+    @IBOutlet weak var subsLabel: WKInterfaceLabel!
+    @IBOutlet weak var subtitlePicker: WKInterfacePicker!
     
     @IBOutlet weak var viewsLabel: WKInterfaceLabel!
     @IBOutlet weak var likesLabel: WKInterfaceLabel!
@@ -28,6 +28,7 @@ class InfoInterfaceController: WKInterfaceController {
     var videoId: String = ""
     var udid: String = ""
     var quality: String = ""
+    var language: [String] = []
 
     var videoDetails: Dictionary<String, Any> = [:]
     override func awake(withContext context: Any?) {
@@ -51,10 +52,55 @@ class InfoInterfaceController: WKInterfaceController {
         self.dateLabel.setText("Uploaded \(String(describing: meta.getVideoInfo(id: videoId, key: "publishedDate")))")
         self.authorLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "channelName")))")
         self.showDescriptionButton.setEnabled(true)
-        
-
+        let capspath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(video.id)?fields=captions"
+        print(capspath)
+        AF.request(capspath).responseJSON { res in
+            switch res.result {
+                case .success(let data):
+                let captions = (data as? Dictionary<String, Array<Any>>)!["captions"] ?? []
+                self.subsLabel.setText("Captions (\(captions.count))")
+                
+                var data: Array<Array<String>> = []
+                for item in captions {
+                    let captionset = item as! Dictionary<String, String>
+                    let langcode = captionset["language_code"]!
+                    let labeltext = captionset["label"]!
+                    self.language.append(langcode)
+                    data.append([labeltext, langcode])
+                }
+                data.insert(["Off", "off"], at: 0)
+                let items: [WKPickerItem] = data.map {
+                    let pickerItem = WKPickerItem()
+                    pickerItem.title = $0[0]
+                    pickerItem.caption = $0[1]
+                    return pickerItem
+                }
+                self.subtitlePicker.setItems(items)
+                case .failure(_):
+                self.subsLabel.setText("Captions (Error)")
+                var data: Array<Array<String>> = []
+//                for item in captions {
+//                    let captionset = item as! Dictionary<String, String>
+//                    let langcode = captionset["language_code"]!
+//                    let labeltext = captionset["label"]!
+//                    self.language.append(langcode)
+//                    data.append([labeltext, langcode])
+//                }
+                data.insert(["Off", "off"], at: 0)
+                let items: [WKPickerItem] = data.map {
+                    let pickerItem = WKPickerItem()
+                    pickerItem.title = $0[0]
+                    pickerItem.caption = $0[1]
+                    return pickerItem
+                }
+                self.subtitlePicker.setItems(items)
+            }
+        }
         
         // Configure interface objects here.
+    }
+    
+    @IBAction func pickerChanged(_ value: Int) {
     }
     
     @IBAction func openChannel(_ sender: Any) {
