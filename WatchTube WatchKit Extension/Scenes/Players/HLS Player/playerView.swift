@@ -23,15 +23,18 @@ struct SubtitleSet {
 
 class ViewModel: ObservableObject {
     var subs: SubtitleSet!
-    var subtitlesEnabled = UserDefaults.standard.bool(forKey: hls.captionsOn)
+    var subtitlesEnabled = UserDefaults.standard.string(forKey: hls.captionsLangCode) != "off"
     var player = AVPlayer(url: URL(string: UserDefaults.standard.string(forKey: hls.url)!)!)
     var timeObserverToken: Any?
     var subtitleText = Subtitle.init(text: "WatchTube", beginning: 0, end: 10)
       
     init() {
+        if subtitlesEnabled == false {
+            return
+        }
         let errorSub = SubtitleSet.init(lang: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "en", subtitles: [Subtitle.init(text: "Captions not available,\nan error occurred.", beginning: 0, end: 10)])
         //take data from url and parse it into subtitles
-        let url = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/captions/\(UserDefaults.standard.string(forKey: hls.videoId) ?? "idk")?lang=en"
+        let url = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/captions/\(UserDefaults.standard.string(forKey: hls.videoId) ?? "idk")?lang=\(UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "en")"
         let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in guard let data = data, error == nil else
             {    // check for fundamental networking error
                 self.subs = errorSub

@@ -106,7 +106,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
         progressBar.setHidden(false)
         
         do {
-            AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(video.id)?fields=captions")
             // get streams
             let ytVideo = YouTube(videoID: video.id)
             let streams = try await ytVideo.streams

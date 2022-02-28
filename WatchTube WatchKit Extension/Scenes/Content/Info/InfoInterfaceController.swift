@@ -45,55 +45,61 @@ class InfoInterfaceController: WKInterfaceController {
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
         
-        let likes = (meta.getVideoInfo(id: videoId, key: "likes") as! Int).abbreviated
-        let views = (meta.getVideoInfo(id: videoId, key: "views") as! Int).abbreviated
+        let likes = (meta.getVideoInfo(id: videoId, key: "likes") as! Double).abbreviated
+        let views = (meta.getVideoInfo(id: videoId, key: "views") as! Double).abbreviated
         self.likesLabel.setText("\(likes) Likes")
         self.viewsLabel.setText("\(views) Views")
         self.dateLabel.setText("Uploaded \(String(describing: meta.getVideoInfo(id: videoId, key: "publishedDate")))")
         self.authorLabel.setText("\(String(describing: meta.getVideoInfo(id: videoId, key: "channelName")))")
         self.showDescriptionButton.setEnabled(true)
         let capspath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(video.id)?fields=captions"
-        print(capspath)
-        AF.request(capspath).responseJSON { res in
+        subsLabel.setText("Loading Captions...")
+        AF.request(capspath) { $0.timeoutInterval = 10 }.responseJSON { res in
             switch res.result {
                 case .success(let data):
-                let captions = (data as? Dictionary<String, Array<Any>>)!["captions"] ?? []
-                self.subsLabel.setText("Captions (\(captions.count))")
-                
-                var data: Array<Array<String>> = []
-                for item in captions {
-                    let captionset = item as! Dictionary<String, String>
-                    let langcode = captionset["language_code"]!
-                    let labeltext = captionset["label"]!
-                    self.language.append(langcode)
-                    data.append([labeltext, langcode])
-                }
-                data.insert(["Off", "off"], at: 0)
-                let items: [WKPickerItem] = data.map {
-                    let pickerItem = WKPickerItem()
-                    pickerItem.title = $0[0]
-                    pickerItem.caption = $0[1]
-                    return pickerItem
-                }
-                self.subtitlePicker.setItems(items)
+                    let captions = (data as? Dictionary<String, Array<Any>>)!["captions"] ?? []
+                    self.subsLabel.setText("Captions (\(captions.count))")
+                    
+                    var data: Array<Array<String>> = []
+                    for item in captions {
+                        let captionset = item as! Dictionary<String, String>
+                        let langcode = captionset["language_code"]!
+                        let labeltext = captionset["label"]!
+                        self.language.append(langcode)
+                        data.append([labeltext, langcode])
+                    }
+                    data.insert(["Off", "off"], at: 0)
+                    self.language.insert("off", at: 0)
+                    let items: [WKPickerItem] = data.map {
+                        let pickerItem = WKPickerItem()
+                        pickerItem.title = $0[0]
+                        pickerItem.caption = $0[1]
+                        return pickerItem
+                    }
+                    self.subtitlePicker.setItems(items)
+                self.subtitlePicker.setSelectedItemIndex(self.language.firstIndex(of: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "off")!)
                 case .failure(_):
-                self.subsLabel.setText("Captions (Error)")
-                var data: Array<Array<String>> = []
-//                for item in captions {
-//                    let captionset = item as! Dictionary<String, String>
-//                    let langcode = captionset["language_code"]!
-//                    let labeltext = captionset["label"]!
-//                    self.language.append(langcode)
-//                    data.append([labeltext, langcode])
-//                }
-                data.insert(["Off", "off"], at: 0)
-                let items: [WKPickerItem] = data.map {
-                    let pickerItem = WKPickerItem()
-                    pickerItem.title = $0[0]
-                    pickerItem.caption = $0[1]
-                    return pickerItem
-                }
-                self.subtitlePicker.setItems(items)
+                    self.subsLabel.setText("Captions (Error)")
+                    var data: Array<Array<String>> = []
+    //                for item in captions {
+    //                    let captionset = item as! Dictionary<String, String>
+    //                    let langcode = captionset["language_code"]!
+    //                    let labeltext = captionset["label"]!
+    //                    self.language.append(langcode)
+    //                    data.append([labeltext, langcode])
+    //                }
+                    data.insert(["Off", "off"], at: 0)
+                    if (UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "off") != "off" {
+                        data.insert([UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "off", UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "off"], at: 0)
+                    }
+                    self.language.insert("off", at: 0)
+                    let items: [WKPickerItem] = data.map {
+                        let pickerItem = WKPickerItem()
+                        pickerItem.title = $0[0]
+                        pickerItem.caption = $0[1]
+                        return pickerItem
+                    }
+                    self.subtitlePicker.setItems(items)
             }
         }
         
@@ -101,6 +107,7 @@ class InfoInterfaceController: WKInterfaceController {
     }
     
     @IBAction func pickerChanged(_ value: Int) {
+        UserDefaults.standard.set(language[value], forKey: hls.captionsLangCode)
     }
     
     @IBAction func openChannel(_ sender: Any) {
