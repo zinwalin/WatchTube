@@ -8,6 +8,8 @@ WatchTube is a standalone WatchOS YouTube player utilizing [Invidious](https://i
 
 4. There are no working apps that do this on GitHub already
 
+5. It should look nice
+
 # Installing
 [Open in TestFlight](https://testflight.apple.com/join/tpwIQJIR)
 
