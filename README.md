@@ -1,4 +1,4 @@
-WatchTube is a standalone WatchOS youtube player utilizing [Invidious](https://invidious.io) for metadata and [YouTubeKit](https://github.com/alexeichhorn/YouTubeKit) for streaming. The app is based off of [Ziph0n's original Wristplayer](https://github.com/Ziph0n/WristPlayer) and is a fork of [akissu's youtubedl-watchos](https://github.com/akissu/youtubedl-watchos), it aims to achieve the following:
+WatchTube is a standalone WatchOS YouTube player utilizing [Invidious](https://invidious.io) for metadata and [YouTubeKit](https://github.com/alexeichhorn/YouTubeKit) for streaming. The app is based off of [Ziph0n's original Wristplayer](https://github.com/Ziph0n/WristPlayer) and is a fork of [akissu's youtubedl-watchos](https://github.com/akissu/youtubedl-watchos), it aims to achieve the following:
 
 1. Fully standalone usage of the app relying on Invidious to not use the official YouTube API and avoid ratelimits
 
@@ -7,6 +7,8 @@ WatchTube is a standalone WatchOS youtube player utilizing [Invidious](https://i
 3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially, a gimmick
 
 4. There are no working apps that do this on GitHub already
+
+5. It should look nice
 
 # Installing
 [Open in TestFlight](https://testflight.apple.com/join/tpwIQJIR)

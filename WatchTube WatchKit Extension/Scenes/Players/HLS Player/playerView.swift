@@ -9,7 +9,6 @@ import SwiftUI
 import AVFoundation
 import Foundation
 import AVKit
-import Alamofire
 
 struct Subtitle {
     var text: String
