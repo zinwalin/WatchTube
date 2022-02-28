@@ -1494,6 +1494,10 @@
                         <label alignment="left" numberOfLines="0" id="wS8-UC-Ij8">
                             <string key="text">Once you've tapped on a video to play, you can get watching! Just wait for it to load some data from YouTube to stream your video. From here, you can tap the play button in the center of your screen to play. You can access video information from the info button in the bottom right or tap the channel name in the bottom left to go to that channel.</string>
                         </label>
+                        <imageView alignment="left" image="infoscreencaptions" id="zXl-fF-AYc"/>
+                        <label alignment="left" numberOfLines="0" id="ieq-lS-eKX">
+                            <string key="text">You can scroll down the Information screen to find the captions, the language you set here will be your preferred language across all videos.</string>
+                        </label>
                         <imageView alignment="left" image="channelview" id="D4H-Sn-yAq"/>
                         <label alignment="left" numberOfLines="0" id="AfP-Iw-ykC">
                             <string key="text">When you open a channel, you can see a list of recent videos from the channel. The UI here was designed to follow the YouTube aesthetic! You can change the amount of videos you see here in settings. You can scroll all the way down to find details about the channel and related channels. You can tap on the profile image of a channel to enlarge it.</string>
@@ -1568,6 +1572,7 @@
         <image name="gradient" width="259" height="58"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="infoscreencaptions" width="396" height="484"/>
         <image name="loading0" width="164" height="181"/>
         <image name="maxresdefault" width="1280" height="720"/>
         <image name="nowplaying" width="396" height="484"/>

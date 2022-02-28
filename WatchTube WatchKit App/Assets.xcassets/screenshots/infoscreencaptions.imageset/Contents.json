@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Simulator Screen Shot - Apple Watch Series 7 - 45mm - 2022-02-28 at 17.40.05.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
