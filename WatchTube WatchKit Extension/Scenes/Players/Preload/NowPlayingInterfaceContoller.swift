@@ -50,6 +50,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     
     @IBAction func pushToMovie() {
         UserDefaults.standard.set(streamUrl, forKey: hls.url)
+        UserDefaults.standard.set(video.id, forKey: hls.videoId)
         pushController(withName: "HlsPlayer", context: streamUrl)
     }
     
@@ -105,6 +106,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         progressBar.setHidden(false)
         
         do {
+            AF.request("https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(video.id)?fields=captions")
             // get streams
             let ytVideo = YouTube(videoID: video.id)
             let streams = try await ytVideo.streams
@@ -140,8 +142,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
             
             // start finishing up
             
-            //UserDefaults.standard.set(streamUrl, forKey: hls.url)
-
             statusLabel.setText("Ready.")
             showMovieFade(movie: movie)
             movieLoading.setHidden(true)
