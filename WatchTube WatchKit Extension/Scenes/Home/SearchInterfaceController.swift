@@ -67,7 +67,6 @@ class SearchInterfaceController: WKInterfaceController {
             let suggestionpath = "http://suggestqueries.google.com/complete/search?client=youtube&q=\(terms.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
             self.tableLabel.setText("Suggestions")
             self.tableLabel.setHidden(false)
-            self.tableContents = []
             self.searchTermsTableRow.setNumberOfRows(1, withRowType: "SearchTermsRow")
             for i in 0 ..< 1 {
                 guard let row = self.searchTermsTableRow.rowController(at: i) as? SearchTermsRow else {
@@ -95,7 +94,7 @@ class SearchInterfaceController: WKInterfaceController {
                             }
                             suggestions = suggestions.suffix(9)
                             suggestions.insert(json[0] as! String, at: 0)
-                            
+                            self.tableContents = []
                             self.searchTermsTableRow.setNumberOfRows(suggestions.count, withRowType: "SearchTermsRow")
                             for i in 0 ..< suggestions.count {
                                 guard let row = self.searchTermsTableRow.rowController(at: i) as? SearchTermsRow else {

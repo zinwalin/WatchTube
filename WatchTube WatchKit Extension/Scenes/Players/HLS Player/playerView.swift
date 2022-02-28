@@ -30,7 +30,7 @@ class ViewModel: ObservableObject {
     var subtitleText = Subtitle.init(text: "WatchTube", beginning: 0, end: 10)
       
     init() {
-        let errorSub = SubtitleSet.init(lang: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "en", subtitles: [Subtitle.init(text: "Captions not available\nAn error occurred.", beginning: 0, end: 20)])
+        let errorSub = SubtitleSet.init(lang: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "en", subtitles: [Subtitle.init(text: "Captions not available,\nan error occurred.", beginning: 0, end: 10)])
         //take data from url and parse it into subtitles
         let url = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/captions/\(UserDefaults.standard.string(forKey: hls.videoId) ?? "idk")?lang=en"
         let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in guard let data = data, error == nil else
@@ -39,13 +39,16 @@ class ViewModel: ObservableObject {
                 return
             }
             let result = String(data: data, encoding: .utf8) ?? ""
-            if result.contains("{\"error\":") {
+            if result.contains("WEBVTT") == false {
                 self.subs = errorSub
                 return
             }
             var subtitlesData = result.components(separatedBy: "\n\n")
             subtitlesData.removeLast()
-            
+            if subtitlesData.count == 0 {
+                self.subs = errorSub
+                return
+            }
             let meta = String(describing: subtitlesData[0])
             let language:String = meta.description.components(separatedBy: "\n")[2].components(separatedBy: ": ")[1].description
             
@@ -101,7 +104,6 @@ class ViewModel: ObservableObject {
 struct playerView: View {
     @StateObject var viewModel = ViewModel()
     
-//    @State var subtitleText: String
     var body: some View {
         ZStack {
             VideoPlayer(player: viewModel.player)
@@ -110,7 +112,10 @@ struct playerView: View {
                 .cornerRadius(0)
                 .overlay(alignment: .bottom, content: {
                     if (viewModel.subtitlesEnabled == true) {
-                        if (viewModel.subtitleText.end <= viewModel.player.currentTime().seconds) {} else {
+                        if (viewModel.subtitleText.end <= viewModel.player.currentTime().seconds) {
+                            // the text wont display, the subtitle isnt declared. do whatever here
+                            
+                        } else {
                             Text(viewModel.subtitleText.text)
                                 .font(.system(size: 9))
                                 .lineLimit(5)
