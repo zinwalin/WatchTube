@@ -18,38 +18,62 @@ class InterfaceController: WKInterfaceController {
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
+        let isFirstLaunch = context as? Bool ?? true
+        self.loader.setWidth(0)
+        self.loader.setHeight(0)
         misc.defaultSettings() // set any missing setting values now to avoid issues
         reloadButton.setHidden(true)
         loader.setHidden(false)
         internetLabel.setHidden(true)
-        loader.setImageNamed("loading") // animate spinner
-        loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         
-        Video.getTrending() { videos in // get trending videos 
-            if videos.count == 0 { // show that there are no videos on trending, also means no internet
-                // wait for the day when youtube gets rid of trending, then you can change this :)
-                self.internetLabel.setHidden(false)
-                self.reloadButton.setHidden(false)
-                self.loader.setHidden(true) // hide the spinner
-                self.loader.stopAnimating() // save resources idk
-                return
-                //self.searchButton.setEnabled(false) // dont disable the search, internet might be working. sometimes internet is available but no trending data shows idk why. 
-                // it seems to fail when you quickly quit and relaunch the app :uhh:
-            } else {
-                self.internetLabel.setHidden(true)
-                //self.searchButton.setEnabled(true)
+        if isFirstLaunch == true { // is initial launch
+            self.setTitle("")
+            loader.setImageNamed("WatchTubeCircle") // animate logo
+            animate(withDuration: 0.9) {
+                self.loader.setWidth(75)
+                self.loader.setHeight(75)
             }
-            self.videos = videos
-            self.setupTable() // add videos to the table
-            self.TrendingTableRow.setHidden(false)
-            self.loader.setHidden(true) // hide the spinner
-            self.tooltipLabel.setHidden(false) // show the tiny text at the bottom
-            self.loader.stopAnimating() // save resources idk
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.animate(withDuration: 0.3) {
+                    self.loader.setWidth(60)
+                    self.loader.setHeight(60)
+                }
+            }
+        } else {
+            loader.setImageNamed("loading") // animate spinner
+            loader.setWidth(50)
+            loader.setHeight(50)
+            loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            Video.getTrending() { videos in // get trending videos
+                if videos.count == 0 { // show that there are no videos on trending, also means no internet
+                    // wait for the day when youtube gets rid of trending, then you can change this :)
+                    self.internetLabel.setHidden(false)
+                    self.reloadButton.setHidden(false)
+                    self.loader.setHidden(true) // hide the spinner
+                    self.loader.stopAnimating() // save resources idk
+                    return
+                    //self.searchButton.setEnabled(false) // dont disable the search, internet might be working. sometimes internet is available but no trending data shows idk why.
+                    // it seems to fail when you quickly quit and relaunch the app :uhh:
+                } else {
+                    self.internetLabel.setHidden(true)
+                    //self.searchButton.setEnabled(true)
+                }
+                
+                self.setTitle("WatchTube")
+                self.videos = videos
+                self.setupTable() // add videos to the table
+                self.TrendingTableRow.setHidden(false)
+                self.loader.setHidden(true) // hide the spinner
+                self.tooltipLabel.setHidden(false) // show the tiny text at the bottom
+                self.loader.stopAnimating() // save resources idk
+            }
         }
     }
 
     @IBAction func reloadData() {
-        awake(withContext: "")
+        awake(withContext: false)
     }
     
 //    @IBAction func searchVideoButtonTapped() {

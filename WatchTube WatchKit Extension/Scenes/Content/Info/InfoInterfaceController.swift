@@ -63,7 +63,7 @@ class InfoInterfaceController: WKInterfaceController {
                     var data: Array<Array<String>> = []
                     for item in captions {
                         let captionset = item as! Dictionary<String, String>
-                        let langcode = captionset["language_code"]!
+                        let langcode = captionset["label"]!
                         let labeltext = captionset["label"]!
                         self.language.append(langcode)
                         data.append([labeltext, langcode])
@@ -77,7 +77,7 @@ class InfoInterfaceController: WKInterfaceController {
                         return pickerItem
                     }
                     self.subtitlePicker.setItems(items)
-                self.subtitlePicker.setSelectedItemIndex(self.language.firstIndex(of: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "off")!)
+                self.subtitlePicker.setSelectedItemIndex(self.language.firstIndex(of: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "off") ?? 0)
                 case .failure(_):
                     self.subsLabel.setText("Captions (Error)")
                     var data: Array<Array<String>> = []

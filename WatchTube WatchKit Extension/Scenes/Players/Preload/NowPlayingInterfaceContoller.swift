@@ -27,7 +27,6 @@ class NowPlayingInterfaceController: WKInterfaceController {
     @IBOutlet var movieLoading: WKInterfaceImage!
     @IBOutlet var progressBar: WKInterfaceGroup!
     
-    
     @IBAction func infoScreenButton() {
         self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id, "quality": quality])
     }

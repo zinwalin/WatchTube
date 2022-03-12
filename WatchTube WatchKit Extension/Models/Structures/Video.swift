@@ -110,12 +110,12 @@ class Video {
     
     class func getTrending(completion: @escaping ([Video]) -> Void) {
         if UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) != "channels" {
-            let trendingpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails(url)"
-            AF.request(trendingpath).responseJSON { response in
+            let trendingpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails"
+            AF.request(trendingpath) {$0.timeoutInterval = 10}.validate().responseJSON { response in
                 var videos = [Video]()
                 switch response.result {
                 case .success(let json):
-                    let items = json as! [[String: Any]]
+                    let items = json as? [[String: Any]] ?? []
                     for (i, item) in items.enumerated() {
                         if i > (UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) - 1) {continue}
                         let title = item["title"]
@@ -130,7 +130,7 @@ class Video {
                         }
                     }
                 case .failure(_):
-                    print("man")
+                    print("man no internet")
                 }
                 completion(videos)
             }

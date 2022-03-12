@@ -18,6 +18,7 @@ struct settingsKeys {
     static let homePageVideoType = "settings.homePageVideoType"
     static let instanceUrl = "settings.instanceUrl"
     static let qualityToggle = "settings.qualityToggle"
+    static let captionsSize = "settings.captionsSize"
     static let firstTimeGuide = "settings.firstTimeGuide"
 }
 

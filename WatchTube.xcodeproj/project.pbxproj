@@ -13,6 +13,7 @@
 		AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */; };
 		AA71A0D027B59DA80099BDC9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CF27B59DA80099BDC9 /* playerView.swift */; };
 		AA9C8B212794F95B00C0CDD8 /* pfp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA9C8B202794F95B00C0CDD8 /* pfp.jpg */; };
+		AA9CF02C27DBAD2E00D8B92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */; };
 		AAA25C55278C933700E23892 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AAA25C54278C933700E23892 /* Alamofire */; };
 		AAF0F23027C2FFF900BE51C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */; };
 		AAF0F23327C3000100BE51C5 /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23127C3000100BE51C5 /* MetadataCache.swift */; };
@@ -487,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9CF02C27DBAD2E00D8B92C /* Assets.xcassets in Resources */,
 				D72C93EE257D97780056D0BA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

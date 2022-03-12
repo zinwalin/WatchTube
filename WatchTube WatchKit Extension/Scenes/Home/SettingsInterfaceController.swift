@@ -19,6 +19,8 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var instancePicker: WKInterfacePicker!
     @IBOutlet weak var qualityToggle: WKInterfaceSwitch!
     @IBOutlet weak var instanceStatus: WKInterfaceLabel!
+    @IBOutlet weak var sizeLabel: WKInterfaceLabel!
+    @IBOutlet weak var sizeCaptionTestLabel: WKInterfaceLabel!
     
     let userDefaults = UserDefaults.standard
     
@@ -163,9 +165,29 @@ class SettingsInterfaceController: WKInterfaceController {
         }
     }
     
+    @IBAction func sizeLower() {
+        if userDefaults.integer(forKey: settingsKeys.captionsSize) > 8 {
+            userDefaults.set(userDefaults.value(forKey: settingsKeys.captionsSize) as! Int-1, forKey: settingsKeys.captionsSize)
+            updateLabel()
+        }
+    }
+    
+    @IBAction func sizeHigher() {
+        if userDefaults.integer(forKey: settingsKeys.captionsSize) < 18 {
+            userDefaults.set(userDefaults.value(forKey: settingsKeys.captionsSize) as! Int+1, forKey: settingsKeys.captionsSize)
+            updateLabel()
+        }
+    }
+    
     func updateLabel() {
         resultsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.resultsCount) as! Int)) Results")
         itemsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.itemsCount) as! Int)) Items")
+        sizeLabel.setText("Size \(String(describing: userDefaults.value(forKey: settingsKeys.captionsSize) as! Int))")
+
+        let text = NSMutableAttributedString(string: "Hi I'm a test caption")
+        let regularFont = UIFont.systemFont(ofSize: CGFloat(userDefaults.integer(forKey: settingsKeys.captionsSize)))
+        text.addAttribute(NSAttributedString.Key.font, value: regularFont, range: NSMakeRange(0, "Hi I'm a test caption".count))
+        sizeCaptionTestLabel.setAttributedText(text)
     }
 }
 

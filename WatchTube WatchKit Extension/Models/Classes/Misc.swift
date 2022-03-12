@@ -35,11 +35,10 @@ class misc {
             UserDefaults.standard.set(false, forKey: settingsKeys.firstTimeGuide)
         }
         if UserDefaults.standard.value(forKey: hls.captionsLangCode) == nil {
-            #if DEBUG
-                UserDefaults.standard.set("en", forKey: hls.captionsLangCode)
-            #else
-                UserDefaults.standard.set("off", forKey: hls.captionsLangCode)
-            #endif
+            UserDefaults.standard.set("off", forKey: hls.captionsLangCode)
+        }
+        if UserDefaults.standard.value(forKey: settingsKeys.captionsSize) == nil {
+            UserDefaults.standard.set(10, forKey: settingsKeys.captionsSize)
         }
     }
 }
