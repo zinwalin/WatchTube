@@ -46,7 +46,7 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <imageView width="2" height="2" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
+                        <imageView width="2" height="2" alignment="center" verticalAlignment="center" alpha="0.0" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
                         <label alignment="center" verticalAlignment="bottom" hidden="YES" text="Internet Unavailable" id="Y2d-ZL-s0c">
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>

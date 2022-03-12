@@ -30,6 +30,7 @@ class InterfaceController: WKInterfaceController {
             self.setTitle("")
             loader.setImageNamed("WatchTubeCircle") // animate logo
             animate(withDuration: 0.9) {
+                self.loader.setAlpha(1)
                 self.loader.setWidth(75)
                 self.loader.setHeight(75)
             }
@@ -41,6 +42,7 @@ class InterfaceController: WKInterfaceController {
             }
         } else {
             loader.setImageNamed("loading") // animate spinner
+            loader.setAlpha(1)
             loader.setWidth(50)
             loader.setHeight(50)
             loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
