@@ -90,7 +90,7 @@ class ViewModel: ObservableObject {
 //        task.resume()
         
         func makeRequest() {
-            if attempts == 5 {return}
+            if attempts == 10 {return}
             AF.request(url) {$0.timeoutInterval = 5}.validate().response { res in
                 switch res.result {
                 case .success(let data):
