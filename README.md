@@ -10,6 +10,8 @@ WatchTube is a standalone WatchOS YouTube player utilizing [Invidious](https://i
 
 5. It should look nice
 
+6. Provide a good experience with things like subscriptions and some curated content
+
 # Installing
 [Open in TestFlight](https://testflight.apple.com/join/tpwIQJIR)
 
@@ -33,5 +35,10 @@ Using v1.0.4
 
 ![](./demo/1.gif)
 > Note that this is a demonstration of the simulator. The video playback controls were odd and the videos look long to load. This is not a problem on real devices.
+
+Using uncompleted development build of v1.2.2
+
+![](./demo/2.gif)
+> Note that this is a demonstration of the simulator. This is an unfinished build of 1.2.2. I thought I should share to new viewers of this readme what WatchTube can really do! 
 
 More demonstrations coming soon!
