@@ -39,6 +39,6 @@ Using v1.0.4
 Using uncompleted development build of v1.2.2
 
 ![](./demo/2.gif)
-> Note that this is a demonstration of the simulator. This is an unfinished build of 1.2.2. I thought I should share to new viewers of this readme what WatchTube can really do! 
+> Note that this is a demonstration of the simulator. This is an unfinished build of 1.2.2. I thought I should share to new viewers of this readme what WatchTube can really do! Also, I recorded this in school on mobile hotspot, so some things take time to load.
 
 More demonstrations coming soon!
