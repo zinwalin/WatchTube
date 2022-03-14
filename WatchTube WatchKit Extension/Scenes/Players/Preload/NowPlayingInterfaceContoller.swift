@@ -33,10 +33,11 @@ class NowPlayingInterfaceController: WKInterfaceController {
         isLiked.toggle()
         switch isLiked {
         case true:
-            likeImg.setImageNamed("hand.thumbsup.fill")
+            liked.like(id: video.id)
         case false:
-            likeImg.setImageNamed("hand.thumbsup")
+            liked.unlike(id: video.id)
         }
+        updateLikeButton()
     }
     
     @IBAction func infoScreenButton() {
@@ -91,6 +92,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
         } else {
             isLiked = false
         }
+        updateLikeButton()
         
         if video != nil {
             self.titleLabel.setText(video.title)
@@ -170,103 +172,15 @@ class NowPlayingInterfaceController: WKInterfaceController {
             self.movieLoading.setImageNamed("error")
             self.progressBar.setHidden(true)
         }
-            /// Old code here bc why not yk
-//        let dataPath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(video.id)?fields=formatStreams(url,container),adaptiveFormats(url,container,encoding,bitrate)"
-//        AF.request(dataPath).responseJSON { res in
-//            switch res.result {
-//            case .success(let data):
-//                let videoDetails = data as! Dictionary<String, Any>
-//                self.statusLabel.setText("Parsing data...")
-//                self.progressBar.setRelativeWidth(0.35, withAdjustment: 0)
-//
-//                // Required variables in this scope
-//                // - streamUrl (to set)
-//                // - fileType (to set)
-//                // - dlType (to use)
-//
-//                // parse the video info for links. check dl type to set streamUrl to src of audio or video
-//
-//                if (videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>).count == 0 || (videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>).count == 0 {
-//                    self.statusLabel.setText("No streams found")
-//                    self.movieLoading.stopAnimating()
-//                    self.movieLoading.setImageNamed("error")
-//                    self.progressBar.setHidden(true)
-//                    break
-//                }
-//
-//                if dlType == "video" {
-//                    let formatStreams = videoDetails["formatStreams"] as! Array<Dictionary<String, Any>>
-//                    if self.quality == "hd" {
-//                        let streamData = formatStreams[formatStreams.count - 1]
-//                        self.streamUrl = streamData["url"] as! String
-//                        self.fileType = "mp4"
-//                    } else if self.quality == "sd" {
-//                        var streamData: Dictionary<String,String>
-//                        if formatStreams.count >= 2 {
-//                            streamData = formatStreams[1] as! Dictionary<String,String>
-//                        } else {
-//                            streamData = formatStreams[0] as! Dictionary<String,String>
-//                        }
-//                        self.streamUrl = streamData["url"]!
-//                        self.fileType = "mp4"
-//                    }
-//                } else if dlType == "audio" {
-//                    let adaptiveFormats = videoDetails["adaptiveFormats"] as! Array<Dictionary<String, Any>>
-//                    var aacFormats: Array<Dictionary<String, Any>> = []
-//                    for item in adaptiveFormats {
-//                        if item["encoding"] != nil {
-//                            if item["encoding"] as! String == "aac" {
-//                                aacFormats.append(item)
-//                            }
-//                        }
-//                    }
-//
-//                    var highestBitrate: Int = 0
-//                    if self.quality == "sd" {highestBitrate = Int.max}
-//                    var format: Dictionary<String, Any> = [:]
-//                    if aacFormats.count != 1 {
-//                        for item in aacFormats {
-//                            if self.quality == "hd" {
-//                                if (item["bitrate"] as! NSString).integerValue > highestBitrate {
-//                                    highestBitrate = (item["bitrate"] as! NSString).integerValue
-//                                    format = item
-//                                }
-//                            } else if self.quality == "sd" {
-//                                if (item["bitrate"] as! NSString).integerValue < highestBitrate {
-//                                    highestBitrate = (item["bitrate"] as! NSString).integerValue
-//                                    format = item
-//                                }
-//                            }
-//                        }
-//                    } else {format = aacFormats[0]}
-//                    self.streamUrl = format["url"] as! String
-//                    self.fileType = "m4a"
-//                }
-//
-//                if UserDefaults.standard.bool(forKey: settingsKeys.proxyContent) {
-//                    // modify streamURL to use instance proxying
-//                    let host = (URL(string: self.streamUrl)?.host)! as String
-//                    self.streamUrl = self.streamUrl.replacingOccurrences(of: host, with: UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)
-//                }
-//
-//                self.progressBar.setRelativeWidth(0.65, withAdjustment: 0)
-//                UserDefaults.standard.set(self.streamUrl, forKey: hls.url)
-//
-//                self.statusLabel.setText("Ready.")
-//                self.showMovieFade(movie: self.movie)
-//                self.movieLoading.setHidden(true)
-//                self.movieLoading.stopAnimating()
-//                self.progressBar.setHidden(true)
-//
-//            case .failure(_):
-//                self.statusLabel.setText("Error getting data")
-//                self.movieLoading.stopAnimating()
-//                self.movieLoading.setImageNamed("error")
-//                self.progressBar.setHidden(true)
-//            }
-//        }.downloadProgress { progress in
-//            self.progressBar.setRelativeWidth(progress.fractionCompleted, withAdjustment: 0)
-//        }
+    }
+    
+    func updateLikeButton() {
+        switch isLiked {
+        case true:
+            likeImg.setImage(UIImage(systemName: "hand.thumbsup.fill"))
+        case false:
+            likeImg.setImage(UIImage(systemName: "hand.thumbsup"))
+        }
     }
 }
 

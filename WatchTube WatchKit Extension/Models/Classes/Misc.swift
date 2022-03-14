@@ -139,7 +139,7 @@ class liked {
         }
     }
     
-    class func unsubscribe(id: String) {
+    class func unlike(id: String) {
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/likes.json") == false {return}
         if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json")) {
             var mutable = array as! Array<String>
@@ -151,7 +151,7 @@ class liked {
         }
     }
     
-    class func subscribe(id: String) {
+    class func like(id: String) {
         if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/likes.json") == false {
             NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
         }

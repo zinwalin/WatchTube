@@ -53,6 +53,14 @@ class InterfaceController: WKInterfaceController {
             Video.getTrending() { videos in // get trending videos
                 if videos.count == 0 { // show that there are no videos on trending, also means no internet
                     // wait for the day when youtube gets rid of trending, then you can change this :)
+                    self.internetLabel.setAlpha(0)
+                    self.reloadButton.setAlpha(0)
+                    self.loader.setAlpha(1)
+                    self.animate(withDuration: 0.3) {
+                        self.internetLabel.setAlpha(1)
+                        self.reloadButton.setAlpha(1)
+                        self.loader.setAlpha(0)
+                    }
                     self.internetLabel.setHidden(false)
                     self.reloadButton.setHidden(false)
                     self.loader.setHidden(true) // hide the spinner
@@ -97,7 +105,7 @@ class InterfaceController: WKInterfaceController {
 //            }
 //        }
 //    }
-    
+
     func setupTable() -> Void {
         TrendingTableRow.setNumberOfRows(videos.count, withRowType: "TrendingRow")
         

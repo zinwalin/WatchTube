@@ -132,7 +132,17 @@ class ChannelViewInterfaceController: WKInterfaceController {
         case true:
             subscriptions.subscribe(udid: udid)
         case false:
-            subscriptions.unsubscribe(udid: udid)
+            isSubscribed.toggle()
+            let unsub = WKAlertAction(title: "Unsubscribe", style: .destructive) {
+                self.isSubscribed.toggle()
+                subscriptions.unsubscribe(udid: self.udid)
+                self.updateSubscribeButton(instant: false)
+            }
+            let cancel = WKAlertAction(title: "Cancel", style: .cancel) {
+                //do nothing
+                self.updateSubscribeButton(instant: false)
+            }
+            self.presentAlert(withTitle: "Unsubscribe?", message: "Unsubscribe from \(meta.getChannelInfo(udid: self.udid, key: "name"))?", preferredStyle: .sideBySideButtonsAlert, actions: [cancel, unsub])
         }
         updateSubscribeButton(instant: false)
     }

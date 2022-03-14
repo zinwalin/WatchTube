@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch40"/>
+    <device id="watch45"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
@@ -133,11 +133,80 @@
                         <outlet property="input" destination="1zg-ds-dvO" id="RNJ-wO-ogg"/>
                         <outlet property="searchTermsTableRow" destination="gHE-tu-0fR" id="8B7-45-kiL"/>
                         <outlet property="tableLabel" destination="tgW-SH-kLJ" id="yG8-8z-ENY"/>
-                        <segue destination="BVh-TY-jCX" kind="relationship" relationship="nextPage" id="5PW-4x-gfP"/>
+                        <segue destination="YgX-XY-IDf" kind="relationship" relationship="nextPage" id="2Ev-rO-A12"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-490" y="-620"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="bkw-8H-NO2">
+            <objects>
+                <controller identifier="LibraryInterfaceController" title="Library" id="YgX-XY-IDf" customClass="LibraryInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <button alignment="left" id="mGh-sP-0ge" userLabel="history">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="SFH-vU-2ML">
+                                <items>
+                                    <imageView alignment="left" verticalAlignment="center" image="clock.arrow.circlepath" catalog="system" id="5hr-8E-Vgq"/>
+                                    <label alignment="center" verticalAlignment="center" text="History" id="4vy-DY-J0s"/>
+                                </items>
+                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
+                                <variation key="device=watch38mm" height="35"/>
+                            </group>
+                            <connections>
+                                <action selector="history" destination="YgX-XY-IDf" id="9zB-vJ-HNv"/>
+                            </connections>
+                        </button>
+                        <button alignment="left" id="T36-6Y-9Vf" userLabel="likes">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="NHZ-vx-UMu">
+                                <items>
+                                    <imageView alignment="left" verticalAlignment="center" image="hand.thumbsup.circle.fill" catalog="system" id="AiE-u6-4IS"/>
+                                    <label alignment="center" verticalAlignment="center" text="Likes" id="k27-7D-Fdy"/>
+                                </items>
+                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
+                                <variation key="device=watch38mm" height="35"/>
+                            </group>
+                            <connections>
+                                <action selector="likes" destination="YgX-XY-IDf" id="m1U-nY-gbK"/>
+                            </connections>
+                        </button>
+                        <button alignment="left" id="mHg-es-pn2" userLabel="collections">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="LTd-Pk-iRp">
+                                <items>
+                                    <imageView alignment="left" verticalAlignment="center" image="rectangle.stack" catalog="system" id="XCQ-o2-pgz"/>
+                                    <label alignment="center" verticalAlignment="center" text="Collections" id="NGd-Mb-jng"/>
+                                </items>
+                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
+                                <variation key="device=watch38mm" height="35"/>
+                            </group>
+                            <connections>
+                                <action selector="collections" destination="YgX-XY-IDf" id="TNd-6g-5gg"/>
+                            </connections>
+                        </button>
+                        <button alignment="left" id="sED-we-qzW" userLabel="subscriptions">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="HS4-3a-Bcp">
+                                <items>
+                                    <imageView alignment="left" verticalAlignment="center" image="rectangle.stack.badge.play.fill" catalog="system" id="o3n-kb-nEL"/>
+                                    <label alignment="center" verticalAlignment="center" text="Subscriptions" id="Ed1-ST-9Wl"/>
+                                </items>
+                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
+                                <variation key="device=watch38mm" height="35"/>
+                            </group>
+                            <connections>
+                                <action selector="subscriptions" destination="YgX-XY-IDf" id="AOJ-5M-lFB"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <segue destination="BVh-TY-jCX" kind="relationship" relationship="nextPage" id="YGs-DF-AKS"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-282" y="-620"/>
         </scene>
         <!--Profile-->
         <scene sceneID="an7-zY-X1X">
@@ -480,6 +549,34 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="-490" y="318"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="JwL-VH-gCO">
+            <objects>
+                <controller identifier="HistoryInterfaceController" title="History" id="OQr-ks-5sg"/>
+            </objects>
+            <point key="canvasLocation" x="-168" y="455"/>
+        </scene>
+        <!--Liked Videos-->
+        <scene sceneID="3a3-oh-jQH">
+            <objects>
+                <controller identifier="LikesInterfaceController" title="Liked Videos" id="lFQ-Fi-GNq"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="455"/>
+        </scene>
+        <!--Collections-->
+        <scene sceneID="JYk-sp-tFa">
+            <objects>
+                <controller identifier="CollectionsInterfaceController" title="Collections" id="bEr-Un-O7R"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="455"/>
+        </scene>
+        <!--Subscriptions-->
+        <scene sceneID="yCJ-F0-2vn">
+            <objects>
+                <controller identifier="SubscriptionsInterfaceController" title="Subscriptions" id="nAc-yA-hpO"/>
+            </objects>
+            <point key="canvasLocation" x="376" y="455"/>
         </scene>
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
@@ -863,18 +960,9 @@
                         <button alignment="left" title="About WatchTube" id="4tg-ZH-j2u">
                             <group key="contentGroup" width="1" height="40" alignment="left" id="KH7-HE-53b">
                                 <items>
-                                    <separator alignment="left" id="42C-mQ-0Ik">
-                                        <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </separator>
-                                    <separator alignment="left" id="mlH-j2-vjX">
-                                        <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </separator>
-                                    <separator alignment="left" id="ycE-se-gWi">
-                                        <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </separator>
-                                    <group alignment="left" verticalAlignment="center" radius="17" id="geY-WJ-aO3">
+                                    <group alignment="left" verticalAlignment="center" radius="16" id="geY-WJ-aO3">
                                         <items>
-                                            <imageView width="35" height="35" alignment="left" verticalAlignment="center" image="WatchTubeDark" contentMode="scaleAspectFit" id="MZf-AX-cKO">
+                                            <imageView width="30" height="29" alignment="left" verticalAlignment="center" image="WatchTubeDark" contentMode="scaleAspectFit" id="MZf-AX-cKO">
                                                 <variation key="device=watch38mm" height="20" width="20"/>
                                             </imageView>
                                         </items>
@@ -888,6 +976,7 @@
                                     </label>
                                 </items>
                                 <color key="backgroundColor" name="buttons"/>
+                                <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
                                 <variation key="device=watch38mm" height="35"/>
                             </group>
                             <connections>
@@ -929,7 +1018,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-67" y="-453"/>
+            <point key="canvasLocation" x="14" y="-453"/>
         </scene>
         <!--Information-->
         <scene sceneID="aTa-mC-Wbf">
@@ -1637,6 +1726,7 @@
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
         <image name="channelbanner" width="2176" height="360"/>
         <image name="channelview" width="396" height="484"/>
+        <image name="clock.arrow.circlepath" catalog="system" width="128" height="112"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
@@ -1654,6 +1744,8 @@
         <image name="pfp" width="512" height="512"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="playlistview" width="396" height="484"/>
+        <image name="rectangle.stack" catalog="system" width="128" height="121"/>
+        <image name="rectangle.stack.badge.play.fill" catalog="system" width="128" height="116"/>
         <image name="searchrecents" width="396" height="484"/>
         <image name="searchresults" width="396" height="484"/>
         <image name="settingspage" width="396" height="484"/>

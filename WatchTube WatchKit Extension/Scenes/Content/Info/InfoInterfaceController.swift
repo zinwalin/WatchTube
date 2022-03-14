@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 
 class InfoInterfaceController: WKInterfaceController {
+    
+    var isLiked: Bool = false
+    
     @IBOutlet weak var viewsIcon: WKInterfaceImage!
     @IBOutlet weak var likesIcon: WKInterfaceImage!
     @IBOutlet weak var authorIcon: WKInterfaceImage!
@@ -33,11 +36,17 @@ class InfoInterfaceController: WKInterfaceController {
     var videoDetails: Dictionary<String, Any> = [:]
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+                
         let data = context as! Dictionary<String, String>
         videoId = data["id"]!
         quality = data["quality"]!
         udid = meta.getVideoInfo(id: videoId, key: "channelId") as! String
+
+        if liked.getLikes().contains(videoId) {
+            isLiked = true
+        } else {
+            isLiked = false
+        }
 
         self.showDescriptionButton.setEnabled(false)
         self.likesLabel.setText("Loading Likes")
@@ -45,7 +54,7 @@ class InfoInterfaceController: WKInterfaceController {
         self.dateLabel.setText("Loading Date")
         self.authorLabel.setText("Loading Channel")
         
-        let likes = (meta.getVideoInfo(id: videoId, key: "likes") as! Double).abbreviated
+        let likes = (meta.getVideoInfo(id: videoId, key: "likes") as! Double + (isLiked ? 1 : 0)).abbreviated
         let views = (meta.getVideoInfo(id: videoId, key: "views") as! Double).abbreviated
         self.likesLabel.setText("\(likes) Likes")
         self.viewsLabel.setText("\(views) Views")
