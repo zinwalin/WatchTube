@@ -7,17 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D9D19AC-5E5E-4D0C-AD42-2EC7469FC590"
+            uuid = "A854ED8C-27D2-4D4B-901F-D0301CD8AE0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WatchTube WatchKit Extension/Scenes/Content/Channel/ChannelViewInterfaceController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "subscribePressed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF58B690-C49C-4DF5-BB78-FE5CF55FD037"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WatchTube WatchKit Extension/Scenes/Players/HLS Player/playerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "init()"
-            landmarkType = "7">
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "makeRequest()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

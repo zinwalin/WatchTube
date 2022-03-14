@@ -38,56 +38,6 @@ class ViewModel: ObservableObject {
         let errorSub = SubtitleSet.init(lang: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "english", subtitles: [Subtitle.init(text: "Captions not available,\nan error occurred.", beginning: 0, end: 10)])
         //take data from url and parse it into subtitles
         let url = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/captions/\(UserDefaults.standard.string(forKey: hls.videoId) ?? "idk")?label=\(UserDefaults.standard.string(forKey: hls.captionsLangCode)?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "english")"
-//        let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in guard let data = data, error == nil else
-//            {    // check for fundamental networking error
-//                self.subs = errorSub
-//                return
-//            }
-//            let result = String(data: data, encoding: .utf8) ?? ""
-//            if result.contains("WEBVTT") == false {
-//                self.subs = errorSub
-//                return
-//            }
-//            var subtitlesData = result.components(separatedBy: "\n\n")
-//            subtitlesData.removeLast()
-//            if subtitlesData.count == 0 {
-//                self.subs = errorSub
-//                return
-//            }
-//            let meta = String(describing: subtitlesData[0])
-//            let language:String = meta.description.components(separatedBy: "\n")[2].components(separatedBy: ": ")[1].description
-//
-//            var array: [Subtitle] = []
-//            subtitlesData = subtitlesData.suffix(subtitlesData.count - 1)
-//
-//            for subtitleItem in subtitlesData {
-//                // ok now we start doing more parsing of each subtitle
-//                let subMeta = subtitleItem.components(separatedBy: "\n")
-//                let rawTimestamp = subMeta[0]
-//                let subtext = subMeta.dropFirst().joined(separator: " ")
-//
-//                let timeSplit = rawTimestamp.components(separatedBy: " --> ")
-//                var total: Double = 0
-//                //work out first timestamp in seconds
-//                var broken = timeSplit[0].split(separator: ":")
-//                total = total + (Double(broken[0]) ?? 0) * 3600 // get the hours and times it by 3600 to get it in seconds :D
-//                total = total + (Double(broken[1]) ?? 0) * 60 // same as above but for minutes
-//                total = total + (Double(broken[2]) ?? 0) // already in seconds and in decimal too.
-//                let beginning: Double = total
-//
-//                total = 0
-//                broken = timeSplit[1].split(separator: ":")
-//                total = total + (Double(broken[0]) ?? 0) * 3600 // get the hours and times it by 3600 to get it in seconds :D
-//                total = total + (Double(broken[1]) ?? 0) * 60 // same as above but for minutes
-//                total = total + (Double(broken[2]) ?? 0) // already in seconds and in decimal too.
-//                let end: Double = total
-//                let finalSub = Subtitle.init(text: subtext, beginning: beginning, end: end)
-//                array.append(finalSub)
-//            }
-//            self.subs = SubtitleSet.init(lang: language, subtitles: array)
-//
-//        }
-//        task.resume()
         
         func makeRequest() {
             if attempts == 10 {return}
@@ -145,6 +95,7 @@ class ViewModel: ObservableObject {
                 case .failure(_):
                     attempts = attempts + 1
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        print("Error, need to request again")
                         makeRequest()
                     }
                 }

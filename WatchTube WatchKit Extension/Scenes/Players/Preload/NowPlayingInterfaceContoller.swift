@@ -18,7 +18,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     var fileType: String = ""
     var streamUrl: String = ""
     var quality: String = ""
-
+    var isLiked: Bool = false
     @IBOutlet var titleLabel: WKInterfaceLabel!
     @IBOutlet var movie: WKInterfaceButton!
     @IBOutlet var statusLabel: WKInterfaceLabel!
@@ -26,6 +26,18 @@ class NowPlayingInterfaceController: WKInterfaceController {
     @IBOutlet var channelLabel: WKInterfaceLabel!
     @IBOutlet var movieLoading: WKInterfaceImage!
     @IBOutlet var progressBar: WKInterfaceGroup!
+    
+    @IBOutlet weak var likeImg: WKInterfaceImage!
+    
+    @IBAction func toggleLiked() {
+        isLiked.toggle()
+        switch isLiked {
+        case true:
+            likeImg.setImageNamed("hand.thumbsup.fill")
+        case false:
+            likeImg.setImageNamed("hand.thumbsup")
+        }
+    }
     
     @IBAction func infoScreenButton() {
         self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id, "quality": quality])
@@ -73,6 +85,12 @@ class NowPlayingInterfaceController: WKInterfaceController {
         
         progressBar.setHidden(true)
         progressBar.setRelativeWidth(0.0001, withAdjustment: 0)
+        
+        if liked.getLikes().contains(video.id) {
+            isLiked = true
+        } else {
+            isLiked = false
+        }
         
         if video != nil {
             self.titleLabel.setText(video.title)

@@ -10,6 +10,10 @@ import Foundation
 import SDWebImage
 
 class ChannelViewInterfaceController: WKInterfaceController {
+
+    @IBOutlet weak var subLabel: WKInterfaceLabel!
+    @IBOutlet weak var subBg: WKInterfaceGroup!
+    
     @IBOutlet weak var noVideosLabel: WKInterfaceLabel!
     @IBOutlet weak var channelLabel: WKInterfaceLabel!
     @IBOutlet weak var bannerImage: WKInterfaceImage!
@@ -18,6 +22,7 @@ class ChannelViewInterfaceController: WKInterfaceController {
     var videos: [Video] = []
     var channels: Array<Dictionary<String,String>> = []
     var udid = ""
+    var isSubscribed = false
 
     override func awake(withContext context: Any?) {
         setTitle("Channel")
@@ -52,6 +57,16 @@ class ChannelViewInterfaceController: WKInterfaceController {
         }
         for channel in (meta.getChannelInfo(udid: udid, key: "relatedChannels") as! Array<Dictionary<String,String>>) {
             meta.cacheChannelInfo(udid: channel["udid"]!)
+        }
+        
+        if subscriptions.getSubscriptions().contains(udid) {
+            // is subscribed.
+            isSubscribed = true
+            updateSubscribeButton(instant: true)
+        } else {
+            // not subscribed.
+            isSubscribed = false
+            updateSubscribeButton(instant: true)
         }
     }
 
@@ -106,6 +121,45 @@ class ChannelViewInterfaceController: WKInterfaceController {
     @IBAction func showProfileImage(_ sender: Any) {
         if udid != "" {
             presentController(withName: "ProfileViewInterfaceController", context: meta.getChannelInfo(udid: udid, key: "thumbnail"))
+        }
+    }
+    
+    @IBAction func subscribePressed() {
+        // subscribe was pressed. it could have been any of the 2 states,
+        // subscribe or subscribed. We need to check what it is right now.
+        isSubscribed.toggle()
+        switch isSubscribed {
+        case true:
+            subscriptions.subscribe(udid: udid)
+        case false:
+            subscriptions.unsubscribe(udid: udid)
+        }
+        updateSubscribeButton(instant: false)
+    }
+    
+    func updateSubscribeButton(instant:Bool) {
+        if instant == true {
+            switch isSubscribed {
+            case true:
+                subLabel.setText("Subscribed")
+                self.subBg.setBackgroundColor(.init(rgb: 0x303030))
+            case false:
+                subLabel.setText("Subscribe")
+                self.subBg.setBackgroundColor(.init(rgb: 0xCA0813))
+            }
+        } else {
+            switch isSubscribed {
+            case true:
+                subLabel.setText("Subscribed")
+                animate(withDuration: 0.2) {
+                    self.subBg.setBackgroundColor(.init(rgb: 0x303030))
+                }
+            case false:
+                subLabel.setText("Subscribe")
+                animate(withDuration: 0.2) {
+                    self.subBg.setBackgroundColor(.init(rgb: 0xCA0813))
+                }
+            }
         }
     }
 }

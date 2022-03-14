@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WatchKit
 
 class misc {
     class func defaultSettings() {
@@ -61,5 +62,105 @@ public extension Double {
             let format = (factor.truncatingRemainder(dividingBy: 1)  == 0 ? "%.0f%@" : "%.1f%@")
             return accum ?? (factor > 1 ? String(format: format, factor, String(tuple.1)) : nil)
             } ?? String(self)
+    }
+}
+
+public extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
+}
+
+class subscriptions {
+    class func getSubscriptions() -> Array<String> {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/subscriptions.json") {
+            if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json")) {
+                return array as? Array<String> ?? []
+            } else {
+                NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+                return []
+            }
+        } else {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+            return []
+        }
+    }
+    
+    class func unsubscribe(udid: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/subscriptions.json") == false {return}
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json")) {
+            var mutable = array as! Array<String>
+            while mutable.contains(udid) {
+                let index = mutable.firstIndex(of: udid)
+                mutable.remove(at: index!)
+            }
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+        }
+    }
+    
+    class func subscribe(udid: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/subscriptions.json") == false {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+        }
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json")) {
+            var mutable = array as! Array<String>
+            if mutable.contains(udid) {return} else {
+                mutable.append(udid)
+            }
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+        }
+    }
+}
+
+class liked {
+    class func getLikes() -> Array<String> {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/likes.json") {
+            if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json")) {
+                return array as? Array<String> ?? []
+            } else {
+                NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
+                return []
+            }
+        } else {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
+            return []
+        }
+    }
+    
+    class func unsubscribe(id: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/likes.json") == false {return}
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json")) {
+            var mutable = array as! Array<String>
+            while mutable.contains(id) {
+                let index = mutable.firstIndex(of: id)
+                mutable.remove(at: index!)
+            }
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
+        }
+    }
+    
+    class func subscribe(id: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/likes.json") == false {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
+        }
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json")) {
+            var mutable = array as! Array<String>
+            if mutable.contains(id) {return} else {
+                mutable.append(id)
+            }
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
+        }
     }
 }

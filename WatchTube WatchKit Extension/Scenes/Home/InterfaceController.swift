@@ -30,14 +30,16 @@ class InterfaceController: WKInterfaceController {
             self.setTitle("")
             loader.setImageNamed("WatchTubeCircle") // animate logo
             animate(withDuration: 0.9) {
+                // from 0 to screen size
                 self.loader.setAlpha(1)
-                self.loader.setWidth(75)
-                self.loader.setHeight(75)
+                self.loader.setRelativeWidth(1, withAdjustment: 0)
+                self.loader.setRelativeHeight(1, withAdjustment: 0)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                // from screen size to 80%
                 self.animate(withDuration: 0.3) {
-                    self.loader.setWidth(60)
-                    self.loader.setHeight(60)
+                    self.loader.setRelativeWidth(0.8, withAdjustment: 0)
+                    self.loader.setRelativeHeight(0.8, withAdjustment: 0)
                 }
             }
         } else {

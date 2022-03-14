@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20036.2" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch45"/>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch40"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20018.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <imageView width="2" height="2" alignment="center" verticalAlignment="center" alpha="0.0" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
+                        <imageView width="0.0" height="0.0" alignment="center" verticalAlignment="center" alpha="0.0" contentMode="scaleAspectFit" initiallyAnimated="NO" id="w2J-us-JKH"/>
                         <label alignment="center" verticalAlignment="bottom" hidden="YES" text="Internet Unavailable" id="Y2d-ZL-s0c">
                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
@@ -166,7 +166,7 @@
                             <items>
                                 <group width="1" alignment="left" radius="2" id="znt-w6-u8C">
                                     <items>
-                                        <imageView width="1" alignment="center" contentMode="scaleAspectFit" id="8MP-SY-aBr"/>
+                                        <imageView width="1" alignment="center" image="channelbanner" contentMode="scaleAspectFit" id="8MP-SY-aBr"/>
                                     </items>
                                 </group>
                                 <button alignment="left" verticalAlignment="bottom" id="GJ6-iy-stW" userLabel="pfp view">
@@ -195,6 +195,19 @@
                             </items>
                             <variation key="device=watch38mm" height="50"/>
                         </group>
+                        <button alignment="right" id="q8x-V3-xP6" userLabel="subscribe">
+                            <group key="contentGroup" width="0.34999999999999998" height="15" alignment="left" radius="5" id="Est-QD-YFH" userLabel="background">
+                                <items>
+                                    <label width="1" height="1" alignment="center" verticalAlignment="center" text="Subscribe" textAlignment="center" minimumScaleFactor="0.0" id="UYd-gy-mP6"/>
+                                </items>
+                                <color key="backgroundColor" red="0.792156862745098" green="0.031372549019607843" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <variation key="device=watch44mm" height="20" width="0.5"/>
+                                <variation key="device=watch45mm" height="20" width="0.5"/>
+                            </group>
+                            <connections>
+                                <action selector="subscribePressed" destination="Hw8-iJ-rG8" id="kQI-oN-ZyU"/>
+                            </connections>
+                        </button>
                         <separator alignment="left" id="KwC-gi-6bT">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
@@ -277,6 +290,8 @@
                         <outlet property="channelImage" destination="6XW-xt-am3" id="Usr-tO-ddn"/>
                         <outlet property="channelLabel" destination="zwn-U8-R6O" id="jX8-v8-uw5"/>
                         <outlet property="noVideosLabel" destination="GGz-rU-Swq" id="WX9-Oi-Ekc"/>
+                        <outlet property="subBg" destination="Est-QD-YFH" id="3pS-iY-UVm"/>
+                        <outlet property="subLabel" destination="UYd-gy-mP6" id="vHI-f2-Ove"/>
                     </connections>
                 </controller>
             </objects>
@@ -1013,10 +1028,7 @@
                                 </label>
                             </items>
                         </group>
-                        <separator alignment="left" id="8mi-NI-qlu">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <button width="1" widthAdjustment="1" height="35" alignment="left" title="Description" id="8Kc-tu-iLL">
+                        <button width="1" widthAdjustment="1" height="35" alignment="right" title="Description" id="8Kc-tu-iLL">
                             <gestureRecognizers>
                                 <longPressGestureRecognizer delaysTouchesEnded="NO" allowableMovement="0.0" id="mHA-ge-0If">
                                     <connections>
@@ -1038,6 +1050,9 @@
                                 <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
                             </connections>
                         </button>
+                        <separator alignment="left" id="8mi-NI-qlu">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                         <separator alignment="left" id="sXO-Yr-dfh">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
@@ -1448,46 +1463,57 @@
                                 </group>
                             </items>
                         </group>
-                        <group width="1" alignment="center" verticalAlignment="bottom" layout="overlap" radius="0.0" id="0NX-sl-Gby" userLabel="details footer">
+                        <group width="1" alignment="center" verticalAlignment="bottom" radius="0.0" id="0NX-sl-Gby" userLabel="details footer">
                             <items>
-                                <group width="1" alignment="left" id="xq5-pi-9dJ" userLabel="footer content">
-                                    <items>
-                                        <button alignment="right" verticalAlignment="center" id="Er5-7Q-3Kp">
-                                            <group key="contentGroup" width="25" height="25" alignment="left" id="lHc-vp-X6B">
-                                                <items>
-                                                    <imageView width="1" height="1" alignment="left" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="ypN-nZ-W4k">
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                </items>
-                                            </group>
+                                <label width="0.69999999999999996" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="PFw-sC-vaL">
+                                    <gestureRecognizers>
+                                        <tapGestureRecognizer id="tNw-qO-m7M">
                                             <connections>
-                                                <action selector="infoScreenButton" destination="IGU-mI-QIU" id="CGj-zH-3B0"/>
+                                                <action selector="openChannel:" destination="IGU-mI-QIU" id="MdP-GR-8QD"/>
                                             </connections>
-                                        </button>
-                                        <label width="165" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="P8n-0l-CSv">
-                                            <gestureRecognizers>
-                                                <tapGestureRecognizer id="v2Z-tc-pCk">
-                                                    <connections>
-                                                        <action selector="openChannel:" destination="IGU-mI-QIU" id="Mbe-0y-jM5"/>
-                                                    </connections>
-                                                </tapGestureRecognizer>
-                                            </gestureRecognizers>
-                                            <fontDescription key="font" type="system" pointSize="15"/>
-                                            <variation key="device=watch38mm" width="105">
-                                                <fontDescription key="font" type="system" pointSize="13"/>
-                                            </variation>
-                                            <variation key="device=watch40mm" width="130"/>
-                                            <variation key="device=watch41mm" width="145"/>
-                                            <variation key="device=watch42mm" width="125"/>
-                                            <variation key="device=watch44mm" width="155"/>
-                                        </label>
-                                    </items>
-                                </group>
+                                        </tapGestureRecognizer>
+                                    </gestureRecognizers>
+                                    <fontDescription key="font" type="system" pointSize="15"/>
+                                    <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                    </variation>
+                                </label>
+                                <button alignment="left" verticalAlignment="center" id="a30-OQ-8hv" userLabel="like">
+                                    <group key="contentGroup" width="0.5" height="25" alignment="left" radius="0.0" id="DV5-T7-Mf6">
+                                        <items>
+                                            <imageView width="1" height="1" alignment="left" image="hand.thumbsup" catalog="system" contentMode="scaleAspectFit" id="v3p-BB-Ch5">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                        </items>
+                                        <variation key="device=watch38mm" height="20"/>
+                                        <variation key="device=watch40mm" height="21"/>
+                                        <variation key="device=watch42mm" height="22"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="toggleLiked" destination="IGU-mI-QIU" id="nD9-nY-2ju"/>
+                                    </connections>
+                                </button>
+                                <button alignment="left" verticalAlignment="center" id="0xD-Od-Yql" userLabel="info">
+                                    <group key="contentGroup" width="0.5" height="25" alignment="left" radius="0.0" id="0xu-S7-bpd">
+                                        <items>
+                                            <imageView width="1" height="1" alignment="left" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="oJr-2m-D6x">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                        </items>
+                                        <variation key="device=watch38mm" height="20"/>
+                                        <variation key="device=watch40mm" height="21"/>
+                                        <variation key="device=watch42mm" height="22"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="infoScreenButton" destination="IGU-mI-QIU" id="qmv-li-PTg"/>
+                                    </connections>
+                                </button>
                             </items>
                         </group>
                     </items>
                     <connections>
-                        <outlet property="channelLabel" destination="P8n-0l-CSv" id="N7J-zO-PZE"/>
+                        <outlet property="channelLabel" destination="PFw-sC-vaL" id="oIc-yj-qS5"/>
+                        <outlet property="likeImg" destination="v3p-BB-Ch5" id="tfi-im-ZGF"/>
                         <outlet property="movie" destination="s6O-Pu-W8w" id="mAd-yu-dmn"/>
                         <outlet property="movieLoading" destination="q3Q-da-SVM" id="CAM-aB-OAL"/>
                         <outlet property="progressBar" destination="p26-Zz-dXc" id="3WZ-rW-4ky"/>
@@ -1609,12 +1635,14 @@
         <image name="WatchTubeDark" width="2048" height="2048"/>
         <image name="arrow.triangle.2.circlepath.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="channelbanner" width="2176" height="360"/>
         <image name="channelview" width="396" height="484"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
         <image name="github" width="556" height="556"/>
         <image name="gradient" width="259" height="58"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="infoscreencaptions" width="396" height="484"/>

@@ -8,6 +8,7 @@
 import WatchKit
 import Foundation
 import Alamofire
+import UIKit
 
 class SettingsInterfaceController: WKInterfaceController {
     

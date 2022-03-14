@@ -149,6 +149,7 @@ class meta {
                 //    meta.cacheChannelInfo(udid: channel["authorId"] as! String)
                 //}
                 // this could go on forever lmao why did i do this
+                
             case .failure(let error):
                 print(error)
             }

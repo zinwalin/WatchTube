@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA37275D57AA00B573B8 /* SDWebImage */; };
 		89826E802778B13800896853 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89826E7F2778B13800896853 /* ComplicationController.swift */; };
+		AA64F0D027DE56DD00B70CE9 /* channelbanner.png in Resources */ = {isa = PBXBuildFile; fileRef = AA64F0CF27DE56DB00B70CE9 /* channelbanner.png */; };
 		AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA678D6627A326F200C70893 /* maxresdefault.jpg */; };
 		AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */; };
 		AA71A0D027B59DA80099BDC9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CF27B59DA80099BDC9 /* playerView.swift */; };
@@ -92,6 +93,7 @@
 
 /* Begin PBXFileReference section */
 		89826E7F2778B13800896853 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		AA64F0CF27DE56DB00B70CE9 /* channelbanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = channelbanner.png; sourceTree = "<group>"; };
 		AA678D6627A326F200C70893 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
 		AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hlsPlayer.swift; sourceTree = "<group>"; };
 		AA71A0CF27B59DA80099BDC9 /* playerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			children = (
 				D72C93D8257D97740056D0BA /* Interface.storyboard */,
 				AA678D6627A326F200C70893 /* maxresdefault.jpg */,
+				AA64F0CF27DE56DB00B70CE9 /* channelbanner.png */,
 				AA9C8B202794F95B00C0CDD8 /* pfp.jpg */,
 				D72C93DD257D97770056D0BA /* Info.plist */,
 				AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */,
@@ -481,6 +484,7 @@
 				AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */,
 				AAF0F23027C2FFF900BE51C5 /* Assets.xcassets in Resources */,
 				D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */,
+				AA64F0D027DE56DD00B70CE9 /* channelbanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
